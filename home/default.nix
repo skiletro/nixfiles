@@ -10,11 +10,12 @@
     ./hyprland
 
     # Programs
+    ./fish
+    ./starship
     ./foot
     ./neovim
     ./vscode
-    ./fish
-    ./starship
+    ./eww
   ];
 
   

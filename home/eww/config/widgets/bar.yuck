@@ -1,0 +1,92 @@
+(defwindow bar
+  :monitor 0
+  :exclusive true
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "100%"
+                      :height "10px"
+                      :anchor "top center")
+  (centerbox :class "widget_bar"
+    (box :space-evenly false :halign "start" :class "left"
+      (workspaces)
+      (window_title))
+    (box :space-evenly false :halign "center" :class "center")
+    (box :space-evenly false :halign "end" :class "right"
+      (music)
+      (systray :class "tray")
+      (weather)
+      (volume)
+      (battery)
+      (time))))
+
+(deflisten window :initial "..." "bash ~/.config/eww/scripts/get-window-title")
+(defwidget window_title []
+  (box :class "window_title" :halign "start" :visible "${window != "" ? "true" : "false"}" ;hides if there is no title
+    (label :text "${window}")))
+
+(deflisten workspaces :initial "[]" "bash ~/.config/eww/scripts/get-workspaces")
+(deflisten current_workspace :initial "1" "bash ~/.config/eww/scripts/get-active-workspace")
+(defwidget workspaces []
+  (box :space-evenly true :class "workspaces"
+    (label :text "${workspaces}${current_workspace}" :visible false)
+    (for workspace in workspaces
+      (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}"
+        (box :class "${workspace.id == current_workspace ? "active" : "inactive"}" :style "padding: 0 2px 0 2px" 
+          (label :text "󰝥"))))))
+
+(defpoll get_time :interval "10s" "date '+%I:%M%p - %b %d, %Y'")
+(defwidget time []
+  (box :class "time"
+    (eventbox :onclick "eww open cal --toggle"
+      (label :text "${get_time}"))))
+
+(defpoll get_battery :interval "30s" "bash ~/.config/eww/scripts/display-battery")
+(defpoll get_batterytimeleft :interval "5m" "bash ~/.config/eww/scripts/battery-life")
+(defwidget battery []
+  (box :class "battery"
+    (label :text "${get_battery}" :tooltip "${get_batterytimeleft}")))
+
+(defpoll get_volume :interval "1s" "bash ~/.config/eww/scripts/display-volume")
+(defwidget volume []
+  (box :class "volume"
+    (eventbox :onscroll "sh ~/.config/eww/scripts/change-volume {}"
+      (label :text "${get_volume}"))))
+
+(defpoll get_ssid :interval "30s" "iwgetid -r")
+(defwidget network []
+  (box :class "network"
+    ;(label :text "${round(EWW_NET.enp4s0f3u1u1c2.NET_UP / 1000000, 2)}/${round(EWW_NET.enp4s0f3u1u1c2.NET_DOWN / 1000000, 2)}")
+    (label :text "${get_ssid} 󰀂")))
+
+(defpoll updatetemperatureinformation :interval "15m" "sh ~/.config/eww/scripts/get-weather --getdata")
+(defpoll get_temperature :interval "15m" "sh ~/.config/eww/scripts/get-weather --temp")
+(defpoll get_weathericon :interval "15m" "sh ~/.config/eww/scripts/get-weather --icon")
+(defwidget weather []
+  (box :class "weather"
+    (label :text "${get_weathericon}${get_temperature}")))
+
+(defpoll get_music :interval "5s" "bash ~/.config/eww/scripts/display-music")
+(defwidget music []
+  (box :class "music" :visible "${get_music != "" ? "true" : "false"}"
+    (eventbox :onclick "playerctl --player spotify play-pause"
+      (label :text "${get_music}"))))
+
+; THE FOLLOWING IS TEMPORARY AS IM MESSING AROUND WITH LABWC
+(defwindow bar_labwc
+  :monitor 0
+  :exclusive true
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "100%"
+                      :height "10px"
+                      :anchor "top center")
+  (centerbox :class "widget_bar"
+    (box :space-evenly false :halign "start" :class "left"
+      (music))
+    (box :space-evenly false :halign "center" :class "center")
+    (box :space-evenly false :halign "end" :class "right"
+      (systray :class "tray")
+      (weather)
+      (volume)
+      (battery)
+      (time))))

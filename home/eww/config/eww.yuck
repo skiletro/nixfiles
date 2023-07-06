@@ -1,0 +1,3 @@
+(include "./widgets/bar.yuck")
+(include "./widgets/cal.yuck")
+(include "./widgets/notification.yuck")

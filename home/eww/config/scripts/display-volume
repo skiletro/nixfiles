@@ -1,0 +1,15 @@
+#! /bin/bash
+
+volume="$(pamixer --get-volume)"
+if [ "$volume" -gt 66 ]; then
+      icon="󰕾"
+elif [ "$volume" -gt 33 ]; then
+      icon="󰖀"
+elif [ "$volume" -gt 0 ]; then 
+      icon="󰕿"
+else 
+      icon="󰝟"
+fi
+volume="$volume%"
+
+echo "$volume $icon"

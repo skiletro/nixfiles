@@ -1,0 +1,17 @@
+#!/bin/bash
+
+player="spotify"
+
+title=$(playerctl --player=$player metadata --format {{title}})
+artist=$(playerctl --player=$player metadata --format {{artist}})
+
+status=$(playerctl --player=$player status)
+icon=""
+[ $(playerctl --player=$player status) = "Playing" ] && icon=""
+[ $(playerctl --player=$player status) = "Paused" ] && icon=""
+
+if [ "$title" != "" ]; then
+  echo "$icon $title - $artist"
+else
+  echo ""
+fi

@@ -1,0 +1,77 @@
+.widget_bar {
+    background-color: #11111b;
+    padding: $gap 7px;
+
+    .left > *,
+    .center > *,
+    .right > * {
+        padding: 3px 10px;
+        background-color: $background;
+        border-radius: $radius;
+        border-style: solid;
+        border-width: 2;
+        border-color: $bgdarker;
+    }
+
+    .left > * {
+        margin-right: $gap;
+    }
+
+    .center > * {
+        margin-left: $gap;
+        margin-right: $gap;
+    }
+
+    .right > * {
+        margin-left: $gap;
+    }
+
+    @each $name, $color in (
+        workspaces: $mauve,
+        time: $red,
+        battery: $peach,
+        volume: $green,
+        tray: $mauve,
+        weather: $sapphire,
+        music: $red,
+        window_title: $peach
+    ) {
+        .#{$name} {
+            border-color: $color;
+        }
+    }
+
+    .workspaces {
+        .inactive {
+            color: #313244;
+        }
+        
+        .active {
+            color: $mauve;
+            animation: fade 0.2s linear forwards;
+        }
+    }
+
+    /*@keyframes fadein {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }*/
+    .tray {
+      padding: 0 $gap;
+
+      * {
+        margin: 0 calc($gap/2);
+        padding: 0;
+      }
+    }
+
+
+    @keyframes fade {
+        0% {
+            color: $bglighter
+        }
+        100% {
+            color: $mauve
+        }
+    }
+}

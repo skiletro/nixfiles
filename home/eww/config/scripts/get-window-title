@@ -1,0 +1,5 @@
+#!/bin/bash
+hyprctl activewindow -j | jq --raw-output .title
+socat -u UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | \
+  stdbuf -o0 grep '^activewindow>>' | \
+  stdbuf -o0 awk -v len=110 -F '>>|,' '{ if (length($3) > len) print substr($3, 1, len-3) "..."; else print $3;}'

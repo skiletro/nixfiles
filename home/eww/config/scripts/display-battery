@@ -1,0 +1,22 @@
+# !/bin/bash
+
+battery="$(upower -i /org/freedesktop/UPower/devices/battery_BAT1 | grep percentage | grep -o '[0-9]*')"
+if [ "$battery" -gt 75 ]; then
+      icon=""
+elif [ "$battery" -gt 50 ]; then
+      icon=""
+elif [ "$battery" -gt 25 ]; then
+      icon=""
+elif [ "$battery" -gt 0 ]; then 
+      icon=""
+else 
+      icon=""
+fi
+battery="$battery%"
+
+discharging="$(upower -i /org/freedesktop/UPower/devices/battery_BAT1 | grep state | grep -o 'discharging')"
+if [ "$discharging" != "discharging" ]; then
+      icon="$icon 󱐋"
+fi
+
+echo "$battery $icon"

@@ -1,0 +1,24 @@
+* {
+    font-family: "Iosevka";
+    font-family: "Iosevka Eris";
+    font-family: "IosevkaEris Nerd Font";
+    font-size: 12.99px;
+}
+
+@import "styles/variables.scss";
+@import "styles/bar.scss";
+@import "styles/cal.scss";
+
+window {
+    all: unset;
+    color: $foreground;
+}
+
+tooltip {
+    font-size: 2em;
+    background-color: $background;
+    color: $mauve;
+    border-radius: $radius;
+}
+
+

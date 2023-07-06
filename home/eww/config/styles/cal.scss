@@ -1,0 +1,44 @@
+.widget_cal {
+  calendar {
+    padding: 5px 5px;
+  
+    &.view {
+      background-color: $background;
+      border-radius: $radius;
+      border-style: solid;
+      border-width: 2;
+      border-color: $bgdarker;
+    }
+  
+    &.button {
+      border-radius: 50%;
+      color: #3D464E;
+  
+      &:hover {
+        color: #71C0BA;
+      }
+  
+      &:disabled {
+        color: #12161B;
+      }
+    }
+  
+    &.header {
+      border-radius: 0 0 0.3em 0.3em;
+    }
+  
+    &.highlight {
+      color: $foreground;
+    }
+  
+    &:selected {
+      color: $background;
+      background: $mauve;
+      border-radius: 0.2em;
+    }
+  
+    &:indeterminate {
+      color: #3c3e47;
+    }
+  }
+}

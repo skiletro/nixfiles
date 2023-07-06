@@ -1,0 +1,7 @@
+#!/bin/bash
+direction=$1
+if test "$direction" = "up"; then
+    swayosd --output-volume raise
+elif test "$direction" = "down"; then
+    swayosd --output-volume lower
+fi
