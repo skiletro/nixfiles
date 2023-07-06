@@ -37,7 +37,10 @@
       supportedSystems = [ "x86_64-linux" ];
       channelsConfig.allowUnfree = true;
 
-      sharedOverlays = [ devshell.overlays.default ];
+      sharedOverlays = [
+        devshell.overlays.default
+        (import ./packages)
+      ];
 
       hosts.vm.modules = [ ./machines/vm ] ++ desktopModules;
 

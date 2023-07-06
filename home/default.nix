@@ -17,6 +17,19 @@
     ./starship
   ];
 
+  
+  home.packages = with pkgs; [
+    direnv
+    git
+    gh
+    wget
+    firefox
+    kitty
+    neofetch
+    swaybg
+    nvchad
+  ];
+
   home.stateVersion = "23.05";
 
   programs.home-manager.enable = true;
