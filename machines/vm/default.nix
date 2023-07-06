@@ -125,17 +125,17 @@
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
+
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
   };
 
   environment.sessionVariables = rec {
     NIXOS_OZONE_WL = "1";
     NEOVIDE_MULTIGRID = "1";
-  };
-
-  gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
   };
 
   # Some programs need SUID wrappers, can be configured further or are
