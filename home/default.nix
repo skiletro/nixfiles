@@ -20,15 +20,22 @@
 
   
   home.packages = with pkgs; [
+    # cli
     direnv
     git
     gh
     wget
-    firefox
-    kitty
+    unzip
+    unrar
+    jq
+    socat
     freshfetch
     swaybg
-    nvchad
+
+    #gui
+    firefox
+    kitty
+    #nvchad #god knows what's going on with this rn
   ];
 
   home.stateVersion = "23.05";
