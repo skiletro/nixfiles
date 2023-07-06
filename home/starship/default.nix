@@ -142,7 +142,7 @@
           style = "fg:#11111b bg:#a6e3a1";
           #format = "[[ via $symbol $state<$name> ](fg:#11111b bg:#cba6f7)]($style)";
           #format = "[[ via $symbol $state ](fg:#11111b bg:#a6e3a1)]($style)";
-          format = "[[ $symbol $state-$name ](fg:#11111b bg:#a6e3a1)]($style)";
+          format = "[[ $symbol $state:$name ](fg:#11111b bg:#a6e3a1)]($style)";
         };
 
         rust = {
