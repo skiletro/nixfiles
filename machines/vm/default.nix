@@ -138,6 +138,24 @@
     NEOVIDE_MULTIGRID = "1";
   };
 
+  fonts = {
+    fonts = with pkgs; [
+      noto-fonts-emoji
+      (iosevka.override {
+        privateBuildPlans = builtins.readFile ./iosevka-font-patches.toml;
+        set = "eos";
+      })
+    ];
+
+    fontconfig = {
+      defaultFonts = {
+        emoji = [ "Noto Color Emoji" ];
+        monospace = [ "Iosevka Eos" ];
+        sansSerif = [ "Iosevka Eos" ];
+      };
+    };
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

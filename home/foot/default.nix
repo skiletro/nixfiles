@@ -6,7 +6,7 @@
       settings = {
         main = {
           term = "xterm-256color";
-          font = "monospace:size=11";
+          font = "Iosevka Eos:size=11";
           dpi-aware = "yes";
         };
 
