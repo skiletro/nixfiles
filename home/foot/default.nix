@@ -7,7 +7,12 @@
         main = {
           term = "xterm-256color";
           font = "Iosevka Eos:size=11";
+	        pad = "6x6 center";
           dpi-aware = "yes";
+        };
+
+	      mouse = {
+          hide-when-typing = "yes";
         };
 
         colors = {
