@@ -142,7 +142,7 @@
     fonts = with pkgs; [
       noto-fonts-emoji
       (iosevka.override {
-        privateBuildPlans = builtins.readFile ./iosevka-font-patches.toml;
+        privateBuildPlan = builtins.readFile ./iosevka-font-patches.toml;
         set = "eos";
       })
     ];
