@@ -10,6 +10,9 @@
       bbenoist.nix
       catppuccin.catppuccin-vsc
     ];
+    userSettings = {
+      "workbench.colorTheme" = "Catppuccin Mocha";
+    };
 
   };
 
