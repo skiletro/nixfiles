@@ -12,6 +12,8 @@
     # Programs
     ./neovim
     ./vscode
+    ./fish
+    ./starship
   ];
 
   home.stateVersion = "23.05";
