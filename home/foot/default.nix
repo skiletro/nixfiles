@@ -9,6 +9,7 @@
           font = "Iosevka Eos:size=11";
 	        pad = "6x6 center";
           dpi-aware = "yes";
+          locked-title = "yes";
         };
 
 	      mouse = {

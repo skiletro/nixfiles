@@ -45,7 +45,7 @@
           style = "fg:#cdd6f4";
           format = "[ $path ]($style)";
           truncation_length = 3;
-          truncation_symbol = "…/";
+          truncation_symbol = "../";
         };
 
         # Here is how you can shorten some long paths by text replacement
@@ -142,7 +142,7 @@
           style = "fg:#11111b bg:#a6e3a1";
           #format = "[[ via $symbol $state<$name> ](fg:#11111b bg:#cba6f7)]($style)";
           #format = "[[ via $symbol $state ](fg:#11111b bg:#a6e3a1)]($style)";
-          format = "[[ $symbol $state:$name ](fg:#11111b bg:#a6e3a1)]($style)";
+          format = "[[ $symbol$state:$name ](fg:#11111b bg:#a6e3a1)]($style)";
         };
 
         rust = {
