@@ -4,6 +4,7 @@
     home.username = "jamie";
     home.homeDirectory = "/home/jamie";
     home.packages = with pkgs; [
+      direnv
       git
       gh
       wget

@@ -6,6 +6,7 @@
     
     enable = true;
     extensions = with pkgs.vscode-extensions; [
+      mkhl.direnv
       bbenoist.nix
       catppuccin.catppuccin-vsc
     ];
