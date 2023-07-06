@@ -10,7 +10,6 @@
       wget
       firefox
       kitty
-      foot #tmp
       neofetch
       swaybg
     ];
