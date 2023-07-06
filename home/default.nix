@@ -25,7 +25,7 @@
     wget
     firefox
     kitty
-    neofetch
+    freshfetch
     swaybg
     nvchad
   ];
