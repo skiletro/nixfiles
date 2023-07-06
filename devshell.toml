@@ -1,0 +1,9 @@
+# https://numtide.github.io/devshell
+[[commands]]
+help = "Rebuilds nixos system."
+name = "rebuild"
+command = "sudo nixos-rebuild switch --flake flake.nix"
+[[commands]]
+help = "Update and rebuild the nixos system"
+name = "upbuild"
+command  = "nix flake update && sudo nixos-rebuild switch --flake flake.nix"
