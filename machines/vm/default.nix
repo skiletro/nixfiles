@@ -141,13 +141,17 @@
   fonts = {
     fonts = with pkgs; [
       noto-fonts-emoji
-      (iosevka.override {
-        privateBuildPlan = builtins.readFile ./iosevka-font-patches.toml;
-        set = "eos";
-      })
+      (nerdfonts.override { fonts = ["NerdFontsSymbolsOnly"]; })
+      (iosevka.override { privateBuildPlan = builtins.readFile ./iosevka-font-patches.toml; set = "eos"; })
     ];
 
     fontconfig = {
+      localConf = ''
+      <match target="pattern">
+        <test qual="any" name="family" compare="eq"><string>Iosevka Eos</string></test>
+        <edit name="family" mode="assign" binding="same"><string>SymbolsNerdFont</string></edit>
+      </match>
+      '';
       defaultFonts = {
         emoji = [ "Noto Color Emoji" ];
         monospace = [ "Iosevka Eos" ];
