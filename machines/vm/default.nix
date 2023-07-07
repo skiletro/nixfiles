@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
@@ -27,24 +23,6 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
-  time.timeZone = "Europe/London";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_GB.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_GB.UTF-8";
-    LC_IDENTIFICATION = "en_GB.UTF-8";
-    LC_MEASUREMENT = "en_GB.UTF-8";
-    LC_MONETARY = "en_GB.UTF-8";
-    LC_NAME = "en_GB.UTF-8";
-    LC_NUMERIC = "en_GB.UTF-8";
-    LC_PAPER = "en_GB.UTF-8";
-    LC_TELEPHONE = "en_GB.UTF-8";
-    LC_TIME = "en_GB.UTF-8";
-  };
-
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -61,24 +39,6 @@
     plasma-browser-integration
     print-manager
   ];
-
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "gb";
-    xkbVariant = "";
-  };
-
-  # Polkit (needed for sway)
-  security.polkit.enable = true;
-
-  # Flatpak
-  services.flatpak.enable = true;
-
-  # Configure console keymap
-  console.keyMap = "uk";
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -99,98 +59,6 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.jamie = {
-    isNormalUser = true;
-    description = "Jamie";
-    extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs.fish;
-    packages = with pkgs; [
-      # uses home manager
-    ];
-  };
-  programs.fish.enable = true;
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
-  ];
-
-  nix = {
-    # set nix path properly
-    nixPath = [
-      "nixos-config=/home/jamie/.nix_config/flake.nix"
-      "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
-    ];
-
-    settings = {
-      substituters = ["https://hyprland.cachix.org"];
-      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
-    };
-
-    package = pkgs.nixFlakes; # or versioned attr like nixVersions.nix_2_8
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
-    };
-  };
-
-  environment.sessionVariables = rec {
-    NIXOS_OZONE_WL = "1";
-    NEOVIDE_MULTIGRID = "1";
-  };
-
-  fonts = {
-    fonts = with pkgs; [
-      noto-fonts-emoji
-      (nerdfonts.override { fonts = ["NerdFontsSymbolsOnly"]; })
-      (iosevka.override { privateBuildPlan = builtins.readFile ./iosevka-font-patches.toml; set = "eos"; })
-    ];
-
-    fontconfig = {
-      localConf = ''
-      <match target="pattern">
-        <test qual="any" name="family" compare="eq"><string>Iosevka Eos</string></test>
-        <edit name="family" mode="assign" binding="same"><string>SymbolsNerdFont</string></edit>
-      </match>
-      '';
-      defaultFonts = {
-        emoji = [ "Noto Color Emoji" ];
-        monospace = [ "Iosevka Eos" ];
-        sansSerif = [ "Iosevka Eos" ];
-      };
-    };
-  };
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

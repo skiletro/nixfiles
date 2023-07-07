@@ -20,15 +20,15 @@
     inputs@{ self, nixpkgs, home-manager, utils, devshell, hyprland, ... }:
     let
       desktopModules = [
-        home-manager.nixosModules.home-manager
-        {
+        ./common
+        home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.jamie.imports = [
 	          inputs.hyprland.homeManagerModules.default
 	          ./home
-	      ];
-          home-manager.extraSpecialArgs = { inherit inputs self; }; #just needs it, idk why dont ask
+	        ];
+          home-manager.extraSpecialArgs = { inherit inputs self; };
         }
       ];
 
