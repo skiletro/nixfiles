@@ -68,6 +68,9 @@
     xkbVariant = "";
   };
 
+  # Polkit (needed for sway)
+  security.polkit.enable = true;
+
   # Flatpak
   services.flatpak.enable = true;
 
