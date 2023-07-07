@@ -1,6 +1,15 @@
-{ lib, stdenv, appimageTools, fetchurl, writeTextDir }:
+{ lib, stdenv, appimageTools, fetchurl, writeTextDir, makeDesktopItem }:
 
-  appimageTools.wrapType2 {
+  let 
+    beeper-desktop = makeDesktopItem rec {
+      name = "beeper";
+      exec = "beeper";
+      icon = "beeper";
+      comment = "beep beep";
+      desktopName = "Beeper";
+      genericName = "Beeper";
+    };
+  in appimageTools.wrapType2 {
     name = "beeper";
     version = "3.62.20";
 
@@ -8,15 +17,13 @@
         url = "https://download.beeper.com/linux/appImage/x64";
         sha256 = "5389e24ff3cef9acc6f137d24d37e9ef319c865ef81fa3337d407f927f087e31";
     };
+
     extraPkgs = pkgs: with pkgs; [
       libsecret
     ];
 
-    #beeper-desktop = writeTextDir "share/applications/beeper.desktop" ''
-    #  [Desktop Entry]
-    #  Version=3.62.20
-    #  Type=Application
-    #  Name=Beeper
-    #  Exec=beeper
-    #'';
+    extraInstallCommands = ''
+      mkdir -p $out/share/applications/
+      ln -s ${beeper-desktop}/share/applications/* $out/share/applications
+    '';
   }

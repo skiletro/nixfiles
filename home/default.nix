@@ -35,6 +35,7 @@
     #gui
     firefox
     kitty
+    beeper
     #nvchad #god knows what's going on with this rn
   ];
 
