@@ -21,11 +21,11 @@ stdenv.mkDerivation {
     cp -r ${custom}/* "$out/lua/custom/"
   '';
 
-  meta = with lib; {
-    description = "NvChad";
-    homepage = "https://github.com/NvChad/NvChad";
-    platforms = platforms.all;
-    maintainers = [ maintainers.rayandrew ];
-    license = licenses.gpl3;
-  };
+  #meta = with lib; {
+  #  description = "NvChad";
+  #  homepage = "https://github.com/NvChad/NvChad";
+  #  platforms = platforms.all;
+  #  maintainers = [ maintainers.rayandrew ];
+  #  license = licenses.gpl3;
+  #};
 }
