@@ -8,6 +8,7 @@
 
     # Window Managers
     ./hyprland
+    ./sway
 
     # Programs
     ./fish
@@ -29,6 +30,7 @@
     unrar
     jq
     socat
+    ripgrep
     freshfetch
     swaybg
 
@@ -36,7 +38,6 @@
     firefox
     kitty
     beeper
-    #nvchad #god knows what's going on with this rn
   ];
 
   home.stateVersion = "23.05";
