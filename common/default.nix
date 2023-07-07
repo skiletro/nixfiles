@@ -5,9 +5,9 @@
     isNormalUser = true;
     description = "Jamie";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.fish;
     packages = with pkgs; [ ];
-  };
-  users.defaultShell = pkgs.fish;
+  }; programs.fish.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/London";
