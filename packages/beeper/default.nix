@@ -1,19 +1,22 @@
-{ lib, stdenv, pkgs }:
+{ lib, stdenv, appimageTools, fetchurl, writeTextDir }:
 
-  beeper = super.appimageTools.wrapType2 {
+  appimageTools.wrapType2 {
     name = "beeper";
     version = "3.62.20";
 
-    src = super.fetchurl {
+    src = fetchurl {
         url = "https://download.beeper.com/linux/appImage/x64";
-        hash = "5389e24ff3cef9acc6f137d24d37e9ef319c865ef81fa3337d407f927f087e31";
+        sha256 = "5389e24ff3cef9acc6f137d24d37e9ef319c865ef81fa3337d407f927f087e31";
     };
+    extraPkgs = pkgs: with pkgs; [
+      libsecret
+    ];
 
-    beeer-desktop = super.writeTextDir "share/applications/beeper.desktop" ''
-      [Desktop Entry]
-      Version=3.62.20
-      Type=Application
-      Name=Beeper
-      Exec=beeper
-    '';
+    #beeper-desktop = writeTextDir "share/applications/beeper.desktop" ''
+    #  [Desktop Entry]
+    #  Version=3.62.20
+    #  Type=Application
+    #  Name=Beeper
+    #  Exec=beeper
+    #'';
   }

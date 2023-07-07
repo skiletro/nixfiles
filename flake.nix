@@ -51,9 +51,12 @@
 
       outputsBuilder = channels:
         with channels.nixpkgs; {
-          defaultPackage = channels.nixpkgs.devshell.mkShell {
-            imports =
-              [ (channels.nixpkgs.devshell.importTOML ./devshell.toml) ];
+          #defaultPackage = channels.nixpkgs.devshell.mkShell {
+          #  imports =
+          #    [ (channels.nixpkgs.devshell.importTOML ./devshell.toml) ];
+          #};
+          packages = {
+            inherit (channels.nixpkgs) beeper nvchad;
           };
           devShell = channels.nixpkgs.devshell.mkShell {
             imports =
