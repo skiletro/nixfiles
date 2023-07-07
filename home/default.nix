@@ -33,6 +33,9 @@
     ripgrep
     freshfetch
     swaybg
+    htop
+    btop #better htop but is a bit more cluttered
+    tmux
 
     #gui
     firefox
