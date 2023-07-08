@@ -20,7 +20,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-8e6gHSg6FDp6nU5v89D44Tqb1lR5aQpS0lXOVqzoUS4=";
   };
 
-  cargoHash = "sha256-dC7yVJdR7mO0n+sxWwigM1Q4tbDv5ZuOINHHlUIPdA0=";
+  cargoHash = lib.fakeSha256;
 
   nativeBuildInputs = [ pkg-config ];
 
@@ -38,11 +38,11 @@ rustPlatform.buildRustPackage rec {
   # requires unstable rust features
   RUSTC_BOOTSTRAP = 1;
 
-  meta = with lib; {
-    description = "ElKowars wacky widgets";
-    homepage = "https://github.com/elkowar/eww";
-    license = licenses.mit;
-    maintainers = with maintainers; [ figsoda lom ];
-    broken = stdenv.isDarwin;
-  };
+  #meta = with lib; {
+  #  description = "ElKowars wacky widgets";
+  #  homepage = "https://github.com/elkowar/eww";
+  #  license = licenses.mit;
+  #  maintainers = with maintainers; [ figsoda lom ];
+  #  broken = stdenv.isDarwin;
+  #};
 }
