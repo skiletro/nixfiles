@@ -48,6 +48,7 @@
     libsForQt5.polkit-kde-agent
     upower
     acpi
+    xorg.xeyes
 
     #gui
     firefox
@@ -58,6 +59,8 @@
     emacs
     networkmanagerapplet
     xfce.thunar
+    blender
+    prismlauncher
 
     # misc
     swayosd
@@ -70,18 +73,18 @@
   ];
 
   gtk = {
-    iconTheme.package = pkgs.papirus-icon-theme;
-    iconTheme.name = "Papirus";
+    iconTheme.package = pkgs.dracula-icon-theme;
+    iconTheme.name = "Dracula";
     theme.package = pkgs.catppuccin-gtk.override {
       accents = [ "mauve"];
       size = "standard";
       variant = "mocha";
 
     };
-    theme.name = "Catppuccin-Mocha-Standard-Mauve-dark";
+    theme.name = "Catppuccin-Mocha-Standard-Mauve-Dark";
     cursorTheme.package = pkgs.catppuccin-cursors.mochaMauve;
-    cursorTheme.name = "Catppuccin-Mocha-Mauve-Cursors";
-    cursorTheme.size = 24;
+    cursorTheme.name = "Catppuccin-Mocha-Mauve";
+    #cursorTheme.size = 24;
     font.name = "Iosevka Eos";
   };
 
