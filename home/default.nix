@@ -46,6 +46,8 @@
     libnotify
     glib
     libsForQt5.polkit-kde-agent
+    upower
+    acpi
 
     #gui
     firefox
@@ -59,8 +61,6 @@
 
     # misc
     swayosd
-    catppuccin-gtk
-    catppuccin-cursors
     papirus-icon-theme
     
     # temp
@@ -79,6 +79,9 @@
 
     };
     theme.name = "Catppuccin-Mocha-Standard-Mauve-dark";
+    cursorTheme.package = pkgs.catppuccin-cursors.mochaMauve;
+    cursorTheme.name = "Catppuccin-Mocha-Mauve-Cursors";
+    cursorTheme.size = 24;
     font.name = "Iosevka Eos";
   };
 
