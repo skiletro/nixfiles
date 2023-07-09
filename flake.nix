@@ -42,6 +42,7 @@
         (import ./packages)
       ];
 
+      hosts.themis.modules = [ ./machines/themis ] ++ desktopModules;
       hosts.vm.modules = [ ./machines/vm ] ++ desktopModules;
 
       hostDefaults.modules = [ 
