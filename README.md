@@ -1,11 +1,16 @@
 # nixfiles
-nix dotfiles based on bezmuth
+dotfiles, but nix!
+My dotfiles that I used on my arch-based system can be found [here](https://github.com/skiletro/archfiles), and are a basis for a lot of the configuration here! If you don't use NixOS, you can probably find a more standard config for the thing you are looking for over there.
 
-## their install guide (will upd8 soon)
-Run `nix-develop` in this directory then run `rebuild`
+## Installation Guide
+- Copy over your `configuration.nix` and `hardware-configuration.nix` to a new folder in `machines/`.
+- Rename `configuration.nix` to `default.nix`
+- Add the host to the list of hosts in `flake.nix`
+- Change all the user references from `jamie` to whatever username you are using
+- Run `nix develop --extra-experimental-features flakes --extra-experimental-features nix-command` then type `rebuild` (you might need to run it another time for it to fully do its thing)
 
-### I WANNA USE THIS
-okay that's nice, first you're gonna have to change a couple of things
-- add a folder in the machines dir with hardware-configuration and a default.nix (or just a default.nix with the hardware config)
-- add this host to the host list in flake.nix
-- change all the references from ~~bezmuth~~jamie to whatever username you wanna use (home dir n stuff)
+## Todo
+- [ ] Fix cursor issues (tiny and massive cursor for some reason)
+- [ ] Fix catppuccin gtk theme
+- [ ] Patch eww with system tray support
+If you can help with any of this stuff, please do a pull request as I am still learning!
