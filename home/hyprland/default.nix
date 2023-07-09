@@ -2,15 +2,15 @@
 
 {
 
-  #services.xserver.enable = true;
-  #services.xserver.displayManager.sddm.enable = true;
-
   wayland.windowManager.hyprland = {
     enable = true;
 
     extraConfig = ''
-      bind = SUPER, Return, exec, kitty
-      exec-once = swaybg -c ff00aa
+      ${builtins.readFile ./autolaunch.conf}
+      ${builtins.readFile ./appearance.conf}
+      ${builtins.readFile ./input.conf}
+      ${builtins.readFile ./binds.conf}
+      ${builtins.readFile ./misc.conf}
     '';
   };
 

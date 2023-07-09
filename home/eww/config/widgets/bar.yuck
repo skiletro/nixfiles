@@ -13,7 +13,7 @@
     (box :space-evenly false :halign "center" :class "center")
     (box :space-evenly false :halign "end" :class "right"
       (music)
-      (systray :class "tray") ; doesnt exist on nix yet :(, could prob patch myself later
+      ;(systray :class "tray") ; doesnt exist on nix yet :(, could prob patch myself later
       (weather)
       (volume)
       (battery)
