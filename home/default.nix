@@ -78,7 +78,7 @@
       variant = "mocha";
 
     };
-    theme.name = "Catppuccin-Mocha-Mauve-dark";
+    theme.name = "Catppuccin-Mocha-Standard-Mauve-dark";
     font.name = "Iosevka Eos";
   };
 
