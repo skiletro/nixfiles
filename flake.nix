@@ -12,7 +12,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    #hyprland.url = "github:hyprwm/Hyprland/d768226de9281828c6346d7acff3ddc10b3e657f"; # pinned for now
+
     hyprland.url = "github:hyprwm/Hyprland";
   };
 
