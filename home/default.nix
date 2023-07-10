@@ -64,7 +64,9 @@
 
     # misc
     swayosd
-    papirus-icon-theme
+    catppuccin-papirus-folders
+    catppuccin-gtk
+    catppuccin-cursors
     
     # temp
     waybar
@@ -73,18 +75,23 @@
   ];
 
   gtk = {
-    iconTheme.package = pkgs.dracula-icon-theme;
-    iconTheme.name = "Dracula";
+    iconTheme.package = pkgs.catppuccin-papirus-folders.override {
+      flavor = "mocha";
+      accent = "blue";
+    };
+    iconTheme.name = "Papirus-Dark";
+
     theme.package = pkgs.catppuccin-gtk.override {
-      accents = [ "mauve"];
       size = "standard";
       variant = "mocha";
 
     };
-    theme.name = "Catppuccin-Mocha-Standard-Mauve-Dark";
-    cursorTheme.package = pkgs.catppuccin-cursors.mochaMauve;
-    cursorTheme.name = "Catppuccin-Mocha-Mauve";
-    #cursorTheme.size = 24;
+    theme.name = "Catppuccin-Mocha-Standard-Blue-dark";
+
+    cursorTheme.package = pkgs.catppuccin-cursors.mochaDark;
+    cursorTheme.name = "Catppuccin-Mocha-Dark-Cursors";
+    cursorTheme.size = 24;
+
     font.name = "Iosevka Eos";
   };
 
