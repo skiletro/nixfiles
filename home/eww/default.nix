@@ -4,7 +4,7 @@
 
   programs.eww = {
     enable = true;
-    #package = pkgs.eww-systray;
+    package = pkgs.eww-wayland;
     configDir = ./config;
   };
 

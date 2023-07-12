@@ -47,7 +47,7 @@
         devshell.overlays.default
         nur.overlay
         (import ./packages)
-        #(import ./overlays/eww-systray)
+        (import ./overlays/eww-systray)
       ];
 
       hosts.themis.modules = [ ./machines/themis ] ++ desktopModules;
@@ -60,12 +60,8 @@
 
       outputsBuilder = channels:
         with channels.nixpkgs; {
-          #defaultPackage = channels.nixpkgs.devshell.mkShell {
-          #  imports =
-          #    [ (channels.nixpkgs.devshell.importTOML ./devshell.toml) ];
-          #};
           packages = {
-            inherit (channels.nixpkgs) beeper nvchad eww-systray;
+            inherit (channels.nixpkgs) beeper nvchad;
           };
           devShell = channels.nixpkgs.devshell.mkShell {
             imports =
