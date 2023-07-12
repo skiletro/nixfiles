@@ -8,6 +8,7 @@
         DisableFirefoxStudies = true;
         DisablePocket = true;
         DisableTelemetry = true;
+        DisableSetDesktopBackground = true;
         NoDefaultBookmarks = true;
         OfferToSaveLogins = false;
         OfferToSaveLoginsDefault = false;
@@ -53,6 +54,7 @@
         "media.videocontrols.picture-in-picture.video-toggle.enabled" = false;
       };
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+        sidebery
         bitwarden
         ublock-origin
         sponsorblock
