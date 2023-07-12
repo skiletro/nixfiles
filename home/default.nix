@@ -68,6 +68,7 @@
     blender
     prismlauncher
     godot_4
+    neovide
 
     # misc
     swayosd
