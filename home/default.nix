@@ -15,13 +15,19 @@
     ./starship
     ./kitty
     ./foot
+    ./firefox
     ./neovim
     ./vscode
     ./eww
     ./mako
     ./wofi
+    ./spicetify
+    ./waybar
   ];
 
+  nixpkgs.overlays = [
+    inputs.nur.overlay
+  ];
   
   home.packages = with pkgs; [
     # cli
@@ -48,19 +54,20 @@
     libsForQt5.polkit-kde-agent
     upower
     acpi
-    xorg.xeyes
+    wlsunset
 
     #gui
-    firefox
     beeper
     bitwarden
-    discord
+    webcord-vencord
     obsidian
     emacs
     networkmanagerapplet
     xfce.thunar
+    xorg.xeyes
     blender
     prismlauncher
+    godot_4
 
     # misc
     swayosd
@@ -68,7 +75,6 @@
     catppuccin-cursors
     
     # temp
-    waybar
     rofi-wayland-unwrapped
     rofi-power-menu
   ];

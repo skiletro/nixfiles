@@ -5,6 +5,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
 
+    nur.url = "github:nix-community/NUR";
+
     devshell.url = "github:numtide/devshell";
     devshell.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -14,18 +16,22 @@
     };
 
     hyprland.url = "github:hyprwm/Hyprland";
+
+    spicetify-nix.url = "github:the-argus/spicetify-nix";
   };
 
   outputs =
-    inputs@{ self, nixpkgs, home-manager, utils, devshell, hyprland, ... }:
+    inputs@{ self, nixpkgs, home-manager, utils, devshell, hyprland, spicetify-nix, nur, ... }:
     let
       desktopModules = [
+        nur.nixosModules.nur
         ./common
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.jamie.imports = [
 	          inputs.hyprland.homeManagerModules.default
+            inputs.spicetify-nix.homeManagerModule
 	          ./home
 	        ];
           home-manager.extraSpecialArgs = { inherit inputs self; };
@@ -39,7 +45,9 @@
 
       sharedOverlays = [
         devshell.overlays.default
+        nur.overlay
         (import ./packages)
+        (import ./overlays/eww-systray)
       ];
 
       hosts.themis.modules = [ ./machines/themis ] ++ desktopModules;
