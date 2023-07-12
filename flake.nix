@@ -47,7 +47,7 @@
         devshell.overlays.default
         nur.overlay
         (import ./packages)
-        (import ./overlays/eww-systray)
+        #(import ./overlays/eww-systray)
       ];
 
       hosts.themis.modules = [ ./machines/themis ] ++ desktopModules;
