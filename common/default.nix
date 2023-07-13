@@ -47,7 +47,14 @@
     NEOVIDE_MULTIGRID = "1";
   };
 
-  security.polkit.enable = true;
+  security = {
+    polkit.enable = true;
+    pam.services.swaylock.text = ''
+      # PAM configuration file for swaylock. By default it includes
+      # the "login" configuration file (see /etc/pam.d/login)
+      auth include login
+    '';
+  };
 
   services.printing.enable = true;
 
