@@ -52,20 +52,22 @@
       settings = {
         "general.smoothScroll" = true;
         "media.videocontrols.picture-in-picture.video-toggle.enabled" = false;
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
       };
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-        sidebery
         bitwarden
         ublock-origin
         sponsorblock
         stylus
         augmented-steam
+        protondb-for-steam
         fediact
+        youtube-shorts-block
         #bypass-paywalls-clean
       ];
       #extraConfig
-      #userChrome
-      #userContent
+      userChrome = builtins.readFile ./userChrome.css;
+      userContent = builtins.readFile ./userContent.css;
     };
   };
 }

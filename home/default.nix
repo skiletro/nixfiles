@@ -23,6 +23,7 @@
     ./wofi
     ./spicetify
     ./waybar
+    ./swaylock
   ];
 
   nixpkgs.overlays = [
@@ -67,8 +68,9 @@
     xorg.xeyes
     blender
     prismlauncher
-    godot_4
-    neovide
+    thunderbird
+    #godot_4 #need to work out how to get c# support working
+    #neovide #latest version doesn't work on wayland rn
 
     # misc
     swayosd
