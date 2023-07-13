@@ -63,7 +63,8 @@
         protondb-for-steam
         fediact
         youtube-shorts-block
-        #bypass-paywalls-clean
+        firemonkey
+        #bypass-paywalls-clean #broken
       ];
       #extraConfig
       userChrome = builtins.readFile ./userChrome.css;

@@ -7,7 +7,12 @@
         colorScheme = "mauve";
 
         enabledExtensions = with inputs.spicetify-nix.packages.${pkgs.system}.default.extensions; [
-            # empty :(
+          # empty :(
+        ];
+
+        enabledCustomApps = with inputs.spicetify-nix.packages.${pkgs.system}.default.apps; [
+          nameThatTune
+          lyrics-plus
         ];
     };
 }
