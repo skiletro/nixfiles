@@ -56,6 +56,8 @@
     upower
     acpi
     wlsunset
+    cava
+    cli-visualizer
 
     #gui
     beeper
@@ -74,6 +76,7 @@
 
     # misc
     swayosd
+    gnome.adwaita-icon-theme
     catppuccin-gtk
     catppuccin-cursors
     
