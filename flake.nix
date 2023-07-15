@@ -18,10 +18,12 @@
     hyprland.url = "github:hyprwm/Hyprland";
 
     spicetify-nix.url = "github:the-argus/spicetify-nix";
+
+    nix-gaming.url = "github:fufexan/nix-gaming";
   };
 
   outputs =
-    inputs@{ self, nixpkgs, home-manager, utils, devshell, hyprland, spicetify-nix, nur, ... }:
+    inputs@{ self, nixpkgs, home-manager, utils, devshell, hyprland, spicetify-nix, nur, nix-gaming, ... }:
     let
       desktopModules = [
         nur.nixosModules.nur

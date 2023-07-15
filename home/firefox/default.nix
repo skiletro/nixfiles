@@ -66,7 +66,7 @@
         firemonkey
         #bypass-paywalls-clean #broken
       ];
-      #extraConfig
+      # modified theme from https://github.com/Bali10050/FirefoxCSS
       userChrome = builtins.readFile ./userChrome.css;
       userContent = builtins.readFile ./userContent.css;
     };

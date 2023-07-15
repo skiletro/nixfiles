@@ -73,12 +73,14 @@
     thunderbird
     #godot_4 #need to work out how to get c# support working
     #neovide #latest version doesn't work on wayland rn
+    dolphin-emu
 
     # misc
     swayosd
     gnome.adwaita-icon-theme
     catppuccin-gtk
     catppuccin-cursors
+    inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
     
     # temp
     rofi-wayland-unwrapped

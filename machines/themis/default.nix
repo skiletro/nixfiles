@@ -24,26 +24,6 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-    displayManager.gdm.enable = true;
-  };
-
-  # Enable the KDE Plasma Desktop Environment.
-  #services.xserver.displayManager.sddm.enable = true;
-  #services.xserver.desktopManager.plasma5.enable = true;
-  #environment.plasma5.excludePackages = with pkgs.libsForQt5; [
-  #  elisa
-  #  gwenview
-  #  okular
-  #  oxygen
-  #  khelpcenter
-  #  konsole
-  #  plasma-browser-integration
-  #  print-manager
-  #];
-
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
