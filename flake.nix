@@ -20,10 +20,12 @@
     spicetify-nix.url = "github:the-argus/spicetify-nix";
 
     nix-gaming.url = "github:fufexan/nix-gaming";
+
+    webcord.url = "github:fufexan/webcord-flake";
   };
 
   outputs =
-    inputs@{ self, nixpkgs, home-manager, utils, devshell, hyprland, spicetify-nix, nur, nix-gaming, ... }:
+    inputs@{ self, nixpkgs, home-manager, utils, devshell, hyprland, spicetify-nix, nur, nix-gaming, webcord, ... }:
     let
       desktopModules = [
         nur.nixosModules.nur
@@ -34,6 +36,7 @@
           home-manager.users.jamie.imports = [
 	          inputs.hyprland.homeManagerModules.default
             inputs.spicetify-nix.homeManagerModule
+            inputs.webcord.homeManagerModules.default
 	          ./home
 	        ];
           home-manager.extraSpecialArgs = { inherit inputs self; };
@@ -48,6 +51,7 @@
       sharedOverlays = [
         devshell.overlays.default
         nur.overlay
+        webcord.overlays.default
         (import ./packages)
         (import ./overlays/eww-git)
       ];
