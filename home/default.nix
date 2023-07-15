@@ -24,6 +24,7 @@
     ./spicetify
     ./waybar
     ./swaylock
+    ./webcord
   ];
 
   nixpkgs.overlays = [
@@ -62,11 +63,11 @@
     #gui
     beeper
     bitwarden
-    webcord-vencord
     obsidian
     emacs
     networkmanagerapplet
     xfce.thunar
+    gvfs #thunar
     xorg.xeyes
     blender
     prismlauncher
@@ -80,6 +81,9 @@
     gnome.adwaita-icon-theme
     catppuccin-gtk
     catppuccin-cursors
+    xdg-utils
+
+    # gaming
     inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
     
     # temp
