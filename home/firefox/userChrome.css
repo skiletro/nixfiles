@@ -15,11 +15,16 @@
 #navigator-toolbox{background-image: url("./Background.png"), url("./NavbarBackground.png")}  /*  Custom background -- Also check userContent.css  */
 
 :root{
---tab-border-radius: 3px!important; /*  Tab border radius -- Changes the tabs rounding  *//*  Default: 3px  */
---NavbarWidth: 43; /*  Default values: 36 - 43  */
---TabsHeight: 36; /*  Minimum: 30  *//*  Default: 36  */
+--tab-border-radius: 5px!important; /*  Tab border radius -- Changes the tabs rounding  *//*  Default: 3px  */
+--NavbarWidth: 53; /*  Default values: 36 - 43  */
+--TabsHeight: 32; /*  Minimum: 30  *//*  Default: 36  */
 --TabsBorder: 8; /*  Doesnt do anything on small layout  *//*  Default: 8  */
 --NavbarHeightSmall: calc(var(--TabsHeight) + var(--TabsBorder))  /*  Only on small layout  *//*  Default: calc(var(--TabsHeight) + var(--TabsBorder))  *//*  Default as a number: 44  */}
+
+/* shit hack but it works? */
+#TabsToolbar #firefox-view-button[open]:not(:focus-visible) > .toolbarbutton-icon:-moz-lwtheme, .tab-background[selected]:not([multiselected="true"]):-moz-lwtheme {
+  outline-width: 2px !important;
+}
 
 @media screen and (min-width:1325px)    /*  Only the tabs space will grow from here  */
 {:root #nav-bar{margin-top: calc(var(--TabsHeight) * -1px - var(--TabsBorder) * 1px)!important; height: calc(var(--TabsHeight) * 1px + var(--TabsBorder) * 1px)} #TabsToolbar{margin-left: calc(1325px / 100 * var(--NavbarWidth)) !important} #nav-bar{margin-right: calc(100vw - calc(1325px / 100 * var(--NavbarWidth))) !important; vertical-align: center !important} #urlbar-container{min-width: 0px !important;  flex: auto !important} toolbarspring{display: none !important}}
