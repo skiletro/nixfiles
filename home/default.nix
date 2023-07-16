@@ -8,13 +8,13 @@
 
     # Window Managers
     ./hyprland
-    ./sway
+    #./sway
 
     # Programs
     ./fish
     ./starship
     ./kitty
-    ./foot
+    #./foot
     ./firefox
     ./neovim
     ./vscode
@@ -58,7 +58,7 @@
     acpi
     wlsunset
     cava
-    cli-visualizer
+    sway-contrib.grimshot #screenshots
 
     #gui
     beeper
