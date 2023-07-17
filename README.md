@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/github/stars/skiletro/nixfiles?color=f5c2e7&labelColor=303446&style=for-the-badge&logo=starship&logoColor=f5c2e7">
   <img src="https://img.shields.io/github/repo-size/skiletro/nixfiles?color=fab387&labelColor=303446&style=for-the-badge&logo=github&logoColor=fab387">
  <p></p>
- <img src="https://discord.com/channels/307954536088076288/525406580628258831/1130596467925602435"></img>
+ <img src="https://cdn.discordapp.com/attachments/525406580628258831/1130596467418079414/image.png"></img>
  <p>Screenshot last updated July 17th, 2023</p>
 </div>
 dotfiles, but nix!
