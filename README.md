@@ -26,5 +26,6 @@ My dotfiles that I used on my arch-based system can be found [here](https://gith
 ## Todo
 - [ ] Eww bar is still a bit squashed when a long song is playing, as well as a long window title, unsure how to fix as of now
 - [ ] Seperate settings for `themis` and (currently non-existant) `eris` as `themis` requires 1.5x scaling with hyprland
+- [ ] Fix GTK theme, currently has transparent popups and is using the wrong accent of catppuccin
 
 If you can help with any of this stuff, please do a pull request as I am still learning!
