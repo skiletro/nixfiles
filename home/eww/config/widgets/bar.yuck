@@ -70,23 +70,3 @@
   (box :class "music" :visible "${get_music != "" ? "true" : "false"}"
     (eventbox :onclick "playerctl --player spotify play-pause"
       (label :text "${get_music}"))))
-
-; THE FOLLOWING IS TEMPORARY AS IM MESSING AROUND WITH LABWC
-(defwindow bar_labwc
-  :monitor 0
-  :exclusive true
-  :geometry (geometry :x "0%"
-                      :y "0%"
-                      :width "100%"
-                      :height "10px"
-                      :anchor "top center")
-  (centerbox :class "widget_bar"
-    (box :space-evenly false :halign "start" :class "left"
-      (music))
-    (box :space-evenly false :halign "center" :class "center")
-    (box :space-evenly false :halign "end" :class "right"
-      (systray :class "tray")
-      (weather)
-      (volume)
-      (battery)
-      (time))))
