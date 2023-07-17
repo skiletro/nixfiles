@@ -61,6 +61,7 @@
     wlsunset
     cava
     sway-contrib.grimshot #screenshots
+    fd #emacs
 
     #gui
     beeper
