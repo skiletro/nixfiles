@@ -58,9 +58,12 @@
     '';
   };
 
-  services.printing.enable = true;
-
-  services.gnome.gnome-keyring.enable = true;
+  services = {
+    gvfs.enable = true; # Mount, trash, and other functionalities
+    tumbler.enable = true; # Thumbnail support for images
+    gnome.gnome-keyring.enable = true;
+    printing.enable = true;
+  };
 
   fonts = {
     fonts = with pkgs; [
@@ -124,6 +127,14 @@
     enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  };
+
+  programs.thunar = {
+    enable = true;
+    plugins = with pkgs.xfce; [
+      thunar-archive-plugin
+      thunar-volman
+    ];
   };
 
 }

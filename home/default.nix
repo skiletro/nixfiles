@@ -68,8 +68,6 @@
     obsidian
     emacs29-pgtk
     networkmanagerapplet
-    xfce.thunar
-    gvfs #thunar
     xorg.xeyes
     blender
     prismlauncher
