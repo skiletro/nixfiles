@@ -11,6 +11,9 @@
       #eww-yuck.yuck
     ];
     userSettings = {
+      "update.mode" = "none";
+      "extensions.autoUpdate" = false; # This stuff fixes vscode freaking out when theres an update
+
       "window.menuBarVisibility" = "toggle";
       "editor.fontFamily" = "'Iosevka Eos', 'Droid Sans Mono', 'monospace', monospace";
       "workbench.colorTheme" = "Catppuccin Mocha";
