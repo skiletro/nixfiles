@@ -5,6 +5,8 @@
   <img src="https://img.shields.io/github/stars/skiletro/nixfiles?color=f5c2e7&labelColor=303446&style=for-the-badge&logo=starship&logoColor=f5c2e7">
   <img src="https://img.shields.io/github/repo-size/skiletro/nixfiles?color=fab387&labelColor=303446&style=for-the-badge&logo=github&logoColor=fab387">
  <p></p>
+ <img src="https://discord.com/channels/307954536088076288/525406580628258831/1130596467925602435"></img>
+ <p>Screenshot last updated July 17th, 2023</p>
 </div>
 dotfiles, but nix!
 My dotfiles that I used on my arch-based system can be found [here](https://github.com/skiletro/archfiles), and are a basis for a lot of the configuration here! If you don't use NixOS, you can probably find a more standard config for the thing you are looking for over there.
