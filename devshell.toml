@@ -4,6 +4,10 @@ help = "Rebuilds nixos system."
 name = "rebuild"
 command = "sudo nixos-rebuild switch --flake flake.nix"
 [[commands]]
+help = "Adds everything to git staging, and rebuilds nixos system."
+name = "gitbuild"
+command = "git add * && sudo nixos-rebuild switch --flake flake.nix"
+[[commands]]
 help = "Update and rebuild the nixos system"
 name = "upbuild"
 command  = "nix flake update && sudo nixos-rebuild switch --flake flake.nix"
