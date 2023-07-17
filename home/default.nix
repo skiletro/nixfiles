@@ -64,6 +64,7 @@
     fd #emacs
 
     #gui
+    cinnamon.nemo-with-extensions
     beeper
     bitwarden
     obsidian
@@ -76,6 +77,9 @@
     #godot_4 #need to work out how to get c# support working
     #neovide #latest version doesn't work on wayland rn
     dolphin-emu
+    feh
+    zotero
+    wpsoffice
 
     # misc
     swayosd
