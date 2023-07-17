@@ -61,7 +61,11 @@
 
       hostDefaults.modules = [ 
         hyprland.nixosModules.default
-        { programs.hyprland.enable = true; }
+        { programs.hyprland = {
+          enable = true;
+          package = hyprland.packages.x86_64-linux.hyprland-hidpi;
+          xwayland.hidpi = true; # temp until i can figure out what's going on
+        };}
       ];
 
       outputsBuilder = channels:
