@@ -3,7 +3,7 @@
 {
 
   wayland.windowManager.hyprland = {
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland-hidpi;
+    #package = inputs.hyprland.packages.${pkgs.system}.hyprland-hidpi;
     enable = true;
     xwayland = {
       enable = true;
