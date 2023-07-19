@@ -61,7 +61,7 @@
     wlsunset
     cava
     sway-contrib.grimshot #screenshots
-    fd #emacs
+    wl-clipboard
 
     #gui
     xfce.thunar
