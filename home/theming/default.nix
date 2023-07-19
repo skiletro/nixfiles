@@ -11,10 +11,11 @@
     iconTheme.name = "Papirus-Dark";
 
     theme.package = pkgs.catppuccin-gtk.override {
+      accents = [ "mauve" ];
       size = "standard";
       variant = "mocha";
     };
-    theme.name = "Catppuccin-Mocha-Standard-Blue-dark";
+    theme.name = "Catppuccin-Mocha-Standard-Mauve-dark";
 
     cursorTheme.package = pkgs.catppuccin-cursors.mochaDark;
     cursorTheme.name = "Catppuccin-Mocha-Dark-Cursors";

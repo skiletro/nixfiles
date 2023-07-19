@@ -46,7 +46,7 @@
     socat
     ripgrep
     neofetch
-    swaybg
+    swww
     htop
     btop #better htop but is a bit more cluttered
     tmux
@@ -64,7 +64,7 @@
     fd #emacs
 
     #gui
-    cinnamon.nemo-with-extensions
+    xfce.thunar
     beeper
     bitwarden
     obsidian
