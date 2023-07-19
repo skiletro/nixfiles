@@ -4,7 +4,7 @@
   users.users.jamie = {
     isNormalUser = true;
     description = "Jamie";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+    extraGroups = [ "users" "networkmanager" "wheel" "libvirtd" ];
     shell = pkgs.fish;
     packages = with pkgs; [ ];
   }; programs.fish.enable = true;
@@ -134,5 +134,15 @@
 
   virtualisation.libvirtd.enable = true;
   programs.dconf.enable = true;
+
+  services.udev.packages = [
+    (pkgs.writeTextFile {
+       name = "vial_udev";
+       text = ''
+        KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
+       '';
+       destination = "/etc/udev/rules.d/99-vial.rules";
+    }) # For vial, allows recognition of keyboards!
+  ];
 
 }
