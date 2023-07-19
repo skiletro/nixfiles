@@ -68,7 +68,7 @@
     beeper
     bitwarden
     obsidian
-    emacs29-pgtk
+    #emacs29-pgtk
     networkmanagerapplet
     xorg.xeyes
     blender
