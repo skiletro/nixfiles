@@ -4,7 +4,7 @@
   users.users.jamie = {
     isNormalUser = true;
     description = "Jamie";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
     shell = pkgs.fish;
     packages = with pkgs; [ ];
   }; programs.fish.enable = true;
@@ -42,7 +42,9 @@
   nixpkgs.config.allowUnfree = true;
 
   # System packages that need to be accessable globally
-  environment.systemPackages = with pkgs; [ ];
+  environment.systemPackages = with pkgs; [ 
+    virt-manager
+  ];
 
   environment.sessionVariables = rec {
     NIXOS_OZONE_WL = "1";
@@ -67,6 +69,7 @@
 
   fonts = {
     fonts = with pkgs; [
+      corefonts
       noto-fonts-emoji
       (nerdfonts.override { fonts = ["NerdFontsSymbolsOnly"]; })
       # Iosevka takes a LONG time to compile (for a font anyway), you've been warned.
@@ -128,5 +131,8 @@
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
+
+  virtualisation.libvirtd.enable = true;
+  programs.dconf.enable = true;
 
 }

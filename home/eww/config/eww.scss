@@ -21,4 +21,62 @@ tooltip {
     border-radius: $radius;
 }
 
+check {
+  border-radius: 9999px;
+  min-width: 13px;
+  min-height: 13px;
+  background: rgba(255, 255, 255, 0.2);
+  margin-right: 0.5rem;
+  box-shadow: 0px 4px 4px -3px rgba(0, 0, 0, 0.5);
+}
 
+check:checked {
+  background: $mauve;
+  box-shadow: inset 0px 4px 4px -3px rgba(0, 0, 0, 0.5);
+}
+
+arrow.right {
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+
+  border-left: 7px solid transparent;
+}
+
+arrow.left {
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+
+  border-right: 7px solid transparent;
+}
+
+menu {
+  background: $background;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border: 2px solid $mauve;
+  padding: 2em 0;
+}
+
+menu menu {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+menu > menuitem {
+  padding: 0.4em 1.5rem;
+  background: transparent;
+  transition: 0.2s ease background;
+}
+
+menu > menuitem:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+menu > menuitem check:checked ~ label {
+  color: $mauve;
+  font-weight: 600;
+}
+
+menubar > menuitem {
+  margin-left: 0.6rem;
+}

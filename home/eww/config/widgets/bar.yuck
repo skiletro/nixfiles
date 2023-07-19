@@ -65,8 +65,8 @@
   (box :class "weather"
     (label :text "${get_weathericon}${get_temperature}")))
 
-(defpoll get_music :interval "5s" "bash ~/.config/eww/scripts/display-music")
-;(deflisten get_music `playerctl --player spotify --follow metadata --format '{{emoji(status)}} {{title}} - {{artist}}' | sed "s/▶//;s/⏸️//"`)
+;(defpoll get_music :interval "5s" "bash ~/.config/eww/scripts/display-music")
+(deflisten get_music `playerctl --player spotify --follow metadata --format '{{emoji(status)}} {{title}} - {{artist}}' | stdbuf -o0 sed "s/▶//;s/⏸️//"`)
 (defwidget music []
   (box :class "music" :visible "${get_music != "" ? "true" : "false"}"
     (eventbox :onclick "playerctl --player spotify play-pause"
