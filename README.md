@@ -9,6 +9,7 @@
  <p>Screenshot last updated July 17th, 2023</p>
 </div>
 dotfiles, but nix!
+
 My dotfiles that I used on my arch-based system can be found [here](https://github.com/skiletro/archfiles), and are a basis for a lot of the configuration here! If you don't use NixOS, you can probably find a more standard config for the thing you are looking for over there.
 
 
