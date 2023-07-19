@@ -74,12 +74,12 @@
     blender
     prismlauncher
     thunderbird
-    #godot_4 #need to work out how to get c# support working
-    #neovide #latest version doesn't work on wayland rn
     dolphin-emu
     feh
     zotero
-    wpsoffice
+    libreoffice
+    obs-studio
+    teams-for-linux
 
     # misc
     swayosd
@@ -89,11 +89,14 @@
     catppuccin-cursors
     xdg-utils
     libsForQt5.polkit-kde-agent
+    hunspell #libreoffice
+    hunspellDicts.en_GB-ise #libreoffice
 
     # gaming
     inputs.nix-gaming.packages.${pkgs.system}.proton-ge
     inputs.nix-gaming.packages.${pkgs.system}.wine-ge
     inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
+    tetrio-desktop
     
     # temp
     rofi-wayland-unwrapped

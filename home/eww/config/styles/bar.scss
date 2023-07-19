@@ -1,6 +1,7 @@
 .widget_bar {
-    background-color: #11111b;
-    padding: $gap 7px;
+    /*background-color: #11111b;*/
+    background-color: rgba(0,0,0,0);
+    padding: $gap 5px 0px 5px;
 
     .left > *,
     .center > *,
