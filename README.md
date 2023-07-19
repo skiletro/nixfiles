@@ -29,5 +29,6 @@ My dotfiles that I used on my arch-based system can be found [here](https://gith
 - [ ] Seperate settings for `themis` and (currently non-existant) `eris` as `themis` requires 1.5x scaling with hyprland
 - [ ] Fix GTK theme, currently has transparent popups and is using the wrong accent of catppuccin
 - [ ] Any sort of `,` in a window title causes the text to be cut off at that point
+- [ ] Implement shikane or something to handle monitors being turned on and off to fix issue where if lid is closed and is disconnected from dock, hyprland crashes
 
 If you can help with any of this stuff, please do a pull request as I am still learning!
