@@ -80,6 +80,7 @@
     libreoffice
     obs-studio
     teams-for-linux
+    vial
 
     # misc
     swayosd
