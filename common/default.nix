@@ -49,6 +49,9 @@
   environment.sessionVariables = rec {
     NIXOS_OZONE_WL = "1";
     NEOVIDE_MULTIGRID = "1";
+    PATH = [
+      "/var/lib/flatpak/exports/share/applications/"
+    ];
   };
 
   security = {
