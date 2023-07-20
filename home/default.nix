@@ -92,6 +92,7 @@
     libsForQt5.polkit-kde-agent
     hunspell #libreoffice
     hunspellDicts.en_GB-ise #libreoffice
+    gamescope
 
     # gaming
     inputs.nix-gaming.packages.${pkgs.system}.proton-ge
