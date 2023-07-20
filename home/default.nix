@@ -46,7 +46,7 @@
     socat
     ripgrep
     neofetch
-    swww
+    swaybg
     htop
     btop #better htop but is a bit more cluttered
     tmux
@@ -68,7 +68,6 @@
     beeper
     bitwarden
     obsidian
-    #emacs29-pgtk
     networkmanagerapplet
     xorg.xeyes
     blender
@@ -92,7 +91,6 @@
     libsForQt5.polkit-kde-agent
     hunspell #libreoffice
     hunspellDicts.en_GB-ise #libreoffice
-    gamescope
 
     # gaming
     inputs.nix-gaming.packages.${pkgs.system}.wine-ge
