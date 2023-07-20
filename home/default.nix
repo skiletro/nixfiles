@@ -80,6 +80,7 @@
     obs-studio
     teams-for-linux
     vial
+    onedrivegui
 
     # misc
     swayosd

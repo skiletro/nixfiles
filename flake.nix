@@ -67,7 +67,7 @@
       outputsBuilder = channels:
         with channels.nixpkgs; {
           packages = {
-            inherit (channels.nixpkgs) beeper nvchad;
+            inherit (channels.nixpkgs) beeper nvchad onedrivegui;
           };
           devShell = channels.nixpkgs.devshell.mkShell {
             imports =

@@ -30,5 +30,6 @@ My dotfiles that I used on my arch-based system can be found [here](https://gith
 - [ ] Fix GTK theme, currently has transparent popups and is using the wrong accent of catppuccin
 - [ ] Any sort of `,` in a window title causes the text to be cut off at that point
 - [ ] Implement shikane or something to handle monitors being turned on and off to fix issue where if lid is closed and is disconnected from dock, hyprland crashes
+- [ ] Fix the custom `onedrivegui` package at some point. it mumbles on about needing a python pyside6.qt something something
 
 If you can help with any of this stuff, please do a pull request as I am still learning!
