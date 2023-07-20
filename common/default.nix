@@ -65,6 +65,7 @@
     tumbler.enable = true; # Thumbnail support for images
     gnome.gnome-keyring.enable = true;
     printing.enable = true;
+    flatpak.enable = true;
   };
 
   fonts = {
@@ -122,14 +123,6 @@
       dates = "weekly";
       options = "--delete-older-than 7d";
     };
-  };
-
-  # steam is a system-wide package, not a home-manager package
-  # something something grumble grumble
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
 
   virtualisation.libvirtd.enable = true;

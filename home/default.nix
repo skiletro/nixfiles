@@ -95,9 +95,7 @@
     gamescope
 
     # gaming
-    inputs.nix-gaming.packages.${pkgs.system}.proton-ge
     inputs.nix-gaming.packages.${pkgs.system}.wine-ge
-    inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
     tetrio-desktop
     
     # temp
