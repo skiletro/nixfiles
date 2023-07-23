@@ -82,6 +82,7 @@
     vial
     onedrivegui
     libsForQt5.ark
+    pavucontrol
 
     # misc
     swayosd
