@@ -81,6 +81,7 @@
     teams-for-linux
     vial
     onedrivegui
+    libsForQt5.ark
 
     # misc
     swayosd
@@ -101,6 +102,14 @@
     rofi-wayland-unwrapped
     rofi-power-menu
   ];
+
+  xdg = {
+    mime.defaultApplications = {
+      "application/pdf" = "firefox.desktop";
+      "image/png" = "feh.desktop";
+      "application/zip" = "ark.desktop";
+    };
+  };
 
   home.stateVersion = "23.05";
 
