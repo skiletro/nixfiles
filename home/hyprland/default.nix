@@ -3,16 +3,12 @@
 {
 
   wayland.windowManager.hyprland = {
-    #package = inputs.hyprland.packages.${pkgs.system}.hyprland-hidpi;
     enable = true;
     xwayland = {
       enable = true;
       hidpi = true;
     };
     nvidiaPatches = false;
-    plugins = [
-      #inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
-    ];
 
     extraConfig = ''
       ${builtins.readFile ./autolaunch.conf}
