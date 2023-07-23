@@ -9,7 +9,8 @@
     progressColor = "over #313244";
     
     font = "Iosevka Eos 10";
-    borderRadius = 7;
+    borderRadius = 5;
+    borderSize = 2;
     
     defaultTimeout = 7000;
 
