@@ -62,6 +62,8 @@
     cava
     sway-contrib.grimshot #screenshots
     wl-clipboard
+    python311
+    nodejs_18
 
     #gui
     xfce.thunar
@@ -105,7 +107,8 @@
   ];
 
   xdg = {
-    mime.defaultApplications = {
+    enable = true;
+    mimeApps.defaultApplications = {
       "application/pdf" = "firefox.desktop";
       "image/png" = "feh.desktop";
       "application/zip" = "ark.desktop";
