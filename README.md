@@ -8,7 +8,6 @@
  <img src="https://cdn.discordapp.com/attachments/525406580628258831/1130596467418079414/image.png"></img>
  <p>Screenshot last updated July 17th, 2023</p>
 </div>
-dotfiles, but nix!
 
 My dotfiles that I used on my arch-based system can be found [here](https://github.com/skiletro/archfiles), and are a basis for a lot of the configuration here! If you don't use NixOS, you can probably find a more standard config for the thing you are looking for over there.
 
@@ -26,7 +25,7 @@ My dotfiles that I used on my arch-based system can be found [here](https://gith
 
 ## Todo
 - [ ] Eww bar is still a bit squashed when a long song is playing, as well as a long window title, unsure how to fix as of now
-- [ ] Seperate settings for `themis` and (currently non-existant) `eris` as `themis` requires 1.5x scaling with hyprland
+- [ ] Seperate settings for `themis` and (currently non-existent) `eris` as `themis` requires 1.5x scaling with hyprland
 - [ ] Fix GTK theme, currently has transparent popups (issue with theme itself)
 - [ ] Any sort of `,` in a window title causes the text to be cut off at that point
 - [ ] Implement shikane or something to handle monitors being turned on and off to fix issue where if lid is closed and is disconnected from dock, hyprland crashes
