@@ -62,6 +62,7 @@
     cava
     sway-contrib.grimshot #screenshots
     wl-clipboard
+    wtype
     python311
     nodejs_18
 
