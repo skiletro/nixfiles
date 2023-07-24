@@ -7,14 +7,14 @@
 
       settings = {
         format = lib.concatStrings [
-        "[ ](fg:#1e1e2e bg:#89B4FA)"
-        "$username"
-        "[](fg:#89B4FA)"
+        #"[ ](fg:#1e1e2e bg:#ff00aa)"
+        #"$username"
+        #"[](fg:#ff00aa)"
         "$directory"
-        "[](fg:#1e1e2e bg:#fab387)"
+        "[](fg:#1e1e2e bg:#cba6f7)"
         "$git_branch"
         "$git_status"
-        "[](fg:#fab387 bg:#cba6f7)"
+        "[](fg:#cba6f7 bg:#89b4fa)"
         "$c"
         "$elixir"
         "$elm"
@@ -25,10 +25,10 @@
         "$nodejs"
         "$nim"
         "$rust"
-        "[](fg:#cba6f7 bg:#a6e3a1)"
+        "[](fg:#89b4fa bg:#94e2d5)"
         "$nix_shell"
         "$docker_context"
-        "[ ](fg:#a6e3a1)"
+        "[ ](fg:#94e2d5)"
         ];
 
         add_newline = false; # Disable the blank line at the start of the prompt
@@ -36,9 +36,10 @@
         # You can also replace your username with a neat symbol like  to save some space
         username = {
           show_always = true;
-          style_user = "fg:#11111b bg:#89B4FA";
-          style_root = "fg:#11111b bg:#f38ba8";
-          format = "[$user ]($style)";
+          #style_user = "fg:#11111b bg:#89B4FA";
+          #style_root = "fg:#11111b bg:#cba6f7";
+          #format = "[$user ]($style)";
+          format = "[󱄅 ](fg:#11111b bg:#ff00aa)";
         };
 
         directory = {
@@ -64,74 +65,74 @@
 
         c = {
           symbol = " ";
-          style = "fg:#11111b bg:#cba6f7";
-          format = "[[ $symbol ($version) ](fg:#11111b bg:#cba6f7)]($style)";
+          style = "fg:#11111b bg:#89b4fa";
+          format = "[[ $symbol ($version) ](fg:#11111b bg:#89b4fa)]($style)";
         };
 
         docker_context = {
           symbol = " ";
-          style = "fg:#11111b bg:#a6e3a1";
-          format = "[[ $symbol $context ](fg:#11111b bg:#a6e3a1)]($style) $path";
+          style = "fg:#11111b bg:#94e2d5";
+          format = "[[ $symbol $context ](fg:#11111b bg:#94e2d5)]($style) $path";
         };
 
         elixir = {
           symbol = " ";
-          style = "fg:#11111b bg:#cba6f7";
-          format = "[[ $symbol ($version) ](fg:#11111b bg:#cba6f7)]($style)";
+          style = "fg:#11111b bg:#89b4fa";
+          format = "[[ $symbol ($version) ](fg:#11111b bg:#89b4fa)]($style)";
         };
 
         elm = {
           symbol = " ";
-          style = "fg:#11111b bg:#cba6f7";
-          format = "[[ $symbol ($version) ](fg:#11111b bg:#cba6f7)]($style)";
+          style = "fg:#11111b bg:#89b4fa";
+          format = "[[ $symbol ($version) ](fg:#11111b bg:#89b4fa)]($style)";
         };
 
         git_branch = {
           symbol = "";
-          style = "fg:#11111b bg:#fab387";
-          format = "[[ $symbol $branch ](fg:#11111b bg:#fab387)]($style)";
+          style = "fg:#11111b bg:#cba6f7";
+          format = "[[ $symbol $branch ](fg:#11111b bg:#cba6f7)]($style)";
         };
 
         git_status = {
-          style = "fg:#11111b bg:#fab387";
-          format = "[[($all_status$ahead_behind )](fg:#11111b bg:#fab387)]($style)";
+          style = "fg:#11111b bg:#cba6f7";
+          format = "[[($all_status$ahead_behind )](fg:#11111b bg:#cba6f7)]($style)";
         };
 
         golang = {
           symbol = " ";
-          style = "fg:#11111b bg:##cba6f7";
-          #format = "[[ $symbol ($version) ](fg:#11111b bg:#cba6f7)]($style)";
-          format = "[[ $symbol](fg:#11111b bg:#cba6f7)]($style)";
+          style = "fg:#11111b bg:##89b4fa";
+          #format = "[[ $symbol ($version) ](fg:#11111b bg:#89b4fa)]($style)";
+          format = "[[ $symbol](fg:#11111b bg:#89b4fa)]($style)";
         };
 
         haskell = {
           symbol = " ";
-          style = "fg:#11111b bg:#cba6f7";
-          format = "[[ $symbol ($version) ](fg:#11111b bg:#cba6f7)]($style)";
+          style = "fg:#11111b bg:#89b4fa";
+          format = "[[ $symbol ($version) ](fg:#11111b bg:#89b4fa)]($style)";
         };
 
         java = {
           symbol = " ";
-          style = "fg:#11111b bg:#cba6f7";
-          format = "[[ $symbol ($version) ](fg:#11111b bg:#cba6f7)]($style)";
+          style = "fg:#11111b bg:#89b4fa";
+          format = "[[ $symbol ($version) ](fg:#11111b bg:#89b4fa)]($style)";
         };
 
         julia = {
           symbol = " ";
-          style = "fg:#11111b bg:#cba6f7";
-          format = "[[ $symbol ($version) ](fg:#11111b bg:#cba6f7)]($style)";
+          style = "fg:#11111b bg:#89b4fa";
+          format = "[[ $symbol ($version) ](fg:#11111b bg:#89b4fa)]($style)";
         };
 
         nodejs = {
           symbol = "";
-          style = "fg:#11111b bg:#cba6f7";
-          format = "[[ $symbol ($version) ](fg:#11111b bg:#cba6f7)]($style)";
+          style = "fg:#11111b bg:#89b4fa";
+          format = "[[ $symbol ($version) ](fg:#11111b bg:#89b4fa)]($style)";
         };
 
         nim = {
           symbol = " ";
-          style = "fg:#11111b bg:#cba6f7";
-          format = "[[ $symbol ($version) ](fg:#11111b bg:#cba6f7)]($style)";
+          style = "fg:#11111b bg:#89b4fa";
+          format = "[[ $symbol ($version) ](fg:#11111b bg:#89b4fa)]($style)";
         };
 
         nix_shell = {
@@ -139,16 +140,14 @@
           impure_msg = "i";
           pure_msg = "p";
           unknown_msg = "u";
-          style = "fg:#11111b bg:#a6e3a1";
-          #format = "[[ via $symbol $state<$name> ](fg:#11111b bg:#cba6f7)]($style)";
-          #format = "[[ via $symbol $state ](fg:#11111b bg:#a6e3a1)]($style)";
-          format = "[[ $symbol$state:$name ](fg:#11111b bg:#a6e3a1)]($style)";
+          style = "fg:#11111b bg:#94e2d5";
+          format = "[[ $symbol$state:$name ](fg:#11111b bg:#94e2d5)]($style)";
         };
 
         rust = {
           symbol = "";
-          style = "fg:#11111b bg:#cba6f7";
-          format = "[[ $symbol ($version) ](fg:#11111b bg:#cba6f7)]($style)";
+          style = "fg:#11111b bg:#89b4fa";
+          format = "[[ $symbol ($version) ](fg:#11111b bg:#89b4fa)]($style)";
         };
 
         time = {
