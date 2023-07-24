@@ -7,7 +7,7 @@
     ./jamie
 
     # Settings
-    ./theming
+    ./gtk
 
     # Window Managers
     ./hyprland
