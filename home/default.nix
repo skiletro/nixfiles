@@ -63,6 +63,7 @@
     sway-contrib.grimshot #screenshots
     wl-clipboard
     wtype
+    fzf
     python311
     nodejs_18
 
