@@ -17,6 +17,13 @@
 
   networking.hostName = "themis";
 
+  # Bigger/better tty font
+  console = {
+    earlySetup = true;
+    font = "${pkgs.terminus_font}/share/consolefonts/ter-132n.psf.gz";
+    packages = with pkgs; [ terminus_font ];
+  };
+
   # Enable networking
   networking.networkmanager.enable = true;
 
