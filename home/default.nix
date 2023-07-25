@@ -111,6 +111,7 @@
   xdg = {
     enable = true;
     mimeApps.defaultApplications = {
+      "inode/directory" = "thunar.desktop";
       "application/pdf" = "firefox.desktop";
       "image/png" = "feh.desktop";
       "application/zip" = "ark.desktop";
