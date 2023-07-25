@@ -12,6 +12,17 @@
   };
   programs.fish.enable = true;
 
+  services.greetd = {
+    enable = true;
+    package = pkgs.greetd.tuigreet;
+    settings = rec {
+      default_session = {
+        user = "jamie";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet -r --cmd Hyprland --asterisks";
+      };
+    };
+  };
+
   # Set your time zone.
   time.timeZone = "Europe/London";
 
@@ -31,12 +42,7 @@
   };
 
   # Configure keymap in X11
-  services.xserver = {
-    enable = true;
-    displayManager.gdm.enable = true;
-    layout = "gb";
-    xkbVariant = "";
-  };
+  services.xserver.layout = "gb";
 
   # Bigger/better tty font
   console = {
@@ -44,6 +50,24 @@
     earlySetup = true; # Runs as soon as possible
     font = "${pkgs.terminus_font}/share/consolefonts/ter-132n.psf.gz";
     packages = with pkgs; [ terminus_font ];
+    colors = [
+      "45475a"
+      "f38ba8"
+      "a6e3a1"
+      "f9e2af"
+      "89b4fa"
+      "f5c2e7"
+      "94e2d5"
+      "bac2de"
+      "585b70"
+      "f38ba8"
+      "a6e3a1"
+      "f9e2af"
+      "89b4fa"
+      "f5c2e7"
+      "94e2d5"
+      "a6adc8"
+    ];
   };
 
   # Allow unfree packages
