@@ -24,12 +24,6 @@
     packages = with pkgs; [ terminus_font ];
   };
 
-  boot.plymouth = {
-    enable = true;
-    themePackages = with pkgs; [ catppuccin-plymouth ];
-    theme = "catppuccin";
-  };
-
   # Enable networking
   networking.networkmanager.enable = true;
 
