@@ -6,8 +6,11 @@
     description = "Jamie";
     extraGroups = [ "users" "networkmanager" "wheel" "libvirtd" ];
     shell = pkgs.fish;
-    packages = with pkgs; [ ];
-  }; programs.fish.enable = true;
+    openssh.authorizedKeys.keys = [
+      "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAgrRSnsFyg9ru8G1v+u6G7muahe3N5nDmUpInhMcXrABogdzvPBxo4PFEWpARxAmUOyjvKromYmw8ClfVYWi5cwEko1jeQNBMvhLb8bax78dzVz8rmP6pksWib0pGEICa6N52XgJhJZjcZqX/7Oi6NmFqF575TDI8NOE47vf5bMVPoPQ20j/6C3Jtrrpbr7DEHCp6DwiG71UQKNbIJc3xnxKNqQ7mg/w3Be/I8niDJfZII9J0/iuxtwMsYxwdj0rvDbVrztcoGW2u5rb9H2QiIkf1X6eyUlSMWqJ1szCW2sVVOfXsS5GLtqT9nryDR2rY1eeYk6EsLzogiLk9bq4/4w== skil19"
+    ];
+  };
+  programs.fish.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/London";
@@ -27,9 +30,6 @@
     LC_TIME = "en_GB.UTF-8";
   };
 
-  # Configure console keymap
-  console.keyMap = "uk";
-
   # Configure keymap in X11
   services.xserver = {
     enable = true;
@@ -38,37 +38,62 @@
     xkbVariant = "";
   };
 
+  # Bigger/better tty font
+  console = {
+    keyMap = "uk"; # Configure console keymap
+    earlySetup = true; # Runs as soon as possible
+    font = "${pkgs.terminus_font}/share/consolefonts/ter-132n.psf.gz";
+    packages = with pkgs; [ terminus_font ];
+  };
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # System packages that need to be accessable globally
-  environment.systemPackages = with pkgs; [ 
-    virt-manager
-  ];
+  environment.systemPackages = with pkgs; [ ];
 
+  # Virtualisation settings
+  virtualisation.libvirtd.enable = true;
+  programs.dconf.enable = true;
+
+  # Global variables (environment)
   environment.sessionVariables = rec {
-    NIXOS_OZONE_WL = "1";
-    NEOVIDE_MULTIGRID = "1";
+    NIXOS_OZONE_WL = "1"; # Hints to apps that I'm using Wayland
     PATH = [
       "/var/lib/flatpak/exports/share/applications/"
     ];
   };
 
+  # Enable the OpenSSH daemon.
+  services.openssh = {
+    enable = true;
+    settings.PasswordAuthentication = false;
+    settings.KbdInteractiveAuthentication = false;
+  };
+
   security = {
     polkit.enable = true;
     pam.services.swaylock.text = ''
-      # PAM configuration file for swaylock. By default it includes
-      # the "login" configuration file (see /etc/pam.d/login)
       auth include login
-    '';
+    ''; # Needed for swaylock to work
   };
 
   services = {
     gvfs.enable = true; # Mount, trash, and other functionalities
     tumbler.enable = true; # Thumbnail support for images
-    gnome.gnome-keyring.enable = true;
-    printing.enable = true;
+    gnome.gnome-keyring.enable = true; # Saves passwords
     flatpak.enable = true;
+
+    # Printing
+    printing = {
+      enable = true;
+      drivers = with pkgs; [ hplip ]; # HP proprietary drivers
+    };
+    avahi = {
+      enable = true;
+      nssmdns = true;
+      openFirewall = true; # For WiFi printers
+    };
   };
 
   fonts = {
@@ -127,9 +152,6 @@
       options = "--delete-older-than 7d";
     };
   };
-
-  virtualisation.libvirtd.enable = true;
-  programs.dconf.enable = true;
 
   services.udev.packages = [
     (pkgs.writeTextFile {
