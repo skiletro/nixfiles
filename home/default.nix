@@ -66,6 +66,7 @@
     fzf
     python311
     nodejs_18
+    nix-index
 
     #gui
     xfce.thunar
