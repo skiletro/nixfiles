@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+ICON="󰕾"
+function VOLUME {
+  pamixer --get-volume
+}
+
+if [[ $1 == 'up' ]]; then
+  pamixer -i 5
+  bash ~/.config/eww/launchers/osd $ICON $(VOLUME)
+fi
+
+if [[ $1 == 'down' ]]; then
+  pamixer -d 5
+  bash ~/.config/eww/launchers/osd $ICON $(VOLUME)
+fi
