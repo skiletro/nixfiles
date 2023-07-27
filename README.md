@@ -33,7 +33,7 @@ I also use NixOS under WSL2, but it doesn't use this flake as it's primary/sole 
 - [ ] **Repo:** Update screenshot pics
 - [ ] **Eww:** Too long of a window title causes the bar to go off the screen
 - [ ] **Eww:** `,` symbol in window title causes the text to be cut off at that point
-- [ ] **Eww:** Replace swayosd for volume in the same way it has been replaced for brightness
+- [ ] **Eww:** Fix issue with custom OSD where it flickers, need to fix `osd` script
 - [ ] **General:** Seperate settings for `eris` and `themis` (*the latter requires 1.5x scaling whereas the former doesn't need any scaling*)
 - [ ] **General:** Migrate pc (`eris`) over to NixOS 
 - [ ] **GTK:** Catppuccin theme has transparent popups - need to closely monitor [catppuccin/gtk](https://github.com/catppuccin/gtk)
