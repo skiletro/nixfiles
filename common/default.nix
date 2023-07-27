@@ -51,7 +51,7 @@
     font = "${pkgs.terminus_font}/share/consolefonts/ter-132n.psf.gz";
     packages = with pkgs; [ terminus_font ];
     colors = [
-      "45475a"
+      "1e1e2e"
       "f38ba8"
       "a6e3a1"
       "f9e2af"
