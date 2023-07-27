@@ -7,10 +7,10 @@ function BRIGHTNESS {
 
 if [[ $1 == 'up' ]]; then
   brightnessctl set 5%+
-  bash ~/.config/eww/scripts/osd $ICON $(BRIGHTNESS)
+  bash ~/.config/eww/launchers/osd $ICON $(BRIGHTNESS)
 fi
 
 if [[ $1 == 'down' ]]; then
   brightnessctl set 5%-
-  bash ~/.config/eww/scripts/osd $ICON $(BRIGHTNESS)
+  bash ~/.config/eww/launchers/osd $ICON $(BRIGHTNESS)
 fi
