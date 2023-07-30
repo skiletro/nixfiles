@@ -14,7 +14,6 @@ My dotfiles that I used on my arch-based system can be found [here](https://gith
 ## Machines
 * **Eris** is the name of my desktop computer. Currently it is **not** running NixOS and is therefore missing from this repo
 * **Themis** is the name of my laptop, which is a HP Envy X360 13. Currently runs NixOS with almost no flaws
-* **Vm** is a vm I used to initially test NixOS, but has outgrown its need and will be removed in the future
 
 I also use NixOS under WSL2, but it doesn't use this flake as it's primary/sole purpose is for development flakes
 
