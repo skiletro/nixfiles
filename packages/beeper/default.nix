@@ -15,7 +15,7 @@
 
     src = fetchurl {
         url = "https://download.beeper.com/linux/appImage/x64";
-        sha256 = "sha256-Od8nuKeoQebpStR+33yJKMWf71Q9gvBqH10sGdd1PR4=";
+        sha256 = "sha256-48VRjhGVIKdmMsepbmTih8Lb4vJeCIAp6E1CfD06Tx8=";
     };
 
     extraPkgs = pkgs: with pkgs; [

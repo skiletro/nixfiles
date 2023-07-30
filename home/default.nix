@@ -11,13 +11,11 @@
 
     # Window Managers
     ./hyprland
-    #./sway
 
     # Programs
     ./fish
     ./starship
     ./kitty
-    #./foot
     ./firefox
     ./neovim
     ./vscode
@@ -27,7 +25,6 @@
     ./spicetify
     ./waybar
     ./swaylock
-    ./webcord
   ];
 
   nixpkgs.overlays = [
@@ -67,27 +64,29 @@
     python311
     nodejs_18
     nix-index
+    nix-prefetch
+    wineWowPackages.stable #wine
+    winetricks #wine
 
     #gui
     xfce.thunar
     beeper
-    bitwarden
     obsidian
     networkmanagerapplet
     xorg.xeyes
-    blender
     prismlauncher
     thunderbird
     dolphin-emu
     feh
     zotero
-    libreoffice
+    onlyoffice-bin
     obs-studio
     teams-for-linux
     vial
-    onedrivegui
-    libsForQt5.ark
+    libsForQt5.ark #zip
     pavucontrol
+    vlc
+    webcord-vencord
 
     # misc
     swayosd
@@ -97,11 +96,8 @@
     catppuccin-cursors
     xdg-utils
     libsForQt5.polkit-kde-agent
-    hunspell #libreoffice
-    hunspellDicts.en_GB-ise #libreoffice
 
     # gaming
-    inputs.nix-gaming.packages.${pkgs.system}.wine-ge
     tetrio-desktop
     
     # temp
@@ -116,6 +112,7 @@
       "application/pdf" = "firefox.desktop";
       "image/png" = "feh.desktop";
       "application/zip" = "ark.desktop";
+      "text/css" = "nvim.desktop";
     };
   };
 
