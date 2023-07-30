@@ -40,7 +40,9 @@
 
     in utils.lib.mkFlake {
       inherit self inputs;
+
       supportedSystems = [ "x86_64-linux" ];
+
       channelsConfig.allowUnfree = true;
 
       sharedOverlays = [
@@ -60,7 +62,7 @@
       outputsBuilder = channels:
         with channels.nixpkgs; {
           packages = {
-            inherit (channels.nixpkgs) beeper nvchad onedrivegui;
+            inherit (channels.nixpkgs) beeper nvchad;
           };
           devShell = channels.nixpkgs.devshell.mkShell {
             imports =

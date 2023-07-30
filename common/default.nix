@@ -100,15 +100,7 @@
     pam.services.swaylock.text = ''
       auth include login
     ''; # Required for swaylock to work
-    pam.services.greetd.text = ''
-      auth required pam_securetty.so
-      auth requisite pam_nologin.so
-      auth include system-local-login
-      auth optional pam_gnome_keyring.so
-      account include system-local-login
-      session include system-local-login
-      session optional pam_gnome_keyring.so auto_start
-    ''; # Makes sure gnome keyring works when unlocking with greetd
+    pam.services.greetd.enableGnomeKeyring = true;
   };
 
   services = {
