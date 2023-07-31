@@ -21,7 +21,7 @@
     cursorTheme.name = "Catppuccin-Mocha-Dark-Cursors";
     cursorTheme.size = 24;
 
-    font.name = "Iosevka Eos";
+    font.name = "Iosevka Comfy";
   };
 
   home.pointerCursor = {

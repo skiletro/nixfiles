@@ -8,7 +8,7 @@
     borderColor = "#CBA6F7";
     progressColor = "over #313244";
     
-    font = "Iosevka Eos 10";
+    font = "Iosevka Comfy 10";
     borderRadius = 5;
     borderSize = 2;
     
