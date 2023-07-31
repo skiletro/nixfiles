@@ -2,7 +2,7 @@
 
 {
   programs.kitty = {
-    enable = true;
+    enable = false;
     theme = "Catppuccin-Mocha";
     settings = {
       font_family = "Iosevka Comfy";

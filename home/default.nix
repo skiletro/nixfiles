@@ -15,7 +15,8 @@
     # Programs
     ./fish
     ./starship
-    ./kitty
+    ./kitty #disabled
+    ./alacritty
     ./firefox
     ./neovim
     ./vscode
