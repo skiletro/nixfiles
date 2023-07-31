@@ -4,8 +4,14 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      window.padding = { x = 10; y = 10; };
-      window.dynamic_padding = true;
+      window = {
+        padding = { x=10; y=10; };
+        dynamic_padding = true;
+      };
+      env = {
+        TERM = "xterm-256color";
+      };
+      #Catppuccin theming!
       colors = {
         primary = {
           background = "#1E1E2E"; # base
