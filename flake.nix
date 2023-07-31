@@ -32,8 +32,8 @@
           home-manager.users.jamie.imports = [
 	          inputs.hyprland.homeManagerModules.default
             inputs.spicetify-nix.homeManagerModule
-	          ./home
-	        ];
+            ./home
+          ];
           home-manager.extraSpecialArgs = { inherit inputs self; };
         }
       ];
