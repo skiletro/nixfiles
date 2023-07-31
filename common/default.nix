@@ -122,25 +122,26 @@
   };
 
   fonts = {
-    fonts = with pkgs; [
+    packages = with pkgs; [
       corefonts
       noto-fonts-emoji
       (nerdfonts.override { fonts = ["NerdFontsSymbolsOnly"]; })
-      # Iosevka takes a LONG time to compile (for a font anyway), you've been warned.
-      (iosevka.override { privateBuildPlan = builtins.readFile ./iosevka-font-patches.toml; set = "eos"; })
+      #Eos takes WAY too long to compile, so it has been replaced with comfy, which is basically what I need anyway
+      #(iosevka.override { privateBuildPlan = builtins.readFile ./iosevka-font-patches.toml; set = "eos"; })
+      iosevka-comfy.comfy
     ];
 
     fontconfig = {
       localConf = ''
       <match target="pattern">
-        <test qual="any" name="family" compare="eq"><string>Iosevka Eos</string></test>
+        <test qual="any" name="family" compare="eq"><string>Iosevka Comfy</string></test>
         <edit name="family" mode="assign" binding="same"><string>SymbolsNerdFont</string></edit>
       </match>
       '';
       defaultFonts = {
         emoji = [ "Noto Color Emoji" ];
-        monospace = [ "Iosevka Eos" ];
-        sansSerif = [ "Iosevka Eos" ];
+        monospace = [ "Iosevka Comfy" ];
+        sansSerif = [ "Iosevka Comfy" ];
       };
     };
   };
