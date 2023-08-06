@@ -25,7 +25,6 @@
     ./wofi
     ./spicetify
     ./waybar
-    ./swaylock
   ];
 
   nixpkgs.overlays = [
@@ -71,6 +70,7 @@
 
     #gui
     xfce.thunar
+    gtklock
     beeper
     obsidian
     networkmanagerapplet

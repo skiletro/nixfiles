@@ -100,6 +100,9 @@
     pam.services.swaylock.text = ''
       auth include login
     ''; # Required for swaylock to work
+    pam.services.gtklock.text = ''
+      auth include login
+    '';
     pam.services.greetd.enableGnomeKeyring = true;
   };
 
@@ -126,8 +129,6 @@
       corefonts
       noto-fonts-emoji
       (nerdfonts.override { fonts = ["NerdFontsSymbolsOnly"]; })
-      #Eos takes WAY too long to compile, so it has been replaced with comfy, which is basically what I need anyway
-      #(iosevka.override { privateBuildPlan = builtins.readFile ./iosevka-font-patches.toml; set = "eos"; })
       iosevka-comfy.comfy
     ];
 
