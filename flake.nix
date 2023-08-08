@@ -15,7 +15,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "github:hyprwm/Hyprland/9654749244117f7f150c6f2a2ce4dede6e8cbb25"; #pinned to stop crashing (pinned at 0.28.0)
 
     spicetify-nix.url = "github:the-argus/spicetify-nix";
   };
