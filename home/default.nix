@@ -80,7 +80,10 @@
     dolphin-emu
     feh
     zotero
-    onlyoffice-bin
+    libreoffice-qt
+    hunspell #libreoffice
+    hunspellDicts.en_GB-ise #libreoffice
+    onlyoffice-bin #backup office
     obs-studio
     teams-for-linux
     vial

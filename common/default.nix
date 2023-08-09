@@ -126,7 +126,8 @@
 
   fonts = {
     packages = with pkgs; [
-      corefonts
+      corefonts #ms fonts
+      vistafonts #more ms fonts
       noto-fonts-emoji
       (nerdfonts.override { fonts = ["NerdFontsSymbolsOnly"]; })
       iosevka-comfy.comfy
