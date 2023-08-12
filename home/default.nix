@@ -21,7 +21,6 @@
     ./neovim
     ./vscode
     ./eww
-    ./mako
     ./wofi
     ./spicetify
     ./waybar
@@ -94,6 +93,7 @@
 
     # misc
     swayosd
+    swaynotificationcenter
     udiskie
     gnome.adwaita-icon-theme
     catppuccin-gtk
