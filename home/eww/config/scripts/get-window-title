@@ -3,4 +3,4 @@ hyprctl activewindow -j | jq --raw-output .title
 socat -u UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | \
   stdbuf -o0 grep '^activewindow>>' | \
   stdbuf -o0 grep -Po '^.{14}\K.*' | \
-  stdbuf -o0 cut -d, -f2-
+  stdbuf -o0 cut -d, -f1

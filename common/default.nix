@@ -125,6 +125,8 @@
   };
 
   fonts = {
+    fontDir.enable = true;
+
     packages = with pkgs; [
       corefonts #ms fonts
       vistafonts #more ms fonts
