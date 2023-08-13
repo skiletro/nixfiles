@@ -15,8 +15,6 @@ My dotfiles that I used on my arch-based system can be found [here](https://gith
 * **Eris** is the name of my desktop computer. Currently it is **not** running NixOS and is therefore missing from this repo
 * **Themis** is the name of my laptop, which is a HP Envy X360 13. Currently runs NixOS with almost no flaws
 
-I also use NixOS under WSL2, but it doesn't use this flake as it's primary/sole purpose is for development flakes
-
 ## Installation Guide
 - Copy over your `configuration.nix` and `hardware-configuration.nix` to a new folder in `machines/`.
 - Rename `configuration.nix` to `default.nix`
@@ -29,11 +27,16 @@ I also use NixOS under WSL2, but it doesn't use this flake as it's primary/sole 
 * [Beeper](https://www.beeper.com/) package added
 
 ## Todo + Issues
-- [ ] **Repo:** Update screenshot pics
-- [ ] **Eww:** Too long of a window title causes the bar to go off the screen
-- [ ] **Eww:** Fix issue with custom OSD where it flickers, need to fix `osd` script
+- [ ] Format markdown correctly in `overlays/` and `packages/`
+- [ ] Figure out how to move `overlays` from `flake.nix` into a seperate file to keep it "cleaner"
+- [ ] Migrate over to AGS from EWW - has better scaling support
+- [ ] tuigreet -> regreet or gtkgreet
+- [ ] Get plymouth up and running (prob remove tty themeing)
+- [ ] Some sort of wallpaper script/system, prob using [lutgen](https://github.com/ozwaldorf/lutgen-rs)
+- [ ] **Eww:** Fix issue with custom OSD where it flickers, need to fix `osd` script (need to look into ags reimplementation too, see above)
+- [ ] Evaluate if 1.5x scaling on `themis` is adequate or if I can get away with a smaller scale
 - [ ] **General:** Seperate settings for `eris` and `themis` (*the latter requires 1.5x scaling whereas the former doesn't need any scaling*)
-- [ ] **General:** Migrate pc (`eris`) over to NixOS 
+- [ ] **General:** Migrate pc (`eris`) over to NixOS (prob not gonna happen anytime soon due to lackluster VR and Nvidia GPU support)
 - [ ] **GTK:** Catppuccin theme has transparent popups - need to closely monitor [catppuccin/gtk](https://github.com/catppuccin/gtk)
 - [ ] **Monitors:** Add shikane - need to monitor hyprlands dodgy/non-standard monitor support
 - [ ] **Fix:** xdg default applications need to be finished
