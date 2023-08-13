@@ -66,6 +66,8 @@
     nix-prefetch
     wineWowPackages.stable #wine
     winetricks #wine
+    distrobox
+    podman
 
     #gui
     xfce.thunar
