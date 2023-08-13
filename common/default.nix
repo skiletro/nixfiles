@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./greeter.nix
+  ];
+
   users.users.jamie = {
     isNormalUser = true;
     description = "Jamie";
@@ -11,17 +15,6 @@
     ];
   };
   programs.fish.enable = true;
-
-  services.greetd = {
-    enable = true;
-    package = pkgs.greetd.tuigreet;
-    settings = rec {
-      default_session = {
-        user = "jamie";
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet -r --cmd Hyprland --asterisks";
-      };
-    };
-  };
 
   # Set your time zone.
   time.timeZone = "Europe/London";
