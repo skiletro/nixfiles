@@ -92,6 +92,7 @@
     pavucontrol
     vlc
     webcord-vencord
+    gnome.gnome-font-viewer
 
     # misc
     swayosd

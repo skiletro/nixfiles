@@ -15,13 +15,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    myfonts.url = "github:skiletro/fonts/a87a2750b282255b9aea4f2aa3d9a70e8b68a1ba";
+
     hyprland.url = "github:hyprwm/Hyprland/9654749244117f7f150c6f2a2ce4dede6e8cbb25"; #pinned to stop crashing (pinned at 0.28.0)
 
     spicetify-nix.url = "github:the-argus/spicetify-nix";
   };
 
   outputs =
-    inputs@{ self, nixpkgs, home-manager, utils, devshell, hyprland, spicetify-nix, nur, ... }:
+    inputs@{ self, nixpkgs, home-manager, utils, devshell, myfonts, hyprland, spicetify-nix, nur, ... }:
     let
       desktopModules = [
         nur.nixosModules.nur
