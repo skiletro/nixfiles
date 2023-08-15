@@ -1,8 +1,14 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   swayConf = pkgs.writeText "greetd-sway-config" ''
+    output eDP-1 scale 1.5
+    
     exec "dbus-update-activation-environment --systemd WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP"
+
+    input "type:touchpad" {
+      tap enabled
+    }
 
     xwayland disable
 
@@ -12,20 +18,22 @@ let
       -b 'Power off' 'systemctl poweroff' \
       -b 'Reboot 'systemctl reboot'
 
-    exec "${pkgs.greetd.gtkgreet}/bin/gtkgreet --layer-shell --command=Hyprland; swaymsg exit"
+    exec "${pkgs.greetd.gtkgreet}/bin/gtkgreet -l; swaymsg exit"
   '';
 in {
   services.greetd = {
     enable = true;
-    package = pkgs.greetd.gtkgreet;
     settings = rec {
       default_session = {
-        # command = "${pkgs.sway}/bin/sway --config ${swayConf}";
-        command =
-          "dbus-run-session ${pkgs.cage}/bin/cage -s -- " +
-          "${pkgs.greetd.gtkgreet}/bin/gtkgreet --layer-shell --command=Hyprland";
+        command = "${pkgs.sway}/bin/sway --config ${swayConf}";
         user = "jamie";
       };
     };
   };
+
+  security.pam.services.greetd.enableGnomeKeyring = true;
+
+  environment.etc."greetd/environments".text = ''
+    Hyprland
+  '';
 }
