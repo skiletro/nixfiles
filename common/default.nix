@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -116,12 +116,14 @@
   fonts = {
     fontDir.enable = true;
 
-    packages = with pkgs; [
+    packages = (with pkgs; [
       corefonts #ms fonts
       vistafonts #more ms fonts
       noto-fonts-emoji
       (nerdfonts.override { fonts = ["NerdFontsSymbolsOnly"]; })
       iosevka-comfy.comfy
+    ]) ++ [
+      inputs.myfonts.packages.${pkgs.system}.urbanist
     ];
 
     fontconfig = {
