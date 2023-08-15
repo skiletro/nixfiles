@@ -13,6 +13,7 @@
     theme.package = pkgs.catppuccin-gtk.override {
       accents = [ "mauve" ];
       size = "standard";
+      tweaks = [ "rimless" ];
       variant = "mocha";
     };
     theme.name = "Catppuccin-Mocha-Standard-Mauve-dark";
