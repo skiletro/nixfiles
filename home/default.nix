@@ -81,7 +81,7 @@
     dolphin-emu
     feh
     zotero
-    libreoffice-qt
+    #libreoffice-qt #disabled for now since broken
     hunspell #libreoffice
     hunspellDicts.en_GB-ise #libreoffice
     onlyoffice-bin #backup office
@@ -105,7 +105,7 @@
     libsForQt5.polkit-kde-agent
 
     # gaming
-    tetrio-desktop
+    #tetrio-desktop
     
     # temp
     rofi-wayland-unwrapped
