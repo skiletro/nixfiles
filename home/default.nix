@@ -15,6 +15,7 @@
     # Programs
     ./fish
     ./starship
+    ./anyrun
     ./kitty #disabled
     ./alacritty
     ./firefox
