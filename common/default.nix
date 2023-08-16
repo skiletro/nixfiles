@@ -127,6 +127,7 @@
     ];
 
     fontconfig = {
+      enable = true;
       localConf = ''
       <match target="pattern">
         <test qual="any" name="family" compare="eq"><string>Iosevka Comfy</string></test>
