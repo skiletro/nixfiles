@@ -58,6 +58,7 @@
         nur.overlay
         (import ./packages)
         (import ./overlays/eww-git)
+        #(import ./overlays/catppuccin-gtk-git) #dont work rn
       ];
 
       hosts.themis.modules = [ ./machines/themis ] ++ desktopModules;
