@@ -40,27 +40,27 @@
   # Bigger/better tty font
   console = {
     keyMap = "uk"; # Configure console keymap
-    earlySetup = false; # Runs as soon as possible
+    earlySetup = true; # Runs as soon as possible
     #font = "${pkgs.terminus_font}/share/consolefonts/ter-132n.psf.gz";
     #packages = with pkgs; [ terminus_font ];
-    # colors = [
-    #   "1e1e2e"
-    #   "f38ba8"
-    #   "a6e3a1"
-    #   "f9e2af"
-    #   "89b4fa"
-    #   "f5c2e7"
-    #   "94e2d5"
-    #   "bac2de"
-    #   "585b70"
-    #   "f38ba8"
-    #   "a6e3a1"
-    #   "f9e2af"
-    #   "89b4fa"
-    #   "f5c2e7"
-    #   "94e2d5"
-    #   "a6adc8"
-    # ];
+    colors = [
+      "1e1e2e"
+      "f38ba8"
+      "a6e3a1"
+      "f9e2af"
+      "89b4fa"
+      "f5c2e7"
+      "94e2d5"
+      "bac2de"
+      "585b70"
+      "f38ba8"
+      "a6e3a1"
+      "f9e2af"
+      "89b4fa"
+      "f5c2e7"
+      "94e2d5"
+      "a6adc8"
+    ];
   };
 
   # Allow unfree packages
@@ -68,6 +68,14 @@
 
   # System packages that need to be accessable globally
   environment.systemPackages = with pkgs; [ ];
+
+  xdg.portal = {
+    enable = true;
+    gtkUsePortal = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+    ];
+  };
 
   # Virtualisation settings
   virtualisation.libvirtd.enable = true;
