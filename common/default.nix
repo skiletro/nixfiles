@@ -69,13 +69,7 @@
   # System packages that need to be accessable globally
   environment.systemPackages = with pkgs; [ ];
 
-  xdg.portal = {
-    enable = true;
-    gtkUsePortal = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-    ];
-  };
+  xdg.portal.enable = true;
 
   # Virtualisation settings
   virtualisation.libvirtd.enable = true;
