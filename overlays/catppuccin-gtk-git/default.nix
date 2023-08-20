@@ -1,5 +1,4 @@
-final: prev: 
-{
+final: prev: {
   catppuccin-gtk = prev.catppuccin-gtk.overrideAttrs (old: rec {
     src = prev.fetchFromGitHub {
       owner = "catppuccin";

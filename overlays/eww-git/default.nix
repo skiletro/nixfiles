@@ -1,5 +1,4 @@
-final: prev: 
-{
+final: prev: {
   eww-wayland = prev.eww-wayland.overrideAttrs (old: rec {
     src = prev.fetchFromGitHub {
       owner = "ralismark";
@@ -8,7 +7,7 @@ final: prev:
       hash = "sha256-b/ipIavlmnEq4f1cQOrOCZRnIly3uXEgFbWiREKsh20=";
     };
 
-    buildInputs = with prev; [ libdbusmenu-gtk3 glib gtk3 gdk-pixbuf gtk-layer-shell ];
+    buildInputs = with prev; [libdbusmenu-gtk3 glib gtk3 gdk-pixbuf gtk-layer-shell];
 
     cargoDeps = old.cargoDeps.overrideAttrs (prev.lib.const {
       inherit src;

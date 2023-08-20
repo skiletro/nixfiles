@@ -1,6 +1,10 @@
-{ config, pkgs, lib, inputs, ... }:
-
 {
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}: {
   gtk = {
     enable = true;
 
@@ -11,9 +15,9 @@
     iconTheme.name = "Papirus-Dark";
 
     theme.package = pkgs.catppuccin-gtk.override {
-      accents = [ "mauve" ];
+      accents = ["mauve"];
       size = "standard";
-      tweaks = [ "rimless" ];
+      tweaks = ["rimless"];
       variant = "mocha";
     };
     theme.name = "Catppuccin-Mocha-Standard-Mauve-dark";

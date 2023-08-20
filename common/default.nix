@@ -1,6 +1,9 @@
-{ config, pkgs, inputs, ... }:
-
 {
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     ./greeter.nix
   ];
@@ -8,7 +11,7 @@
   users.users.jamie = {
     isNormalUser = true;
     description = "Jamie";
-    extraGroups = [ "users" "networkmanager" "wheel" "libvirtd" ];
+    extraGroups = ["users" "networkmanager" "wheel" "libvirtd"];
     shell = pkgs.fish;
     openssh.authorizedKeys.keys = [
       "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAgrRSnsFyg9ru8G1v+u6G7muahe3N5nDmUpInhMcXrABogdzvPBxo4PFEWpARxAmUOyjvKromYmw8ClfVYWi5cwEko1jeQNBMvhLb8bax78dzVz8rmP6pksWib0pGEICa6N52XgJhJZjcZqX/7Oi6NmFqF575TDI8NOE47vf5bMVPoPQ20j/6C3Jtrrpbr7DEHCp6DwiG71UQKNbIJc3xnxKNqQ7mg/w3Be/I8niDJfZII9J0/iuxtwMsYxwdj0rvDbVrztcoGW2u5rb9H2QiIkf1X6eyUlSMWqJ1szCW2sVVOfXsS5GLtqT9nryDR2rY1eeYk6EsLzogiLk9bq4/4w== skil19"
@@ -67,7 +70,7 @@
   nixpkgs.config.allowUnfree = true;
 
   # System packages that need to be accessable globally
-  environment.systemPackages = with pkgs; [ ];
+  environment.systemPackages = with pkgs; [];
 
   xdg.portal.enable = true;
 
@@ -106,7 +109,7 @@
     # Printing
     printing = {
       enable = true;
-      drivers = with pkgs; [ hplip ]; # HP proprietary drivers
+      drivers = with pkgs; [hplip]; # HP proprietary drivers
     };
     avahi = {
       enable = true;
@@ -118,28 +121,30 @@
   fonts = {
     fontDir.enable = true;
 
-    packages = (with pkgs; [
-      corefonts #ms fonts
-      vistafonts #more ms fonts
-      noto-fonts-emoji
-      (nerdfonts.override { fonts = ["NerdFontsSymbolsOnly"]; })
-      iosevka-comfy.comfy
-    ]) ++ [
-      inputs.myfonts.packages.${pkgs.system}.urbanist
-    ];
+    packages =
+      (with pkgs; [
+        corefonts #ms fonts
+        vistafonts #more ms fonts
+        noto-fonts-emoji
+        (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+        iosevka-comfy.comfy
+      ])
+      ++ [
+        inputs.myfonts.packages.${pkgs.system}.urbanist
+      ];
 
     fontconfig = {
       enable = true;
       localConf = ''
-      <match target="pattern">
-        <test qual="any" name="family" compare="eq"><string>Iosevka Comfy</string></test>
-        <edit name="family" mode="assign" binding="same"><string>SymbolsNerdFont</string></edit>
-      </match>
+        <match target="pattern">
+          <test qual="any" name="family" compare="eq"><string>Iosevka Comfy</string></test>
+          <edit name="family" mode="assign" binding="same"><string>SymbolsNerdFont</string></edit>
+        </match>
       '';
       defaultFonts = {
-        emoji = [ "Noto Color Emoji" ];
-        monospace = [ "Iosevka Comfy" ];
-        sansSerif = [ "Iosevka Comfy" ];
+        emoji = ["Noto Color Emoji"];
+        monospace = ["Iosevka Comfy"];
+        sansSerif = ["Iosevka Comfy"];
       };
     };
   };
@@ -155,10 +160,10 @@
       auto-optimise-store = true;
       builders-use-substitutes = true;
       substituters = [
-       "https://hyprland.cachix.org"
-       "https://nix-gaming.cachix.org"
-       "https://webcord.cachix.org"
-       "https://anyrun.cachix.org"
+        "https://hyprland.cachix.org"
+        "https://nix-gaming.cachix.org"
+        "https://webcord.cachix.org"
+        "https://anyrun.cachix.org"
       ];
       trusted-public-keys = [
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
@@ -182,12 +187,11 @@
 
   services.udev.packages = [
     (pkgs.writeTextFile {
-       name = "vial_udev";
-       text = ''
+      name = "vial_udev";
+      text = ''
         KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
-       '';
-       destination = "/etc/udev/rules.d/99-vial.rules";
+      '';
+      destination = "/etc/udev/rules.d/99-vial.rules";
     }) # For vial, allows recognition of keyboards!
   ];
-
 }
