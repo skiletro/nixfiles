@@ -27,29 +27,40 @@
     spicetify-nix.url = "github:the-argus/spicetify-nix";
   };
 
-  outputs =
-    inputs@{ self, nixpkgs, home-manager, utils, devshell, myfonts, hyprland, anyrun, spicetify-nix, nur, ... }:
-    let
-      desktopModules = [
-        nur.nixosModules.nur
-        ./common
-        home-manager.nixosModules.home-manager {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.jamie.imports = [
-	          inputs.hyprland.homeManagerModules.default
-            inputs.spicetify-nix.homeManagerModule
-            inputs.anyrun.homeManagerModules.default
-            ./home
-          ];
-          home-manager.extraSpecialArgs = { inherit inputs self; };
-        }
-      ];
-
-    in utils.lib.mkFlake {
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    home-manager,
+    utils,
+    devshell,
+    myfonts,
+    hyprland,
+    anyrun,
+    spicetify-nix,
+    nur,
+    ...
+  }: let
+    desktopModules = [
+      nur.nixosModules.nur
+      ./common
+      home-manager.nixosModules.home-manager
+      {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users.jamie.imports = [
+          inputs.hyprland.homeManagerModules.default
+          inputs.spicetify-nix.homeManagerModule
+          inputs.anyrun.homeManagerModules.default
+          ./home
+        ];
+        home-manager.extraSpecialArgs = {inherit inputs self;};
+      }
+    ];
+  in
+    utils.lib.mkFlake {
       inherit self inputs;
 
-      supportedSystems = [ "x86_64-linux" ];
+      supportedSystems = ["x86_64-linux"];
 
       channelsConfig.allowUnfree = true;
 
@@ -61,11 +72,11 @@
         #(import ./overlays/catppuccin-gtk-git) #dont work rn
       ];
 
-      hosts.themis.modules = [ ./machines/themis ] ++ desktopModules;
+      hosts.themis.modules = [./machines/themis] ++ desktopModules;
 
-      hostDefaults.modules = [ 
+      hostDefaults.modules = [
         hyprland.nixosModules.default
-        { programs.hyprland.enable = true;}
+        {programs.hyprland.enable = true;}
       ];
 
       outputsBuilder = channels:
@@ -74,8 +85,7 @@
             inherit (channels.nixpkgs) beeper nvchad;
           };
           devShell = channels.nixpkgs.devshell.mkShell {
-            imports =
-              [ (channels.nixpkgs.devshell.importTOML ./devshell.toml) ];
+            imports = [(channels.nixpkgs.devshell.importTOML ./devshell.toml)];
           };
         };
     };

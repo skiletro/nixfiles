@@ -1,11 +1,18 @@
-{ config, pkgs, lib, inputs, ... }:
-
 {
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}: {
   programs.alacritty = {
     enable = true;
     settings = {
       window = {
-        padding = { x=10; y=10; };
+        padding = {
+          x = 10;
+          y = 10;
+        };
         dynamic_padding = true;
       };
       env = {
@@ -98,8 +105,14 @@
         };
 
         indexed_colors = [
-          { index = 16; color = "#FAB387"; }
-          { index = 17; color = "#F5E0DC"; }
+          {
+            index = 16;
+            color = "#FAB387";
+          }
+          {
+            index = 17;
+            color = "#F5E0DC";
+          }
         ];
       };
     };

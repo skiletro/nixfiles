@@ -1,6 +1,10 @@
-{ config, pkgs, lib, inputs, ... }:
-
 {
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}: {
   programs.vscode = {
     enable = true;
     extensions = with pkgs.vscode-extensions; [

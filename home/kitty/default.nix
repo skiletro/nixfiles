@@ -1,8 +1,12 @@
-{ config, pkgs, lib, inputs, ... }:
-
 {
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}: {
   programs.kitty = {
-    enable = false;
+    enable = true;
     theme = "Catppuccin-Mocha";
     settings = {
       font_family = "Iosevka Comfy";

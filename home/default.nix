@@ -1,7 +1,10 @@
-{ config, pkgs, lib, inputs, ... }:
-
 {
-
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}: {
   imports = [
     # Users
     ./jamie
@@ -16,8 +19,9 @@
     ./fish
     ./starship
     ./anyrun
-    ./kitty #disabled
-    ./alacritty
+    #./kitty
+    #./alacritty
+    ./foot
     ./firefox
     ./neovim
     ./vscode
@@ -30,9 +34,11 @@
   nixpkgs.overlays = [
     inputs.nur.overlay
   ];
-  
+
   home.packages = with pkgs; [
     # cli
+    alejandra
+    just
     direnv
     git
     gh
@@ -108,7 +114,7 @@
 
     # gaming
     #tetrio-desktop
-    
+
     # temp
     rofi-wayland-unwrapped
     rofi-power-menu
@@ -128,5 +134,4 @@
   home.stateVersion = "23.05";
 
   programs.home-manager.enable = true;
-
 }

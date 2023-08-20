@@ -1,7 +1,10 @@
-{ config, pkgs, lib, inputs, ... }:
-
 {
-
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}: {
   wayland.windowManager.hyprland = {
     enable = true;
 
@@ -13,5 +16,4 @@
       ${builtins.readFile ./misc.conf}
     '';
   };
-
 }

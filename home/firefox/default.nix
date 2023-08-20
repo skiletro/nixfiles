@@ -1,6 +1,10 @@
-{ config, pkgs, lib, inputs, ... }:
-
 {
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}: {
   programs.firefox = {
     enable = true;
     package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
@@ -37,15 +41,23 @@
         default = "DuckDuckGo";
         engines = {
           "Nix Packages" = {
-            urls = [{
-              template = "https://search.nixos.org/packages";
-              params = [
-                { name = "type"; value = "packages"; }
-                { name = "query"; value = "{searchTerms}"; }
-              ];
-            }];
+            urls = [
+              {
+                template = "https://search.nixos.org/packages";
+                params = [
+                  {
+                    name = "type";
+                    value = "packages";
+                  }
+                  {
+                    name = "query";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
             icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-            definedAliases = [ "@n" ];
+            definedAliases = ["@n"];
           };
         };
       };

@@ -1,7 +1,10 @@
-{ config, pkgs, lib, inputs, ... }:
-
 {
-
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}: {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -13,6 +16,5 @@
     ];
   };
   #xdg.configFile."nvim" = { source = "${pkgs.vimPlugins.nvchad}"; };
-  xdg.configFile."nvim" = { source = "${pkgs.nvchad}"; };
-
+  xdg.configFile."nvim" = {source = "${pkgs.nvchad}";};
 }
