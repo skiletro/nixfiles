@@ -27,10 +27,10 @@ My dotfiles that I used on my arch-based system can be found [here](https://gith
 * [Beeper](https://www.beeper.com/) package added
 
 ## Todo + Issues
-- [ ] ⚠️ Need to fix 20s delay when launching gtkgreet from cage
+- [ ] ⚠️ Fix anyrun stuttering (xdg issue? I have no fucking clue but it stutters)
 - [ ] Format markdown correctly in `overlays/` and `packages/`
 - [ ] Figure out how to move `overlays` from `flake.nix` into a seperate file to keep it "cleaner"
-- [ ] Migrate over to AGS from EWW - has better scaling support
+- [ ] Migrate over to AGS from EWW - has better scaling support (waiting for ags v1.0)
 - [ ] Get plymouth up and running (prob remove tty themeing)
 - [ ] Some sort of wallpaper script/system, prob using [lutgen](https://github.com/ozwaldorf/lutgen-rs)
 - [ ] **Eww:** Fix issue with custom OSD where it flickers, need to fix `osd` script (need to look into ags reimplementation too, see above)
