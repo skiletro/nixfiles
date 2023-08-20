@@ -73,6 +73,7 @@
     #gui
     xfce.thunar
     gtklock
+    wlogout
     beeper
     obsidian
     networkmanagerapplet
