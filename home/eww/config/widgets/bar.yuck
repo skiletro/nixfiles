@@ -5,7 +5,7 @@
                       :y "0%"
                       :width "100%"
                       :height "10px"
-                      :anchor "top center")
+                      :anchor "bottom center")
   (centerbox :class "widget_bar"
     (box :space-evenly false :halign "start" :class "left"
       (workspaces)
