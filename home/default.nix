@@ -20,8 +20,8 @@
     ./starship
     ./anyrun
     #./kitty
-    #./alacritty
-    ./foot
+    ./alacritty
+    #./foot
     ./firefox
     ./neovim
     ./vscode
