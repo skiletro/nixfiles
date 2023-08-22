@@ -78,7 +78,7 @@
     podman
 
     #gui
-    xfce.thunar
+    gnome.nautilus
     gtklock
     wlogout
     beeper
@@ -113,9 +113,6 @@
     xdg-utils
     libsForQt5.polkit-kde-agent
 
-    # gaming
-    #tetrio-desktop
-
     # temp
     rofi-wayland-unwrapped
     rofi-power-menu
@@ -124,7 +121,7 @@
   xdg = {
     enable = true;
     mimeApps.defaultApplications = {
-      "inode/directory" = "thunar.desktop";
+      "inode/directory" = "nautilus.desktop";
       "application/pdf" = "firefox.desktop";
       "image/png" = "feh.desktop";
       "application/zip" = "ark.desktop";
