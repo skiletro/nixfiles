@@ -44,8 +44,9 @@
     ...
   }: let
     desktopModules = [
-      nur.nixosModules.nur
       ./common
+      hyprland.nixosModules.default
+      nur.nixosModules.nur
       home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;
@@ -77,7 +78,7 @@
       hosts.themis.modules = [./machines/themis] ++ desktopModules;
 
       hostDefaults.modules = [
-        hyprland.nixosModules.default
+        #hyprland.nixosModules.default
         {programs.hyprland.enable = true;}
       ];
 
