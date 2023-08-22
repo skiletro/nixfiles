@@ -20,7 +20,7 @@ My dotfiles that I used on my arch-based system can be found [here](https://gith
 - Rename `configuration.nix` to `default.nix`
 - Add the host to the list of hosts in `flake.nix`
 - Change all the user references from `jamie` to whatever username you are using
-- Run `nix develop --extra-experimental-features flakes --extra-experimental-features nix-command` then type `rebuild` (you might need to run it another time for it to fully do its thing)
+- Run `nix develop --extra-experimental-features "flakes nix-command"` then type `rebuild` (you might need to run it another time for it to fully do its thing)
 
 ## Features
 * Patched `eww` with [systray support](https://github.com/elkowar/eww/pull/743).
