@@ -144,7 +144,7 @@
       defaultFonts = {
         emoji = ["Noto Color Emoji"];
         monospace = ["Iosevka Comfy"];
-        sansSerif = ["Iosevka Comfy"];
+        sansSerif = ["Urbanist"];
       };
     };
   };
