@@ -36,4 +36,8 @@
     gtk.enable = true;
     x11.enable = true;
   };
+
+  dconf.settings = {
+    "org/gnome/desktop/wm/preferences".button-layout = "''"; # Hides top-bar buttons
+  };
 }
