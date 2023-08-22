@@ -114,7 +114,6 @@
     libsForQt5.polkit-kde-agent
 
     # gaming
-    steam
     lutris
     heroic #epic games & gog
     protonup-qt
@@ -134,6 +133,8 @@
       "text/css" = "nvim.desktop";
     };
   };
+
+  fonts.fontconfig.enable = true;
 
   home.stateVersion = "23.05";
 

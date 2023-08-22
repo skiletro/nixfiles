@@ -194,4 +194,10 @@
       destination = "/etc/udev/rules.d/99-vial.rules";
     }) # For vial, allows recognition of keyboards!
   ];
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  };
 }
