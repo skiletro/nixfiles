@@ -27,19 +27,14 @@ My dotfiles that I used on my arch-based system can be found [here](https://gith
 * [Beeper](https://www.beeper.com/) package added
 
 ## Todo + Issues
-- [ ] ⚠️ Fix anyrun stuttering (xdg issue? I have no fucking clue but it stutters)
-- [ ] Format markdown correctly in `overlays/` and `packages/`
-- [ ] Figure out how to move `overlays` from `flake.nix` into a seperate file to keep it "cleaner"
-- [ ] Migrate over to AGS from EWW - has better scaling support (waiting for ags v1.0)
-- [ ] Get plymouth up and running (prob remove tty themeing)
-- [ ] Some sort of wallpaper script/system, prob using [lutgen](https://github.com/ozwaldorf/lutgen-rs)
-- [ ] **Eww:** Fix issue with custom OSD where it flickers, need to fix `osd` script (need to look into ags reimplementation too, see above)
-- [ ] Evaluate if 1.5x scaling on `themis` is adequate or if I can get away with a smaller scale
+- [ ] **Anyrun:** ⚠️ Fix anyrun stuttering (xdg issue? I have no fucking clue but it stutters)
+- [ ] **Flake:** Figure out how to move `overlays` from `flake.nix` into a seperate file to keep it "cleaner"
+- [ ] **Ricing:** Some sort of wallpaper script/system, prob using [lutgen](https://github.com/ozwaldorf/lutgen-rs)
+- [ ] **General:** Evaluate if 1.5x scaling on `themis` is adequate or if I can get away with a smaller scale
 - [ ] **General:** Seperate settings for `eris` and `themis` (*the latter requires 1.5x scaling whereas the former doesn't need any scaling*)
-- [ ] **General:** Migrate pc (`eris`) over to NixOS (prob not gonna happen anytime soon due to lackluster VR and Nvidia GPU support)
 - [ ] **GTK:** Catppuccin theme has transparent popups - need to closely monitor [catppuccin/gtk](https://github.com/catppuccin/gtk)
-- [ ] **Monitors:** Add shikane - need to monitor hyprlands dodgy/non-standard monitor support
 - [ ] **Fix:** xdg default applications need to be finished
-- [ ] **Flatpak:** Flatpaks need to be converted to declarative-only (flake is available to do this)
+- [ ] **Flatpak:** Move away from Flatpaks wherever a native build is possible
+- [ ] **Flatpak:** Flatpaks need to be declarable (flake is available to do this)
 
 If you can help with any of this stuff, please do a pull request as I am still learning!
