@@ -113,8 +113,14 @@
     xdg-utils
     libsForQt5.polkit-kde-agent
 
+    # gaming
+    steam
+    lutris
+    heroic #epic games & gog
+    protonup-qt
+
     # temp
-    rofi-wayland-unwrapped
+    rofi-wayland
     rofi-power-menu
   ];
 
