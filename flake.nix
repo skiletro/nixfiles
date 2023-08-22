@@ -19,6 +19,8 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
 
+    eww.url = "github:ralismark/eww/tray-3";
+
     anyrun = {
       url = "github:Kirottu/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -35,6 +37,7 @@
     devshell,
     myfonts,
     hyprland,
+    eww,
     anyrun,
     spicetify-nix,
     nur,
@@ -68,8 +71,7 @@
         devshell.overlays.default
         nur.overlay
         (import ./packages)
-        (import ./overlays/eww-git)
-        #(import ./overlays/catppuccin-gtk-git) #dont work rn
+        #(import ./overlays/eww-git)
       ];
 
       hosts.themis.modules = [./machines/themis] ++ desktopModules;
