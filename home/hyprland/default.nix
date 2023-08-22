@@ -3,6 +3,7 @@
   pkgs,
   lib,
   inputs,
+  osConfig,
   ...
 }: {
   wayland.windowManager.hyprland = {
@@ -14,6 +15,7 @@
       ${builtins.readFile ./input.conf}
       ${builtins.readFile ./binds.conf}
       ${builtins.readFile ./misc.conf}
+      ${lib.optionalString (osConfig.networking.hostName == "themis") builtins.readFile ./themis.conf}
     '';
   };
 }
