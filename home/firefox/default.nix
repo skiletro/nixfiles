@@ -68,6 +68,7 @@
       };
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         bitwarden
+        translate-web-pages
         ublock-origin
         sponsorblock
         stylus
@@ -76,7 +77,6 @@
         fediact
         youtube-shorts-block
         firemonkey
-        #bypass-paywalls-clean #broken
       ];
       # modified theme from https://github.com/Bali10050/FirefoxCSS
       userChrome = builtins.readFile ./userChrome.css;
