@@ -29,6 +29,7 @@
     ./eww
     ./wofi
     ./spicetify
+    ./btop
     ./wlogout
   ];
 
