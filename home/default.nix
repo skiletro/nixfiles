@@ -30,6 +30,7 @@
     ./wofi
     ./spicetify
     ./waybar
+    ./wlogout
   ];
 
   nixpkgs.overlays = [
