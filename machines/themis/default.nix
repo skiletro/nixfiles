@@ -8,15 +8,12 @@
     ./hardware-configuration.nix
   ];
 
+  boot.kernelPackages = pkgs.linuxKernel.kernels.linux_xanmod_latest;
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 14;
   boot.loader.efi.canTouchEfiVariables = true;
-  # boot.plymouth = {
-  #   enable = true;
-  #   themePackages = with pkgs; [ nixos-bgrt-plymouth ];
-  #   theme = "nixos-bgrt";
-  # };
 
   networking.hostName = "themis";
 
@@ -35,6 +32,7 @@
   };
 
   # Laptop battery optimisation
+  powerManagement.enable = true;
   services.tlp.enable = true;
 
   # Enable touchpad support
