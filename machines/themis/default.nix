@@ -8,8 +8,6 @@
     ./hardware-configuration.nix
   ];
 
-  boot.kernelPackages = pkgs.linuxKernel.kernels.linux_xanmod_latest;
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 14;

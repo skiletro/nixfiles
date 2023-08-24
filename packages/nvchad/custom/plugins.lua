@@ -1,14 +1,34 @@
 local plugins = {
-  
-  -- direnv, kinda its own thing?
-  { "direnv/direnv.vim", lazy = false },
 
+  -- edit lsp config
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require "plugins.configs.lspconfig"
+      require "custom.configs.lspconfig"
+    end,
+  },
+
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "html",
+        "cssls",
+        "nixd",
+        "emmet_language_server",
+        "jsonls"
+      },
+    },
+  },
+  
   -- language highlighting
   { "elkowar/yuck.vim", lazy = false},
 
+  -- rainbow delimiters
+  { "HiPhish/rainbow-delimiters.nvim" },
+
   -- ui changes
-  { "rcarriga/nvim-notify" },
-  
   { "stevearc/dressing.nvim", lazy = true },
 
   { 
@@ -30,9 +50,10 @@ local plugins = {
         inc_rename = true,
       },
     },
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+    },
   },
-
-  { "MunifTanjim/nui.nvim", lazy = true }
 
 }
 
