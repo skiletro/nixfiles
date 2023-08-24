@@ -32,9 +32,7 @@ My dotfiles that I used on my arch-based system can be found [here](https://gith
 - [ ] **Ricing:** Some sort of wallpaper script/system, prob using [lutgen](https://github.com/ozwaldorf/lutgen-rs)
 - [ ] **General:** Evaluate if 1.5x scaling on `themis` is adequate or if I can get away with a smaller scale
 - [ ] **General:** Seperate settings for `eris` and `themis` (*the latter requires 1.5x scaling whereas the former doesn't need any scaling*)
-- [ ] **GTK:** Catppuccin theme has transparent popups - need to closely monitor [catppuccin/gtk](https://github.com/catppuccin/gtk)
 - [ ] **Fix:** xdg default applications need to be finished
-- [ ] **Flatpak:** Move away from Flatpaks wherever a native build is possible
 - [ ] **Flatpak:** Flatpaks need to be declarable (flake is available to do this)
 
 If you can help with any of this stuff, please do a pull request as I am still learning!
