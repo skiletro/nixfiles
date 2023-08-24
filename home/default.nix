@@ -90,7 +90,7 @@
     dolphin-emu
     feh
     zotero
-    #libreoffice-qt #disabled for now since broken
+    libreoffice-qt
     hunspell #libreoffice
     hunspellDicts.en_GB-ise #libreoffice
     onlyoffice-bin #backup office
@@ -102,6 +102,7 @@
     vlc
     webcord-vencord
     gnome.gnome-font-viewer
+    neovide
 
     # misc
     swayosd

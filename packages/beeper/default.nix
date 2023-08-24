@@ -17,11 +17,11 @@
 in
   appimageTools.wrapType2 {
     name = "beeper";
-    version = "3.62.20";
+    version = "3.71.16";
 
     src = fetchurl {
       url = "https://download.beeper.com/linux/appImage/x64";
-      sha256 = "sha256-gUuxExz1+xUKtsZQss5Uuf4+JjWerP061qcJY+3jeco=";
+      sha256 = "sha256-Ho5zFmhNzkOmzo/btV+qZfP2GGx5XvV/1JncEKlH4vc=";
     };
 
     extraPkgs = pkgs:
