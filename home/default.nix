@@ -29,7 +29,6 @@
     ./eww
     ./wofi
     ./spicetify
-    ./waybar
     ./wlogout
   ];
 
