@@ -98,7 +98,7 @@
     obs-studio
     teams-for-linux
     vial
-    libsForQt5.ark #zip
+    gnome.file-roller #zip
     pavucontrol
     vlc
     webcord-vencord
@@ -132,7 +132,7 @@
       "inode/directory" = "nautilus.desktop";
       "application/pdf" = "firefox.desktop";
       "image/png" = "feh.desktop";
-      "application/zip" = "ark.desktop";
+      "application/zip" = "file-roller.desktop";
       "text/css" = "nvim.desktop";
     };
   };

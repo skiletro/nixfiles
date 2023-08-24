@@ -30,7 +30,6 @@ My dotfiles that I used on my arch-based system can be found [here](https://gith
 - [ ] **Anyrun:** ⚠️ Fix anyrun stuttering (xdg issue? I have no fucking clue but it stutters)
 - [ ] **Flake:** Figure out how to move `overlays` from `flake.nix` into a seperate file to keep it "cleaner"
 - [ ] **Ricing:** Some sort of wallpaper script/system, prob using [lutgen](https://github.com/ozwaldorf/lutgen-rs)
-- [ ] **General:** Evaluate if 1.5x scaling on `themis` is adequate or if I can get away with a smaller scale
 - [ ] **General:** Seperate settings for `eris` and `themis` (*the latter requires 1.5x scaling whereas the former doesn't need any scaling*)
 - [ ] **Fix:** xdg default applications need to be finished
 - [ ] **Flatpak:** Flatpaks need to be declarable (flake is available to do this)
