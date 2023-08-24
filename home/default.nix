@@ -122,6 +122,7 @@
     # temp
     rofi-wayland
     rofi-power-menu
+    lutgen
   ];
 
   xdg = {
