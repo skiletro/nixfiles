@@ -22,6 +22,7 @@
     #./kitty
     ./alacritty
     #./foot
+    ./emacs
     ./kanshi
     ./firefox
     ./neovim
