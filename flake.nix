@@ -15,6 +15,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    emacs-doom.url = "github:nix-community/nix-doom-emacs";
+    #emacs.url = "github:nix-community/emacs-overlay/c16be6de78ea878aedd0292aa5d4a1ee0a5da501"; # pinned for now, see: https://github.com/nix-community/nix-doom-emacs/issues/409
+    emacs.url = "github:nix-community/emacs-overlay";
+
     myfonts.url = "github:skiletro/fonts/a87a2750b282255b9aea4f2aa3d9a70e8b68a1ba";
 
     hyprland.url = "github:hyprwm/Hyprland";
@@ -35,6 +39,8 @@
     home-manager,
     utils,
     devshell,
+    emacs-doom,
+    emacs,
     myfonts,
     hyprland,
     eww,
@@ -55,6 +61,7 @@
           inputs.hyprland.homeManagerModules.default
           inputs.spicetify-nix.homeManagerModule
           inputs.anyrun.homeManagerModules.default
+          inputs.emacs-doom.hmModule
           ./home
         ];
         home-manager.extraSpecialArgs = {inherit inputs self;};
@@ -70,6 +77,7 @@
 
       sharedOverlays = [
         devshell.overlays.default
+        emacs.overlay
         nur.overlay
         (import ./packages)
         #(import ./overlays/eww-git)
