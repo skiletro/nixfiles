@@ -25,11 +25,6 @@
 
     eww.url = "github:ralismark/eww/tray-3";
 
-    anyrun = {
-      url = "github:Kirottu/anyrun";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     spicetify-nix.url = "github:the-argus/spicetify-nix";
   };
 
@@ -44,7 +39,6 @@
     myfonts,
     hyprland,
     eww,
-    anyrun,
     spicetify-nix,
     nur,
     ...
@@ -60,7 +54,6 @@
         home-manager.users.jamie.imports = [
           inputs.hyprland.homeManagerModules.default
           inputs.spicetify-nix.homeManagerModule
-          inputs.anyrun.homeManagerModules.default
           inputs.emacs-doom.hmModule
           ./home
         ];

@@ -10,7 +10,8 @@
     ./jamie
 
     # Settings
-    ./gtk
+    ./theme
+    ./kanshi
 
     # Window Managers
     ./hyprland
@@ -18,17 +19,15 @@
     # Programs
     ./fish
     ./starship
-    ./anyrun
+    #./foot
     #./kitty
     ./alacritty
-    #./foot
     ./emacs
-    ./kanshi
     ./firefox
     ./neovim
     ./vscode
     ./eww
-    ./wofi
+    ./fuzzel
     ./spicetify
     ./btop
     ./wlogout
@@ -78,6 +77,7 @@
     winetricks #wine
     distrobox
     podman
+    lutgen
 
     #gui
     gnome.nautilus
@@ -87,15 +87,12 @@
     obsidian
     networkmanagerapplet
     xorg.xeyes
-    prismlauncher
     thunderbird
-    dolphin-emu
     feh
     zotero
     libreoffice-qt
     hunspell #libreoffice
     hunspellDicts.en_GB-ise #libreoffice
-    onlyoffice-bin #backup office
     obs-studio
     teams-for-linux
     vial
@@ -107,7 +104,6 @@
     neovide
 
     # misc
-    swayosd
     swaynotificationcenter
     udiskie
     gnome.adwaita-icon-theme
@@ -117,14 +113,18 @@
     libsForQt5.polkit-kde-agent
 
     # gaming
+    prismlauncher
+    dolphin-emu
     lutris
     heroic #epic games & gog
     protonup-qt
+    mangohud
 
     # temp
+    fuzzel
     rofi-wayland
-    rofi-power-menu
-    lutgen
+    rofimoji
+    catimg
   ];
 
   xdg = {
