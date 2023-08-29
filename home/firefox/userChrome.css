@@ -4,6 +4,10 @@
   display: none !important;
 }
 
+.urlbar-input-box {
+  font-family: monospace;
+}
+
 /*  #reload-button, #stop-button{display:none !important}  /*  Removes the reload/stop button  */
 
 /*  #back-button, #forward-button{display: none !important}  /*  Removes the forward/back button  */
