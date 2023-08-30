@@ -16,12 +16,6 @@
 
     xwayland disable
 
-    bindsym Mod4+shift+e exec swaynag \
-      -t warning \
-      -m 'What do you want to do?'
-      -b 'Power off' 'systemctl poweroff' \
-      -b 'Reboot 'systemctl reboot'
-
     exec "${pkgs.greetd.gtkgreet}/bin/gtkgreet -l; swaymsg exit"
   '';
 in {
@@ -39,5 +33,6 @@ in {
 
   environment.etc."greetd/environments".text = ''
     Hyprland
+    sway
   '';
 }

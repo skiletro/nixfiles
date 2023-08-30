@@ -15,6 +15,7 @@
 
     # Window Managers
     ./hyprland
+    ./sway
 
     # Programs
     ./fish
