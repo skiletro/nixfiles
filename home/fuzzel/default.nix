@@ -10,7 +10,7 @@
     icon-theme=Papirus
 
     horizontal-pad=20
-    vertical-pad=20
+    vertical-pad=10
     inner-pad=20
 
     [colors]
