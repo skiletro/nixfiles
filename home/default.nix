@@ -79,6 +79,7 @@
     distrobox
     podman
     lutgen
+    nodePackages.gitmoji-cli
 
     #gui
     gnome.nautilus
