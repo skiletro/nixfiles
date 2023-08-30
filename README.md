@@ -27,11 +27,11 @@ My dotfiles that I used on my arch-based system can be found [here](https://gith
 * [Beeper](https://www.beeper.com/) package added
 
 ## Todo + Issues
-- [ ] **Anyrun:** ⚠️ Fix anyrun stuttering (xdg issue? I have no fucking clue but it stutters)
+- [ ] **Xdg:** Fix programs taking a second or two to load, assumed issue with xdg portals but need to research further
 - [ ] **Flake:** Figure out how to move `overlays` from `flake.nix` into a seperate file to keep it "cleaner"
 - [ ] **Ricing:** Some sort of wallpaper script/system, prob using [lutgen](https://github.com/ozwaldorf/lutgen-rs)
 - [ ] **General:** Seperate settings for `eris` and `themis` (*the latter requires 1.5x scaling whereas the former doesn't need any scaling*)
-- [ ] **Fix:** xdg default applications need to be finished
+- [ ] **Fix:** Xdg default applications need to be finished
 - [ ] **Flatpak:** Flatpaks need to be declarable (flake is available to do this)
 
 If you can help with any of this stuff, please do a pull request as I am still learning!
