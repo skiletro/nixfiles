@@ -29,6 +29,15 @@
     font.name = "Iosevka Comfy";
   };
 
+  qt = {
+    enable = true;
+    platformTheme = "gtk";
+    style = {
+      name = "adwaita-dark";
+      package = pkgs.adwaita-qt;
+    };
+  };
+
   home.pointerCursor = {
     package = pkgs.catppuccin-cursors.mochaDark;
     name = "Catppuccin-Mocha-Dark-Cursors";
