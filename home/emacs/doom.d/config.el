@@ -80,4 +80,6 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+(setq fancy-splash-image (expand-file-name "splash.svg" doom-user-dir))
+
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
