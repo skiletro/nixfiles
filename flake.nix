@@ -15,8 +15,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    emacs-doom.url = "github:nix-community/nix-doom-emacs";
-    emacs.url = "github:nix-community/emacs-overlay";
+    emacs-doom.url = "github:librephoenix/nix-doom-emacs?ref=pgtk-patch";
 
     myfonts.url = "github:skiletro/fonts/a87a2750b282255b9aea4f2aa3d9a70e8b68a1ba";
 
@@ -34,7 +33,6 @@
     utils,
     devshell,
     emacs-doom,
-    emacs,
     myfonts,
     hyprland,
     eww,
@@ -70,7 +68,6 @@
       sharedOverlays = [
         devshell.overlays.default
         nur.overlay
-        emacs.overlay
         (import ./packages)
         #(import ./overlays/eww-git)
       ];
