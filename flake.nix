@@ -16,7 +16,6 @@
     };
 
     emacs-doom.url = "github:nix-community/nix-doom-emacs";
-    #emacs.url = "github:nix-community/emacs-overlay/c16be6de78ea878aedd0292aa5d4a1ee0a5da501"; # pinned for now, see: https://github.com/nix-community/nix-doom-emacs/issues/409
     emacs.url = "github:nix-community/emacs-overlay";
 
     myfonts.url = "github:skiletro/fonts/a87a2750b282255b9aea4f2aa3d9a70e8b68a1ba";
@@ -70,8 +69,8 @@
 
       sharedOverlays = [
         devshell.overlays.default
-        emacs.overlay
         nur.overlay
+        emacs.overlay
         (import ./packages)
         #(import ./overlays/eww-git)
       ];
