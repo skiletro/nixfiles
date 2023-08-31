@@ -11,7 +11,7 @@
 
     # Settings
     ./theme
-    ./kanshi
+    ./kanshi #monitor matching
 
     # Window Managers
     ./hyprland
@@ -32,6 +32,7 @@
     ./spicetify
     ./btop
     ./wlogout
+    ./zathura
   ];
 
   nixpkgs.overlays = [
@@ -41,7 +42,6 @@
   home.packages = with pkgs; [
     # cli
     alejandra
-    just
     direnv
     git
     gh
@@ -79,7 +79,6 @@
     distrobox
     podman
     lutgen
-    nodePackages.gitmoji-cli
 
     #gui
     gnome.nautilus
@@ -90,7 +89,7 @@
     networkmanagerapplet
     xorg.xeyes
     thunderbird
-    feh
+    nomacs
     zotero
     libreoffice-qt
     hunspell #libreoffice
@@ -104,6 +103,7 @@
     webcord-vencord
     gnome.gnome-font-viewer
     neovide
+    inkscape
 
     # misc
     swaynotificationcenter
@@ -134,7 +134,7 @@
     mimeApps.defaultApplications = {
       "inode/directory" = "nautilus.desktop";
       "application/pdf" = "firefox.desktop";
-      "image/png" = "feh.desktop";
+      "image/png" = "nomacs.desktop";
       "application/zip" = "file-roller.desktop";
       "text/css" = "nvim.desktop";
     };
