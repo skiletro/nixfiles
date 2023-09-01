@@ -105,6 +105,12 @@
     neovide
     inkscape
 
+    # lsp
+    rust-analyzer
+    nodePackages.bash-language-server #sh and bash
+    zls #zig
+    rnix-lsp #nix
+
     # misc
     swaynotificationcenter
     udiskie
