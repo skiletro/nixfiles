@@ -27,12 +27,11 @@ My dotfiles that I used on my arch-based system can be found [here](https://gith
 * [Beeper](https://www.beeper.com/) package added
 
 ## Todo + Issues
-- [ ] **Eww**: Implement notifier for when scratchpad is open (`socat -u UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | stdbuf -o0 grep 'workspace>>special' | stdbuf -o0 cut -c1` cmd might be helpful)
-- [ ] **Xdg:** Fix programs taking a second or two to load, assumed issue with xdg portals but need to research further
+- [ ] **HM:** Move `swaync` and `rofi` config over
+- [ ] **Eww:** Implement notifier for when scratchpad is open (`socat -u UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | stdbuf -o0 grep 'workspace>>special' | stdbuf -o0 cut -c1` cmd might be helpful)
+- [ ] **Xdg:** ⚠️ Fix programs taking a second or two to load, assumed issue with xdg portals but need to research further
 - [ ] **Flake:** Figure out how to move `overlays` from `flake.nix` into a seperate file to keep it "cleaner"
 - [ ] **Ricing:** Some sort of wallpaper script/system, prob using [lutgen](https://github.com/ozwaldorf/lutgen-rs)
-- [ ] **General:** Seperate settings for `eris` and `themis` (*the latter requires 1.5x scaling whereas the former doesn't need any scaling*)
-- [ ] **Fix:** Xdg default applications need to be finished
-- [ ] **Flatpak:** Flatpaks need to be declarable (flake is available to do this)
+- [ ] **Xdg:** Xdg mime default applications need to be finished
 
 If you can help with any of this stuff, please do a pull request as I am still learning!
