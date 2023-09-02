@@ -1,7 +1,5 @@
 {
-  config,
   pkgs,
-  lib,
   ...
 }: let
   swayConf = pkgs.writeText "greetd-sway-config" ''

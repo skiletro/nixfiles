@@ -1,4 +1,4 @@
-final: prev: {
+_final: prev: {
   eww-wayland = prev.eww-wayland.overrideAttrs (old: rec {
     src = prev.fetchFromGitHub {
       owner = "ralismark";

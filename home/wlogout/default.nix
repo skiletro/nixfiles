@@ -1,6 +1,4 @@
 {
-  pkgs,
-  lib,
   ...
 }: {
   xdg.configFile."wlogout/style.css".text = ''

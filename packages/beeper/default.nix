@@ -1,9 +1,6 @@
 {
-  lib,
-  stdenv,
   appimageTools,
   fetchurl,
-  writeTextDir,
   makeDesktopItem,
 }: let
   pname = "beeper";
