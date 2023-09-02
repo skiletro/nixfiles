@@ -17,7 +17,8 @@
       ;(weather) broken rn
       (volume)
       (battery)
-      (time))))
+      (time)
+      (controlpaneltoggle))))
 
 (deflisten window :initial "..." "bash ~/.config/eww/scripts/get-window-title")
 (defwidget window_title []
@@ -33,6 +34,11 @@
       (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}"
         (box :class "${workspace.id == current_workspace ? "active" : "inactive"}" :style "padding: 0 2px 0 2px" 
           (label :text "󰝥"))))))
+
+(defwidget controlpaneltoggle []
+  (box :class "paneltoggle"
+    (eventbox :onclick "swaync-client -t -sw"
+      (label :text "󰎟"))))
 
 (defpoll get_time :interval "10s" "date '+%I:%M%p - %b %d, %Y'")
 (defwidget time []
