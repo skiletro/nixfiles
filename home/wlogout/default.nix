@@ -1,6 +1,4 @@
-{
-  ...
-}: {
+{...}: {
   xdg.configFile."wlogout/style.css".text = ''
      * {
        all: unset;
