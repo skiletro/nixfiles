@@ -28,7 +28,7 @@
     ./neovim
     ./vscode
     ./eww
-    ./fuzzel
+    ./rofi
     ./spicetify
     ./btop
     ./wlogout
@@ -129,8 +129,6 @@
     mangohud
 
     # temp
-    fuzzel
-    rofi-wayland
     rofimoji
     catimg
   ];
