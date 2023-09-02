@@ -33,9 +33,7 @@
     utils,
     devshell,
     emacs-doom,
-    myfonts,
     hyprland,
-    eww,
     spicetify-nix,
     nur,
     ...
