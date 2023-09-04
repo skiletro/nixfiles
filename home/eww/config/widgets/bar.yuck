@@ -35,12 +35,11 @@
         (box :class "${workspace.id == current_workspace ? "active" : "inactive"}" :style "padding: 0 2px 0 2px" 
           (label :text "󰝥"))))))
 
-(deflisten get_notification_count "swaync-client -swb")
+(deflisten get_notification_count "bash ~/.config/eww/scripts/get-notification-amount")
 (defwidget notifcount []
   (box :class "notifcount"
     (eventbox :onclick "eval $(echo 'swaync-client -t -sw')"
-      (label :text "${get_notification_count.text}"
-             :tooltip "${get_notification_count.tooltip}"))))
+      (label :text "${get_notification_count}"))))
 
 (defpoll get_time :interval "10s" "date '+%I:%M%p - %b %d, %Y'")
 (defwidget time []
