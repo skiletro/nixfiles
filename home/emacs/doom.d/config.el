@@ -80,6 +80,17 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+;; Fancy splash screen
 (setq fancy-splash-image (expand-file-name "splash.svg" doom-user-dir))
 
+;; Auto launch rainbow delimiters when in programming mode
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+
+;; Auto add UUID to new orgmode files on save
+(defun my/org-add-ins-to-headlines-in-file ()
+  "Add ID properties to all headlines in the current file which do not already have one"
+  (interactive)
+  (org-map-entries 'org-id-get-create))
+(add-hook 'org-mode-hook
+          (lambda ()
+            (add-hook 'before-save-hook 'my/org-add-ins-to-headlines-in-file nil 'local)))
