@@ -27,7 +27,6 @@ My dotfiles that I used on my arch-based system can be found [here](https://gith
 * [Beeper](https://www.beeper.com/) package added
 
 ## Todo + Issues
-- [ ] **HM:** Move `swaync`config over
 - [ ] **Xdg:** ⚠️ Fix programs taking a second or two to load, assumed issue with xdg portals but need to research further
 - [ ] **Flake:** Figure out how to move `overlays` from `flake.nix` into a seperate file to keep it "cleaner"
 - [ ] **Ricing:** Some sort of wallpaper script/system, prob using [lutgen](https://github.com/ozwaldorf/lutgen-rs)

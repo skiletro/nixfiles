@@ -1,0 +1,299 @@
+
+/* Catppuccin Theming */
+@define-color background #1e1e2e;
+@define-color background-darker #181825;
+@define-color accent #cba7fa;
+@define-color textclr #cdd6f4;
+
+.notification-row {
+  outline: none;
+}
+
+.notification-row:focus,
+.notification-row:hover {
+  background: transparent;
+	border-radius: 7px;
+}
+
+.notification {
+  border-radius: 7px;
+  margin: 6px 12px;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* Uncomment to enable specific urgency colors
+.low {
+  background: yellow;
+  padding: 6px;
+  border-radius: 12px;
+}
+
+.normal {
+  background: green;
+  padding: 6px;
+  border-radius: 12px;
+}
+
+.critical {
+  background: red;
+  padding: 6px;
+  border-radius: 12px;
+}
+*/
+
+.notification-content {
+  background: transparent;
+  padding: 6px;
+  border-radius: 12px;
+}
+
+.close-button {
+  background: none;
+  color: @textclr;
+  text-shadow: none;
+  padding: 0;
+  border-radius: 100%;
+  margin-top: 10px;
+  margin-right: 16px;
+  box-shadow: none;
+  border: none;
+  min-width: 24px;
+  min-height: 24px;
+}
+
+.close-button:hover {
+  box-shadow: none;
+  background: @accent;
+	color: @background;
+  transition: all 0.15s ease-in-out;
+  border: none;
+}
+
+.notification-default-action,
+.notification-action {
+  padding: 4px;
+  margin: 0;
+  box-shadow: none;
+  background: @background;
+  border: 2px solid @accent;
+  color: @textclr;
+  transition: all 0.15s ease-in-out;
+}
+
+.notification-default-action:hover,
+.notification-action:hover {
+  -gtk-icon-effect: none;
+  background: @background-darker;
+}
+
+.notification-default-action {
+  border-radius: 12px;
+}
+
+/* When alternative actions are visible */
+.notification-default-action:not(:only-child) {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.notification-action {
+  border-radius: 0px;
+  border-top: none;
+  border-right: none;
+	padding: 0;
+}
+
+/* add bottom border radius to eliminate clipping */
+.notification-action:first-child {
+  border-bottom-left-radius: 10px;
+}
+
+.notification-action:last-child {
+  border-bottom-right-radius: 10px;
+  border-right: 2px solid @accent;
+}
+
+.inline-reply {
+  margin-top: 8px;
+}
+.inline-reply-entry {
+  background: @background;
+  color: @textclr;
+  caret-color: @textclr;
+  border: 2px solid @accent;
+  border-radius: 12px;
+}
+.inline-reply-button {
+  margin-left: 4px;
+  background: red;
+  border: 2px solid @accent;
+  border-radius: 12px;
+  color: @textclr;
+}
+.inline-reply-button:disabled {
+  background: initial;
+  color: red;
+  border: 1px solid transparent;
+}
+.inline-reply-button:hover {
+  background: @background-darker;
+}
+
+.image {
+}
+
+.body-image {
+  margin-top: 6px;
+  background-color: white;
+  border-radius: 12px;
+}
+
+.summary {
+  font-size: 16px;
+  font-weight: bold;
+  background: transparent;
+  color: @textclr;
+  text-shadow: none;
+}
+
+.time {
+  font-size: 16px;
+  font-weight: bold;
+  background: transparent;
+  color: @textclr;
+  text-shadow: none;
+  margin-right: 18px;
+}
+
+.body {
+  font-size: 15px;
+  font-weight: normal;
+  background: transparent;
+  color: @textclr;
+  text-shadow: none;
+}
+
+.control-center {
+  background: @background;
+	border: 2px solid @accent;
+	border-radius: 7px;
+}
+
+.control-center-list {
+  background: transparent;
+}
+
+.control-center-list-placeholder {
+  opacity: 0.5;
+}
+
+.floating-notifications {
+  background: transparent;
+}
+
+/* Window behind control center and on all other monitors */
+.blank-window {
+  background: alpha(black, 0.0);
+}
+
+/*** Widgets ***/
+
+/* Title widget */
+.widget-title {
+  margin: 8px;
+  font-size: 1.5rem;
+}
+.widget-title > button {
+  font-size: initial;
+  color: @background;
+  text-shadow: none;
+  background: @accent;
+  border: none;
+  box-shadow: none;
+  border-radius: 7px;
+}
+/*.widget-title > button:hover {
+  background: red;
+}*/
+
+/* Mpris widget */
+.widget-mpris {
+  /* The parent to all players */
+}
+.widget-mpris-player {
+  padding: 12px;
+  margin: 0px;
+}
+.widget-mpris-title {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+.widget-mpris-subtitle {
+  font-size: 1.1rem;
+}
+
+/* .AnyName { Name defined in config after #
+  background-color: @noti-bg;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 12px;
+}
+
+.AnyName>button {
+  background: transparent;
+  border: none;
+}
+
+.AnyName>button:hover {
+  background-color: red;
+} */
+
+.topbar-buttons>button { /* Name defined in config after # */
+  border: none;
+  background: transparent;
+}
+
+/* Volume widget */
+
+.widget-volume {
+  background-color: transparent;
+  padding: 0px 0px 0px 5px;
+  margin: 8px;
+  border-radius: 12px;
+}
+
+.widget-volume>box>button {
+  background: transparent;
+  border: none;
+	padding: 0px;
+}
+
+.per-app-volume {
+  background-color: @noti-bg-alt;
+  padding: 4px 8px 8px 8px;
+  margin: 0px 8px 8px 8px;
+  border-radius: 12px
+}
+
+/* Buttons Widget */
+.widget-buttons-grid {
+  padding: 0px;
+  margin: 8px;
+  border-radius: 0px;
+  background-color: transparent;
+}
+
+.widget-buttons-grid>flowbox>flowboxchild>button{
+  background: @background;
+	color: @textclr;
+	font-size: 1em;
+  border-radius: 7px;
+	border: 2px solid @accent;
+	padding: 5px 160px 5px 5px;
+}
+
+.widget-buttons-grid>flowbox>flowboxchild>button:hover {
+  background: @accent;
+	color: @background;
+}
