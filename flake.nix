@@ -80,7 +80,7 @@
       outputsBuilder = channels:
         with channels.nixpkgs; {
           packages = {
-            inherit (channels.nixpkgs) beeper nvchad;
+            inherit (channels.nixpkgs) beeper nvchad lutgen;
           };
           devShell = channels.nixpkgs.devshell.mkShell {
             imports = [(channels.nixpkgs.devshell.importTOML ./devshell.toml)];
