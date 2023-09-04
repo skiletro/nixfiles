@@ -51,3 +51,4 @@
 
 (package! catppuccin-theme)
 (package! yuck-mode) ; editing yuck
+(package! rainbow-mode) ; preview colours indocument
