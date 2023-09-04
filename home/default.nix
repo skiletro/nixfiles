@@ -31,6 +31,7 @@
     ./btop
     ./wlogout
     ./zathura
+    ./swaync
   ];
 
   nixpkgs.overlays = [
