@@ -7,6 +7,7 @@
 	"control-center-margin-bottom": 5,
 	"control-center-margin-right": 5,
 	"control-center-margin-left": 5,
+	"control-center-width": 400,
 	"fit-to-screen": true,
 
 	"layer": "top",
@@ -26,10 +27,11 @@
 	"script-fail-notify": true,
 
 	"widgets": [
-    "volume",
+		"menubar",
+		"volume",
 		"buttons-grid",
 		"mpris",
-    "title",
+		"title",
 		"notifications"
 	],
 	"widget-config": {
@@ -39,10 +41,6 @@
 			"empty-list-label": "No programs are playing...",
 			"expand-button-label": "",
 			"collapse-button-label": ""
-		},
-		"mpris": {
-			"image-size": 96,
-			"image-radius": 12
 		},
 		"buttons-grid": {
 			"actions": [
@@ -56,7 +54,46 @@
 				}
 			]
 		},
-	  "title": {
+		"menubar": {
+			"buttons#misc": {
+				"position": "left",
+				"actions": [
+					{
+						"label": "󰌾",
+						"command": "swaync-client -t;gtklock"
+					},
+					{
+						"label": "󱄠",
+						"command": "swaync-client -t;pavucontrol"
+					},
+					{
+						"label": "󱩌",
+						"command": "pgrep wlsunset >/dev/null 2>&1 && pkill wlsunset || wlsunset -l 51.507351 -L -0.127758 &"
+					},
+					{
+						"label": "󰘿",
+						"command": "swaync-client -t;alacritty -T 'onedrive-popup' -e 'onedrive' -- --synchronize"
+					},
+					{
+						"label": "",
+						"command": "swaync-client -t;eww kill;eww daemon;sleep 1;eww open bar"
+					},
+					{
+						"label": "󰨇",
+						"command": "swaync-client -t;alacritty -T 'btop-popup' -e 'btop'"
+					},
+					{
+						"label": "󰐥",
+						"command": "swaync-client -t;wlogout -b 1 -p layer-shell"
+					}
+				]
+			}
+		},
+		"mpris": {
+			"image-size": 96,
+			"image-radius": 12
+		},
+		"title": {
 			"text": "Notifications",
 			"clear-all-button": true,
 			"button-text": "Clear All"
