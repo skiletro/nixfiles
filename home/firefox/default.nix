@@ -53,6 +53,20 @@
             icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
             definedAliases = ["@n"];
           };
+          "Flathub" = {
+            urls = [
+              {
+                template = "https://flathub.org/apps/search";
+                params = [
+                  {
+                    name = "q";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+            definedAliases = ["@flathub" "@fh"];
+          };
         };
       };
       settings = {
