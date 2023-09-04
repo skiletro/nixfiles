@@ -22,12 +22,15 @@ My dotfiles that I used on my arch-based system can be found [here](https://gith
 - Change all the user references from `jamie` to whatever username you are using
 - Run `nix develop --extra-experimental-features "flakes nix-command"` then type `rebuild` (you might need to run it another time for it to fully do its thing)
 
-## Features
-* Patched `eww` with [systray support](https://github.com/elkowar/eww/pull/743).
-* [Beeper](https://www.beeper.com/) package added
+## Flake features
+* [Beeper](https://www.beeper.com/)
+* [lutgen-rs](https://github.com/ozwaldorf/lutgen-rs)
+* [NvChad](https://nvchad.com/) - bit dodgy but can be used like [this](https://github.com/skiletro/nixfiles/blob/f2459817670ce5d11a5094ae4b4006e3d52501df/home/neovim/default.nix)
+
 
 ## Todo + Issues
-- [ ] **Xdg:** ⚠️ Fix programs taking a second or two to load, assumed issue with xdg portals but need to research further
+- [ ] **Xdg:** ⚠ Fix programs taking a second or two to load, assumed issue with xdg portals but need to research further
+- [ ] **Eww:** Clicking on the notification centre button in the top right causes the whole bar to act as the button to toggle it. Unsure why it is happening, but I assume its due to the fullscreen nature of swaync
 - [ ] **Flake:** Figure out how to move `overlays` from `flake.nix` into a seperate file to keep it "cleaner"
 - [ ] **Ricing:** Some sort of wallpaper script/system, prob using [lutgen](https://github.com/ozwaldorf/lutgen-rs)
 - [ ] **Xdg:** Xdg mime default applications need to be finished
