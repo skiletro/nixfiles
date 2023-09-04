@@ -18,7 +18,7 @@
       (volume)
       (battery)
       (time)
-      (controlpaneltoggle))))
+      (notifcount))))
 
 (deflisten window :initial "..." "bash ~/.config/eww/scripts/get-window-title")
 (defwidget window_title []
@@ -35,10 +35,12 @@
         (box :class "${workspace.id == current_workspace ? "active" : "inactive"}" :style "padding: 0 2px 0 2px" 
           (label :text "󰝥"))))))
 
-(defwidget controlpaneltoggle []
-  (box :class "paneltoggle"
-    (eventbox :onclick "swaync-client -t -sw"
-      (label :text "󰎟"))))
+(deflisten get_notification_count "swaync-client -swb")
+(defwidget notifcount []
+  (box :class "notifcount"
+    (eventbox :onclick "eval $(echo 'swaync-client -t -sw')"
+      (label :text "${get_notification_count.text}"
+             :tooltip "${get_notification_count.tooltip}"))))
 
 (defpoll get_time :interval "10s" "date '+%I:%M%p - %b %d, %Y'")
 (defwidget time []
