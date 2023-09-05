@@ -1,6 +1,8 @@
 (defwindow osd 
   :monitor 0
   :exclusive false
+  :stacking "overlay"
+  :focusable false
   :geometry (geometry :anchor "right center" :x "10px" )
   (osd)
 )
