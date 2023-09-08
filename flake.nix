@@ -72,6 +72,7 @@
       ];
 
       hosts.themis.modules = [./machines/themis] ++ desktopModules;
+      hosts.tyche.modules = [./machines/tyche];
 
       hostDefaults.modules = [
         #hyprland.nixosModules.default
