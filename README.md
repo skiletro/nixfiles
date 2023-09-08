@@ -16,11 +16,27 @@ My dotfiles that I used on my arch-based system can be found [here](https://gith
 * **Themis** is the name of my laptop, which is a HP Envy X360 13. Currently runs NixOS with almost no flaws
 
 ## Installation Guide
+- Enter a nix-shell with `nix-shell -p alejandra git neovim`
+- Clone the repo (preferably under `.nix_config` in your home directory
 - Copy over your `configuration.nix` and `hardware-configuration.nix` to a new folder in `machines/`.
 - Rename `configuration.nix` to `default.nix`
 - Add the host to the list of hosts in `flake.nix`
 - Change all the user references from `jamie` to whatever username you are using
 - Run `nix develop --extra-experimental-features "flakes nix-command"` then type `rebuild` (you might need to run it another time for it to fully do its thing)
+
+### Example
+```bash
+nix-shell -p alejandra git neovim
+cd ~
+git clone https://github.com/skiletro/nixfiles .nix_config
+cd .nix_config
+mkdir /machines/newsystem
+cp /etc/nixos/configuration.nix /machines/newsystem/default.nix
+cp /etc/nixos/hardware-configuration.nix /machines/newsystem
+nvim flake.nix # Add host to list
+nix develop --extra-experimental-features "flakes nix-command"
+rebuild # This will take a while, especially if you're using desktop modules
+```
 
 ## Flake features
 * [Beeper](https://www.beeper.com/)
