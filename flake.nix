@@ -40,7 +40,7 @@
     ...
   }: let
     desktopModules = [
-      ./common
+      ./common/desktop.nix
       hyprland.nixosModules.default
       nur.nixosModules.nur
       home-manager.nixosModules.home-manager
@@ -70,8 +70,8 @@
         (import ./packages)
       ];
 
-      hosts.themis.modules = [./machines/themis] ++ desktopModules;
-      hosts.tyche.modules = [./machines/tyche];
+      hosts.themis.modules = [./common ./machines/themis] ++ desktopModules;
+      hosts.tyche.modules = [./common ./machines/tyche];
 
       hostDefaults.modules = [];
 
