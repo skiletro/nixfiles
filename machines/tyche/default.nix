@@ -8,7 +8,7 @@
     ./hardware-configuration.nix
   ];
 
-  boot.cleanTmpDir = true;
+  boot.tmp.cleanOnBoot = true;
   zramSwap.enable = false;
   networking.hostName = "tyche";
   networking.domain = "subnet05290242.vcn05290242.oraclevcn.com";
@@ -26,25 +26,6 @@
         }
       ];
     }
-  ];
-
-  users.users.jamie = {
-    isNormalUser = true;
-    description = "Jamie";
-    extraGroups = ["users" "wheel"];
-    shell = pkgs.fish;
-    openssh.authorizedKeys.keys = [
-      ''ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINnFEMa0S9zuA5cVg+Ktazz9gEevkDCNYIDX0WAMxcAC eos''
-    ];
-  };
-  programs.fish.enable = true;
-
-  environment.systemPackages = with pkgs; [
-    alejandra
-    gh
-    direnv
-    git
-    neovim
   ];
 
   networking.firewall = {
@@ -69,4 +50,6 @@
       };
     }));
   };
+
+  system.stateVersion = "23.11";
 }

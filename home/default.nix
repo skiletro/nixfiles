@@ -40,10 +40,6 @@
 
   home.packages = with pkgs; [
     # cli
-    alejandra
-    direnv
-    git
-    gh
     wget
     unzip
     unrar
