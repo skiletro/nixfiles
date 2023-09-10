@@ -14,7 +14,6 @@
     ];
   };
   programs.fish.enable = true;
-  programs.starship.enable = true;
 
   # Bare minimum programs needed on all systems
   environment.systemPackages = with pkgs; [
