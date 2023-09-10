@@ -68,16 +68,12 @@
         devshell.overlays.default
         nur.overlay
         (import ./packages)
-        #(import ./overlays/eww-git)
       ];
 
       hosts.themis.modules = [./machines/themis] ++ desktopModules;
       hosts.tyche.modules = [./machines/tyche];
 
-      hostDefaults.modules = [
-        #hyprland.nixosModules.default
-        {programs.hyprland.enable = true;}
-      ];
+      hostDefaults.modules = [];
 
       outputsBuilder = channels:
         with channels.nixpkgs; {
@@ -87,6 +83,7 @@
           devShell = channels.nixpkgs.devshell.mkShell {
             imports = [(channels.nixpkgs.devshell.importTOML ./devshell.toml)];
           };
+          overlay = import ./overlays;
         };
     };
 }
