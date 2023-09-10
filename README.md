@@ -14,6 +14,7 @@ My dotfiles that I used on my arch-based system can be found [here](https://gith
 ## Machines
 * **Eris** is the name of my desktop computer. Currently it is **not** running NixOS and is therefore missing from this repo
 * **Themis** is the name of my laptop, which is a HP Envy X360 13. Currently runs NixOS with almost no flaws
+* **Tyche** is a really low-power VPS from Oracle that I use for misc stuff
 
 ## Installation Guide
 - Enter a nix-shell with `nix-shell -p alejandra git neovim`
