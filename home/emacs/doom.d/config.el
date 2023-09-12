@@ -86,11 +86,37 @@
 ;; Auto launch rainbow delimiters when in programming mode
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
-;; Auto add UUID to new orgmode files on save
-(defun my/org-add-ins-to-headlines-in-file ()
-  "Add ID properties to all headlines in the current file which do not already have one"
-  (interactive)
-  (org-map-entries 'org-id-get-create))
-(add-hook 'org-mode-hook
-          (lambda ()
-            (add-hook 'before-save-hook 'my/org-add-ins-to-headlines-in-file nil 'local)))
+;; Org mode
+(setq org-hide-emphasis-markers t)
+
+(defun org-icons ()
+   "Beautify org mode keywords."
+   (setq prettify-symbols-alist
+      '(("TODO" . "")
+        ("WAIT" . "")
+        ("NOPE" . "")
+        ("DONE" . "")
+        ("[#A]" . "")
+        ("[#B]" . "")
+        ("[#C]" . "")
+                  ("[ ]" . "")
+                  ("[X]" . "")
+                  ("[-]" . "")
+                  ("#+BEGIN_SRC" . "")
+                  ("#+END_SRC" . "―")
+                  (":PROPERTIES:" . "")
+                  (":END:" . "―")
+                  ("#+STARTUP:" . "")
+                  ("#+TITLE: " . "")
+                  ("#+RESULTS:" . "")
+                  ("#+NAME:" . "")
+                  ("#+ROAM_TAGS:" . "")
+                  ("#+FILETAGS:" . "")
+                  ("#+HTML_HEAD:" . "")
+                  ("#+SUBTITLE:" . "")
+                  ("#+AUTHOR:" . "")
+                  (":Effort:" . "")
+                  ("SCHEDULED:" . "")
+                  ("DEADLINE:" . "")))
+   (prettify-symbols-mode))
+(add-hook 'org-mode-hook 'org-icons)
