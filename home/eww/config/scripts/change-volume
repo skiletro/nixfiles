@@ -1,7 +1,7 @@
 #!/bin/bash
 direction=$1
 if test "$direction" = "up"; then
-    swayosd --output-volume raise
+    pamixer -i 5
 elif test "$direction" = "down"; then
-    swayosd --output-volume lower
+    pamixer -d 5
 fi
