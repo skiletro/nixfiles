@@ -46,9 +46,6 @@ rebuild # This will take a while, especially if you're using desktop modules
 
 
 ## Todo + Issues
-- [ ] **Xdg:** ⚠ Fix programs taking a second or two to load, assumed issue with xdg portals but need to research further
-- [ ] **Eww:** Clicking on the notification centre button in the top right causes the whole bar to act as the button to toggle it. Unsure why it is happening, but I assume its due to the fullscreen nature of swaync
 - [ ] **Ricing:** Some sort of wallpaper script/system, prob using [lutgen](https://github.com/ozwaldorf/lutgen-rs)
-- [ ] **Xdg:** Xdg mime default applications need to be finished
 
 If you can help with any of this stuff, please do a pull request as I am still learning!
