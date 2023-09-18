@@ -18,9 +18,10 @@
     # Programs
     ./fish
     ./starship
-    ./foot
+    #./foot
     #./kitty
-    ./alacritty
+    #./alacritty
+    ./wezterm
     ./emacs
     ./firefox
     ./neovim
