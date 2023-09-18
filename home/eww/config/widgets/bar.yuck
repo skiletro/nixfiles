@@ -32,13 +32,13 @@
     (label :text "${workspaces}${current_workspace}" :visible false)
     (for workspace in workspaces
       (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}"
-        (box :class "${workspace.id == current_workspace ? "active" : "inactive"}" :style "padding: 0 2px 0 2px" 
-          (label :text "󰝥"))))))
+        (box :class "${workspace.id == current_workspace ? "active" : "inactive"}" :style "padding: 0 2px 0 2px"
+          (label :text "${workspace.id == current_workspace ? "󰮯" : "󰧞"}"))))))
 
 (deflisten get_notification_count "bash ~/.config/eww/scripts/get-notification-amount")
 (defwidget notifcount []
   (box :class "notifcount"
-    (eventbox :onclick "eval $(echo 'swaync-client -t -sw')"
+    (eventbox :onclick "sleep 0.1;swaync-client -t -sw"
       (label :text "${get_notification_count}"))))
 
 (defpoll get_time :interval "10s" "date '+%I:%M%p - %b %d, %Y'")
