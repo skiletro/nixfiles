@@ -17,6 +17,8 @@
            top = 30,
            bottom = 30,
          },
+         default_cursor_style = 'BlinkingBar',
+         animation_fps = 40,
          check_for_updates = false,
       }
     '';
