@@ -47,5 +47,6 @@ rebuild # This will take a while, especially if you're using desktop modules
 
 ## Todo + Issues
 - [ ] **Ricing:** Some sort of wallpaper script/system, prob using [lutgen](https://github.com/ozwaldorf/lutgen-rs)
+- [ ] **Rofimoji:** Latest nixpkg version using Xorg version of Rofi rather than installed version (in my case, the Wayland fork)
 
 If you can help with any of this stuff, please do a pull request as I am still learning!
