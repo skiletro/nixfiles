@@ -23,14 +23,28 @@
     font.name = "Iosevka Comfy";
   };
 
+  #---qt themeing
   qt = {
     enable = true;
-    platformTheme = "gtk";
-    style = {
-      name = "adwaita-dark";
-      package = pkgs.adwaita-qt;
-    };
+    platformTheme = "qtct";
+    style.name = "kvantum";
   };
+  home.packages = with pkgs; [
+    libsForQt5.qtstyleplugin-kvantum
+    (catppuccin-kvantum.override {
+      accent = "Mauve";
+      variant = "Mocha";
+    })
+  ];
+
+  home.sessionVariables = {
+    QT_STYLE_OVERRIDE = "kvantum";
+  };
+
+  xdg.configFile."Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini {}).generate "kvantum.kvconfig" {
+    General.theme = "Catppucin-Mocha-Mauve";
+  };
+  #---end of qt theming
 
   home.pointerCursor = {
     package = pkgs.catppuccin-cursors.mochaDark;
