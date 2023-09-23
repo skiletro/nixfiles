@@ -33,6 +33,7 @@
     ./wlogout
     ./zathura
     ./swaync
+    ./zellij
   ];
 
   nixpkgs.overlays = [
