@@ -14,7 +14,7 @@
       tweaks = ["rimless"];
       variant = "mocha";
     };
-    theme.name = "Catppuccin-Mocha-Standard-Mauve-dark";
+    theme.name = "Catppuccin-Mocha-Standard-Mauve-Dark";
 
     cursorTheme.package = pkgs.catppuccin-cursors.mochaDark;
     cursorTheme.name = "Catppuccin-Mocha-Dark-Cursors";
@@ -23,28 +23,10 @@
     font.name = "Iosevka Comfy";
   };
 
-  #---qt themeing
   qt = {
     enable = true;
-    platformTheme = "qtct";
-    style.name = "kvantum";
+    platformTheme = "gtk";
   };
-  home.packages = with pkgs; [
-    libsForQt5.qtstyleplugin-kvantum
-    (catppuccin-kvantum.override {
-      accent = "Mauve";
-      variant = "Mocha";
-    })
-  ];
-
-  home.sessionVariables = {
-    QT_STYLE_OVERRIDE = "kvantum";
-  };
-
-  xdg.configFile."Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini {}).generate "kvantum.kvconfig" {
-    General.theme = "Catppucin-Mocha-Mauve";
-  };
-  #---end of qt theming
 
   home.pointerCursor = {
     package = pkgs.catppuccin-cursors.mochaDark;
@@ -54,7 +36,8 @@
     x11.enable = true;
   };
 
+  # Hides the close button on gnome apps
   dconf.settings = {
-    "org/gnome/desktop/wm/preferences".button-layout = "''"; # Hides top-bar buttons
+    "org/gnome/desktop/wm/preferences".button-layout = "''";
   };
 }
