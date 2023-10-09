@@ -2,8 +2,8 @@
 [[commands]]
 help = "Rebuilds nixos system."
 name = "rebuild"
-command = "alejandra * && git add . && sudo nixos-rebuild switch --flake flake.nix"
+command = "alejandra * && git add . && time sudo nixos-rebuild switch --flake flake.nix"
 [[commands]]
 help = "Update and rebuild the nixos system"
 name = "upbuild"
-command  = "alejandra * && git add . && nix flake update && sudo nixos-rebuild switch --flake flake.nix"
+command  = "alejandra * && git add . && nix flake update && time sudo nixos-rebuild switch --flake flake.nix"
