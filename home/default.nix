@@ -108,7 +108,8 @@
     nodePackages.bash-language-server #sh and bash
     zls #zig
     rnix-lsp #nix
-    tetex #latex
+    ccls # c and c++
+    texlive.combined.scheme-medium #latex
 
     # misc
     gamescope
