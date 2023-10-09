@@ -15,9 +15,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    emacs-doom.url = "github:librephoenix/nix-doom-emacs?ref=pgtk-patch";
+    #emacs-doom.url = "github:librephoenix/nix-doom-emacs?ref=pgtk-patch";
+    emacs-doom.url = "github:nix-community/nix-doom-emacs";
 
-    myfonts.url = "github:skiletro/fonts/a87a2750b282255b9aea4f2aa3d9a70e8b68a1ba";
+    myfonts.url = "github:skiletro/fonts";
 
     hyprland.url = "github:hyprwm/Hyprland";
 
