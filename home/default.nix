@@ -34,6 +34,7 @@
     ./zathura
     ./swaync
     ./zellij
+    ./bat
   ];
 
   nixpkgs.overlays = [
@@ -97,7 +98,7 @@
     gnome.file-roller #zip
     pavucontrol
     vlc
-    webcord-vencord
+    webcord
     gnome.gnome-font-viewer
     neovide
     inkscape
@@ -107,6 +108,7 @@
     nodePackages.bash-language-server #sh and bash
     zls #zig
     rnix-lsp #nix
+    tetex #latex
 
     # misc
     gamescope
@@ -129,6 +131,9 @@
     # temp
     rofimoji
     catimg
+
+    # uni
+    rstudio
   ];
 
   xdg = {
