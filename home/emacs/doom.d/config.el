@@ -86,13 +86,22 @@
 ;; Auto launch rainbow delimiters when in programming mode
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
-;; Org mode
+;; Org mode general stuff
 (setq org-roam-directory (concat (getenv "HOME") "/OneDrive/RoamNotes"))
-(setq org-hide-emphasis-markers t)
+(setq org-hide-emphasis-markers t) ;; hide stuff like the *s around *bold text*
 
 ;; Automatically toggle org mode LaTeX fragment previews (requires ~org-fragtop~)
 (add-hook 'org-mode-hook 'org-fragtog-mode)
 
+;; Custom template (mainly just to remove the timestamp from file name)
+(setq org-roam-capture-templates
+      '(("d" "default" plain "%?"
+         :target (file+head "${slug}.org"
+                            "#+title: ${title}\n#+filetags: \n")
+         :unnarrowed t)))
+
+;; More pretty org-mode icons
+(setq org-ellipsis "▸")
 (defun org-icons ()
   (interactive)
   (setq prettify-symbols-alist
