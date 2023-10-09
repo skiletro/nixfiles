@@ -13,9 +13,6 @@
   # Configure keymap in X11
   services.xserver.layout = "gb";
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   # Bigger/better tty font
   console = {
     keyMap = "uk"; # Configure console keymap
@@ -45,7 +42,7 @@
   xdg.portal.enable = true;
   xdg.portal.extraPortals = with pkgs; [
     xdg-desktop-portal-gtk
-    xdg-desktop-portal-hyprland
+    #xdg-desktop-portal-hyprland
   ];
 
   # Virtualisation settings
