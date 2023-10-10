@@ -1,9 +1,4 @@
 {...}: {
-  xdg.configFile."swaync/config.json".text = ''
-    ${builtins.readFile ./config.json}
-  '';
-
-  xdg.configFile."swaync/style.css".text = ''
-    ${builtins.readFile ./style.css}
-  '';
+  xdg.configFile."swaync/config.json".source = ./config.json;
+  xdg.configFile."swaync/style.css".source = ./style.css;
 }
