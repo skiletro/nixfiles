@@ -15,9 +15,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    #emacs-doom.url = "github:librephoenix/nix-doom-emacs?ref=pgtk-patch";
-    emacs-doom.url = "github:nix-community/nix-doom-emacs";
-
     myfonts.url = "github:skiletro/fonts";
 
     hyprland.url = "github:hyprwm/Hyprland";
@@ -34,7 +31,6 @@
     home-manager,
     utils,
     devshell,
-    emacs-doom,
     hyprland,
     spicetify-nix,
     nur,
@@ -51,7 +47,6 @@
         home-manager.users.jamie.imports = [
           inputs.hyprland.homeManagerModules.default
           inputs.spicetify-nix.homeManagerModule
-          inputs.emacs-doom.hmModule
           ./home
         ];
         home-manager.extraSpecialArgs = {inherit inputs self;};

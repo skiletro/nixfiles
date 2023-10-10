@@ -47,7 +47,6 @@ rebuild # This will take a while, especially if you're using desktop modules
 
 ## Todo + Issues
 - [ ] **Font:** Add substitution for Urbanist font for non-latin script (Russian, Japanese, Chinese, etc)
-- [ ] **Emacs:** Fix pgtk not working again
 - [ ] **WezTerm:** Fix gaps not taking into consideration scaling
 - [ ] **Ricing:** Some sort of wallpaper script/system, prob using [lutgen](https://github.com/ozwaldorf/lutgen-rs)
 - [ ] **Rofimoji:** Latest nixpkg version using Xorg version of Rofi rather than installed version (in my case, the Wayland fork)
