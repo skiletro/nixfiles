@@ -20,7 +20,7 @@
     ./starship
     #./foot
     #./kitty
-    #./alacritty
+    ./alacritty #needed for swaync))
     ./wezterm
     ./emacs
     ./firefox
