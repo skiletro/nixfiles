@@ -55,6 +55,7 @@
     PATH = [
       "/var/lib/flatpak/exports/share/applications/"
     ];
+    GDK_DPI_SCALE = "0.65"; #really hacky fix for laptop scaling issue
   };
 
   security = {
