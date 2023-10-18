@@ -23,10 +23,10 @@
           "${m}+d" = "exec ${menu}";
           "${m}+t" = "split toggle";
 
-          "${m}+left" = "focus left";
-          "${m}+down" = "focus down";
-          "${m}+up" = "focus up";
-          "${m}+right" = "focus right";
+          "${m}+Left" = "focus left";
+          "${m}+Down" = "focus down";
+          "${m}+Up" = "focus up";
+          "${m}+Right" = "focus right";
 
           # function keys
           "XF86MonBrightnessDown" = "exec light -U 10";
