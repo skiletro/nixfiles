@@ -47,8 +47,8 @@ rebuild # This will take a while, especially if you're using desktop modules
 
 ## Todo + Issues
 - [ ] **Font:** Add substitution for Urbanist font for non-latin script (Russian, Japanese, Chinese, etc)
-- [ ] **WezTerm:** Fix gaps not taking into consideration scaling
 - [ ] **Ricing:** Some sort of wallpaper script/system, prob using [lutgen](https://github.com/ozwaldorf/lutgen-rs)
 - [ ] **Rofimoji:** Latest nixpkg version using Xorg version of Rofi rather than installed version (in my case, the Wayland fork)
+- [ ] **SwayNC:** Fix little padding/gap issue
 
 If you can help with any of this stuff, please do a pull request as I am still learning!
