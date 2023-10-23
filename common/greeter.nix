@@ -4,10 +4,14 @@
     output eDP-1 background #1e1e2e solid_color
 
     exec "dbus-update-activation-environment --systemd WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP"
+    exec "eww daemon"
 
     input "type:touchpad" {
       tap enabled
     }
+
+    bindsym XF86MonBrightnessUp exec bash ~/.config/eww/launchers/set-brightness up
+    bindsym XF86MonBrightnessDown exec bash ~/.config/eww/launchers/set-brightness down
 
     xwayland disable
 
@@ -29,5 +33,6 @@ in {
   environment.etc."greetd/environments".text = ''
     Hyprland
     sway
+    labwc
   '';
 }
