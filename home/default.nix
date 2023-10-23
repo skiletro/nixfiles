@@ -20,8 +20,8 @@
     ./starship
     #./foot
     #./kitty
-    ./alacritty #needed for swaync))
-    ./wezterm
+    ./alacritty
+    #./wezterm
     ./emacs
     ./firefox
     ./neovim
@@ -103,13 +103,14 @@
     neovide
     inkscape
 
-    # lsp
+    # lsp (emacs packages)
     rust-analyzer
     nodePackages.bash-language-server #sh and bash
     zls #zig
     rnix-lsp #nix
     ccls # c and c++
     texlive.combined.scheme-medium #latex
+    pandoc #document conversion
 
     # misc
     gamescope
@@ -132,6 +133,11 @@
     # temp
     rofimoji
     catimg
+
+    #labwc stuffs
+    labwc
+    sfwbar
+    numix-gtk-theme
 
     # uni
     rstudio

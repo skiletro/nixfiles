@@ -25,30 +25,10 @@
   padding: 0;
 }
 
-/* Uncomment to enable specific urgency colors
-.low {
-  background: yellow;
-  padding: 6px;
-  border-radius: 12px;
-}
-
-.normal {
-  background: green;
-  padding: 6px;
-  border-radius: 12px;
-}
-
-.critical {
-  background: red;
-  padding: 6px;
-  border-radius: 12px;
-}
-*/
-
 .notification-content {
   background: transparent;
   padding: 6px;
-  border-radius: 12px;
+  border-radius: 7px;
 }
 
 .close-button {
@@ -91,7 +71,7 @@
 }
 
 .notification-default-action {
-  border-radius: 12px;
+  border-radius: 7px;
 }
 
 /* When alternative actions are visible */
@@ -125,13 +105,13 @@
   color: @textclr;
   caret-color: @textclr;
   border: 2px solid @accent;
-  border-radius: 12px;
+  border-radius: 7px;
 }
 .inline-reply-button {
   margin-left: 4px;
   background: red;
   border: 2px solid @accent;
-  border-radius: 12px;
+  border-radius: 7px;
   color: @textclr;
 }
 .inline-reply-button:disabled {
@@ -149,7 +129,7 @@
 .body-image {
   margin-top: 6px;
   background-color: white;
-  border-radius: 12px;
+  border-radius: 7px;
 }
 
 .summary {
@@ -236,22 +216,6 @@
   font-size: 1.1rem;
 }
 
-/* .AnyName { Name defined in config after #
-  background-color: @noti-bg;
-  padding: 8px;
-  margin: 8px;
-  border-radius: 12px;
-}
-
-.AnyName>button {
-  background: transparent;
-  border: none;
-}
-
-.AnyName>button:hover {
-  background-color: red;
-} */
-
 .topbar-buttons>button { /* Name defined in config after # */
   border: none;
   background: transparent;
@@ -263,7 +227,6 @@
   background-color: transparent;
   padding: 0px 0px 0px 5px;
   margin: 8px;
-  border-radius: 12px;
 }
 
 .widget-volume>box>button {

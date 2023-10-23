@@ -86,7 +86,7 @@
       };
 
       git_branch = {
-        symbol = "";
+        symbol = "󰘬";
         style = "fg:#11111b bg:#cba6f7";
         format = "[[ $symbol $branch ](fg:#11111b bg:#cba6f7)]($style)";
       };
@@ -128,7 +128,7 @@
       };
 
       nim = {
-        symbol = " ";
+        symbol = " ";
         style = "fg:#11111b bg:#89b4fa";
         format = "[[ $symbol ($version) ](fg:#11111b bg:#89b4fa)]($style)";
       };
