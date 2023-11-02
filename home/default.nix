@@ -131,7 +131,7 @@
     mangohud
 
     # temp
-    rofimoji
+    (rofimoji.override {rofi = pkgs.rofi-wayland;})
     catimg
 
     #labwc stuffs
