@@ -46,7 +46,6 @@ rebuild # This will take a while, especially if you're using desktop modules
 
 
 ## Todo + Issues
-- [ ] **Font:** Add substitution for Urbanist font for non-latin script (Russian, Japanese, Chinese, etc)
 - [ ] **Ricing:** Some sort of wallpaper script/system, prob using [lutgen](https://github.com/ozwaldorf/lutgen-rs)
 - [ ] **SwayNC:** Fix little padding/gap issue
 
