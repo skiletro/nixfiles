@@ -89,7 +89,10 @@
       (with pkgs; [
         corefonts #ms fonts
         vistafonts #more ms fonts
+        noto-fonts
+        noto-fonts-extra
         noto-fonts-emoji
+        babelstone-han
         (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
         iosevka-comfy.comfy
       ])
@@ -108,7 +111,7 @@
       defaultFonts = {
         emoji = ["Noto Color Emoji"];
         monospace = ["Iosevka Comfy"];
-        sansSerif = ["Urbanist"];
+        sansSerif = ["Urbanist" "Noto Sans" "Noto Fonts Extra"];
       };
     };
   };
