@@ -3,6 +3,9 @@
   programs.emacs = {
     enable = true;
     package = pkgs.emacs29-pgtk;
+    extraPackages = epkgs: [
+      epkgs.vterm
+    ];
   };
 
   xdg.configFile.".doom.d" = {
@@ -11,4 +14,15 @@
     recursive = true;
     #onChange = "${pkgs.libnotify}/bin/notify-send -u critical 'DOOM EMACS' 'Changed detected when rebuilding system. Please make sure to run `doom sync`!'";
   };
+
+  home.packages = with pkgs; [
+    rust-analyzer #rust lsp
+    nodePackages.bash-language-server #sh and bash
+    zls #zig lsp
+    rnix-lsp #nix lsp
+    ccls # c and c++ lsp
+    texlive.combined.scheme-medium #latex
+    pandoc #document conversion
+    graphviz #org roam graph generation
+  ];
 }

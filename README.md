@@ -5,14 +5,14 @@
   <img src="https://img.shields.io/github/stars/skiletro/nixfiles?color=f5c2e7&labelColor=303446&style=for-the-badge&logo=starship&logoColor=f5c2e7">
   <img src="https://img.shields.io/github/repo-size/skiletro/nixfiles?color=fab387&labelColor=303446&style=for-the-badge&logo=github&logoColor=fab387">
  <p></p>
- <img src="https://cdn.discordapp.com/attachments/999330089655345194/1135920400233156739/image.png"></img>
- <p>Screenshot last updated August 1st, 2023</p>
+ <img src="https://i.imgur.com/zSs7456.png"></img>
+ <p>Screenshot last updated November 3rd, 2023</p>
 </div>
 
 My dotfiles that I used on my arch-based system can be found [here](https://github.com/skiletro/archfiles), and are a basis for a lot of the configuration here! If you don't use NixOS, you can probably find a more standard config for the thing you are looking for over there.
 
 ## Machines
-* **Eris** is the name of my desktop computer. Currently it is **not** running NixOS and is therefore missing from this repo
+* **Eris** is the name of my desktop computer. Currently it is **not** runnining NixOS but a stripped down install of Windows 11, but I'm hoping to change that in the near future
 * **Themis** is the name of my laptop, which is a HP Envy X360 13. Currently runs NixOS with almost no flaws
 * **Tyche** is a really low-power VPS from Oracle that I use for misc stuff
 
@@ -45,8 +45,11 @@ rebuild # This will take a while, especially if you're using desktop modules
 * [NvChad](https://nvchad.com/) - bit dodgy but can be used like [this](https://github.com/skiletro/nixfiles/blob/f2459817670ce5d11a5094ae4b4006e3d52501df/home/neovim/default.nix)
 
 
-## Todo + Issues
-- [ ] **Ricing:** Some sort of wallpaper script/system, prob using [lutgen](https://github.com/ozwaldorf/lutgen-rs)
-- [ ] **SwayNC:** Fix little padding/gap issue
+## Issues
+- [ ] **SwayNC:** Fix small padding issue on notifications on the right hand of the screen
+- [ ] **Hyprland:** Make the custom `kill` script global in order to avoid having a hardcoded link in binds
+
+## Todo
+- [ ] Some sort of wallpaper script/system, prob using [lutgen](https://github.com/ozwaldorf/lutgen-rs)
 
 If you can help with any of this stuff, please do a pull request as I am still learning!

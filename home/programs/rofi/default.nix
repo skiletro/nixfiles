@@ -116,4 +116,8 @@
       };
     };
   };
+
+  home.packages = with pkgs; [
+    (rofimoji.override {rofi = pkgs.rofi-wayland;}) #Emoji picker
+  ];
 }
