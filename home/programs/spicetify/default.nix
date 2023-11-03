@@ -5,8 +5,8 @@
 }: {
   programs.spicetify = {
     enable = true;
-    theme = inputs.spicetify-nix.packages.${pkgs.system}.default.themes.catppuccin-mocha;
-    colorScheme = "mauve";
+    theme = inputs.spicetify-nix.packages.${pkgs.system}.default.themes.catppuccin;
+    colorScheme = "mocha";
 
     enabledExtensions = with inputs.spicetify-nix.packages.${pkgs.system}.default.extensions; [
       # empty :(
