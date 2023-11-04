@@ -4,14 +4,17 @@
   pkgs,
   ...
 }: {
+  imports = [
+    ./prismlauncher
+    ./mangohud
+  ];
+
   home.packages = with pkgs; [
     # Tools
-    mangohud #performance monitoring
     gamescope #needed because hyprland is weird with gaming
     protonup-qt #modify steam proton versions
 
     # Launchers
-    prismlauncher #minecraft
     #dolphin-emu #wii and gamecube emulation - disabled due to compiler issues
     lutris #non-steam games that need extra tweaking
     #heroic #epic games & gog - disabled due to security (electron)

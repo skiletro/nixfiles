@@ -1,6 +1,7 @@
 {
   lib,
   osConfig,
+  pkgs,
   ...
 }: {
   wayland.windowManager.hyprland = {
@@ -24,6 +25,7 @@
       general = {
         gaps_in = 2.5;
         gaps_out = 5;
+        border_size = 2;
         "col.active_border" = "0xffcba6f7"; #mauve
         "col.inactive_border" = "0xff11111b"; #crust
         layout = "dwindle";
@@ -71,7 +73,7 @@
         enabled = true;
 
         bezier = [
-          "smoothed, 0.05, 0.09, 0.1, 1"
+          "smoothed, 0.05, 0.9, 0.1, 1"
         ];
 
         animation = [
@@ -100,9 +102,17 @@
         "float, class:^(.blueman-manager-wrapped)$"
       ];
 
-      bind = [
+      bind = let
+        window_kill_script = pkgs.writeShellScript "window_kill_script" ''
+          if [ "$(hyprctl activewindow -j | jq -r ".class")" = "Steam" ]; then
+            ${pkgs.xdotool}/bin/xdotool getactivewindow windowunmap
+          else
+            ${pkgs.hyprland}/bin/hyprctl dispatch killactive ""
+          fi
+        '';
+      in [
         # General
-        "SUPER SHIFT, Q, exec, ~/.nix_config/home/desktops/hyprland/kill"
+        ''SUPER SHIFT, Q, exec, ${window_kill_script.outPath}''
         "SUPER SHIFT, SPACE, togglefloating, "
         "SUPER, J, togglesplit," #dwindle
 
@@ -161,17 +171,17 @@
         "SUPER, E, exec, nautilus -w"
         "SUPER, F, exec, firefox"
         "SUPER, O, exec, emacs ~/OneDrive/RoamNotes/start_here.org" #orgroam :)
-        "SUPER, N, exec, code ~/.nix_config/"
+        "SUPER, N, exec, emacs ~/.nix_config"
 
         # Media Keys
-        "XF86MonBrightnessUp, exec, bash ~/.config/eww/launchers/set-brightness up"
-        "XF86MonBrightnessDown, exec, bash ~/.config/eww/launchers/set-brightness down"
-        "XF86AudioRaiseVolume, exec, bash ~/.config/eww/launchers/set-volume up"
-        "XF86AudioLowerVolume, exec, bash ~/.config/eww/launchers/set-volume down"
-        "XF86AudioMute, exec, bash ~/.config/eww/launchers/set-volume mute"
-        "XF86AudioPlay, exec, playerctl --player=spotify,%any play-pause"
-        "XF86AudioNext, exec, playerctl --player=spotify,%any next"
-        "XF86AudioPrev, exec, playerctl --player=spotify,%any previous"
+        ", XF86MonBrightnessUp, exec, bash ~/.config/eww/launchers/set-brightness up"
+        ", XF86MonBrightnessDown, exec, bash ~/.config/eww/launchers/set-brightness down"
+        ", XF86AudioRaiseVolume, exec, bash ~/.config/eww/launchers/set-volume up"
+        ", XF86AudioLowerVolume, exec, bash ~/.config/eww/launchers/set-volume down"
+        ", XF86AudioMute, exec, bash ~/.config/eww/launchers/set-volume mute"
+        ", XF86AudioPlay, exec, playerctl --player=spotify,%any play-pause"
+        ", XF86AudioNext, exec, playerctl --player=spotify,%any next"
+        ", XF86AudioPrev, exec, playerctl --player=spotify,%any previous"
       ];
 
       bindm = [
@@ -195,9 +205,9 @@
       };
 
       env = [
-        "GTK_THEME, Catppuccin-Mocha-Standard-Mauve-Dark"
-        "QT_QPA_PLATFORMTHEME, gtk2"
-        "XCURSOR_THEME, Catppuccin-Mocha-Dark-Cursors"
+        #"GTK_THEME, Catppuccin-Mocha-Standard-Mauve-Dark"
+        #"QT_QPA_PLATFORMTHEME, gtk2"
+        #"XCURSOR_THEME, Catppuccin-Mocha-Dark-Cursors"
 
         "QT_AUTO_SCREEN_SCALE_FACTOR, 1"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION, 1"

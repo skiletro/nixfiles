@@ -5,8 +5,8 @@
 }: {
   imports = [
     ./general
-    ./desktops
-    ./programs
+    ./wms
+    ./apps
   ];
 
   nixpkgs.overlays = [

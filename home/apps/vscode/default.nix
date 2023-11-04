@@ -1,9 +1,10 @@
 {pkgs, ...}: {
   programs.vscode = {
     enable = true;
+    package = pkgs.vscodium;
     extensions = with pkgs.vscode-extensions; [
-      mkhl.direnv
       bbenoist.nix
+      kamadorueda.alejandra
       catppuccin.catppuccin-vsc
       vscode-icons-team.vscode-icons
       #eww-yuck.yuck
@@ -14,6 +15,7 @@
 
       "window.menuBarVisibility" = "toggle";
       "editor.fontFamily" = "'Iosevka Comfy', 'SymbolsNerdFont', 'monospace', monospace";
+      "terminal.integrated.fontFamily" = "'Iosevka Comfy', 'SymbolsNerdFont'";
       "workbench.colorTheme" = "Catppuccin Mocha";
       "workbench.iconTheme" = "vscode-icons";
       "vsicons.dontShowNewVersionMessage" = true;

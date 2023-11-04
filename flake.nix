@@ -45,7 +45,7 @@
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.jamie.imports = [
-          inputs.hyprland.homeManagerModules.default
+          #inputs.hyprland.homeManagerModules.default
           inputs.spicetify-nix.homeManagerModule
           ./home
         ];

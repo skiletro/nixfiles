@@ -133,8 +133,8 @@
         vistafonts #more ms fonts
         noto-fonts
         noto-fonts-extra
-        noto-fonts-emoji
-        #babelstone-han
+        noto-fonts-cjk #Japanese, Korean, Chinese, etc
+        noto-fonts-color-emoji
         (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
         iosevka-comfy.comfy
       ])
@@ -151,9 +151,9 @@
         </match>
       '';
       defaultFonts = {
-        emoji = ["Noto Color Emoji"];
-        monospace = ["Iosevka Comfy"];
+        monospace = ["Iosevka Comfy" "SymbolsNerdFont" "Noto Color Emoji"];
         sansSerif = ["Urbanist" "Noto Sans" "Noto Fonts Extra"];
+        emoji = ["Noto Color Emoji"];
       };
     };
   };
