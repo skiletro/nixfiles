@@ -1,4 +1,7 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  cursor_name = "macOS-Monterey";
+  cursor_pkg = pkgs.apple-cursor;
+in {
   gtk = {
     enable = true;
 
@@ -16,8 +19,8 @@
     };
     theme.name = "Catppuccin-Mocha-Standard-Mauve-Dark";
 
-    cursorTheme.package = pkgs.catppuccin-cursors.mochaDark;
-    cursorTheme.name = "Catppuccin-Mocha-Dark-Cursors";
+    cursorTheme.name = cursor_name;
+    cursorTheme.package = cursor_pkg;
     cursorTheme.size = 24;
 
     font.name = "Iosevka Comfy";
@@ -29,8 +32,8 @@
   };
 
   home.pointerCursor = {
-    package = pkgs.catppuccin-cursors.mochaDark;
-    name = "Catppuccin-Mocha-Dark-Cursors";
+    name = cursor_name;
+    package = cursor_pkg;
     size = 24;
     gtk.enable = true;
     x11.enable = true;
