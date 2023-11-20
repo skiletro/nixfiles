@@ -23,6 +23,7 @@
     ccls # c and c++ lsp
     texlive.combined.scheme-medium #latex
     pandoc #document conversion
+    gnuplot
     graphviz #org roam graph generation
   ];
 }

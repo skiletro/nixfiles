@@ -30,13 +30,13 @@
 (setq org-hide-emphasis-markers t) ;; hide stuff like the *s around *bold text*
 
 (after! org
-				(plist-put org-format-latex-options :scale .75))
+  (plist-put org-format-latex-options :scale .75))
 
 ;; Custom template (mainly just to remove the timestamp from file name)
 (setq org-roam-capture-templates
       '(("d" "default" plain "%?"
          :target (file+head "${slug}.org"
-                            "#+title: ${title}\n#+filetags: ")
+                            "#+title: ${title}\n#+filetags:")
          :unnarrowed t)))
 
 ;; More pretty org-mode icons
