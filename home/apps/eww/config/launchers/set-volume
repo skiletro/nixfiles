@@ -18,3 +18,4 @@ fi
 if [[ $1 == 'mute' ]]; then
   pamixer --set-volume 0
   bash ~/.config/eww/launchers/osd $ICON $(VOLUME)
+fi

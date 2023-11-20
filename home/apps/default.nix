@@ -64,6 +64,9 @@
     podman
     lutgen
     cmake
+    gnumake
+    fd
+    imagemagick
 
     # GUI Programs
     gnome.nautilus
@@ -98,6 +101,7 @@
     catppuccin-cursors
     xdg-utils
     libsForQt5.polkit-kde-agent
+    fusee-interfacee-tk #switch rcm
 
     # Programs being used as part of my university course
     rstudio
