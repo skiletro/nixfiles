@@ -15,11 +15,11 @@
     # Java 11
     temurin-jre-bin-11
     # Java 17
-    temurin-jre-bin-17
+    #temurin-jre-bin-17
     # Latest
-    temurin-jre-bin
-    zulu
-    graalvm-ce
+    #temurin-jre-bin
+    #zulu
+    #graalvm-ce
   ];
 in {
   home = {

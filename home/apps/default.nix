@@ -92,6 +92,7 @@
     gnome.gnome-font-viewer
     neovide
     inkscape
+    qdirstat
 
     # Misc (Mostly stuff to complement the compositor)
     swaynotificationcenter
