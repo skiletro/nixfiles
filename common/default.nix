@@ -93,6 +93,7 @@
 
   # Global variables (environment)
   environment.sessionVariables = rec {
+    FLAKE = "/home/jamie/.nix_config";
     NIXOS_OZONE_WL = "1"; # Hints to apps that I'm using Wayland
     PATH = [
       "/var/lib/flatpak/exports/share/applications/"

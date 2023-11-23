@@ -29,6 +29,7 @@
 
   home.packages = with pkgs; [
     # CLI Tools
+    inputs.nh.packages.${pkgs.system}.default
     wget
     unzip
     unrar
