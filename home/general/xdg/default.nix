@@ -4,6 +4,7 @@
     mimeApps.enable = true;
     mimeApps.defaultApplications = let
       browser = ["firefox.desktop"];
+      mediaPlayer = ["mpv.desktop"];
     in {
       "application/x-extension-htm" = browser;
       "application/x-extension-html" = browser;
@@ -18,12 +19,12 @@
       "x-scheme-handler/https" = browser;
       "x-scheme-handler/unknown" = browser;
 
-      "audio/*" = ["vlc.desktop"];
-      "video/*" = ["vlc.desktop"];
+      "audio/*" = mediaPlayer;
+      "video/*" = mediaPlayer;
       "image/*" = ["nomacs.desktop"];
       "text/plain" = ["nvim.desktop"];
       "application/json" = browser;
-      "application/pdf" = ["org.pwmt.zathura-pdf-mupdf.desktop"];
+      "application/pdf" = browser;
       "application/zip" = ["org.gnome.FileRoller.desktop"];
 
       "x-scheme-handler/msteams" = ["teams-for-linux.desktop"];
