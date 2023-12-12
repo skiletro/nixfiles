@@ -25,5 +25,6 @@
     pandoc #document conversion
     gnuplot
     graphviz #org roam graph generation
+    nodePackages_latest.pyright # python lsp
   ];
 }
