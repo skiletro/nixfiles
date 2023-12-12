@@ -83,8 +83,9 @@
   };
 
   xdg.portal.enable = true;
-  xdg.portal.extraPortals = with pkgs; [
-    xdg-desktop-portal-gtk
+  xdg.portal.extraPortals = [
+    inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
+    pkgs.xdg-desktop-portal-gtk
   ];
 
   # Virtualisation settings
@@ -102,7 +103,7 @@
 
   security = {
     polkit.enable = true;
-    pam.services.gtklock.text = ''
+    pam.services.swaylock.text = ''
       auth include login
     '';
   };
