@@ -1,0 +1,2 @@
+*eris:* desktop (not in use, running nvidia gpu)
+*themis:* laptop (amd apu)
