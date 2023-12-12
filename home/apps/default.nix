@@ -71,10 +71,7 @@
 
     # GUI Programs
     gnome.nautilus
-    gtklock
-    wlogout
     beeper
-    #obsidian - disabled due to security (electron)
     networkmanagerapplet
     xorg.xeyes
     thunderbird
