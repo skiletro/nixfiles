@@ -24,7 +24,6 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
 
-    #eww.url = "github:ralismark/eww/tray-3"; #tmp disabled
     eww.url = "github:hylophile/eww/dynamic-icons";
 
     spicetify-nix.url = "github:the-argus/spicetify-nix";
