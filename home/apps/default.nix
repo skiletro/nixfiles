@@ -19,7 +19,7 @@
     ./spicetify
     ./btop
     ./wlogout
-    ./zathura
+    #./zathura
     ./swaync
     ./zellij
     ./bat
@@ -76,21 +76,19 @@
     xorg.xeyes
     thunderbird
     nomacs
-    #zotero - disabled due to security
     libreoffice-qt
     hunspell #libreoffice
     hunspellDicts.en_GB-ise #libreoffice
     obs-studio
-    #teams-for-linux - disabled due to security (electron)
     vial
     gnome.file-roller #gui zip tool
     pavucontrol
-    vlc
+    mpv
     webcord
     gnome.gnome-font-viewer
-    neovide
     inkscape
     qdirstat
+    usbimager
 
     # Misc (Mostly stuff to complement the compositor)
     swaynotificationcenter
