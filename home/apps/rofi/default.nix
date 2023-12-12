@@ -3,11 +3,17 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  rofi_package = pkgs.rofi-wayland;
+in {
+  home.packages = with pkgs; [
+    (rofimoji.override {rofi = rofi_package;}) #Emoji picker
+  ];
+
   programs.rofi = rec {
     enable = true;
-    package = pkgs.rofi-wayland;
-    plugins = with pkgs; [rofi-calc rofi-emoji];
+    package = rofi_package;
+    plugins = with pkgs; [rofi-calc];
     extraConfig = {
       show-icons = true;
       display-drun = "";
@@ -116,8 +122,4 @@
       };
     };
   };
-
-  home.packages = with pkgs; [
-    (rofimoji.override {rofi = pkgs.rofi-wayland;}) #Emoji picker
-  ];
 }
