@@ -184,18 +184,21 @@
       experimental-features = nix-command flakes
     '';
 
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
-    };
-
     optimise = {
       automatic = true;
       dates = [
         "03:45"
         "07:00"
       ];
+    };
+  };
+
+  nh = {
+    # Automatic garbage collection by nh, better than inbuilt
+    enable = true;
+    clean = {
+      enable = true;
+      extraArgs = "--keep-since 4d --keep 3";
     };
   };
 
