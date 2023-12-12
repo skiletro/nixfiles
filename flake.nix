@@ -38,6 +38,7 @@
     devshell,
     hyprland,
     spicetify-nix,
+    nh,
     nur,
     ...
   }: let
@@ -45,12 +46,12 @@
       ./common
       hyprland.nixosModules.default
       nur.nixosModules.nur
+      nh.nixosModules.default
       home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.jamie.imports = [
-          #inputs.hyprland.homeManagerModules.default
           inputs.spicetify-nix.homeManagerModule
           ./home
         ];
@@ -73,7 +74,6 @@
 
       hosts.eris.modules = [./machines/eris] ++ desktopModules;
       hosts.themis.modules = [./machines/themis] ++ desktopModules;
-      #hosts.tyche.modules = [./machines/tyche];
 
       hostDefaults.modules = [];
 
