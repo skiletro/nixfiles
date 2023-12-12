@@ -2,10 +2,12 @@
   lib,
   osConfig,
   pkgs,
+  inputs,
   ...
 }: {
   wayland.windowManager.hyprland = {
     enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
 
     settings = {
       exec-once = [
@@ -13,9 +15,9 @@
         "swaync &" #notifications
         "diskie &" #auto-mounting of external storage
         "gnome-keyring-daemon --start --components=pkcs11,secrets,ssh &" #keyring
-        "exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP" #fixes apps taking forever to launch
+        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP" #fixes apps taking forever to launch
 
-        "/usr/lib/polkit-kde-authentication-agent-1" #for stuff like passwords
+        "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1" #for stuff like passwords
         "swww init;sleep 1;swww img $HOME/.bg.png"
 
         "nm-applet"
@@ -23,7 +25,7 @@
       ];
 
       general = {
-        gaps_in = 2.5;
+        gaps_in = 3;
         gaps_out = 5;
         border_size = 2;
         "col.active_border" = "0xffcba6f7"; #mauve
@@ -32,7 +34,7 @@
       };
 
       dwindle = {
-        special_scale_factor = 0.97;
+        special_scale_factor = 0.975;
         pseudotile = true;
         preserve_split = true;
       };
