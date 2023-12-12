@@ -14,7 +14,6 @@ My dotfiles that I used on my arch-based system can be found [here](https://gith
 ## Machines
 * **Eris** is the name of my desktop computer. Currently it is **not** runnining NixOS but a stripped down install of Windows 11, but I'm hoping to change that in the near future
 * **Themis** is the name of my laptop, which is a HP Envy X360 13. Currently runs NixOS with almost no flaws
-* **Tyche** is a really low-power VPS from Oracle that I use for misc stuff
 
 ## Installation Guide
 - Enter a nix-shell with `nix-shell -p alejandra git neovim`
@@ -25,20 +24,6 @@ My dotfiles that I used on my arch-based system can be found [here](https://gith
 - Change all the user references from `jamie` to whatever username you are using
 - Run `nix develop --extra-experimental-features "flakes nix-command"` then type `rebuild` (you might need to run it another time for it to fully do its thing)
 
-### Example
-```bash
-nix-shell -p alejandra git neovim
-cd ~
-git clone https://github.com/skiletro/nixfiles .nix_config
-cd .nix_config
-mkdir /machines/newsystem
-cp /etc/nixos/configuration.nix /machines/newsystem/default.nix
-cp /etc/nixos/hardware-configuration.nix /machines/newsystem
-nvim flake.nix # Add host to list
-nix develop --extra-experimental-features "flakes nix-command"
-rebuild # This will take a while, especially if you're using desktop modules
-```
-
 ## Flake features
 * [Beeper](https://www.beeper.com/)
 * [lutgen-rs](https://github.com/ozwaldorf/lutgen-rs)
@@ -47,7 +32,6 @@ rebuild # This will take a while, especially if you're using desktop modules
 
 ## Issues
 - [ ] **SwayNC:** Fix small padding issue on notifications on the right hand of the screen
-- [ ] **Hyprland:** Make the custom `kill` script global in order to avoid having a hardcoded link in binds
 
 ## Todo
 - [ ] Some sort of wallpaper script/system, prob using [lutgen](https://github.com/ozwaldorf/lutgen-rs)
