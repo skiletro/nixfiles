@@ -1,16 +1,13 @@
 {
   pkgs,
   inputs,
+  nur,
   ...
 }: {
   imports = [
     ./general
     ./wms
     ./apps
-  ];
-
-  nixpkgs.overlays = [
-    inputs.nur.overlay
   ];
 
   home.stateVersion = "23.05";
