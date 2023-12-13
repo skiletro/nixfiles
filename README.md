@@ -24,12 +24,6 @@ My dotfiles that I used on my arch-based system can be found [here](https://gith
 - Change all the user references from `jamie` to whatever username you are using
 - Run `nix develop --extra-experimental-features "flakes nix-command"` then type `rebuild` (you might need to run it another time for it to fully do its thing)
 
-## Flake features
-* [Beeper](https://www.beeper.com/)
-* [lutgen-rs](https://github.com/ozwaldorf/lutgen-rs)
-* [NvChad](https://nvchad.com/) - bit dodgy but can be used like [this](https://github.com/skiletro/nixfiles/blob/f2459817670ce5d11a5094ae4b4006e3d52501df/home/neovim/default.nix)
-
-
 ## Issues
 - [ ] **SwayNC:** Fix small padding issue on notifications on the right hand of the screen
 
