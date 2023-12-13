@@ -1,90 +1,85 @@
 {
-  description = "skiletro's config :)";
+  description = "nixfiles - Machines Config";
 
   inputs = {
+    # We're using unstable for cutting edge packages. We're fine using this
+    # because we have rollbacks
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
 
-    nh = {
-      url = "github:viperML/nh";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # Allows us to configure our home directory with Nix!
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs"; # This is so the HM flake uses our nixpkgs, instead of the nixpkgs commit in their repo
 
+    # Nice utility flake: among other things, has better garbage collection
+    nh.url = "github:viperML/nh";
+    nh.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Stands for "Nix User Repository". Has a few packages that I need, like Firefox addons
     nur.url = "github:nix-community/NUR";
 
-    devshell.url = "github:numtide/devshell";
-    devshell.inputs.nixpkgs.follows = "nixpkgs";
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
+    # Custom fonts that I use for my rice. Seperate so it's easier for other people to use
     myfonts.url = "github:skiletro/fonts";
 
+    # The Wayland compositor! Their flake is used for the -git build.
     hyprland.url = "github:hyprwm/Hyprland";
 
+    # Elkowars Wacky Widgets, used primarily for my bar and osd popups. Currently using a patch which adds a systray
     eww.url = "github:hylophile/eww/dynamic-icons";
 
-    spicetify-nix.url = "github:the-argus/spicetify-nix";
+    # Custom spotify theming
+    spicetify.url = "github:the-argus/spicetify-nix";
   };
 
-  outputs = inputs @ {
+  outputs = {
     self,
     nixpkgs,
     home-manager,
-    utils,
-    devshell,
-    hyprland,
-    spicetify-nix,
     nh,
     nur,
+    hyprland,
     ...
-  }: let
+  } @ inputs: let
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+    # Here is where all the module imports are stored
     desktopModules = [
       ./common
-      hyprland.nixosModules.default
-      nur.nixosModules.nur
+      # NixOS Modules
+      home-manager.nixosModules.default
       nh.nixosModules.default
-      home-manager.nixosModules.home-manager
+      nur.nixosModules.nur
+      hyprland.nixosModules.default
       {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.users.jamie.imports = [
-          inputs.spicetify-nix.homeManagerModule
-          ./home
+        home-manager = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          users.jamie.imports = [
+            # Home Manager Modules
+            inputs.spicetify.homeManagerModule
+            ./home
+          ];
+          extraSpecialArgs = {inherit inputs self;};
+        };
+        nixpkgs.overlays = [
+          # Nixpkgs Overlays
+          nur.overlay
+          (import ./packages)
         ];
-        home-manager.extraSpecialArgs = {inherit inputs self;};
       }
     ];
-  in
-    utils.lib.mkFlake {
-      inherit self inputs;
-
-      supportedSystems = ["x86_64-linux"];
-
-      channelsConfig.allowUnfree = true;
-
-      sharedOverlays = [
-        devshell.overlays.default
-        nur.overlay
-        (import ./packages)
-      ];
-
-      hosts.eris.modules = [./machines/eris] ++ desktopModules;
-      hosts.themis.modules = [./machines/themis] ++ desktopModules;
-
-      hostDefaults.modules = [];
-
-      outputsBuilder = channels:
-        with channels.nixpkgs; {
-          packages = {
-            inherit (channels.nixpkgs) beeper nvchad lutgen;
-          };
-          devShell = channels.nixpkgs.devshell.mkShell {
-            imports = [(channels.nixpkgs.devshell.importTOML ./devshell.toml)];
-          };
-          overlay = import ./overlays;
-        };
+  in {
+    nixosConfigurations = {
+      themis = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [./machines/themis] ++ desktopModules;
+      };
     };
+
+    devShells.${system}.default = pkgs.mkShell {
+      buildInputs = with pkgs; [
+        just
+      ];
+      shellHook = "just -l";
+    };
+  };
 }
