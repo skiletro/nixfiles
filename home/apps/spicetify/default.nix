@@ -3,16 +3,18 @@
   inputs,
   ...
 }: {
-  programs.spicetify = {
+  programs.spicetify = let
+    spicetify = inputs.spicetify.packages.${pkgs.system}.default;
+  in {
     enable = true;
-    theme = inputs.spicetify-nix.packages.${pkgs.system}.default.themes.catppuccin;
+    theme = spicetify.themes.catppuccin;
     colorScheme = "mocha";
 
-    enabledExtensions = with inputs.spicetify-nix.packages.${pkgs.system}.default.extensions; [
+    enabledExtensions = with spicetify.extensions; [
       # empty :(
     ];
 
-    enabledCustomApps = with inputs.spicetify-nix.packages.${pkgs.system}.default.apps; [
+    enabledCustomApps = with spicetify.apps; [
       nameThatTune
       lyrics-plus
     ];
