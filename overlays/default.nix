@@ -1,3 +1,3 @@
-final: prev: {
+_final: _prev: {
   #eww-git = prev.callPackage ./eww-git { };
 }
