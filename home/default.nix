@@ -1,7 +1,4 @@
 {
-  pkgs,
-  inputs,
-  nur,
   ...
 }: {
   imports = [
