@@ -11,6 +11,12 @@
     homeDirectory = "/home/jamie";
   };
 
+  manual = {
+    html.enable = false;
+    json.enable = false;
+    manpages.enable = true;
+  };
+
   # fonts work when this is enabled :shrug:
   fonts.fontconfig.enable = true;
 

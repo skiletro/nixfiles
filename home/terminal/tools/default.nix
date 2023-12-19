@@ -7,6 +7,7 @@
     ./bat
     ./btop
     ./neovim
+    ./zellij
   ];
 
   home.packages = with pkgs; [
