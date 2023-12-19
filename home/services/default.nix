@@ -1,8 +1,7 @@
 {pkgs, ...}: {
   imports = [
-    ./fish
-    ./rofi
-    ./starship
+    ./eww
+    ./swaync
     ./wlogout
   ];
 
