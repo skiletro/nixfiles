@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   imports = [
+    ./discord
     ./emacs
     ./firefox
     ./spotify
@@ -19,7 +20,6 @@
     gnome.file-roller #gui zip tool
     pavucontrol
     mpv
-    webcord
     gnome.gnome-font-viewer
     inkscape
     qdirstat
