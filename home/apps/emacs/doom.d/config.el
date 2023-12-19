@@ -1,8 +1,8 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 ;; Note: Don't need to run `doom sync` after editing
-
-(nyan-mode)
-(nyan-toggle-wavy-trail)
+(setq shell-file-name (executable-find "bash")) ;; Fixes garbage in child proccesses
+(setq-default vterm-shell (executable-find "fish")) ;; Set fish back to the vterm shell
+(setq-default explicit-shell-file-name (executable-find "fish"))
 
 (setq user-full-name "skiletro"
       user-mail-address "19377854+skiletro@users.noreply.github.com")
@@ -29,8 +29,10 @@
 
 (setq org-hide-emphasis-markers t) ;; hide stuff like the *s around *bold text*
 
-(after! org
-  (plist-put org-format-latex-options :scale .75))
+;; Bit of a hacky fix, idk if its a bug with emacs pgtk but when scaling, emacs renders weird
+(if (string= (system-name) 'themis) ;; If the hostname matches my laptop (using 1.5x scaling)...
+    (after! org
+      (plist-put org-format-latex-options :scale 0.75))) ;; ...adjust the scaling of the latex preview
 
 ;; Custom template (mainly just to remove the timestamp from file name)
 (setq org-roam-capture-templates
