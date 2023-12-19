@@ -41,7 +41,7 @@
         plugin = telescope-nvim;
         config = "lua require('telescope').setup()";
       }
-      nvim-ts-rainbow2
+      rainbow-delimiters-nvim
       {
         plugin = nvim-treesitter;
         config = ''
