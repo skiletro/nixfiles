@@ -12,7 +12,7 @@
     colorScheme = "mocha";
 
     enabledExtensions = with spicetify.extensions; [
-      # empty :(
+      songStats
     ];
 
     enabledCustomApps = with spicetify.apps; [
