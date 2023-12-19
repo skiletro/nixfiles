@@ -11,11 +11,11 @@
 
 My dotfiles that I used on my arch-based system can be found [here](https://github.com/skiletro/archfiles), and are a basis for a lot of the configuration here! If you don't use NixOS, you can probably find a more standard config for the thing you are looking for over there.
 
-## Machines
-* **Eris** is the name of my desktop computer. Currently it is **not** runnining NixOS but a stripped down install of Windows 11, but I'm hoping to change that in the near future
-* **Themis** is the name of my laptop, which is a HP Envy X360 13. Currently runs NixOS with almost no flaws
+## Goals
+- Wayland first
+- Looks pretty
 
-## Installation Guide
+## Installation Guide (WIP)
 - Enter a nix-shell with `nix-shell -p alejandra git neovim`
 - Clone the repo (preferably under `.nix_config` in your home directory
 - Copy over your `configuration.nix` and `hardware-configuration.nix` to a new folder in `machines/`.

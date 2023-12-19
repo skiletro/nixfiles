@@ -1,5 +1,5 @@
 {
-  description = "nixfiles - Machines Config";
+  description = "nixfiles - Config";
 
   inputs = {
     # We're using unstable for cutting edge packages. We're fine using this
@@ -71,13 +71,14 @@
     nixosConfigurations = {
       themis = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
-        modules = [./machines/themis] ++ desktopModules;
+        modules = [./hosts/themis] ++ desktopModules;
       };
     };
 
     devShells.${system}.default = pkgs.mkShell {
       buildInputs = with pkgs; [
-        just
+        alejandra #code formatting
+        just #command runner
       ];
       shellHook = "just -l";
     };
