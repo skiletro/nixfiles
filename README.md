@@ -30,4 +30,7 @@ My dotfiles that I used on my arch-based system can be found [here](https://gith
 ## Todo
 - [ ] Some sort of wallpaper script/system, prob using [lutgen](https://github.com/ozwaldorf/lutgen-rs)
 
+## Acknowledgements
+- [NotAShelf's Nyx Repo](https://github.com/NotAShelf/nyx) - a huge help (also I stole some stuff ;p)
+
 If you can help with any of this stuff, please do a pull request as I am still learning!
