@@ -53,4 +53,3 @@
 (package! yuck-mode) ;editing yuck
 (package! rainbow-mode) ;preview colours indocument
 (package! org-fragtog) ;auto toggle latex fragment previews
-(package! nyan-mode) ;fucking nyan cat
