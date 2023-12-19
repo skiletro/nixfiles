@@ -3,6 +3,7 @@
   inputs,
   ...
 }: {
+  imports = [inputs.spicetify.homeManagerModule];
   programs.spicetify = let
     spicetify = inputs.spicetify.packages.${pkgs.system}.default;
   in {

@@ -53,11 +53,7 @@
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
-          users.jamie.imports = [
-            # Home Manager Modules
-            inputs.spicetify.homeManagerModule
-            ./home
-          ];
+          users.jamie.imports = [./home];
           extraSpecialArgs = {inherit inputs self;};
         };
         nixpkgs.overlays = [
