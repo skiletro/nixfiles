@@ -1,5 +1,9 @@
 <div align=center>
-<h1>nixfiles</h1>
+<h3>
+  <img src="https://i.imgur.com/tSwLTKE.png" height="100"/>
+  <br/>
+  nixfiles
+</h3>
 </h2><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png" width="500" />
 <p></p>
   <img src="https://img.shields.io/github/stars/skiletro/nixfiles?color=f5c2e7&labelColor=303446&style=for-the-badge&logo=starship&logoColor=f5c2e7">
