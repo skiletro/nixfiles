@@ -13,4 +13,20 @@
         '';
       }))
   ];
+
+  xdg.configFile."discordcanary/settings.json".text = let
+    config = {
+      "SKIP_HOST_UPDATE" = true;
+      "openasar" = {
+        "setup" = true;
+        "css" = "@import url(\"https://catppuccin.github.io/discord/dist/catppuccin-mocha-mauve.theme.css\");";
+        "quickstart" = true;
+        "cmdPreset" = "balanced";
+      };
+      "IS_MAXIMIZED" = true;
+      "IS_MINIMIZED" = false;
+      "trayBalloonShown" = false;
+    };
+  in
+    builtins.toJSON config;
 }
