@@ -25,6 +25,8 @@
     pulse.enable = true;
   };
 
+  hardware.xpadneo.enable = true;
+
   # Laptop battery optimisation
   powerManagement.enable = true;
   services.tlp.enable = true;
