@@ -9,8 +9,8 @@
   <img src="https://img.shields.io/github/stars/skiletro/nixfiles?color=f5c2e7&labelColor=303446&style=for-the-badge&logo=starship&logoColor=f5c2e7">
   <img src="https://img.shields.io/github/repo-size/skiletro/nixfiles?color=fab387&labelColor=303446&style=for-the-badge&logo=github&logoColor=fab387">
  <p></p>
- <img src="https://i.imgur.com/zSs7456.png"></img>
- <p>Screenshot last updated November 3rd, 2023</p>
+ <img src="https://i.imgur.com/RoA2Ahq.png"></img>
+ <p>Screenshot last updated December 28th, 2023</p>
 </div>
 
 My dotfiles that I used on my arch-based system can be found [here](https://github.com/skiletro/archfiles), and are a basis for a lot of the configuration here! If you don't use NixOS, you can probably find a more standard config for the thing you are looking for over there.
