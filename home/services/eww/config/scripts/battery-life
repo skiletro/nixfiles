@@ -1,4 +1,0 @@
-#!/bin/bash
-#upower -i /org/freedesktop/UPower/devices/battery_BAT1 | grep -E "time to empty|time to full" | cut -d: -f2- | cut -c8-
-#acpi | grep 'Battery 1' | cut -d, -f3- | cut -d" " -f2-
-acpi | grep 'Battery 1' | cut -d' ' -f5-6
