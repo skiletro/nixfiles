@@ -3,6 +3,7 @@
     ./eww
     ./swaync
     ./wlogout
+    ./swaylock
   ];
 
   home.packages = with pkgs; [
