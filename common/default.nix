@@ -86,8 +86,8 @@
 
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [
-    inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
     pkgs.xdg-desktop-portal-gtk
+    inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
   ];
 
   # Virtualisation settings

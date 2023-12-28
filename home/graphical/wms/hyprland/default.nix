@@ -8,7 +8,9 @@
   wayland.windowManager.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-
+    # plugins = [
+    #   inputs.hyprland-plugins.packages.${pkgs.system}.borders-plus-plus
+    # ];
     settings = {
       exec-once = [
         "eww open bar"
@@ -95,6 +97,10 @@
       ];
 
       windowrulev2 = [
+        # Fixes https://github.com/hyprwm/Hyprland/issues/2661#issuecomment-1848940324
+        "stayfocused, title:^()$,class:^(steam)$"
+        "minsize 1 1, title:^()$,class:^(steam)$"
+
         "float, class:^(gamescope)$,fullscreen:1"
         "float, title:^(nmtui-popup)$"
         "float, title:^(btop-popup)$"
@@ -192,7 +198,7 @@
       ];
 
       bindl = [
-        ",switch:Lid Switch, exec, gtklock"
+        ",switch:Lid Switch, exec, swaylock"
       ];
 
       xwayland = {
@@ -228,6 +234,14 @@
 
     extraConfig = ''
       ${lib.optionalString (osConfig.networking.hostName == "themis") builtins.readFile ./themis.conf}
+      # plugin {
+      #   borders-plus-plus {
+      #     add_borders = 1
+      #     col.border_1 = rgb(1e1e2e)
+      #     border_size_1 = 2
+      #     natural_rounding = no
+      #   }
+      # }
     '';
   };
 }
