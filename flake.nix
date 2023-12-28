@@ -22,6 +22,8 @@
 
     # The Wayland compositor! Their flake is used for the -git build.
     hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
+    hyprland-plugins.inputs.hyprland.follows = "hyprland";
 
     # Elkowars Wacky Widgets, used primarily for my bar and osd popups. Currently using a patch which adds a systray
     eww.url = "github:hylophile/eww/dynamic-icons";
