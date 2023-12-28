@@ -1,0 +1,87 @@
+(defwindow cc
+  :monitor 0
+  :exclusive false
+  :stacking "overlay"
+  :geometry (geometry :anchor "top right"
+                      :x 67 ;TODO
+                      :y 10
+                      :width "400px")
+  (control_center))
+
+(defwidget control_center []
+  (box :class "widget_cc" :orientation "vertical" :space-evenly false
+    (qs)
+    (volume_slider)
+    (battery_status)))
+
+(defwidget qs []
+  (box :class "widget_qs" :orientation "vertical" :space-evenly true
+    (box :orientation "horizontal" :space-evenly true
+      (qs_network)
+      (qs_bluetooth))
+    (box :orientation "horizontal" :space-evenly true
+      (qs_nightmode)
+      (qs_sync))))
+
+(defwidget qs_network []
+  (qs_button :icon "${network.icon}"
+             :label "Network"
+             :action "alacritty -T 'nmtui-popup' -e 'nmtui' &"
+             :condition {network.value == "off" ? false : true}
+             :close-on-click true
+             :class "tl"))
+
+(defpoll bluetooth :interval "30s" `bluetooth | cut -d' ' -f3`)
+(defwidget qs_bluetooth []
+  (qs_button :icon ""
+             :label "Bluetooth"
+             :action "blueman-manager &"
+             :condition {bluetooth == "on"}
+             :close-on-click true
+             :class "tr"))
+
+(defvar nightmode "off")
+(defwidget qs_nightmode []
+  (qs_button :icon "󱩌"
+             :label "Night Mode"
+             ; this action command is horrendous but it _works_
+             :action "pgrep wlsunset >/dev/null 2>&1 && `${EWW_CMD} update nightmode='off';pkill wlsunset` || `${EWW_CMD} update nightmode='on';wlsunset -l 51.507351 -L -0.127758`"
+             :condition {nightmode == "on"}
+             :close-on-click false
+             :class "bl"))
+
+(defwidget qs_sync []
+  (qs_button :icon "󰘿"
+             :label "Cloud Sync"
+             :action "alacritty -T 'onedrive-popup' -e 'onedrive' -- --synchronize"
+             :condition false
+             :close-on-click true
+             :class "br"))
+
+(defwidget qs_button [icon label action condition class close-on-click]
+    (button :class {condition ? "qs_button active ${class}" : "qs_button inactive ${class}"}
+            :onclick {close-on-click ? "${EWW_CMD} close cc;${action}" : "${action}"}
+            :timeout "10s"
+        (box :orientation "h" :space-evenly false
+            (box :orientation "h" :space-evenly false :halign "start"
+                (label :class "icon" :text {icon}))
+            (box :orientation "v" :class "info" :space-evenly false :halign "end" :valign "center"
+                (box :orientation "h" :space-evenly false :halign "start"
+                    (label :class "text" :text {label}))
+                (box :orientation "h" :space-evenly false :halign "start"
+                    (label :class "status" :text {condition ? "On" : "Off"}))))))
+
+(defwidget volume_slider []
+  (overlay
+    (scale :class "volume_slider"
+           :min 0
+           :max 100
+           :value {volume.value}
+           :onchange "pamixer --set-volume {}")
+    (label :class "volume_slider_label" :text "${volume.icon}" :xalign 0)))
+
+(defwidget battery_status []
+  (box :class "battery_status"
+  (overlay
+   (label :class "value" :text "${battery.icon} ${battery.value}%" :xalign 0)
+   (label :class "eta" :text "${battery.eta}" :xalign 1 :yalign 1))))
