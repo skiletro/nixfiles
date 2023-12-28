@@ -27,10 +27,6 @@
 	"script-fail-notify": true,
 
 	"widgets": [
-		"menubar",
-		"volume",
-		"buttons-grid",
-		"mpris",
 		"title",
 		"notifications"
 	],

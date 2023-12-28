@@ -1,81 +1,24 @@
 * {
-    font-family: "Urbanist", "SymbolsNerdFont";
-    font-size: 14px;
+  all: unset; /* Theme everything from scratch! */
+  font-family: "Urbanist", "SymbolsNerdFont";
+  font-size: 14px;
 }
 
 @import "styles/variables.scss";
 @import "styles/bar.scss";
 @import "styles/cal.scss";
 @import "styles/osd.scss";
+@import "styles/cc.scss";
+@import "styles/powermenu.scss";
 
-window {
-    all: unset;
-    color: $foreground;
-}
-
+/* Not really sure where else to put this in all honesty.
+ * I might just make a styles/misc.scss at some point but
+ * :shrug:
+*/
 tooltip {
     font-size: 2em;
     background-color: $background;
-    color: $mauve;
-    border-radius: $radius;
-}
-
-check {
-  border-radius: 9999px;
-  min-width: 13px;
-  min-height: 13px;
-  background: rgba(255, 255, 255, 0.2);
-  margin-right: 0.5rem;
-  box-shadow: 0px 4px 4px -3px rgba(0, 0, 0, 0.5);
-}
-
-check:checked {
-  background: $mauve;
-  box-shadow: inset 0px 4px 4px -3px rgba(0, 0, 0, 0.5);
-}
-
-arrow.right {
-  border-top: 7px solid transparent;
-  border-bottom: 7px solid transparent;
-
-  border-left: 7px solid transparent;
-}
-
-arrow.left {
-  border-top: 7px solid transparent;
-  border-bottom: 7px solid transparent;
-
-  border-right: 7px solid transparent;
-}
-
-menu {
-  background: $background;
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
-  border: 2px solid $mauve;
-  padding: 2em 0;
-}
-
-menu menu {
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
-}
-
-menu > menuitem {
-  padding: 0.4em 1.5rem;
-  background: transparent;
-  transition: 0.2s ease background;
-}
-
-menu > menuitem:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-menu > menuitem check:checked ~ label {
-  color: $mauve;
-  font-weight: 600;
-}
-
-menubar > menuitem {
-  margin-left: 0.6rem;
+    color: $foreground;
+    border-radius: 6px;
+    border: 2px solid $mauve;
 }

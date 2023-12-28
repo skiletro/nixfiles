@@ -1,7 +1,0 @@
-#!/bin/bash
-direction=$1
-if test "$direction" = "up"; then
-    pamixer -i 5
-elif test "$direction" = "down"; then
-    pamixer -d 5
-fi
