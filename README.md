@@ -29,7 +29,7 @@ My dotfiles that I used on my arch-based system can be found [here](https://gith
 - Run `nix develop --extra-experimental-features "flakes nix-command"` then type `rebuild` (you might need to run it another time for it to fully do its thing)
 
 ## Issues
-- [ ] **SwayNC:** Fix small padding issue on notifications on the right hand of the screen
+*No issues right now*
 
 ## Todo
 - [ ] Some sort of wallpaper script/system, prob using [lutgen](https://github.com/ozwaldorf/lutgen-rs)
