@@ -29,7 +29,12 @@ My dotfiles that I used on my arch-based system can be found [here](https://gith
 - Run `nix develop --extra-experimental-features "flakes nix-command"` then type `rebuild` (you might need to run it another time for it to fully do its thing)
 
 ## Issues
-*No issues right now*
+- **Eww:** Replace wlogout with custom eww power menu
+- **Eww:** Rewrite some scripts for performance (maybe using Rust? We'll see)
+- **Eww:** Improve calender widget
+- **Eww:** Workspace animation not working as intended (transition plays too quick)
+- **Swaync:** Trim file
+- **Swaync:** Close button offest incorrectly
 
 ## Todo
 - [ ] Some sort of wallpaper script/system, prob using [lutgen](https://github.com/ozwaldorf/lutgen-rs)

@@ -1,0 +1,95 @@
+.widget_cc {
+	background-color: $background;
+	border-radius: $window-radius;
+	border: 2px solid $mauve;
+	$margin: 10px;
+	$hmargin: calc($margin/2);
+	padding: $margin;
+
+	.qs_button {
+		border-radius: $window-radius;
+		padding: 0.5em;
+		$transition_time: 0.25s;
+
+		&.inactive {
+			background-color: $bglighter;
+			color: $foreground;
+			transition: background-color $transition_time, color $transition_time;
+			&:hover {
+				background-color: mix(white, $bglighter, 10%);
+				color: mix(white, $foreground, 50%);
+			}
+		}
+
+		&.active {
+			background-color: $mauve;
+			color: $background;
+			transition: background-color $transition_time, color $transition_time;
+			&:hover {
+				background-color: mix($background, $mauve, 30%);
+			}
+		}
+
+		.info {
+			margin-left: 0.5em;
+		}
+
+		.icon {
+			font-size: 1.5em;
+			min-width: 1.5em;
+		}
+
+		.text {
+			font-size: 1em;
+		}
+
+		.status {
+			font-size: 0.85em;
+		}
+
+		&.tl {
+			margin: 0px $hmargin $hmargin 0px;
+		}
+
+		&.tr {
+			margin: 0px 0px $hmargin $hmargin;
+		}
+
+		&.bl {
+			margin: $hmargin $hmargin 0px 0px;
+		}
+
+		&.br {
+			margin: $hmargin 0px 0px $hmargin;
+		}
+	}
+
+	.volume_slider trough {
+		margin: $margin 0px;
+		background-color: $bglighter;
+		min-height: 25px;
+		border-radius: $window-radius;
+
+		highlight {
+			background-color: $mauve;
+			border-radius: $window-radius;}
+	}
+
+	.volume_slider_label {
+		color: $background;
+		margin: $margin;
+	}
+
+	.battery_status {
+		padding: 0px 3px;
+
+		.value {
+			font-size: 1.2em;
+			color: $foreground;
+		}
+
+		.eta {
+			color: mix($foreground, $background, 45);
+		}
+	}
+}

@@ -1,0 +1,6 @@
+#!/bin/bash
+playerctl \
+	--player spotify \
+	--follow metadata \
+	--format '{{emoji(status)}} {{title}} - {{artist}}' \
+| stdbuf -o0 sed "s/▶//;s/⏸️//"

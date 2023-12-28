@@ -1,11 +1,13 @@
 (defwindow bar
   :monitor 0
   :exclusive true
-  :geometry (geometry :x "0%"
-                      :y "0%"
-                      :width "100%"
-                      :height "10px"
+  :geometry (geometry :x "100%"
+                      :y "5px"
+                      :width "99.2%" ;disgusting, but idk a better way to do this
                       :anchor "top center")
+  (bar))
+
+(defwidget bar []
   (centerbox :class "widget_bar"
     (box :space-evenly false :halign "start" :class "left"
       (workspaces)
@@ -13,68 +15,65 @@
     (box :space-evenly false :halign "center" :class "center")
     (box :space-evenly false :halign "end" :class "right"
       (music)
-      (systray :class "tray")
-      ;(weather) broken rn
-      (volume)
-      (battery)
+      (tray)
+      (io)
       (time)
-      (notifcount))))
+      (notification_count))))
 
-(deflisten window :initial "..." "bash ~/.config/eww/scripts/get-window-title")
-(defwidget window_title []
-  (box :class "window_title" :halign "start" :visible "${window != "" ? "true" : "false"}" ;hides if there is no title
-    (label :text "${window}")))
-
-(deflisten workspaces :initial "[]" "bash ~/.config/eww/scripts/get-workspaces")
-(deflisten current_workspace :initial "1" "bash ~/.config/eww/scripts/get-active-workspace")
+;
+; LEFT SIDE
+;
+(deflisten workspaces :initial "[]" "./scripts/get-workspaces")
+(deflisten current_workspace :initial "1" "./scripts/get-active-workspace")
 (defwidget workspaces []
-  (box :space-evenly true :class "workspaces"
+  (box :space-evenly false :class "workspaces"
     (label :text "${workspaces}${current_workspace}" :visible false)
     (for workspace in workspaces
-      (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}"
-        (box :class "${workspace.id == current_workspace ? "active" : "inactive"}" :style "padding: 0 2px 0 2px"
-          (label :text "${workspace.id == current_workspace ? "󰮯" : "󰧞"}"))))))
+      ;; (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}"
+      ;;   (box :class "${workspace.id == current_workspace ? "active" : "inactive"}"))
+      (button :onclick "hyprctl dispatch workspace ${workspace.id}"
+              :class "${workspace.id == current_workspace ? "active" : "inactive"}")
 
-(deflisten get_notification_count "bash ~/.config/eww/scripts/get-notification-amount")
-(defwidget notifcount []
-  (box :class "notifcount"
-    (eventbox :onclick "sleep 0.1;swaync-client -t -sw"
-      (label :text "${get_notification_count}"))))
+    )))
 
-(defpoll get_time :interval "10s" "date '+%I:%M%p - %b %d, %Y'")
-(defwidget time []
-  (box :class "time"
-    (eventbox :onclick "eww open cal --toggle"
-      (label :text "${get_time}"))))
+(deflisten window_title :initial "..." "./scripts/get-window-title")
+(defwidget window_title []
+  (box :class "window_title"
+       :visible "${window_title != "" ? "true" : "false"}" ;hides if there is no title
+    (label :text "${window_title}")))
 
-(defpoll get_battery :interval "30s" "bash ~/.config/eww/scripts/display-battery")
-(defpoll get_batterytimeleft :interval "5m" "bash ~/.config/eww/scripts/battery-life")
-(defwidget battery []
-  (box :class "battery"
-    (label :text "${get_battery}" :tooltip "${get_batterytimeleft}")))
-
-(defpoll get_volume :interval "1s" "bash ~/.config/eww/scripts/display-volume")
-(defwidget volume []
-  (box :class "volume"
-    (eventbox :onscroll "sh ~/.config/eww/scripts/change-volume {}"
-      (label :text "${get_volume}"))))
-
-(defpoll get_ssid :interval "30s" "iwgetid -r")
-(defwidget network []
-  (box :class "network"
-    ;(label :text "${round(EWW_NET.enp4s0f3u1u1c2.NET_UP / 1000000, 2)}/${round(EWW_NET.enp4s0f3u1u1c2.NET_DOWN / 1000000, 2)}")
-    (label :text "${get_ssid} 󰀂")))
-
-(defpoll updatetemperatureinformation :interval "15m" "sh ~/.config/eww/scripts/get-weather --getdata")
-(defpoll get_temperature :interval "15m" "sh ~/.config/eww/scripts/get-weather --temp")
-(defpoll get_weathericon :interval "15m" "sh ~/.config/eww/scripts/get-weather --icon")
-(defwidget weather []
-  (box :class "weather"
-    (label :text "${get_weathericon}${get_temperature}")))
-
-;(defpoll get_music :interval "5s" "bash ~/.config/eww/scripts/display-music")
-(deflisten get_music `playerctl --player spotify --follow metadata --format '{{emoji(status)}} {{title}} - {{artist}}' | stdbuf -o0 sed "s/▶//;s/⏸️//"`)
+;
+; RIGHT SIDE
+;
+(deflisten song_status :initial "" "./scripts/get-song-status")
 (defwidget music []
-  (box :class "music" :visible "${get_music != "" ? "true" : "false"}"
-    (eventbox :onclick "playerctl --player spotify play-pause"
-      (label :text "${get_music}"))))
+  (button :class "music canclick"
+          :visible "${song_status != "" ? "true" : "false"}"
+          :onclick "playerctl --player spotify play-pause"
+    (label :text "${song_status}")))
+
+(defwidget tray []
+  (systray :class "tray"))
+
+(defpoll battery :interval "30s" "./scripts/get-battery-status")
+(defpoll volume :interval "5s" "./scripts/get-volume-status")
+(defpoll network :interval "1m" "./scripts/get-network-status")
+(defwidget io []
+  (button :class "io canclick" :onclick "sleep 0.1;${EWW_CMD} open cc --toggle"
+    (box
+      (eventbox :width 24 :class "volume" :onscroll "${EWW_CONFIG_DIR}/scripts/change-volume {}"
+        (label :text "${volume.icon}" :tooltip "${volume.value}% Volume"))
+      (eventbox :width 24 :class "battery"
+        (label :text "${battery.icon}" :tooltip "${battery.value}% - ${battery.eta}"))
+      (eventbox :width 24 :class "network"
+        (label :text "${network.icon}")))))
+
+(defpoll time :interval "10s" "date '+%I:%M%p - %b %d, %Y'")
+(defwidget time []
+    (button :class "time canclick" :onclick "sleep 0.1;${EWW_CMD} open cal --toggle"
+      (label :text "${time}")))
+
+(deflisten notification_count "./scripts/get-notification-amount")
+(defwidget notification_count []
+  (button :class "notifcount canclick" :onclick "sleep 0.1;swaync-client -t -sw"
+    (label :text "${notification_count}")))

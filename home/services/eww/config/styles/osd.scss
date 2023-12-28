@@ -1,36 +1,33 @@
+$width: 25px;
+
 .widget_osd {
+    $width: 250px;
+    $height: 25px;
     padding: .3em;
     background-color: $background;
     border: 2px solid $mauve;
-    border-radius: $radius;
+    border-radius: calc($window-radius + 10px);
     padding: 10px;
+
+    .scale trough {
+      min-width: $width;
+      min-height: $height;
+      background-color: red;
+      border-radius: $window-radius;
+      background-color: $bglighter;
+      border: none;
+      border-radius: $window-radius;
+
+      highlight, progress {
+        border-radius: $window-radius;
+        background-color: $mauve;
+        min-height: $height;
+      }
+    }
 
     .icon {
       color: $background;
-      background-color: $mauve;
-      border-radius: $radius;
-      font-size: 24px;
-      min-width: $width;
-      min-height: $width;
-    }
-
-    .scale {
-      margin-bottom: calc($width + 10px);
-      min-height: 15em;
-      min-width: $width;
-      border-radius: $radius;
-
-      trough {
-        background-color: $bglighter;
-        border: none;
-        border-radius: $radius;
-        min-width: $width;
-
-        highlight, progress {
-          border-radius: $radius;
-          background-color: $mauve;
-          min-width: $width;
-        }
-      }
+      font-size: 1.20em;
+      margin: 0px 7px;
     }
 }

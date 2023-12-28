@@ -1,0 +1,25 @@
+#!/bin/bash
+  data=`acpi | grep 'Battery 1'`
+ value=`echo $data | grep -o '[0-9]*%' | grep -o '[0-9]*'`
+status=`echo $data | grep -o Discharging`
+   eta=`echo $data | cut -d' ' -f5-`
+
+if [ "$status" != "Discharging" ]; then
+	icon="󰂄"
+else
+	case 1 in
+		$(($value==100)))icon="󰁹";;
+		$(($value>=90))) icon="󰂂";;
+		$(($value>=80))) icon="󰂁";;
+		$(($value>=70))) icon="󰂀";;
+		$(($value>=60))) icon="󰁿";;
+		$(($value>=50))) icon="󰁾";;
+		$(($value>=40))) icon="󰁽";;
+		$(($value>=30))) icon="󰁼";;
+		$(($value>=20))) icon="󰁻";;
+		$(($value>=10))) icon="󰁺";;
+		*) icon="󰂎";;
+	esac 
+fi
+
+echo "{ \"icon\": \"$icon\", \"value\": \"$value\", \"eta\": \"$eta\"}"
