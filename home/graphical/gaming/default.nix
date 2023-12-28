@@ -13,6 +13,7 @@
     # Tools
     gamescope #needed because hyprland is weird with gaming
     protonup-qt #modify steam proton versions
+    parsec-bin
 
     # Launchers
     #dolphin-emu #wii and gamecube emulation - disabled due to compiler issues
