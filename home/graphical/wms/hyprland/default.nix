@@ -23,7 +23,7 @@
         "swww init;sleep 1;swww img $HOME/.bg.png"
 
         #"nm-applet"
-        #"beeper --default-frame --enable-features=UseOzonePlatform"
+        "beeper --hidden --default-frame --enable-features=UseOzonePlatform"
       ];
 
       general = {
