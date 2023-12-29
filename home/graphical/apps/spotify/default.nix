@@ -16,8 +16,8 @@
     ];
 
     enabledCustomApps = with spicetify.apps; [
-      nameThatTune
-      lyrics-plus
+      # nameThatTune
+      # lyrics-plus
     ];
   };
 }
