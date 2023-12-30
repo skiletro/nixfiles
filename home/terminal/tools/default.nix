@@ -6,7 +6,6 @@
   imports = [
     ./bat
     ./btop
-    ./neovim
     ./zellij
   ];
 
