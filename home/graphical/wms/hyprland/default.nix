@@ -5,12 +5,13 @@
   inputs,
   ...
 }: {
+  imports = [
+    ./themis.nix
+  ];
+
   wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    # plugins = [
-    #   inputs.hyprland-plugins.packages.${pkgs.system}.borders-plus-plus
-    # ];
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland; #git package
     settings = {
       exec-once = [
         "eww open bar"
@@ -115,12 +116,12 @@
           if [ "$(hyprctl activewindow -j | jq -r ".class")" = "Steam" ]; then
             ${pkgs.xdotool}/bin/xdotool getactivewindow windowunmap
           else
-            ${pkgs.hyprland}/bin/hyprctl dispatch killactive ""
+            hyprctl dispatch killactive ""
           fi
         '';
       in [
         # General
-        ''SUPER SHIFT, Q, exec, ${window_kill_script.outPath}''
+        "SUPER SHIFT, Q, exec, ${window_kill_script.outPath}"
         "SUPER SHIFT, SPACE, togglefloating, "
         "SUPER, J, togglesplit," #dwindle
 
@@ -232,8 +233,11 @@
       ];
     };
 
+    plugins = with inputs.hyprland-plugins.packages.${pkgs.system}; [
+      #border-plus-plus
+    ];
+
     extraConfig = ''
-      ${lib.optionalString (osConfig.networking.hostName == "themis") builtins.readFile ./themis.conf}
       # plugin {
       #   borders-plus-plus {
       #     add_borders = 1
