@@ -28,7 +28,12 @@
     neovim
   ];
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages = [
+      "electron-25.9.0" # Obsidian, see https://github.com/NixOS/nixpkgs/issues/273611
+    ];
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/London";

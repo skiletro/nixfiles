@@ -46,5 +46,6 @@
     gnumake
     fd
     imagemagick
+    just
   ];
 }

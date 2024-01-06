@@ -10,6 +10,9 @@
   ];
 
   home.packages = with pkgs; [
+    # Games (w/o launchers)
+    osu-lazer-bin
+
     # Tools
     gamescope #needed because hyprland is weird with gaming
     protonup-qt #modify steam proton versions
