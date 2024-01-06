@@ -2,9 +2,10 @@
   :monitor 0
   :exclusive true
   :geometry (geometry :x "100%"
-                      :y "5px"
-                      :width "99.2%" ;disgusting, but idk a better way to do this
+                      :y "0px"
+                      :width "100%"
                       :anchor "top center")
+
   (bar))
 
 (defwidget bar []
@@ -23,18 +24,16 @@
 ;
 ; LEFT SIDE
 ;
-(deflisten workspaces :initial "[]" "./scripts/get-workspaces")
+(defvar workspaces '[1,2,3,4,5,6]')
 (deflisten current_workspace :initial "1" "./scripts/get-active-workspace")
 (defwidget workspaces []
   (box :space-evenly false :class "workspaces"
     (label :text "${workspaces}${current_workspace}" :visible false)
-    (for workspace in workspaces
-      ;; (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}"
-      ;;   (box :class "${workspace.id == current_workspace ? "active" : "inactive"}"))
-      (button :onclick "hyprctl dispatch workspace ${workspace.id}"
-              :class "${workspace.id == current_workspace ? "active" : "inactive"}")
+    (for index in workspaces
+      (button :onclick "hyprctl dispatch workspace ${index};notify-send ${index}"
+              :class "workspace ${current_workspace == index ? "active": ""}")) 
 
-    )))
+))
 
 (deflisten window_title :initial "..." "./scripts/get-window-title")
 (defwidget window_title []
