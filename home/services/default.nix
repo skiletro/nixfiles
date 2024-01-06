@@ -14,7 +14,5 @@
     networkmanagerapplet
     wineWowPackages.stable #wine
     winetricks #wine
-    hunspell
-    hunspellDicts.en_GB-ise
   ];
 }
