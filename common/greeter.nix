@@ -1,6 +1,6 @@
 {pkgs, ...}: let
   swayConf = pkgs.writeText "greetd-sway-config" ''
-    output eDP-1 scale 1.5
+    output eDP-1 scale 1.25
     output eDP-1 background #1e1e2e solid_color
 
     exec "dbus-update-activation-environment --systemd WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP"
