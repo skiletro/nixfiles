@@ -1,72 +1,66 @@
 .widget_bar {
-	color: $foreground;
+  color: $foreground;
   min-height: 28px;
+  padding: 5px;
+  padding-bottom: 0px;
 
-	.left > *,
-	.center > *,
-	.right > *
+  .left > *,
+  .center > *,
+  .right > *
   {
-		background-color: $background;
+    background-color: $background;
     border-radius: $window-radius;
-		border: 2px solid $bgdarker;
-		padding: 0px 10px;
-	}
+    border: 2px solid $bgdarker;
+    padding: 0px 10px;
+  }
 
-	.left > * {
-		margin: 0px $gaps-between-modules 0px 0px;
-	}
+  .left > * {
+    margin: 0px $gaps-between-modules 0px 0px;
+  }
 
-	.right > * {
-		margin: 0px 0px 0px $gaps-between-modules;
-	}
+  .right > * {
+    margin: 0px 0px 0px $gaps-between-modules;
+  }
 
-	@each $name, $color in (
+  @each $name, $color in (
     workspaces: $mauve,
-		window_title: $red,
-		/* gap!!! */
-		music: $sapphire,
-		tray: $green,
-		io: $peach,
+    window_title: $red,
+    /* gap!!! */
+    music: $sapphire,
+    tray: $green,
+    io: $peach,
     time: $red,
-		notifcount: $mauve,
+    notifcount: $mauve,
   ) { .#{$name} {
     border-color: $color;
     }
   }
 
-	.workspaces {
-		padding: 6px 5px 6px 10px;
+  .workspaces {
+    padding: 6px 5px 6px 10px;
 
-    * {
+    .workspace {
       margin-right: 5px;
+      border-radius: 9999px;
+      min-width: 12px;
+      background-color: $bglighter;
+      transition: min-width 100ms ease;
+
+      &.active {
+        min-width: 24px;
+        background-color: $mauve;
+      }
     }
+  }
 
-		.active, .inactive {
-			border-radius: 999px;
-			// margin-right: 0px;
-    }
+  .canclick {
+    background-color: $background;
+    transition: background-color 0.1s;
+  }
 
-		.active {
-			background-color: $mauve;
-			padding-right: 24px;
-			// transition: padding-right 1s;
-		}
-
-		.inactive {
-			background-color: $bglighter;
-			padding-right: 12px;
-			// transition: padding-right 1s;
-		}	
-	}
-
-	.canclick {
-		background-color: $background;
-		transition: background-color 0.1s;
-	}
-
-	.canclick:hover {
-		background-color: mix(white, $background, 10%);
-		transition: background-color 0.1s;
+  .canclick:hover {
+    background-color: mix(white, $background, 10%);
+    transition: background-color 0.1s;
   }
 
   /* System tray and menu theming!!! */
@@ -75,7 +69,7 @@
       margin: 0 5px;
 
       menu {
-			  margin: 20px;
+        margin: 20px;
         padding: 5px 10px;
         border-radius: 6px;
         background-color: $background;
@@ -95,9 +89,9 @@
 
         separator {
           min-height: 1px;
-				  border-radius: 9999px;
-				  margin: 3px;
-				  background-color: $bglighter;
+          border-radius: 9999px;
+          margin: 3px;
+          background-color: $bglighter;
         }
       }
     }
