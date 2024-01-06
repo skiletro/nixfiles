@@ -1,8 +1,8 @@
 {...}: {
   imports = [
     ./alacritty
-    ./foot
+    #./foot disabled due to weird font substitution error
     ./kitty
-    ./wezterm
+    #./wezterm disabled because nixpkgs has out of date package with unfixed bug
   ];
 }
