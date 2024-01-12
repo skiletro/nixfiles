@@ -42,10 +42,10 @@
             background = "#A6E3A1"; # green
           };
 
-          footer_bar = {
-            foreground = "#1E1E2E"; # base
-            background = "#A6ADC8"; # subtext0
-          };
+          # footer_bar = {
+          #   foreground = "#1E1E2E"; # base
+          #   background = "#A6ADC8"; # subtext0
+          # };
         };
 
         hints = {
