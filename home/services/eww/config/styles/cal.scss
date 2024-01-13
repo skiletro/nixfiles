@@ -13,14 +13,14 @@
   
     &.button {
       border-radius: 50%;
-      color: #3D464E;
+      color: $mauve;
   
       &:hover {
-        color: #71C0BA;
+        color: mix($background, $mauve, 30%);
       }
   
       &:disabled {
-        color: #12161B;
+        color: $red;
       }
     }
   
@@ -39,7 +39,7 @@
     }
   
     &:indeterminate {
-      color: #3c3e47;
+      color: $bglighter;
     }
   }
 }
