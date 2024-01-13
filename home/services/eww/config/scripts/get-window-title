@@ -1,5 +1,5 @@
 #!/bin/bash
-hyprctl activewindow -j | jq --raw-output .title
+echo ""
 socat -u UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | \
   stdbuf -o0 grep '^activewindow>>' | \
   stdbuf -o0 grep -Po '^.{14}\K.*' | \
