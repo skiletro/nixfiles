@@ -136,20 +136,18 @@
   fonts = {
     fontDir.enable = true;
 
-    packages =
-      (with pkgs; [
-        corefonts #ms fonts
-        vistafonts #more ms fonts
-        noto-fonts
-        noto-fonts-extra
-        noto-fonts-cjk #Japanese, Korean, Chinese, etc
-        noto-fonts-color-emoji
-        (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
-        iosevka-comfy.comfy
-      ])
-      ++ [
-        inputs.myfonts.packages.${pkgs.system}.urbanist
-      ];
+    packages = with pkgs; [
+      corefonts #ms fonts
+      vistafonts #more ms fonts
+      noto-fonts
+      noto-fonts-extra
+      noto-fonts-cjk #Japanese, Korean, Chinese, etc
+      noto-fonts-color-emoji
+      (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+      iosevka-comfy.comfy
+      nur.repos.skiletro.urbanist
+      nur.repos.skiletro.gabarito
+    ];
 
     fontconfig = {
       enable = true;
