@@ -1,165 +1,140 @@
 {
-  config,
   pkgs,
+  inputs,
   ...
 }: {
-  programs.neovim = {
+  imports = [inputs.nixvim.homeManagerModules.nixvim];
+  programs.nixvim = {
     enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-    plugins = with pkgs.vimPlugins; [
-      vim-nix
-      yuck-vim
-      {
-        plugin = catppuccin-nvim; # Mocha is default
-        config = "colorscheme catppuccin";
-      }
-      {
-        plugin = comment-nvim;
-        config = "lua require('Comment').setup()";
-      }
-      {
-        plugin = lualine-nvim;
-        config = ''
-          lua << EOF
-          require('lualine').setup {
-            icons_enabled = true,
-            options = {
-              section_separators = { left = '', right = '' },
-              component_separators = { left = '', right = '' }
-            }
-          }
-          EOF
-        '';
-      }
-      {
-        plugin = impatient-nvim;
-        config = "lua require('impatient')";
-      }
-      {
-        plugin = telescope-nvim;
-        config = "lua require('telescope').setup()";
-      }
-      rainbow-delimiters-nvim
-      {
-        plugin = nvim-treesitter;
-        config = ''
-          lua << EOF
-          require('nvim-treesitter.configs').setup {
-            highlight = {
-              enable = true,
-            },
-            rainbow = {
-              enable = true,
-              query = 'rainbow-delimiters',
-              strategy = require('rainbow-delimiters').strategy.global,
-            }
-          }
-          EOF
-        '';
-      }
-      {
-        plugin = nvim-lspconfig;
-        config = ''
-          lua << EOF
-          require('lspconfig').rnix.setup{}
-          require('lspconfig').lua_ls.setup{}
-          require('lspconfig').bashls.setup{}
-          require('lspconfig').pyright.setup{}
-          require('lspconfig').emmet_language_server.setup {
-            filetypes = { 'css', 'html' },
-          }
-          require('lspconfig').rust_analyzer.setup {
-            settings = {
-              ['rust-analyzer'] = {},
-            },
-          }
-          EOF
-        '';
-      }
-      friendly-snippets
-      cmp-nvim-lsp
-      {
-        plugin = nvim-cmp;
-        config = ''
-          lua << EOF
-          local cmp = require('cmp')
-          cmp.setup {
-            mapping = cmp.mapping.preset.insert {
-              ['<C-n>'] = cmp.mapping.select_next_item(),
-              ['<C-p>'] = cmp.mapping.select_prev_item(),
-              ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-              ['<C-f>'] = cmp.mapping.scroll_docs(4),
-              ['<C-Space>'] = cmp.mapping.complete {},
-              ['<CR>'] = cmp.mapping.confirm {
-                behavior = cmp.ConfirmBehavior.Replace,
-                select = true,
-              },
-              ['<Tab>'] = cmp.mapping(function(fallback)
-                if cmp.visible() then
-                  cmp.select_next_item()
-                else
-                  fallback()
-                end
-              end, { 'i', 's' }),
-              ['<S-Tab>'] = cmp.mapping(function(fallback)
-                if cmp.visible() then
-                  cmp.select_prev_item()
-                else
-                  fallback()
-                end
-              end, { 'i', 's' }),
-            },
-            sources = {
-              { name = 'nvim_lsp' },
-            },
-          }
-          EOF
-        '';
-      }
-    ];
+    colorschemes.catppuccin = {
+      enable = true;
+      flavour = "mocha";
+      showBufferEnd = true;
+    };
+    options = {
+      number = true;
+      relativenumber = true;
+      shiftwidth = 2;
+      tabstop = 2;
+      updatetime = 300;
+      termguicolors = true;
+      mouse = "a";
+      clipboard = "unnamedplus";
+      signcolumn = "yes";
+      expandtab = true;
+    };
+    globals = {
+      mapLeader = " ";
+      mapLocalLeader = " ";
+    };
+    plugins = {
+      # bottom bar
+      lualine = {
+        enable = true;
+        iconsEnabled = true;
+        sectionSeparators = {
+          left = "";
+          right = "";
+        };
+        componentSeparators = {
+          left = "";
+          right = "";
+        };
+      };
 
-    extraLuaConfig = ''
-      vim.g.mapLeader = ' '
-      vim.g.mapLocalLeader = ' '
+      # popup after pressing leader key
+      which-key.enable = true;
 
-      vim.o.clipboard = 'unnamedplus'
+      # pretty ui
+      noice.enable = true;
 
-      vim.o.number = true
+      # highlighting
+      treesitter.enable = true;
 
-      vim.o.signcolumn = 'yes'
+      dashboard.enable = true;
 
-      vim.o.tabstop = 2
-      vim.o.shiftwidth = 2
+      # language servers for code checking, etc
+      lsp = {
+        enable = true;
+        servers = {
+          nixd = {
+            #nix
+            enable = true;
+            installLanguageServer = true;
+            settings.formatting.command = "alejandra";
+          };
+          lua-ls = {
+            #lua
+            enable = true;
+            installLanguageServer = true;
+          };
+          bashls = {
+            #bash
+            enable = true;
+            installLanguageServer = true;
+          };
+          pylyzer = {
+            #python
+            enable = true;
+            installLanguageServer = true;
+          };
+          html = {
+            #html
+            enable = true;
+            installLanguageServer = true;
+          };
+          cssls = {
+            #css
+            enable = true;
+            installLanguageServer = true;
+          };
+          rust-analyzer = {
+            #rust
+            enable = true;
+            installLanguageServer = true;
+          };
+          emmet_ls = {
+            #html shorthand
+            enable = true;
+            installLanguageServer = true;
+          };
+          hls = {
+            #haskell
+            enable = true;
+            installLanguageServer = true;
+          };
+        };
+      };
 
-      vim.o.updatetime = 300
+      # completions
+      nvim-cmp = {
+        enable = true;
+        autoEnableSources = true;
+        sources = [
+          {name = "nvim_lsp";}
+          {name = "path";}
+          {name = "buffer";}
+        ];
 
-      vim.o.termguicolors = true
+        mapping = {
+          "<CR>" = "cmp.mapping.confirm({ select = true })";
+          # TODO: fix tab stuff
+        };
+      };
 
-      vim.o.mouse = 'a'
+      # fuzzy finder
+      telescope.enable = true;
 
-      if vim.g.neovide then
-        vim.o.guifont = "Iosevka Comfy:h12"
-        vim.g.neovide_padding_top = 10
-        vim.g.neovide_padding_bottom = 5
-        vim.g.neovide_padding_right = 10
-        vim.g.neovide_padding_left = 10
-        vim.g.neovide_refresh_rate = 144
-      end
-    '';
+      # rainbow brackets
+      rainbow-delimiters.enable = true;
 
-    # Langauge server stuff!
-    extraPackages = with pkgs; [
-      rnix-lsp
-      lua-language-server
-      nodePackages.bash-language-server
-      nodePackages.pyright
-      nur.repos.bandithedoge.nodePackages.emmet-language-server
-    ];
+      # auto comments
+      comment-nvim.enable = true;
+    };
   };
 
-  xdg.configFile."neovide/config.toml".text = ''
-    multigrid = true
-  '';
+  programs.fish.shellAbbrs = {
+    vi = "nvim";
+    vim = "nvim";
+  };
 }

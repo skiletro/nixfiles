@@ -27,6 +27,10 @@
 
     # Custom spotify theming
     spicetify.url = "github:the-argus/spicetify-nix";
+
+    # Neovim distribution made for nix/hm
+    nixvim.url = "github:nix-community/nixvim";
+    nixvim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
