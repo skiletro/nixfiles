@@ -25,4 +25,8 @@
       "window.titleBarStyle" = "custom"; # needed otherwise vscode crashes, see https://github.com/NixOS/nixpkgs/issues/246509
     };
   };
+
+  programs.fish.shellAbbrs = {
+    code = "codium";
+  };
 }

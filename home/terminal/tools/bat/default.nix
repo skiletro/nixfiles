@@ -5,4 +5,8 @@
       theme = "base16-256";
     };
   };
+
+  programs.fish.shellAbbrs = {
+    cat = "bat";
+  };
 }
