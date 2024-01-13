@@ -38,16 +38,21 @@
 
   .workspaces {
     padding: 6px 5px 6px 10px;
+    $workspace-width: 12px;
+    min-width: calc(($workspace-width * 6) + 43px); /* Stupid as fuck but stops wobble *a bit* when switching workspaces */
 
     .workspace {
       margin-right: 5px;
       border-radius: 9999px;
-      min-width: 12px;
+      min-width: $workspace-width;
       background-color: $bglighter;
-      transition: min-width 100ms ease;
-
+      transition: min-width 0.1ms ease;
+      &:hover {
+        background-color: mix(white, $bglighter, 15%);
+        transition: background-color 0.1s ease;
+      }
       &.active {
-        min-width: 24px;
+        min-width: calc($workspace-width * 2);
         background-color: $mauve;
       }
     }
