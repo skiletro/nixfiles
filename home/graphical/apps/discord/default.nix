@@ -20,7 +20,7 @@
       "openasar" = {
         "setup" = true;
         "css" = "@import url(\"https://catppuccin.github.io/discord/dist/catppuccin-mocha-mauve.theme.css\");";
-        "quickstart" = true;
+        "quickstart" = false;
         "cmdPreset" = "balanced";
       };
       "IS_MAXIMIZED" = true;
