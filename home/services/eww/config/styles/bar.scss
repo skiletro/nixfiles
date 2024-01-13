@@ -58,14 +58,18 @@
     }
   }
 
-  .canclick {
+  .music,
+  .io,
+  .time,
+  .notifcount {
     background-color: $background;
-    transition: background-color 0.1s;
-  }
-
-  .canclick:hover {
-    background-color: mix(white, $background, 10%);
-    transition: background-color 0.1s;
+    transition: background-color 0.1s ease;
+    &:hover {
+      background-color: mix(white, $background, 10%);
+    }
+    &:active {
+      background-color: mix(white, $background, 20%);
+    }
   }
 
   /* System tray and menu theming!!! */

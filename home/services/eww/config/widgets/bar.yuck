@@ -30,7 +30,7 @@
   (box :space-evenly false :class "workspaces"
     (label :text "${workspaces}${current_workspace}" :visible false)
     (for index in workspaces
-      (button :onclick "hyprctl dispatch workspace ${index};notify-send ${index}"
+      (button :onclick "hyprctl dispatch workspace ${index}"
               :class "workspace ${current_workspace == index ? "active": ""}")) 
 
 ))
@@ -46,7 +46,7 @@
 ;
 (deflisten song_status :initial "" "./scripts/get-song-status")
 (defwidget music []
-  (button :class "music canclick"
+  (button :class "music"
           :visible "${song_status != "" ? "true" : "false"}"
           :onclick "playerctl --player spotify play-pause"
     (label :text "${song_status}")))
@@ -58,7 +58,7 @@
 (defpoll volume :interval "5s" "./scripts/get-volume-status")
 (defpoll network :interval "1m" "./scripts/get-network-status")
 (defwidget io []
-  (button :class "io canclick" :onclick "sleep 0.1;${EWW_CMD} open cc --toggle"
+  (button :class "io" :onclick "sleep 0.1;${EWW_CMD} open cc --toggle"
     (box
       (eventbox :width 24 :class "volume" :onscroll "${EWW_CONFIG_DIR}/scripts/change-volume {}"
         (label :text "${volume.icon}" :tooltip "${volume.value}% Volume"))
@@ -69,10 +69,10 @@
 
 (defpoll time :interval "10s" "date '+%I:%M%p - %b %d, %Y'")
 (defwidget time []
-    (button :class "time canclick" :onclick "sleep 0.1;${EWW_CMD} open cal --toggle"
+    (button :class "time" :onclick "sleep 0.1;${EWW_CMD} open cal --toggle"
       (label :text "${time}")))
 
 (deflisten notification_count "./scripts/get-notification-amount")
 (defwidget notification_count []
-  (button :class "notifcount canclick" :onclick "sleep 0.1;swaync-client -t -sw"
+  (button :class "notifcount" :onclick "sleep 0.1;swaync-client -t -sw"
     (label :text "${notification_count}")))
