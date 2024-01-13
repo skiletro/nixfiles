@@ -32,7 +32,6 @@ My dotfiles that I used on my arch-based system can be found [here](https://gith
 - **Eww:** Replace wlogout with custom eww power menu
 - **Eww:** Rewrite some scripts for performance (maybe using Rust? We'll see)
 - **Eww:** Improve calender widget
-- **Eww:** Workspace widget changes width ever so slightly when transitioning
 - **Swaync:** Trim file
 - **Swaync:** Close button offest incorrectly
 
