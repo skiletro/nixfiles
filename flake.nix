@@ -17,9 +17,6 @@
     # Stands for "Nix User Repository". Has a few packages that I need, like Firefox addons
     nur.url = "github:nix-community/NUR";
 
-    # Custom fonts that I use for my rice. Seperate so it's easier for other people to use
-    myfonts.url = "github:skiletro/fonts";
-
     # The Wayland compositor! Their flake is used for the -git build.
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
