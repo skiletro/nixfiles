@@ -40,6 +40,7 @@
     usbimager
     fusee-interfacee-tk #switch rcm
     zotero
-    rstudio #uni
+    qbittorrent
+    gnome.gnome-system-monitor
   ];
 }
