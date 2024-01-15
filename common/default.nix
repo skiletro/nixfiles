@@ -6,6 +6,7 @@
 }: {
   imports = [
     ./greeter.nix
+    ./virtualisation.nix
   ];
 
   users.users.jamie = {
@@ -95,8 +96,6 @@
     inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
   ];
 
-  # Virtualisation settings
-  virtualisation.libvirtd.enable = true;
   programs.dconf.enable = true;
 
   # Global variables (environment)
