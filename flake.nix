@@ -31,6 +31,9 @@
     # Neovim distribution made for nix/hm
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
+
+    # VSCode Plugins
+    vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
   };
 
   outputs = {

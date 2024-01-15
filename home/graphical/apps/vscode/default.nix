@@ -1,14 +1,32 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
-    extensions = with pkgs.vscode-extensions; [
-      bbenoist.nix
-      kamadorueda.alejandra
-      catppuccin.catppuccin-vsc
-      vscode-icons-team.vscode-icons
-      #eww-yuck.yuck
-    ];
+    extensions = let
+      input = inputs.vscode-extensions.extensions.${pkgs.system};
+      vsx = input.open-vsx;
+      vcm = input.vscode-marketplace;
+    in
+      (with vsx; [
+        # Open VSX Registry
+        jnoortheen.nix-ide
+        kamadorueda.alejandra
+        catppuccin.catppuccin-vsc
+        vscode-icons-team.vscode-icons
+        skellock.just
+        mkhl.direnv
+        haskell.haskell
+        golang.go
+        james-yu.latex-workshop
+      ])
+      ++ (with vcm; [
+        # VSCode Marketplace by Microsoft 🤢
+        eww-yuck.yuck
+      ]);
     userSettings = {
       "update.mode" = "none";
       "extensions.autoUpdate" = false; # This stuff fixes vscode freaking out when theres an update
