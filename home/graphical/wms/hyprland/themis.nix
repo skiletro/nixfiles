@@ -7,7 +7,7 @@
   wayland.windowManager.hyprland = lib.mkIf (osConfig.networking.hostName == "themis") {
     extraConfig = ''
       monitor = eDP-1, 1920x1080@60, 0x0, 1.25
-      monitor = DP-1, 1920x1080@144, 1920x0, 1
+      monitor = DP-1, 1920x1080@120, 1920x0, 1
     '';
 
     settings = {
