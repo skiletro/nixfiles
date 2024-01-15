@@ -4,7 +4,7 @@
     theme = "Catppuccin-Mocha";
     settings = {
       font_family = "Iosevka Comfy";
-      window_padding_width = 15;
+      window_padding_width = 10;
     };
   };
 }
