@@ -31,9 +31,7 @@
     (label :text "${workspaces}${current_workspace}" :visible false)
     (for index in workspaces
       (button :onclick "hyprctl dispatch workspace ${index}"
-              :class "workspace ${current_workspace == index ? "active": ""}")) 
-
-))
+              :class "workspace ${current_workspace == index ? "active": ""}"))))
 
 (deflisten window_title :initial "..." "./scripts/get-window-title")
 (defwidget window_title []
@@ -58,7 +56,7 @@
 (defpoll volume :interval "5s" "./scripts/get-volume-status")
 (defpoll network :interval "1m" "./scripts/get-network-status")
 (defwidget io []
-  (button :class "io" :onclick "sleep 0.1;${EWW_CMD} open cc --toggle"
+  (button :class "io" :onclick "sleep 0.1;${EWW_CMD} close cal;${EWW_CMD} open cc --toggle"
     (box
       (eventbox :width 24 :class "volume" :onscroll "${EWW_CONFIG_DIR}/scripts/change-volume {}"
         (label :text "${volume.icon}" :tooltip "${volume.value}% Volume"))
@@ -69,10 +67,10 @@
 
 (defpoll time :interval "10s" "date '+%I:%M%p - %b %d, %Y'")
 (defwidget time []
-    (button :class "time" :onclick "sleep 0.1;${EWW_CMD} open cal --toggle"
+    (button :class "time" :onclick "sleep 0.1;${EWW_CMD} close cc;${EWW_CMD} open cal --toggle"
       (label :text "${time}")))
 
 (deflisten notification_count "./scripts/get-notification-amount")
 (defwidget notification_count []
-  (button :class "notifcount" :onclick "sleep 0.1;swaync-client -t -sw"
+  (button :class "notifcount" :onclick "sleep 0.1;${EWW_CMD} close cc;${EWW_CMD} close cal;swaync-client -t -sw"
     (label :text "${notification_count}")))

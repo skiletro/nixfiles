@@ -9,24 +9,31 @@
 	.qs_button {
 		border-radius: $window-radius;
 		padding: 0.5em;
-		$transition_time: 0.25s;
-
-		&.inactive {
-			background-color: $bglighter;
-			color: $foreground;
-			transition: background-color $transition_time, color $transition_time;
-			&:hover {
-				background-color: mix(white, $bglighter, 10%);
-				color: mix(white, $foreground, 50%);
-			}
-		}
+		$transition_time: 0.1s;
 
 		&.active {
 			background-color: $mauve;
 			color: $background;
 			transition: background-color $transition_time, color $transition_time;
 			&:hover {
-				background-color: mix($background, $mauve, 30%);
+				background-color: mix($background, $mauve, 20%);
+			}
+			&:active {
+				background-color: mix($background, $mauve, 40%);
+			}
+		}
+
+		&.inactive {
+			background-color: $bglighter;
+			color: $foreground;
+			transition: background-color $transition_time, color $transition_time;
+			&:hover {
+				background-color: mix(white, $bglighter, 5%);
+				color: mix(white, $foreground, 50%);
+			}
+			&:active {
+				background-color: mix(white, $bglighter, 10%);
+				color: mix(white, $foreground, 60%);
 			}
 		}
 
@@ -69,10 +76,15 @@
 		background-color: $bglighter;
 		min-height: 25px;
 		border-radius: $window-radius;
+		transition: background-color 0.1s ease;
+		&:hover {
+			background-color: mix($background, $bglighter, 40%);
+		}
 
 		highlight {
 			background-color: $mauve;
-			border-radius: $window-radius;}
+			border-radius: $window-radius;
+		}
 	}
 
 	.volume_slider_label {
@@ -84,7 +96,7 @@
 		padding: 0px 3px;
 
 		.value {
-			font-size: 1.2em;
+			font-size: 1.1em;
 			color: $foreground;
 		}
 
