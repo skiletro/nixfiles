@@ -50,10 +50,12 @@
       &:hover {
         background-color: mix(white, $bglighter, 15%);
         transition: background-color 0.1s ease;
+        transition: min-width 0.1s ease;
       }
       &.active {
         min-width: calc($workspace-width * 2);
         background-color: $mauve;
+        transition: min-width 0.1s ease;
       }
     }
   }
@@ -75,7 +77,13 @@
   /* System tray and menu theming!!! */
   menubar {
     > menuitem {
-      margin: 0 5px;
+      padding: 0 5px;
+      background-color: $background;
+      border-radius: 5px;
+      transition: background-color 0.1s ease;
+      &:hover {
+        background-color: mix(white, $background, 10%);
+      }
 
       menu {
         margin: 20px;
