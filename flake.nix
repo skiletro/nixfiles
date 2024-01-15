@@ -79,6 +79,7 @@
 
     devShells.${system}.default = pkgs.mkShell {
       buildInputs = with pkgs; [
+        nh.packages.${pkgs.system}.default
         alejandra #code formatting
         just #command runner
       ];

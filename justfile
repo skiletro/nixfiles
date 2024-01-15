@@ -3,18 +3,15 @@
 # End:
 
 # Builds and switches to new system config
-switch: pre 
+switch: format git-stage-all
     nh os switch
 
 # Update lockfile, then build and switch to new system config
-update: pre
+update: format git-stage-all
     nh os switch --update
 
-# Formats code, and stages all files
-pre:
+format:
     alejandra . -q
-    git add .
 
-# Run this if nh isn't available (first install?)
-no-nh: pre
-    sudo nixos-rebuild switch --flake .#
+git-stage-all:
+    git add . 
