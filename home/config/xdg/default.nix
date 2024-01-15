@@ -21,7 +21,7 @@
 
       "audio/*" = mediaPlayer;
       "video/*" = mediaPlayer;
-      "image/*" = ["nomacs.desktop"];
+      "image/*" = ["eog.desktop"];
       "text/plain" = ["nvim.desktop"];
       "application/json" = browser;
       "application/pdf" = browser;
