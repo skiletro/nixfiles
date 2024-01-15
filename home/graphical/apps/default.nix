@@ -19,7 +19,7 @@
         '';
     }))
     thunderbird
-    nomacs
+    gnome.eog
     (libreoffice-qt.overrideAttrs {
       propagatedBuildInputs = with pkgs; [
         jre_minimal
