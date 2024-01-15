@@ -6,11 +6,11 @@
   imports = [
     ./bat
     ./btop
+    ./montool
     ./zellij
   ];
 
   home.packages = with pkgs; [
-    inputs.nh.packages.${pkgs.system}.default
     wget
     unzip
     unrar
