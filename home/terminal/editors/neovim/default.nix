@@ -73,7 +73,7 @@
             enable = true;
             installLanguageServer = true;
           };
-          pylyzer = {
+          pyright = {
             #python
             enable = true;
             installLanguageServer = true;
@@ -100,6 +100,11 @@
           };
           hls = {
             #haskell
+            enable = true;
+            installLanguageServer = true;
+          };
+          gopls = {
+            #go
             enable = true;
             installLanguageServer = true;
           };
