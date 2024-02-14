@@ -20,6 +20,7 @@
         skellock.just
         mkhl.direnv
         haskell.haskell
+        justusadam.language-haskell
         golang.go
         james-yu.latex-workshop
       ])
