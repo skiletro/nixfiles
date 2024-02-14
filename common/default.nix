@@ -217,6 +217,9 @@
     }) # For vial, allows recognition of keyboards!
   ];
 
+  # Run unpatched dynamic binaries on NixOS
+  programs.nix-ld.enable = true;
+
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
