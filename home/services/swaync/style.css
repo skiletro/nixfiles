@@ -51,8 +51,8 @@
 
 .close-button:hover {
   box-shadow: none;
-  background: @accent;
-	color: @background;
+  background: @background;
+	color: @accent;
   transition: all 0.15s ease-in-out;
   border: none;
 }
