@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -8,6 +8,10 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 14;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot.memtest86.enable = true;
+
+  # Use latest kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "themis";
 
@@ -39,6 +43,13 @@
   services.blueman.enable = true;
 
   hardware.cpu.amd.updateMicrocode = true;
+
+  services.syncthing = {
+    enable = true;
+    user = "jamie";
+    dataDir = "/home/jamie/Documents/";
+    configDir = "/home/jamie/.config/syncthing";
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
