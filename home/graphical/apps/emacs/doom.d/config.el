@@ -18,7 +18,8 @@
 (setq display-line-numbers-type t)
 
 (setq org-directory "~/org/")
-(setq org-roam-directory "~/OneDrive/RoamNotes")
+(setq org-roam-directory "~/org/roam/")
+
 (setq org-startup-with-inline-images t)
 (setq org-startup-with-latex-preview t)
 
