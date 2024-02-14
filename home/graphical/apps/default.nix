@@ -22,7 +22,6 @@
     gnome.eog
     (libreoffice-qt.overrideAttrs {
       propagatedBuildInputs = with pkgs; [
-        jre_minimal
         hunspell
         hunspellDicts.en_GB-ise
       ];
@@ -41,6 +40,6 @@
     fusee-interfacee-tk #switch rcm
     zotero
     qbittorrent
-    gnome.gnome-system-monitor
+    mission-center
   ];
 }
