@@ -32,7 +32,5 @@ in {
 
   environment.etc."greetd/environments".text = ''
     Hyprland
-    labwc
-    sway
   '';
 }
