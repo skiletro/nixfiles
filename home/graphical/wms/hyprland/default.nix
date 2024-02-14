@@ -24,7 +24,7 @@
         "swww init;sleep 1;swww img $HOME/.bg.png"
 
         #"nm-applet"
-        # "beeper --hidden --default-frame --enable-features=UseOzonePlatform" beeper is broken rn
+        "beeper --hidden --default-frame --enable-features=UseOzonePlatform"
       ];
 
       general = {
