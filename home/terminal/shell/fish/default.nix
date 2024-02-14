@@ -7,6 +7,9 @@
     '';
     shellAbbrs = {
       n = "cd ~/.nix_config/";
+      j = "just";
+      ju = "just update";
+      jr = "just run";
     };
   };
 }
