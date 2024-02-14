@@ -44,6 +44,10 @@
                     value = "packages";
                   }
                   {
+                    name = "channel";
+                    value = "unstable";
+                  }
+                  {
                     name = "query";
                     value = "{searchTerms}";
                   }
@@ -78,13 +82,13 @@
         bitwarden
         translate-web-pages
         ublock-origin
+        decentraleyes
         sponsorblock
-        stylus
         augmented-steam
         protondb-for-steam
         fediact
         youtube-shorts-block
-        firemonkey
+        i-dont-care-about-cookies
       ];
       # modified theme from https://github.com/Bali10050/FirefoxCSS
       userChrome = builtins.readFile ./userChrome.css;
