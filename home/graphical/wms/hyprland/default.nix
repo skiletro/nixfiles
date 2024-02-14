@@ -24,7 +24,7 @@
         "swww init;sleep 1;swww img $HOME/.bg.png"
 
         #"nm-applet"
-        "beeper --hidden --default-frame --enable-features=UseOzonePlatform"
+        # "beeper --hidden --default-frame --enable-features=UseOzonePlatform" beeper is broken rn
       ];
 
       general = {
@@ -98,10 +98,13 @@
       ];
 
       windowrulev2 = [
+        "nomaximizerequest, class:.*" # Stops windows from maximising (looking at you, libreoffice)
+
         # Fixes https://github.com/hyprwm/Hyprland/issues/2661#issuecomment-1848940324
         "stayfocused, title:^()$,class:^(steam)$"
         "minsize 1 1, title:^()$,class:^(steam)$"
 
+        # Sets popups relating to bar/shell
         "float, class:^(gamescope)$,fullscreen:1"
         "float, title:^(nmtui-popup)$"
         "float, title:^(btop-popup)$"
@@ -123,6 +126,7 @@
         # General
         "SUPER SHIFT, Q, exec, ${window_kill_script.outPath}"
         "SUPER SHIFT, SPACE, togglefloating, "
+        "CTRL SUPER ALT, SPACE, fullscreen, 0"
         "SUPER, J, togglesplit," #dwindle
 
         "SUPER, left, movefocus, l"
@@ -179,7 +183,7 @@
         "SUPER, RETURN, exec, alacritty"
         "SUPER, E, exec, nautilus -w"
         "SUPER, F, exec, firefox"
-        "SUPER, O, exec, emacs ~/OneDrive/RoamNotes/start_here.org" #orgroam :)
+        "SUPER, O, exec, emacs ~/uninotes" # shortcut to open notes for uni
         "SUPER, N, exec, emacs ~/.nix_config"
 
         # Media Keys
