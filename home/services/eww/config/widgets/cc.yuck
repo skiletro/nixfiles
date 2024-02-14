@@ -53,7 +53,7 @@
 (defwidget qs_sync []
   (qs_button :icon "󰘿"
              :label "Cloud Sync"
-             :action "alacritty -T 'onedrive-popup' -e 'onedrive' -- --synchronize"
+             :action `hyprctl dispatch exec "alacritty -T 'onedrive-popup' -e 'onedrive' -- --synchronize"`
              :condition false
              :close-on-click true
              :class "br"))
