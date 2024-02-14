@@ -29,7 +29,6 @@ My dotfiles that I used on my arch-based system can be found [here](https://gith
 - Run `nix develop --extra-experimental-features "flakes nix-command"` then type `rebuild` (you might need to run it another time for it to fully do its thing)
 
 ## Issues
-- **Eww:** Replace wlogout with custom eww power menu
 - **Eww:** Rewrite some scripts for performance (maybe using Rust? We'll see)
 - **Eww:** Improve calender widget
 - **Swaync:** Trim file
