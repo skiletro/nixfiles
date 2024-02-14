@@ -34,12 +34,18 @@ My dotfiles that I used on my arch-based system can be found [here](https://gith
 - **Eww:** Improve calender widget
 - **Swaync:** Trim file
 - **Swaync:** Close button offest incorrectly
+- **LibreOffice:** Add Java dependency to package rather than "globally"
 
 ## Todo
-- [ ] Some sort of wallpaper script/system, prob using [lutgen](https://github.com/ozwaldorf/lutgen-rs)
+- [ ] Fix and finish all the todos and issues in preparation for a new look :eyes:
+- [ ] Complete rice revamp (more cosy: no floating bar, smaller gaps, smaller borders, no rounding)
+- [ ] Investigate and fix Beeper not working (something to do with shader error?)
+- [ ] Migrate from Doom Emacs to hand-rolled config (See [here](https://github.com/skiletro/emacs-config))
+- [ ] Add a floating compositor (Wayfire looks the most promising)
+- [ ] Some sort of wallpaper script/system, probably using [lutgen](https://github.com/ozwaldorf/lutgen-rs)
 
 ## Acknowledgements
 - [NotAShelf's Nyx Repo](https://github.com/NotAShelf/nyx) - a huge help (also I stole quite a lot of stuff)
-- [linkfrg's dotfiles](https://github.com/linkfrg/dotfiles) - incredibly useful in writing better eww widgets! 
+- [linkfrg's dotfiles](https://github.com/linkfrg/dotfiles) - was incredibly useful in writing better eww widgets! 
 
 If you can help with any of this stuff, please do a pull request as I am still learning!
