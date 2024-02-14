@@ -12,6 +12,8 @@
       with pkgs; [
         qemu
         qemu-eufi
+        virtio-win
+        quickemu # quickly create and run optimised vms
       ];
   };
 }
