@@ -60,53 +60,43 @@
           nixd = {
             #nix
             enable = true;
-            installLanguageServer = true;
             settings.formatting.command = "alejandra";
           };
           lua-ls = {
             #lua
             enable = true;
-            installLanguageServer = true;
           };
           bashls = {
             #bash
             enable = true;
-            installLanguageServer = true;
           };
           pyright = {
             #python
             enable = true;
-            installLanguageServer = true;
           };
           html = {
             #html
             enable = true;
-            installLanguageServer = true;
           };
           cssls = {
             #css
             enable = true;
-            installLanguageServer = true;
           };
           rust-analyzer = {
             #rust
             enable = true;
-            installLanguageServer = true;
           };
           emmet_ls = {
             #html shorthand
             enable = true;
-            installLanguageServer = true;
           };
           hls = {
             #haskell
             enable = true;
-            installLanguageServer = true;
           };
           gopls = {
             #go
             enable = true;
-            installLanguageServer = true;
           };
         };
       };
