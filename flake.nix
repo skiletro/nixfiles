@@ -22,8 +22,8 @@
     hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
     hyprland-plugins.inputs.hyprland.follows = "hyprland";
 
-    # Elkowars Wacky Widgets, used primarily for my bar and osd popups. Currently using a patch which adds a systray
-    eww.url = "github:hylophile/eww/dynamic-icons";
+    # Elkowars Wacky Widgets Git, used primarily for my bar and OSD popups. Currently using a patch which adds a systray
+    eww.url = "github:ralismark/eww/tray-3";
 
     # Custom spotify theming
     spicetify.url = "github:the-argus/spicetify-nix";

@@ -8,16 +8,16 @@ if [ "$status" != "Discharging" ]; then
 	icon="󰂄"
 else
 	case 1 in
-		$(($value==100)))icon="󰁹";;
-		$(($value>=90))) icon="󰂂";;
-		$(($value>=80))) icon="󰂁";;
-		$(($value>=70))) icon="󰂀";;
-		$(($value>=60))) icon="󰁿";;
-		$(($value>=50))) icon="󰁾";;
-		$(($value>=40))) icon="󰁽";;
-		$(($value>=30))) icon="󰁼";;
-		$(($value>=20))) icon="󰁻";;
-		$(($value>=10))) icon="󰁺";;
+		$(($value>=95)))icon="󰁹";;
+		$(($value>=85))) icon="󰂂";;
+		$(($value>=75))) icon="󰂁";;
+		$(($value>=65))) icon="󰂀";;
+		$(($value>=55))) icon="󰁿";;
+		$(($value>=45))) icon="󰁾";;
+		$(($value>=35))) icon="󰁽";;
+		$(($value>=25))) icon="󰁼";;
+		$(($value>=15))) icon="󰁻";;
+		$(($value>=5))) icon="󰁺";;
 		*) icon="󰂎";;
 	esac 
 fi
