@@ -51,10 +51,12 @@
         sensitivity = 0;
       };
 
-      "device:logitech-usb-receiver" = {
-        accel_profile = "flat";
-        sensitivity = 0.3;
-      };
+      # TODO: Fix this (.conf generates with the name field below accel_profile
+      # device = {
+      #   name = "logitech-usb-receiver";
+      #   accel_profile = "flat";
+      #   sensitivity = 0.3;
+      # };
 
       gestures = {
         workspace_swipe = true;
@@ -98,7 +100,7 @@
       ];
 
       windowrulev2 = [
-        "nomaximizerequest, class:.*" # Stops windows from maximising (looking at you, libreoffice)
+        "suppressevent maximize, class:.*" # Stops windows from maximising (looking at you, libreoffice)
 
         # Fixes https://github.com/hyprwm/Hyprland/issues/2661#issuecomment-1848940324
         "stayfocused, title:^()$,class:^(steam)$"

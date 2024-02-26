@@ -30,6 +30,7 @@ My dotfiles that I used on my arch-based system can be found [here](https://gith
 
 ## Issues
 - **LibreOffice:** Add Java dependency to package rather than "globally"
+- **Hyprland:** Re-add per-device settings to config
 
 ## Todo
 - [ ] Fix and finish all the todos and issues in preparation for a new look :eyes:
