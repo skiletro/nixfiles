@@ -34,7 +34,9 @@ My dotfiles that I used on my arch-based system can be found [here](https://gith
 ## Todo
 - [ ] Fix and finish all the todos and issues in preparation for a new look :eyes:
 - [ ] Complete rice revamp (more cosy: no floating bar, smaller gaps, smaller borders, no rounding)
+- [ ] Switch over from ralismark fork to official eww repo now that systray support has been added
 - [ ] Migrate from Doom Emacs to hand-rolled config (See [here](https://github.com/skiletro/emacs-config))
+- [ ] Migrate from Nixvim to hand-rolled config (maybe using funnel instead of lua?)
 - [ ] Add a floating compositor (Wayfire looks the most promising)
 - [ ] Some sort of wallpaper script/system, probably using [lutgen](https://github.com/ozwaldorf/lutgen-rs)
 
