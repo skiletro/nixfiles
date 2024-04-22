@@ -39,8 +39,6 @@
     python311
     nodejs_18
     jre_minimal
-    nix-index
-    nix-prefetch
     distrobox
     podman
     lutgen
@@ -49,5 +47,8 @@
     fd
     imagemagick
     just
+    du-dust
+    tldr
+    texliveFull
   ];
 }
