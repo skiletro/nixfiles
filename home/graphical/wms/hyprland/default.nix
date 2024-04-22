@@ -51,13 +51,6 @@
         sensitivity = 0;
       };
 
-      # TODO: Fix this (.conf generates with the name field below accel_profile
-      # device = {
-      #   name = "logitech-usb-receiver";
-      #   accel_profile = "flat";
-      #   sensitivity = 0.3;
-      # };
-
       gestures = {
         workspace_swipe = true;
         workspace_swipe_forever = false;
@@ -252,6 +245,13 @@
       #     natural_rounding = no
       #   }
       # }
+
+      # Per device configuration for PRO X SUPERLIGHT
+      device {
+        name = logitech-usb-receiver
+        accel_profile = flat
+        sensitivity = 0.3
+      }
     '';
   };
 }
