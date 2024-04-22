@@ -10,10 +10,6 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs"; # This is so the HM flake uses our nixpkgs, instead of the nixpkgs commit in their repo
 
-    # Nice utility flake: among other things, has better garbage collection
-    nh.url = "github:viperML/nh";
-    nh.inputs.nixpkgs.follows = "nixpkgs";
-
     # Stands for "Nix User Repository". Has a few packages that I need, like Firefox addons
     nur.url = "github:nix-community/NUR";
 
@@ -40,7 +36,6 @@
     self,
     nixpkgs,
     home-manager,
-    nh,
     nur,
     hyprland,
     ...
@@ -52,7 +47,6 @@
       ./common
       # NixOS Modules
       home-manager.nixosModules.default
-      nh.nixosModules.default
       nur.nixosModules.nur
       hyprland.nixosModules.default
       {
@@ -79,7 +73,7 @@
 
     devShells.${system}.default = pkgs.mkShell {
       buildInputs = with pkgs; [
-        nh.packages.${pkgs.system}.default
+        nh
         alejandra #code formatting
         just #command runner
       ];

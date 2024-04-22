@@ -101,7 +101,6 @@
 
   # Global variables (environment)
   environment.sessionVariables = rec {
-    FLAKE = "/home/jamie/.nix_config";
     NIXOS_OZONE_WL = "1"; # Hints to apps that I'm using Wayland
     PATH = [
       "/var/lib/flatpak/exports/share/applications/"
@@ -199,9 +198,10 @@
     };
   };
 
-  nh = {
+  programs.nh = {
     # Automatic garbage collection by nh, better than inbuilt
     enable = true;
+    flake = "/home/jamie/.nix_config";
     clean = {
       enable = true;
       extraArgs = "--keep-since 4d --keep 3";
