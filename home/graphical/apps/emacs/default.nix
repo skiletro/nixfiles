@@ -28,12 +28,12 @@ in {
   in
     with pkgs; [
       magit-script #^^
+      ispell # spellchecking
       rust-analyzer #rust lsp
       nodePackages.bash-language-server #sh and bash
       zls #zig lsp
-      rnix-lsp #nix lsp
+      #rnix-lsp #nix lsp
       ccls # c and c++ lsp
-      texlive.combined.scheme-medium #latex
       pandoc #document conversion
       gnuplot
       graphviz #org roam graph generation
