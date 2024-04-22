@@ -10,6 +10,7 @@
 
   home.packages = with pkgs; [
     xorg.xeyes #used literally just to test if app is xorg
+    audacity
     gnome.nautilus
     thunderbird
     gnome.eog
@@ -21,6 +22,8 @@
     })
     obs-studio
     teams-for-linux
+    ungoogled-chromium
+    element-desktop
     vial
     gnome.file-roller #gui zip tool
     pavucontrol
