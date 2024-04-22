@@ -32,7 +32,8 @@
   nixpkgs.config = {
     allowUnfree = true;
     permittedInsecurePackages = [
-      "electron-25.9.0" # Obsidian, see https://github.com/NixOS/nixpkgs/issues/273611
+      # This section should only be used as a _LAST RESORT_
+      # Using insecure packages is very dangerous
     ];
   };
 
