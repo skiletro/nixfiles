@@ -11,13 +11,6 @@
   home.packages = with pkgs; [
     xorg.xeyes #used literally just to test if app is xorg
     gnome.nautilus
-    (beeper.overrideAttrs (old: {
-      installPhase =
-        (old.installPhase or "")
-        + ''
-          wrapProgram $out/bin/beeper --add-flags "--default-frame"
-        '';
-    }))
     thunderbird
     gnome.eog
     (libreoffice-qt.overrideAttrs {
