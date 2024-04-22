@@ -218,6 +218,9 @@
     }) # For vial, allows recognition of keyboards!
   ];
 
+  # microphone noise cancellation
+  programs.noisetorch.enable = true;
+
   # Run unpatched dynamic binaries on NixOS
   programs.nix-ld.enable = true;
 }
