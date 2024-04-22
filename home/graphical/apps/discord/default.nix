@@ -12,6 +12,7 @@
           wrapProgram $out/opt/DiscordCanary/DiscordCanary --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform=wayland}}"
         '';
       }))
+    vesktop # for screensharing (seperate client)
   ];
 
   xdg.configFile."discordcanary/settings.json".text = let
