@@ -22,9 +22,6 @@
 
         "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1" #for stuff like passwords
         "swww init;sleep 1;swww img $HOME/.bg.png"
-
-        #"nm-applet"
-        "beeper --hidden --default-frame --enable-features=UseOzonePlatform"
       ];
 
       general = {
