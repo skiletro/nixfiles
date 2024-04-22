@@ -2,6 +2,7 @@
   imports = [
     ./eww
     ./swaync
+    ./syncthing
     ./wlogout
     ./swaylock
   ];
