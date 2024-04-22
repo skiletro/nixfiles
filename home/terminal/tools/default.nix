@@ -6,6 +6,7 @@
   imports = [
     ./bat
     ./btop
+    ./eza
     ./fastfetch
     ./montool
     ./zellij
