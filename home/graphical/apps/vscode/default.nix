@@ -40,6 +40,7 @@
       "vsicons.dontShowNewVersionMessage" = true;
       "editor.fontLigatures" = true;
       "editor.minimap.enabled" = false;
+      "editor.cursorSmoothCaretAnimation" = "on";
 
       "window.titleBarStyle" = "custom"; # needed otherwise vscode crashes, see https://github.com/NixOS/nixpkgs/issues/246509
     };
