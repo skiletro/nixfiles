@@ -77,6 +77,7 @@
         "general.smoothScroll" = true;
         "media.videocontrols.picture-in-picture.video-toggle.enabled" = false;
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        "media.hardware-video-decoding.force-enabled" = true;
       };
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         bitwarden
@@ -89,6 +90,7 @@
         fediact
         youtube-shorts-block
         i-dont-care-about-cookies
+        sidebery
       ];
       # modified theme from https://github.com/Bali10050/FirefoxCSS
       userChrome = builtins.readFile ./userChrome.css;
