@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./apps
-    ./gaming
+    #./gaming
     ./launchers
     ./wms
   ];
