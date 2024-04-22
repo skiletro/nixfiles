@@ -6,6 +6,7 @@
   imports = [
     ./bat
     ./btop
+    ./fastfetch
     ./montool
     ./zellij
   ];
@@ -17,7 +18,6 @@
     jq
     socat
     ripgrep
-    neofetch
     swww
     htop
     tmux
