@@ -27,7 +27,6 @@
       ];
     })
     obs-studio
-    obsidian
     teams-for-linux
     vial
     gnome.file-roller #gui zip tool
