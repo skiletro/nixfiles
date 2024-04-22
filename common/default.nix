@@ -220,10 +220,4 @@
 
   # Run unpatched dynamic binaries on NixOS
   programs.nix-ld.enable = true;
-
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-  };
 }
