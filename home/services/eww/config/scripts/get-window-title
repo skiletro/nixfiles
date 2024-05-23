@@ -1,6 +1,6 @@
 #!/bin/bash
 echo ""
-socat -u UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | \
+socat -u UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | \
   stdbuf -o0 grep '^activewindow>>' | \
   stdbuf -o0 grep -Po '^.{14}\K.*' | \
   stdbuf -o0 cut -d, -f1
