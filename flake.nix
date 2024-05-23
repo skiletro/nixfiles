@@ -14,7 +14,7 @@
     nur.url = "github:nix-community/NUR";
 
     # The Wayland compositor! Their flake is used for the -git build.
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "github:hyprwm/Hyprland/ed69502ff6e79a6dad213333b0bc3a15e2247942";
     hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
     hyprland-plugins.inputs.hyprland.follows = "hyprland";
 
