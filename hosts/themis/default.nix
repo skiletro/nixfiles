@@ -10,6 +10,11 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.memtest86.enable = true;
 
+  # Plymouth
+  boot.plymouth = {
+    enable = true;
+  };
+
   # Use latest kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
