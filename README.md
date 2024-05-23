@@ -15,7 +15,7 @@
 
 My dotfiles that I used on my arch-based system can be found [here](https://github.com/skiletro/archfiles), and are a basis for a lot of the configuration here! If you don't use NixOS, you can probably find a more standard config for the thing you are looking for over there.
 
-## Goals
+## Goals (WIP)
 - Wayland first
 - Looks pretty
 
@@ -32,11 +32,7 @@ My dotfiles that I used on my arch-based system can be found [here](https://gith
 - **LibreOffice:** Add Java dependency to package rather than "globally"
 
 ## Todo
-- [ ] Fix and finish all the todos and issues in preparation for a new look :eyes:
-- [ ] Complete rice revamp (more cosy: no floating bar, smaller gaps, smaller borders, no rounding)
-- [ ] Switch over from ralismark fork to official eww repo now that systray support has been added
-- [ ] Migrate from Doom Emacs to hand-rolled config (See [here](https://github.com/skiletro/emacs-config))
-- [ ] Migrate from Nixvim to hand-rolled config (maybe using funnel instead of lua?)
+- [ ] Speed up Emacs start times
 - [ ] Add a floating compositor (Wayfire looks the most promising)
 - [ ] Some sort of wallpaper script/system, probably using [lutgen](https://github.com/ozwaldorf/lutgen-rs)
 
