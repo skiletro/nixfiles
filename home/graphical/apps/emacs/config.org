@@ -39,6 +39,7 @@ Welcome to my Emacs configuration. It is very much a work in progress.
   - [[#structure-templates][Structure Templates]]
   - [[#auto-tangle-configuration-files][Auto Tangle Configuration Files]]
   - [[#auto-table-of-contents][Auto Table of Contents]]
+  - [[#auto-toggle-emphasis-markers-links-etc][Auto Toggle Emphasis Markers, Links, etc.]]
   - [[#latex-fragment-previews][LaTeX Fragment Previews]]
   - [[#drag-and-droppasting-images][Drag-and-Drop/Pasting Images]]
 - [[#development][Development]]
@@ -47,6 +48,7 @@ Welcome to my Emacs configuration. It is very much a work in progress.
     - [[#c][C++]]
     - [[#latex][LaTeX]]
     - [[#python][Python]]
+    - [[#nix][Nix]]
   - [[#flycheck][Flycheck]]
   - [[#projectile][Projectile]]
   - [[#magit][Magit]]
@@ -470,6 +472,26 @@ Declutter this massive fuck off codeblock
     :hook (org-mode . toc-org-mode))
 #+end_src
 
+** Auto Toggle Emphasis Markers, Links, etc.
+#+begin_src emacs-lisp
+  (use-package org-appear
+    :init (setq org-appear-trigger 'manual)
+    :config
+    (setq org-appear-autoemphasis t
+          org-appear-autolinks t)
+    :hook
+    (org-mode . org-appear-mode)
+    (org-mode . (lambda ()
+                  (add-hook 'evil-insert-state-entry-hook
+                            #'org-appear-manual-start
+                            nil
+                            t)
+                  (add-hook 'evil-insert-state-exit-hook
+                            #'org-appear-manual-stop
+                            nil
+                            t))))
+#+end_src
+
 ** LaTeX Fragment Previews
 This is used in conjunction with the built in fragment LaTeX fragment previewer.
 + On NixOS, the package ~texlive.combined.scheme-medium~ is recommended.
@@ -564,6 +586,22 @@ For this language, an external package is required.
   (use-package lsp-pyright
     :after lsp
     :hook (python-mode . lsp-deferred))
+#+end_src
+
+*** Nix
+For this language, an external package is required.
++ On NixOS, add the ~nil~ package
+
+#+begin_src emacs-lisp
+  (use-package lsp-nix
+    :after lsp
+    :custom
+    (lsp-nix-nil-formatter ["nixpkgs-fmt"]))
+
+  (use-package nix-mode
+    :mode "\\.nix\\'"
+    :hook (nix-mode . lsp-deferred)
+    :commands nixfmt-on-save-mode)
 #+end_src
 
 ** Flycheck

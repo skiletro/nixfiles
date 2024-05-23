@@ -13,5 +13,11 @@
         alwaysEnsure = true;
       };
     };
+
+    home.packages = with pkgs; [
+      ccls
+      nodePackages.pyright
+      nil
+    ];
   };
 }
