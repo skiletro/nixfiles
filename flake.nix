@@ -24,9 +24,8 @@
     # Custom spotify theming
     spicetify.url = "github:the-argus/spicetify-nix";
 
-    # Neovim distribution made for nix/hm
-    nixvim.url = "github:nix-community/nixvim";
-    nixvim.inputs.nixpkgs.follows = "nixpkgs";
+    # Emacs Overlay
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
 
     # VSCode Plugins
     vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
@@ -38,6 +37,7 @@
     home-manager,
     nur,
     hyprland,
+    emacs-overlay,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -59,6 +59,7 @@
         nixpkgs.overlays = [
           # Nixpkgs Overlays
           nur.overlay
+          emacs-overlay.overlay
           (import ./packages)
         ];
       }
