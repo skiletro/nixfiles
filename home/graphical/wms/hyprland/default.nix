@@ -1,17 +1,10 @@
-{
-  lib,
-  osConfig,
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./themis.nix
   ];
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland; #git package
     settings = {
       exec-once = [
         "eww open bar"
@@ -175,7 +168,6 @@
         "SUPER, RETURN, exec, alacritty"
         "SUPER, E, exec, nautilus -w"
         "SUPER, F, exec, firefox"
-        "SUPER, O, exec, emacs ~/uninotes" # shortcut to open notes for uni
         "SUPER, N, exec, emacs ~/.nix_config"
 
         # Media Keys
@@ -228,10 +220,6 @@
         "ENABLE_VKBASALT, 1"
       ];
     };
-
-    plugins = with inputs.hyprland-plugins.packages.${pkgs.system}; [
-      #border-plus-plus
-    ];
 
     extraConfig = ''
       # plugin {

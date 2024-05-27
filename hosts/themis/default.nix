@@ -4,21 +4,31 @@
     ./hardware-configuration.nix
   ];
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.configurationLimit = 14;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.systemd-boot.memtest86.enable = true;
+  networking.hostName = "themis";
 
-  # Plymouth
-  boot.plymouth = {
-    enable = true;
+  # Bootloader
+  boot.loader = {
+    systemd-boot = {
+      enable = true;
+      configurationLimit = 14;
+    };
+    efi.canTouchEfiVariables = true;
   };
 
-  # Use latest kernel
+  # Use latest kernel package
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "themis";
+  # Plymouth - fancy
+  boot.plymouth.enable = true;
+
+  customConfig = {
+    # Core Settings
+    greeter = "sddm";
+    virtualisation.enable = true;
+
+    # Extra Features
+    flatpak.enable = true;
+  };
 
   # Enable networking
   networking.networkmanager.enable = true;
