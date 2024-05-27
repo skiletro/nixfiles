@@ -1,11 +1,12 @@
 {
-  config,
   pkgs,
   inputs,
   ...
 }: {
   imports = [
-    ./greeter.nix
+    ./greeters
+    ./wms
+    ./flatpak.nix
     ./virtualisation.nix
   ];
 
@@ -68,9 +69,7 @@
   # Bigger/better tty font
   console = {
     keyMap = "uk"; # Configure console keymap
-    earlySetup = true; # Runs as soon as possible
-    #font = "${pkgs.terminus_font}/share/consolefonts/ter-132n.psf.gz";
-    #packages = with pkgs; [ terminus_font ];
+    earlySetup = false; # Runs as soon as possible
     colors = [
       "1e1e2e"
       "f38ba8"
@@ -92,19 +91,12 @@
   };
 
   xdg.portal.enable = true;
-  xdg.portal.extraPortals = [
-    pkgs.xdg-desktop-portal-gtk
-    inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
-  ];
 
   programs.dconf.enable = true;
 
-  # Global variables (environment)
-  environment.sessionVariables = rec {
-    NIXOS_OZONE_WL = "1"; # Hints to apps that I'm using Wayland
-    PATH = [
-      "/var/lib/flatpak/exports/share/applications/"
-    ];
+  # Global environment variables
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1"; # Hints to apps that Wayland is being used
   };
 
   security = {
@@ -118,7 +110,6 @@
     gvfs.enable = true; # Mount, trash, and other functionalities
     tumbler.enable = true; # Thumbnail support for images
     gnome.gnome-keyring.enable = true; # Saves passwords
-    flatpak.enable = true;
 
     # Printing
     printing = {
@@ -223,4 +214,7 @@
 
   # Run unpatched dynamic binaries on NixOS
   programs.nix-ld.enable = true;
+
+  # Required to enable critical components needed to run Hyprland properly
+  programs.hyprland.enable = true;
 }
