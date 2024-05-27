@@ -282,7 +282,7 @@ This configuration uses evil-mode to emulate vim keybindings. General.el is also
     "bs" '(save-buffer :which-key "Save current buffer")
 
     "f"  '(:which-key "file")
-    "ff" '(find-file :which-key "Find file")
+    "ff" '(counsel-find-file :which-key "Find file")
 
     "q"  '(:which-key "quit/kill")
     "qq" '(evil-quit :which-key "Quit Emacs"))
