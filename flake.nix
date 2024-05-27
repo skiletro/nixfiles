@@ -13,16 +13,14 @@
     # Stands for "Nix User Repository". Has a few packages that I need, like Firefox addons
     nur.url = "github:nix-community/NUR";
 
-    # The Wayland compositor! Their flake is used for the -git build.
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
-    hyprland-plugins.inputs.hyprland.follows = "hyprland";
-
     # Custom spotify theming
     spicetify.url = "github:the-argus/spicetify-nix";
 
     # Emacs Overlay
     emacs-overlay.url = "github:nix-community/emacs-overlay";
+
+    # Declarative Flatpaks
+    declarative-flatpak.url = "github:gmodena/nix-flatpak";
 
     # VSCode Plugins
     vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
@@ -33,8 +31,8 @@
     nixpkgs,
     home-manager,
     nur,
-    hyprland,
     emacs-overlay,
+    declarative-flatpak,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -45,7 +43,7 @@
       # NixOS Modules
       home-manager.nixosModules.default
       nur.nixosModules.nur
-      hyprland.nixosModules.default
+      declarative-flatpak.nixosModules.nix-flatpak
       {
         home-manager = {
           useGlobalPkgs = true;
