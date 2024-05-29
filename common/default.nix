@@ -1,11 +1,8 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./greeters
     ./wms
+    ./cleanboot.nix
     ./flatpak.nix
     ./virtualisation.nix
   ];
