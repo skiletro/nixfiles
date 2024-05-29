@@ -18,11 +18,9 @@
   # Use latest kernel package
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  # Plymouth - fancy
-  boot.plymouth.enable = true;
-
   customConfig = {
     # Core Settings
+    cleanboot.enable = true; # Hides all of the "console"y stuff on boot, looks a bit cleaner.
     greeter = "sddm";
     virtualisation.enable = true;
 
