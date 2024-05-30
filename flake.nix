@@ -65,6 +65,11 @@
         specialArgs = {inherit inputs;};
         modules = [./hosts/themis] ++ desktopModules;
       };
+
+      eris = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [./hosts/eris] ++ desktopModules;
+      };
     };
 
     devShells.${system}.default = pkgs.mkShell {
