@@ -1,11 +1,41 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
+    ./cleanboot
+    ./flatpak
+    ./gaming
     ./greeters
+    ./virtualisation
     ./wms
-    ./cleanboot.nix
-    ./flatpak.nix
-    ./virtualisation.nix
   ];
+
+  # Use latest kernel package
+  boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
+
+  # Platform-independent graphics
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
+  # Set the drivers for the specific device in the hosts/hostname.nix file.
+
+  # Sound
+  sound.enable = true;
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
+  # Enable networking
+  networking.networkmanager.enable = true;
 
   users.users.jamie = {
     isNormalUser = true;
@@ -106,7 +136,6 @@
   services = {
     gvfs.enable = true; # Mount, trash, and other functionalities
     tumbler.enable = true; # Thumbnail support for images
-    gnome.gnome-keyring.enable = true; # Saves passwords
 
     # Printing
     printing = {
@@ -211,7 +240,4 @@
 
   # Run unpatched dynamic binaries on NixOS
   programs.nix-ld.enable = true;
-
-  # Required to enable critical components needed to run Hyprland properly
-  programs.hyprland.enable = true;
 }
