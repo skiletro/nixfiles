@@ -6,6 +6,22 @@
 
   networking.hostName = "themis";
 
+  customConfig = {
+    # Core Settings
+    cleanboot.enable = true; # Hides all of the "console"y stuff on boot, looks a bit cleaner.
+    greeter = "greetd";
+    windowManager.hyprland = {
+      enable = true;
+      scaling = {
+        enable = true;
+        multiplier = 1.25;
+      };
+    };
+
+    # Extra Features
+    virtualisation.enable = true;
+  };
+
   # Bootloader
   boot.loader = {
     systemd-boot = {
@@ -13,33 +29,6 @@
       configurationLimit = 14;
     };
     efi.canTouchEfiVariables = true;
-  };
-
-  # Use latest kernel package
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  customConfig = {
-    # Core Settings
-    cleanboot.enable = true; # Hides all of the "console"y stuff on boot, looks a bit cleaner.
-    greeter = "sddm";
-    virtualisation.enable = true;
-
-    # Extra Features
-    flatpak.enable = true;
-  };
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-
-  # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
   };
 
   # Laptop battery optimisation

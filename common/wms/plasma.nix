@@ -5,10 +5,10 @@
   ...
 }: {
   options = {
-    customConfig.wms.plasma.enable = lib.mkEnableOption "KDE Plasma";
+    customConfig.windowManager.plasma.enable = lib.mkEnableOption "KDE Plasma";
   };
 
-  config = lib.mkIf config.customConfig.wms.plasma.enable {
+  config = lib.mkIf config.customConfig.windowManager.plasma.enable {
     services.desktopManager.plasma6.enable = true;
     environment.plasma6.excludePackages = with pkgs.kdePackages; [
       konsole

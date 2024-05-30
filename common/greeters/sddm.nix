@@ -8,9 +8,9 @@
     services.displayManager.sddm = {
       enable = true;
       wayland.enable = true;
-      theme = "chili";
+      #theme = "chili";
     };
 
-    environment.systemPackages = with pkgs; [sddm-chili-theme];
+    #environment.systemPackages = with pkgs; [sddm-chili-theme];
   };
 }
