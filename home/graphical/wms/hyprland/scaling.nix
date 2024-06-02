@@ -6,7 +6,7 @@
 }: {
   config = lib.mkIf osConfig.customConfig.windowManager.hyprland.scaling.enable {
     wayland.windowManager.hyprland = let
-      scale = osConfig.customConfig.windowManager.hyprland.scaling.multiplier;
+      scale = toString osConfig.customConfig.windowManager.hyprland.scaling.multiplier;
     in {
       extraConfig = ''
         monitor = eDP-1, 1920x1080@60, 0x0, ${scale}
