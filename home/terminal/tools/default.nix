@@ -8,6 +8,7 @@
     ./btop
     ./eza
     ./fastfetch
+    ./git
     ./montool
     ./zellij
   ];
