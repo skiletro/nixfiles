@@ -5,6 +5,7 @@
       enable = true;
       onCalendar = "weekly";
     };
+    uninstallUnmanaged = true;
     #packages = [];
     overrides = {
       global = {
