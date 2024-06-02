@@ -15,25 +15,33 @@
 
 My dotfiles that I used on my arch-based system can be found [here](https://github.com/skiletro/archfiles), and are a basis for a lot of the configuration here! If you don't use NixOS, you can probably find a more standard config for the thing you are looking for over there.
 
-## Goals (WIP)
-- Wayland first
-- Looks pretty
+## Goals 
+- Wayland First - *Minimal/No X11 if it can be helped*
+- Looks Pretty - *A focus on making the system look good to the eyes, without compromising functionality*
 
-## Installation Guide (WIP)
-- Enter a nix-shell with `nix-shell -p alejandra git neovim`
-- Clone the repo (preferably under `.nix_config` in your home directory
-- Copy over your `configuration.nix` and `hardware-configuration.nix` to a new folder in `machines/`.
-- Rename `configuration.nix` to `default.nix`
-- Add the host to the list of hosts in `flake.nix`
-- Change all the user references from `jamie` to whatever username you are using
-- Run `nix develop --extra-experimental-features "flakes nix-command"` then type `rebuild` (you might need to run it another time for it to fully do its thing)
+## Installation Guide
+Please note that this flake is pretty specialised for my use case, and you would probably be better off just stealing the parts you like and then encorporating that into your own flake. This install guide is here **just for reference** (and because I forget how to do this sometimes)
+
+- Install NixOS onto your target system using a [live USB](https://nixos.org/manual/nixos/stable/#sec-booting-from-usb), setting the username to `jamie`
+- On your freshly installed system, run `nix-shell -p git neovim`
+- Clone this repo into your home directory by typing `git clone https://github.com/skiletro/nixfiles .nix_config`
+- `cd ~/.nix_config`
+- `mkdir hosts/<HOSTNAME>`
+- `cp /etc/nixos/confguration.nix hosts/<HOSTNAME>/default.nix`
+- `cp /etc/nixos/hardware-configuration.nix hosts/<HOSTNAME>/`
+- Edit `hosts/<HOSTNAME>/default.nix` and change the networking hostname to your `<HOSTNAME>`. You can also edit this file for your specific changes
+- Add a new entry for your new hostname under `nixosConfigurations` in `flake.nix`
+- `nix develop --extra-experimental-features "flakes nix-command"`
+- `just format` to make sure everything is formatted correctly and it won't error out
+- `git add .`
+- `sudo nixos-rebuild switch --flake .#<HOSTNAME>`
+- Let it complete, and you're done! You'll probably want to reboot too
 
 ## Issues
 - **LibreOffice:** Add Java dependency to package rather than "globally"
 
 ## Todo
 - [ ] Speed up Emacs start times
-- [ ] Add a floating compositor (Wayfire looks the most promising)
 - [ ] Some sort of wallpaper script/system, probably using [lutgen](https://github.com/ozwaldorf/lutgen-rs)
 
 ## Acknowledgements
