@@ -8,7 +8,7 @@
     ./scaling.nix
   ];
 
-  config = lib.mkIf osConfig.customConfig.windowManager.hyprland.enable {
+  config = lib.mkIf osConfig.userConfig.windowManager.hyprland.enable {
     wayland.windowManager.hyprland = {
       enable = true;
       settings = {
@@ -208,9 +208,9 @@
         };
 
         env = [
-          "GTK_THEME, Catppuccin-Mocha-Standard-Mauve-Dark"
-          "QT_QPA_PLATFORMTHEME, gtk2"
-          "XCURSOR_THEME, Catppuccin-Mocha-Dark-Cursors"
+          #"GTK_THEME, Catppuccin-Mocha-Standard-Mauve-Dark"
+          #"QT_QPA_PLATFORMTHEME, gtk2"
+          #"XCURSOR_THEME, Catppuccin-Mocha-Dark-Cursors"
 
           "QT_AUTO_SCREEN_SCALE_FACTOR, 1"
           "QT_WAYLAND_DISABLE_WINDOWDECORATION, 1"

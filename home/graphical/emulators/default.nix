@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    ./themes
-    ./xdg
+    ./alacritty
+    ./kitty
   ];
 }

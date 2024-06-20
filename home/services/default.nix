@@ -8,7 +8,9 @@
   ];
 
   home.packages = with pkgs; [
-    swaynotificationcenter
+    swww
+    onedrive
+    wlsunset
     udiskie
     xdg-utils
     libsForQt5.polkit-kde-agent

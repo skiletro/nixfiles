@@ -4,7 +4,8 @@
   config,
   ...
 }: {
-  config = lib.mkIf (config.customConfig.greeter == "sddm") {
+  config = lib.mkIf ((config.userConfig.greeter.enable)
+    && (config.userConfig.greeter.type == "sddm")) {
     services.displayManager.sddm = {
       enable = true;
       wayland.enable = true;
