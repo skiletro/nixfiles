@@ -6,10 +6,12 @@
 
   networking.hostName = "themis";
 
-  customConfig = {
+  userConfig = {
     # Core Settings
-    cleanboot.enable = true; # Hides all of the "console"y stuff on boot, looks a bit cleaner.
-    greeter = "greetd";
+    greeter = {
+      enable = true;
+      type = "greetd";
+    };
     windowManager.hyprland = {
       enable = true;
       scaling = {
@@ -50,13 +52,58 @@
   };
 
   # Enable touchpad support
-  services.xserver.libinput.enable = true;
+  services.libinput.enable = true;
 
   # Bluetooth support
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
   hardware.cpu.amd.updateMicrocode = true;
+
+  environment.systemPackages = let
+    montool = pkgs.writeShellScriptBin "montool" ''
+        toggle_bar() {
+          eww close bar
+          eww open bar
+        }
+
+        toggle_on() {
+          hyprctl keyword monitor "DP-1, 1920x1080@120, auto, 1"
+          hyprctl keyword monitor "eDP-1, disable"
+          sleep 1.5
+          toggle_bar
+        }
+
+        toggle_off() {
+          hyprctl reload
+          sleep 1.5
+          toggle_bar
+        }
+
+        case "$1" in
+          on)
+            toggle_on >/dev/null
+            echo "Done!"
+          ;;
+
+          off)
+            toggle_off >/dev/null
+            echo "Done!"
+          ;;
+
+          *)
+          cat <<-EOF
+      montool - quick script written to toggle laptop screen on and off
+
+      Commands:
+        on    Turn off laptop and turn on dedicated monitor
+        off   Turn back on laptop monitor
+      EOF
+          ;;
+        esac
+    '';
+  in
+    with pkgs; [montool];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

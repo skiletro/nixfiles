@@ -10,20 +10,19 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs"; # This is so the HM flake uses our nixpkgs, instead of the nixpkgs commit in their repo
 
-    # Stands for "Nix User Repository". Has a few packages that I need, like Firefox addons
+    # Stands for "Nix User Repository". It has a few packages that I need, such as a few Firefox addons and some fonts
     nur.url = "github:nix-community/NUR";
 
     # Custom spotify theming
     spicetify.url = "github:the-argus/spicetify-nix";
 
-    # Emacs Overlay
     emacs-overlay.url = "github:nix-community/emacs-overlay";
 
-    # Declarative Flatpaks
     declarative-flatpak.url = "github:gmodena/nix-flatpak";
 
-    # VSCode Plugins
     vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+
+    wsl.url = "github:nix-community/NixOS-WSL/main";
   };
 
   outputs = {
@@ -33,12 +32,13 @@
     nur,
     emacs-overlay,
     declarative-flatpak,
+    wsl,
     ...
   } @ inputs: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
     # Here is where all the module imports are stored
-    desktopModules = [
+    commonModules = [
       ./common
       # NixOS Modules
       home-manager.nixosModules.default
@@ -61,14 +61,24 @@
     ];
   in {
     nixosConfigurations = {
-      themis = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [./hosts/themis] ++ desktopModules;
-      };
-
       eris = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
-        modules = [./hosts/eris] ++ desktopModules;
+        modules = commonModules ++ [./hosts/eris];
+      };
+
+      themis = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = commonModules ++ [./hosts/themis];
+      };
+
+      wsl = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules =
+          commonModules
+          ++ [
+            wsl.nixosModules.default
+            ./hosts/wsl
+          ];
       };
     };
 
