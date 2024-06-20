@@ -5,10 +5,13 @@
   ];
 
   options = {
-    customConfig.greeter = lib.mkOption {
-      type = lib.types.enum ["sddm" "greetd"];
-      default = "sddm";
-      description = "The display manager greeter to use.";
+    userConfig.greeter = {
+      enable = lib.mkEnableOption "Greeter";
+      type = lib.mkOption {
+        type = lib.types.enum ["sddm" "greetd"];
+        default = "sddm";
+        description = "The display manager greeter to use.";
+      };
     };
   };
 }

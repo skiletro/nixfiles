@@ -3,7 +3,7 @@
   osConfig,
   ...
 }: {
-  config = lib.mkIf osConfig.customConfig.windowManager.hyprland.enable {
+  config = lib.mkIf osConfig.userConfig.windowManager.hyprland.enable {
     xdg = {
       enable = true;
       mimeApps.enable = true;

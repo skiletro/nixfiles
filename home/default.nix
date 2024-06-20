@@ -1,6 +1,5 @@
 {...}: {
   imports = [
-    ./config
     ./graphical
     ./services
     ./terminal

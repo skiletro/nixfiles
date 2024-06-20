@@ -4,7 +4,7 @@
   config,
   ...
 }: {
-  config = lib.mkIf config.customConfig.gaming.osu.enable {
+  config = lib.mkIf config.userConfig.gaming.osu.enable {
     services.flatpak.packages = [
       "sh.ppy.osu"
     ];

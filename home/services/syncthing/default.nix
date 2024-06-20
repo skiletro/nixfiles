@@ -2,26 +2,29 @@
   config,
   pkgs,
   lib,
+  osConfig,
   ...
 }: {
-  services.syncthing = {
-    enable = true;
-    tray = {
+  config = lib.mkIf osConfig.userConfig.graphical.enable {
+    services.syncthing = {
       enable = true;
-      package = pkgs.syncthingtray;
-      command = "syncthingtray --wait";
+      tray = {
+        enable = true;
+        package = pkgs.syncthingtray;
+        command = "syncthingtray --wait";
+      };
     };
-  };
 
-  systemd.user.services.${config.services.syncthing.tray.package.pname} = {
-    Install.WantedBy = lib.mkForce [];
-  };
-
-  systemd.user.timers.${config.services.syncthing.tray.package.pname} = {
-    Timer = {
-      OnActiveSec = "6s";
-      AccuracySec = "1s";
+    systemd.user.services.${config.services.syncthing.tray.package.pname} = {
+      Install.WantedBy = lib.mkForce [];
     };
-    Install = {WantedBy = ["graphical-session.target"];};
+
+    systemd.user.timers.${config.services.syncthing.tray.package.pname} = {
+      Timer = {
+        OnActiveSec = "6s";
+        AccuracySec = "1s";
+      };
+      Install = {WantedBy = ["graphical-session.target"];};
+    };
   };
 }

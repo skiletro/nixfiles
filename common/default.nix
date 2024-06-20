@@ -4,35 +4,17 @@
   ...
 }: {
   imports = [
-    ./cleanboot
     ./flatpak
-    ./gaming
+    ./graphical # Includes stuff that a non-headless system would need
     ./greeters
+    ./nix
+    ./terminal
     ./virtualisation
     ./wms
   ];
 
   # Use latest kernel package
   boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
-
-  # Platform-independent graphics
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
-  # Set the drivers for the specific device in the hosts/hostname.nix file.
-
-  # Sound
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -56,14 +38,6 @@
     git
     neovim
   ];
-
-  nixpkgs.config = {
-    allowUnfree = true;
-    permittedInsecurePackages = [
-      # This section should only be used as a _LAST RESORT_
-      # Using insecure packages is very dangerous
-    ];
-  };
 
   # Set your time zone.
   time.timeZone = "Europe/London";
@@ -90,154 +64,18 @@
     settings.KbdInteractiveAuthentication = false;
   };
 
-  # Configure keymap in X11
-  services.xserver.layout = "gb";
-
-  # Bigger/better tty font
-  console = {
-    keyMap = "uk"; # Configure console keymap
-    earlySetup = false; # Runs as soon as possible
-    colors = [
-      "1e1e2e"
-      "f38ba8"
-      "a6e3a1"
-      "f9e2af"
-      "89b4fa"
-      "f5c2e7"
-      "94e2d5"
-      "bac2de"
-      "585b70"
-      "f38ba8"
-      "a6e3a1"
-      "f9e2af"
-      "89b4fa"
-      "f5c2e7"
-      "94e2d5"
-      "a6adc8"
-    ];
-  };
-
-  xdg.portal.enable = true;
-
-  programs.dconf.enable = true;
+  console.keyMap = "uk";
 
   # Global environment variables
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1"; # Hints to apps that Wayland is being used
   };
 
-  security = {
-    polkit.enable = true;
-    pam.services.swaylock.text = ''
-      auth include login
-    '';
-  };
-
-  services = {
-    gvfs.enable = true; # Mount, trash, and other functionalities
-    tumbler.enable = true; # Thumbnail support for images
-
-    # Printing
-    printing = {
-      enable = true;
-      drivers = with pkgs; [hplip]; # HP proprietary drivers
-    };
-    avahi = {
-      enable = true;
-      nssmdns = true;
-      openFirewall = true; # For WiFi printers
-    };
-  };
-
-  fonts = {
-    fontDir.enable = true;
-
-    packages = with pkgs; [
-      corefonts #ms fonts
-      vistafonts #more ms fonts
-      noto-fonts
-      noto-fonts-extra
-      noto-fonts-cjk #Japanese, Korean, Chinese, etc
-      noto-fonts-color-emoji
-      (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
-      iosevka-comfy.comfy
-      nur.repos.skiletro.urbanist
-      nur.repos.skiletro.gabarito
-    ];
-
-    fontconfig = {
-      enable = true;
-      localConf = ''
-        <match target="pattern">
-          <test qual="any" name="family" compare="eq"><string>Iosevka Comfy</string></test>
-          <edit name="family" mode="assign" binding="same"><string>SymbolsNerdFont</string></edit>
-        </match>
-      '';
-      defaultFonts = {
-        monospace = ["Iosevka Comfy" "SymbolsNerdFont" "Noto Color Emoji"];
-        sansSerif = ["Urbanist" "Noto Sans" "Noto Fonts Extra"];
-        emoji = ["Noto Color Emoji"];
-      };
-    };
-  };
-
-  nix = {
-    # set nix path properly
-    nixPath = [
-      "nixos-config=/home/jamie/.nix_config/flake.nix"
-      "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
-    ];
-
-    settings = {
-      auto-optimise-store = true;
-      builders-use-substitutes = true;
-      substituters = [
-        "https://hyprland.cachix.org"
-        "https://nix-gaming.cachix.org"
-      ];
-      trusted-public-keys = [
-        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-        "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
-      ];
-    };
-
-    package = pkgs.nixFlakes; # or versioned attr like nixVersions.nix_2_8
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-
-    optimise = {
-      automatic = true;
-      dates = [
-        "03:45"
-        "07:00"
-      ];
-    };
-  };
-
-  programs.nh = {
-    # Automatic garbage collection by nh, better than inbuilt
-    enable = true;
-    flake = "/home/jamie/.nix_config";
-    clean = {
-      enable = true;
-      extraArgs = "--keep-since 4d --keep 3";
-    };
-  };
-
-  services.udev.packages = [
-    (pkgs.writeTextFile {
-      name = "vial_udev";
-      text = ''
-        KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
-      '';
-      destination = "/etc/udev/rules.d/99-vial.rules";
-    }) # For vial, allows recognition of keyboards!
-  ];
-
-  # microphone noise cancellation
-  programs.noisetorch.enable = true;
+  security.polkit.enable = true;
 
   # Run unpatched dynamic binaries on NixOS
-  programs.nix-ld.enable = true;
+  programs.nix-ld = {
+    enable = true;
+    package = pkgs.nix-ld-rs;
+  };
 }

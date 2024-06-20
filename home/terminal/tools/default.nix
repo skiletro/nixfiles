@@ -9,39 +9,30 @@
     ./eza
     ./fastfetch
     ./git
-    ./montool
     ./zellij
+
+    ./graphical.nix # Apps that rely on there being a non-headless system
   ];
 
   home.packages = with pkgs; [
+    # Runtimes
+    python311
+    nodejs_18
+    jre_minimal
+
+    # Misc.
+    htop
     wget
     unzip
     unrar
     jq
     socat
     ripgrep
-    swww
-    htop
-    tmux
-    onedrive
-    playerctl
-    brightnessctl
-    pamixer
     libnotify
     glib
-    upower
     acpi
-    wlsunset
-    cava
-    sway-contrib.grimshot #screenshots
     wl-clipboard
-    wtype
     fzf
-    python311
-    nodejs_18
-    jre_minimal
-    distrobox
-    podman
     lutgen
     cmake
     gnumake
@@ -50,6 +41,5 @@
     just
     du-dust
     tldr
-    texliveFull
   ];
 }

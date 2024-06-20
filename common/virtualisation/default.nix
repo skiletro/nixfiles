@@ -5,10 +5,10 @@
   ...
 }: {
   options = {
-    customConfig.virtualisation.enable = lib.mkEnableOption "Virtualisation";
+    userConfig.virtualisation.enable = lib.mkEnableOption "Virtualisation";
   };
 
-  config = lib.mkIf config.customConfig.virtualisation.enable {
+  config = lib.mkIf config.userConfig.virtualisation.enable {
     virtualisation.libvirtd.enable = true;
     programs.virt-manager.enable = true;
     environment.systemPackages = let
@@ -23,6 +23,8 @@
         qemu-eufi
         virtio-win
         quickemu # quickly create and run optimised vms
+        distrobox
+        podman
       ];
   };
 }
