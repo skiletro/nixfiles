@@ -11,17 +11,17 @@
 
   networking.hostName = "eris";
 
-  customConfig = {
+  userConfig = {
     # Core Settings
-    greeter = "sddm";
+    greeter = {
+      enable = true;
+      type = "sddm";
+    };
     windowManager.plasma.enable = true;
 
     # Extra Features
     virtualisation.enable = true;
-    gaming = {
-      enable = true;
-      emulators.enable = false;
-    };
+    gaming.enable = true;
   };
 
   # Bootloader

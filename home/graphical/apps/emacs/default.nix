@@ -1,11 +1,14 @@
-{pkgs, ...}: {
-  config = let
-    emacs-pkg = pkgs.emacs29-pgtk;
-  in {
+{
+  pkgs,
+  lib,
+  osConfig,
+  ...
+}: {
+  config = lib.mkIf osConfig.userConfig.graphical.emacs.enable {
     programs.emacs = {
       enable = true;
       package = pkgs.emacsWithPackagesFromUsePackage {
-        package = emacs-pkg;
+        package = pkgs.emacs29-pgtk;
         config = ./config.org;
         defaultInitFile = true;
         alwaysTangle = true;

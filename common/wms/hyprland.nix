@@ -5,7 +5,7 @@
   ...
 }: {
   options = {
-    customConfig.windowManager.hyprland = {
+    userConfig.windowManager.hyprland = {
       enable = lib.mkEnableOption "Hyprland";
       scaling = {
         enable = lib.mkEnableOption "Hyprland scaling";
@@ -19,7 +19,7 @@
     };
   };
 
-  config = lib.mkIf config.customConfig.windowManager.hyprland.enable {
+  config = lib.mkIf config.userConfig.windowManager.hyprland.enable {
     programs.hyprland.enable = true; # Required to enable critical components needed to run Hyprland properly
     services.gnome.gnome-keyring.enable = true; # Saves passwords
     # The rest of Hyprland settings can be found in home manager config
