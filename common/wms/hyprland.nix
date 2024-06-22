@@ -4,22 +4,20 @@
   config,
   ...
 }: {
-  options = {
-    userConfig.windowManager.hyprland = {
-      enable = lib.mkEnableOption "Hyprland";
-      scaling = {
-        enable = lib.mkEnableOption "Hyprland scaling";
-        multiplier = lib.mkOption {
-          default = 1.5;
-          example = 1.25;
-          type = lib.types.float;
-          description = "Scaling multiplier";
-        };
-      };
-    };
-  };
+  config = lib.mkIf (builtins.elem "hyprland" config.userConfig.desktop.environments) {
+    userConfig.services = {
+      xdg.enable = true;
+      theming.enable = true;
 
-  config = lib.mkIf config.userConfig.windowManager.hyprland.enable {
+      eww.enable = true;
+      rofi.enable = true;
+      swaylock.enable = true;
+      swaync.enable = true;
+      syncthing.enable = true;
+      wlogout.enable = true;
+    };
+    userConfig.desktop.isWayland = true;
+
     programs.hyprland.enable = true; # Required to enable critical components needed to run Hyprland properly
     services.gnome.gnome-keyring.enable = true; # Saves passwords
     # The rest of Hyprland settings can be found in home manager config

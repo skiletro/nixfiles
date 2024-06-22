@@ -7,7 +7,7 @@
   cursor_name = "macOS-Monterey";
   cursor_pkg = pkgs.apple-cursor;
 in {
-  config = lib.mkIf osConfig.userConfig.windowManager.hyprland.enable {
+  config = lib.mkIf osConfig.userConfig.services.theming.enable {
     gtk = {
       enable = true;
 

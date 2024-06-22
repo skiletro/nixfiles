@@ -5,7 +5,7 @@
   osConfig,
   ...
 }: {
-  config = lib.mkIf osConfig.userConfig.graphical.enable {
+  config = lib.mkIf osConfig.userConfig.services.rofi.enable {
     home.packages = with pkgs; [
       (rofimoji.override {rofi = pkgs.rofi-wayland;}) #Emoji picker
     ];

@@ -10,7 +10,7 @@
       type = lib.mkOption {
         type = lib.types.enum ["sddm" "greetd"];
         default = "sddm";
-        description = "The display manager greeter to use.";
+        description = "specify the display manager greeter to use";
       };
     };
   };

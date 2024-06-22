@@ -4,7 +4,7 @@
   osConfig,
   ...
 }: {
-  config = lib.mkIf osConfig.userConfig.gaming.steam.enable {
+  config = lib.mkIf osConfig.userConfig.programs.graphical.gaming.steam.enable {
     home.packages = with pkgs; [
       (steam.override {
         extraPkgs = pkgs:

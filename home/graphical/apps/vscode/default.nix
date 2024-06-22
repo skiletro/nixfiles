@@ -5,7 +5,7 @@
   osConfig,
   ...
 }: {
-  config = lib.mkIf osConfig.userConfig.graphical.vscode.enable {
+  config = lib.mkIf osConfig.userConfig.programs.graphical.vscode.enable {
     programs.vscode = {
       enable = true;
       package = pkgs.vscodium;

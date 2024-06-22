@@ -4,7 +4,7 @@
   osConfig,
   ...
 }: {
-  config = lib.mkIf osConfig.userConfig.graphical.enable {
+  config = lib.mkIf osConfig.userConfig.desktop.enable {
     home.packages = with pkgs; [
       cava
       playerctl

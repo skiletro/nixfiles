@@ -2,37 +2,27 @@
   description = "nixfiles - Config";
 
   inputs = {
-    # We're using unstable for cutting edge packages. We're fine using this
-    # because we have rollbacks
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; # Unstable packages
 
-    # Allows us to configure our home directory with Nix!
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager.url = "github:nix-community/home-manager"; # Allows us to configure our home directory with Nix!
     home-manager.inputs.nixpkgs.follows = "nixpkgs"; # This is so the HM flake uses our nixpkgs, instead of the nixpkgs commit in their repo
 
-    # Stands for "Nix User Repository". It has a few packages that I need, such as a few Firefox addons and some fonts
-    nur.url = "github:nix-community/NUR";
+    nur.url = "github:nix-community/NUR"; # Nix User Repository; similar to the AUR.
 
-    # Custom spotify theming
-    spicetify.url = "github:the-argus/spicetify-nix";
+    spicetify.url = "github:the-argus/spicetify-nix"; # Custom spotify theming
 
-    emacs-overlay.url = "github:nix-community/emacs-overlay";
+    emacs-overlay.url = "github:nix-community/emacs-overlay"; # Allows generating an emacs config using org mode + nix
 
-    declarative-flatpak.url = "github:gmodena/nix-flatpak";
+    declarative-flatpak.url = "github:gmodena/nix-flatpak"; # Declare Flatpaks in this config!
 
-    vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+    vscode-extensions.url = "github:nix-community/nix-vscode-extensions"; # Declare VSC Extensions
 
-    wsl.url = "github:nix-community/NixOS-WSL/main";
+    wsl.url = "github:nix-community/NixOS-WSL/main"; # WSL Support
   };
 
   outputs = {
     self,
     nixpkgs,
-    home-manager,
-    nur,
-    emacs-overlay,
-    declarative-flatpak,
-    wsl,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -41,9 +31,9 @@
     commonModules = [
       ./common
       # NixOS Modules
-      home-manager.nixosModules.default
-      nur.nixosModules.nur
-      declarative-flatpak.nixosModules.nix-flatpak
+      inputs.home-manager.nixosModules.default
+      inputs.nur.nixosModules.nur
+      inputs.declarative-flatpak.nixosModules.nix-flatpak
       {
         home-manager = {
           useGlobalPkgs = true;
@@ -53,8 +43,8 @@
         };
         nixpkgs.overlays = [
           # Nixpkgs Overlays
-          nur.overlay
-          emacs-overlay.overlay
+          inputs.nur.overlay
+          inputs.emacs-overlay.overlay
           (import ./packages)
         ];
       }
@@ -77,7 +67,7 @@
         modules =
           commonModules
           ++ [
-            wsl.nixosModules.default
+            inputs.wsl.nixosModules.default
             ./hosts/wsl
           ];
       };
