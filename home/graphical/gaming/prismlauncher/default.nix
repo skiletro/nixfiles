@@ -4,7 +4,7 @@
   osConfig,
   ...
 }: {
-  config = lib.mkIf osConfig.userConfig.gaming.minecraft.enable {
+  config = lib.mkIf osConfig.userConfig.programs.graphical.gaming.minecraft.enable {
     home = {
       # file.".local/share/PrismLauncher/themes/mocha" = {
       #   source = pkgs.fetchzip {

@@ -4,7 +4,7 @@
   config,
   ...
 }: {
-  config = lib.mkIf config.userConfig.gaming.vr.enable {
+  config = lib.mkIf config.userConfig.programs.graphical.gaming.vr.enable {
     programs.alvr = {
       enable = true;
       openFirewall = true;

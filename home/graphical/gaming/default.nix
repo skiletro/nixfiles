@@ -9,7 +9,7 @@
     ./steam
   ];
 
-  config = lib.mkIf osConfig.userConfig.gaming.enable {
+  config = lib.mkIf osConfig.userConfig.programs.graphical.gaming.enable {
     home.packages = with pkgs; [
       # Tools
       gamescope

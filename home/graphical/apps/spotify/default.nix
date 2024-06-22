@@ -7,7 +7,7 @@
 }: {
   imports = [inputs.spicetify.homeManagerModule];
 
-  config = lib.mkIf osConfig.userConfig.graphical.spotify.enable {
+  config = lib.mkIf osConfig.userConfig.programs.graphical.spotify.enable {
     programs.spicetify = let
       spicetify = inputs.spicetify.packages.${pkgs.system}.default;
     in {

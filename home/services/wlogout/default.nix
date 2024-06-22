@@ -4,7 +4,7 @@
   osConfig,
   ...
 }: {
-  config = lib.mkIf osConfig.userConfig.windowManager.hyprland.enable {
+  config = lib.mkIf osConfig.userConfig.services.wlogout.enable {
     programs.wlogout = {
       enable = true;
       layout = [

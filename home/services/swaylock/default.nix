@@ -4,7 +4,7 @@
   osConfig,
   ...
 }: {
-  config = lib.mkIf osConfig.userConfig.windowManager.hyprland.enable {
+  config = lib.mkIf osConfig.userConfig.services.swaylock.enable {
     programs.swaylock = {
       enable = true;
       package = pkgs.swaylock-effects;

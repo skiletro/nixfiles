@@ -17,11 +17,12 @@
       enable = true;
       type = "sddm";
     };
-    windowManager.plasma.enable = true;
 
-    # Extra Features
-    virtualisation.enable = true;
-    gaming.enable = true;
+    desktop = {
+      enable = true;
+      environments = ["plasma"];
+      terminalEmulator = "alacritty";
+    };
   };
 
   # Bootloader

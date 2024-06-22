@@ -3,7 +3,7 @@
   osConfig,
   ...
 }: {
-  config = lib.mkIf osConfig.userConfig.windowManager.hyprland.enable {
+  config = lib.mkIf osConfig.userConfig.services.swaync.enable {
     services.swaync = {
       enable = true;
       style = ./style.css;

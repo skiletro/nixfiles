@@ -4,7 +4,7 @@
   osConfig,
   ...
 }: {
-  config = lib.mkIf osConfig.userConfig.graphical.firefox.enable {
+  config = lib.mkIf osConfig.userConfig.programs.graphical.firefox.enable {
     programs.firefox = {
       enable = true;
       package = pkgs.wrapFirefox pkgs.firefox-unwrapped {

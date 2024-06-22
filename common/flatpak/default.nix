@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  config = lib.mkIf config.userConfig.graphical.enable {
+  config = lib.mkIf config.userConfig.programs.graphical.enable {
     services.flatpak = {
       enable = true;
       update.auto = {

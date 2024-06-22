@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./eww
+    ./rofi
     ./swaync
     ./syncthing
     ./wlogout
@@ -8,10 +9,8 @@
   ];
 
   home.packages = with pkgs; [
-    swww
     onedrive
     wlsunset
-    udiskie
     xdg-utils
     libsForQt5.polkit-kde-agent
     networkmanagerapplet

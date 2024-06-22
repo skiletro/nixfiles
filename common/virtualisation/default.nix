@@ -5,7 +5,10 @@
   ...
 }: {
   options = {
-    userConfig.virtualisation.enable = lib.mkEnableOption "Virtualisation";
+    userConfig.virtualisation.enable = lib.mkOption {
+      default = true;
+      description = "Enables Virtualisation";
+    };
   };
 
   config = lib.mkIf config.userConfig.virtualisation.enable {

@@ -5,7 +5,7 @@
   osConfig,
   ...
 }: {
-  config = lib.mkIf osConfig.userConfig.terminal.neovim.enable {
+  config = lib.mkIf osConfig.userConfig.programs.terminal.neovim.enable {
     programs.neovim = {
       enable = true;
       defaultEditor = true;

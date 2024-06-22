@@ -8,19 +8,19 @@
     ./scaling.nix
   ];
 
-  config = lib.mkIf osConfig.userConfig.windowManager.hyprland.enable {
+  config = lib.mkIf (builtins.elem "hyprland" osConfig.userConfig.desktop.environments) {
     wayland.windowManager.hyprland = {
       enable = true;
       settings = {
         exec-once = [
           "eww open bar"
-          "swaync &" #notifications
-          "diskie &" #auto-mounting of external storage
+          "swaync &" # Notifications
+          "${pkgs.udiskie}/bin/diskie &" # Auto-mounting of external storage
           "gnome-keyring-daemon --start --components=pkcs11,secrets,ssh &" #keyring
           "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP" #fixes apps taking forever to launch
 
           "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1" #for stuff like passwords
-          "swww init;sleep 1;swww img $HOME/.bg.png"
+          "${pkgs.swaybg}/bin/swaybg -i $HOME/.bg.png" # FIXME: declare wallpaper in config
         ];
 
         general = {
@@ -171,7 +171,7 @@
           "SUPER, Home, exec, swaync-client -t"
           ''SUPER, period, exec, rofimoji -r "󰞅" --selector-args " -no-show-icons"''
 
-          "SUPER, RETURN, exec, alacritty"
+          "SUPER, RETURN, exec, ${osConfig.userConfig.desktop.terminalEmulator}"
           "SUPER, E, exec, nautilus -w"
           "SUPER, F, exec, firefox"
           "SUPER, N, exec, emacs ~/.nix_config"

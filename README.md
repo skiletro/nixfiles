@@ -37,6 +37,45 @@ Please note that this flake is pretty specialised for my use case, and you would
 - `sudo nixos-rebuild switch --flake .#<HOSTNAME>`
 - Let it complete, and you're done! You'll probably want to reboot too
 
+## Custom Modules Layout
+<details>
+  <summary>Click here to reveal</summary>
+  <pre>
+.
+├── greeter
+│   ├── enable (bool)
+│   └── type (enum)
+├── desktop
+│   ├── enable (bool)
+│   ├── environments (list, enum)
+│   ├── terminalEmulator (enum)
+│   ├── scaling
+│   │   ├── enable (bool)
+│   │   └── multiplier (float)
+│   └── isWayland (not set manually)
+├── programs
+│   ├── graphical
+│   │   ├── enable (bool, enables the rest of graphical and terminal)
+│   │   ├── gaming (bool)
+│   │   ├── emacs (bool)
+│   │   ├── firefox (bool)
+│   │   ├── spotify (bool)
+│   │   └── zathura (bool)
+│   ├── terminal
+│   │   ├── neovim (bool)
+│   │   ├── utils (bool)
+│   │   └── extras (bool)
+│   └── services
+│       ├── eww (bool)
+│       ├── swaylock (bool)
+│       ├── swaync (bool)
+│       ├── syncthing (bool)
+│       └── wlogout (bool)
+└── virtualisation
+    └── enable (bool)
+  </pre>
+</details>
+
 ## Issues
 - **LibreOffice:** Add Java dependency to package rather than "globally"
 

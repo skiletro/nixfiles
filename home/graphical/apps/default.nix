@@ -12,7 +12,7 @@
     ./zathura
   ];
 
-  config = lib.mkIf osConfig.userConfig.graphical.enable {
+  config = lib.mkIf osConfig.userConfig.programs.graphical.enable {
     home.packages = with pkgs; [
       xorg.xeyes #used literally just to test if app is xorg
       tenacity

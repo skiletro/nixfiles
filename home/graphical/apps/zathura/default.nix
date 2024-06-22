@@ -3,7 +3,7 @@
   osConfig,
   ...
 }: {
-  config = lib.mkIf osConfig.userConfig.graphical.zathura.enable {
+  config = lib.mkIf osConfig.userConfig.programs.graphical.zathura.enable {
     programs.zathura = {
       enable = true;
       extraConfig = ''

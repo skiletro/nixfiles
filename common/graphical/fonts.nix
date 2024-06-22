@@ -4,7 +4,7 @@
   config,
   ...
 }: {
-  config = lib.mkIf config.userConfig.graphical.enable {
+  config = lib.mkIf config.userConfig.programs.graphical.enable {
     fonts = {
       fontDir.enable = true;
 

@@ -3,7 +3,7 @@
   osConfig,
   ...
 }: {
-  config = lib.mkIf osConfig.userConfig.graphical.enable {
+  config = lib.mkIf (osConfig.userConfig.desktop.terminalEmulator == "alacritty") {
     programs.alacritty = {
       enable = true;
       settings = {

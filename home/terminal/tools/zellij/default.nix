@@ -4,7 +4,7 @@
   osConfig,
   ...
 }: {
-  config = lib.mkIf osConfig.userConfig.terminal.zellij.enable {
+  config = lib.mkIf osConfig.userConfig.programs.terminal.utils.enable {
     programs.zellij = {
       enable = true;
       settings = {
