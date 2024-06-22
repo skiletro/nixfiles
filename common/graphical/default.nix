@@ -11,13 +11,13 @@
   ];
 
   options = {
-    userConfig.graphical.enable = lib.mkOption {
+    userConfig.programs.graphical.enable = lib.mkOption {
       default = true;
       type = lib.types.bool;
     };
   };
 
-  config = lib.mkIf config.userConfig.graphical.enable {
+  config = lib.mkIf config.userConfig.programs.graphical.enable {
     # Platform-independent graphics
     # NOTE: Set the drivers for the specific device in the hosts/hostname.nix file.
     hardware.opengl = {

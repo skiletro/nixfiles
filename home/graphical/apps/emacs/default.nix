@@ -4,11 +4,14 @@
   osConfig,
   ...
 }: {
-  config = lib.mkIf osConfig.userConfig.graphical.emacs.enable {
+  config = lib.mkIf osConfig.userConfig.programs.graphical.emacs.enable {
     programs.emacs = {
       enable = true;
       package = pkgs.emacsWithPackagesFromUsePackage {
-        package = pkgs.emacs29-pgtk;
+        package =
+          if osConfig.userConfig.desktop.isWayland
+          then pkgs.emacs29-pgtk
+          else pkgs.emacs; # X11 fallback
         config = ./config.org;
         defaultInitFile = true;
         alwaysTangle = true;

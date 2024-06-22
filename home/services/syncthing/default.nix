@@ -5,7 +5,7 @@
   osConfig,
   ...
 }: {
-  config = lib.mkIf osConfig.userConfig.graphical.enable {
+  config = lib.mkIf osConfig.userConfig.services.syncthing.enable {
     services.syncthing = {
       enable = true;
       tray = {

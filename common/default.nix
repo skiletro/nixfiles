@@ -5,10 +5,10 @@
 }: {
   imports = [
     ./flatpak
-    ./graphical # Includes stuff that a non-headless system would need
+    ./graphical
     ./greeters
-    ./nix
-    ./terminal
+    ./modules
+    ./nixconf
     ./virtualisation
     ./wms
   ];

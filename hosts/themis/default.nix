@@ -7,21 +7,22 @@
   networking.hostName = "themis";
 
   userConfig = {
-    # Core Settings
     greeter = {
       enable = true;
       type = "greetd";
     };
-    windowManager.hyprland = {
+
+    desktop = {
       enable = true;
+      environments = ["hyprland"];
+      terminalEmulator = "alacritty";
       scaling = {
         enable = true;
         multiplier = 1.25;
       };
     };
 
-    # Extra Features
-    virtualisation.enable = true;
+    programs.graphical.gaming.enable = false;
   };
 
   # Bootloader
