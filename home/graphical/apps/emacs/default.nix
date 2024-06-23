@@ -21,9 +21,9 @@
     };
 
     home.packages = with pkgs; [
-      ccls
-      nodePackages.pyright
-      nil
+      ccls # C++
+      pyright # Python
+      nil # Nix
     ];
   };
 }

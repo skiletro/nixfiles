@@ -154,9 +154,9 @@
       # Langauge server stuff!
       extraPackages = with pkgs; [
         lua-language-server
-        nodePackages.bash-language-server
-        nodePackages.pyright
-        nur.repos.bandithedoge.nodePackages.emmet-language-server
+        bash-language-server
+        pyright
+        emmet-language-server
       ];
     };
 
