@@ -13,9 +13,11 @@
   options = {
     userConfig.programs.graphical.gaming = {
       enable = lib.mkOption {
-        type = lib.types.bool;
-        default = true;
-        description = "Enables Gaming";
+        default =
+          if config.userConfig.programs.graphical.enable
+          then true
+          else false;
+        description = "Enables some games and gaming related programs";
       };
 
       emulators.enable = lib.mkEnableOption "Emulators";
@@ -26,8 +28,8 @@
     };
   };
 
-  config = {
-    userConfig.programs.graphical.gaming = lib.mkIf config.userConfig.programs.graphical.gaming.enable {
+  config = lib.mkIf config.userConfig.programs.graphical.gaming.enable {
+    userConfig.programs.graphical.gaming = {
       emulators.enable = lib.mkDefault true;
       minecraft.enable = lib.mkDefault true;
       osu.enable = lib.mkDefault true;
@@ -35,15 +37,9 @@
       vr.enable = lib.mkDefault true;
     };
 
-    programs.steam = lib.mkIf config.userConfig.programs.graphical.gaming.enable {
+    programs.steam = {
       enable = true;
       gamescopeSession.enable = true;
     };
   };
 }
-# config = lib.mkIf osConfig.userConfig.programs.graphical.gaming.osu.enable {
-#   services.flatpak.packages = [
-#     "sh.ppy.osu"
-#   ];
-# };
-

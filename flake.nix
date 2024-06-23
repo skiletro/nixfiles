@@ -64,12 +64,7 @@
       wsl = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         system = "x86_64-linux";
-        modules =
-          commonModules
-          ++ [
-            inputs.wsl.nixosModules.default
-            ./hosts/wsl
-          ];
+        modules = commonModules ++ [./hosts/wsl];
       };
     };
 
