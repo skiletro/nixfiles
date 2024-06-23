@@ -1,5 +1,6 @@
 {lib, ...}: {
   imports = [
+    ./gnome.nix
     ./hyprland.nix
     ./plasma.nix
   ];
@@ -9,6 +10,7 @@
       enable = lib.mkEnableOption "Desktop environment and graphical applications";
       environments = lib.mkOption {
         type = lib.types.listOf (lib.types.enum [
+          "gnome"
           "hyprland"
           "plasma"
         ]);
