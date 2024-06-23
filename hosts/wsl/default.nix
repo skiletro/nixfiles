@@ -1,9 +1,17 @@
-{...}: {
+{inputs, ...}: {
+  imports = [
+    inputs.wsl.nixosModules.default
+  ];
+
+  networking.hostName = "wsl";
+
   userConfig = {
-    graphical = {
+    programs.graphical = {
       enable = false;
+      fonts.enable = true;
       emacs.enable = true;
     };
+    virtualisation.enable = false;
   };
 
   wsl = {
