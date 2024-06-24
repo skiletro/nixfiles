@@ -7,6 +7,7 @@
   imports = [
     ./emacs
     ./firefox
+    ./mpv
     ./spotify
     ./vscode
     ./zathura
@@ -31,7 +32,6 @@
       vial
       gnome.file-roller # GUI zip tool
       pavucontrol
-      mpv
       gnome.gnome-font-viewer
       inkscape
       qdirstat
