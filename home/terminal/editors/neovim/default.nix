@@ -12,12 +12,13 @@
       viAlias = true;
       vimAlias = true;
       plugins = with pkgs.vimPlugins; [
-        vim-nix
-        yuck-vim
         {
-          plugin = comment-nvim;
-          config = "lua require('Comment').setup()";
+          # Speed up loading times
+          plugin = impatient-nvim;
+          config = "lua require('impatient')";
         }
+
+        # --- Styling and Theming
         {
           plugin = lualine-nvim;
           config = ''
@@ -32,16 +33,10 @@
             EOF
           '';
         }
+
+        # --- Syntax highlighting
         {
-          plugin = impatient-nvim;
-          config = "lua require('impatient')";
-        }
-        {
-          plugin = telescope-nvim;
-          config = "lua require('telescope').setup()";
-        }
-        rainbow-delimiters-nvim
-        {
+          # Better syntax highlighting
           plugin = nvim-treesitter;
           config = ''
             lua << EOF
@@ -59,6 +54,29 @@
           '';
         }
         {
+          plugin = otter-nvim;
+          config = ''
+            lua << EOF
+            require('otter').activate(nil, true, true, nil)
+            EOF
+          '';
+        }
+        {
+          # Nix syntax highlighting
+          plugin = vim-nix;
+        }
+        {
+          # Yuck syntax highlighting
+          plugin = yuck-vim;
+        }
+        {
+          # Makes brackets and things rainbow. Very useful for writing lisp code
+          plugin = rainbow-delimiters-nvim;
+        }
+
+        # --- LSP
+        {
+          # LSP Configs
           plugin = nvim-lspconfig;
           config = ''
             lua << EOF
@@ -76,9 +94,8 @@
             EOF
           '';
         }
-        friendly-snippets
-        cmp-nvim-lsp
         {
+          # Completion framework
           plugin = nvim-cmp;
           config = ''
             lua << EOF
@@ -111,10 +128,33 @@
               },
               sources = {
                 { name = 'nvim_lsp' },
+                { name = 'otter' },
               },
             }
             EOF
           '';
+        }
+        {
+          # LSP Completions
+          plugin = cmp-nvim-lsp;
+        }
+
+        # --- Keybinds
+        {
+          # Commenting shortcuts
+          plugin = comment-nvim;
+          config = "lua require('Comment').setup()";
+        }
+
+        # --- Misc
+        {
+          # Fuzzy finder (similar to fzf)
+          plugin = telescope-nvim;
+          config = "lua require('telescope').setup()";
+        }
+        {
+          # Useful snippets to autocomplete
+          plugin = friendly-snippets;
         }
       ];
 
