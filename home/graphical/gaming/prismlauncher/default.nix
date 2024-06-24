@@ -6,14 +6,6 @@
 }: {
   config = lib.mkIf osConfig.userConfig.programs.graphical.gaming.minecraft.enable {
     home = {
-      # file.".local/share/PrismLauncher/themes/mocha" = {
-      #   source = pkgs.fetchzip {
-      #     url = "https://raw.githubusercontent.com/catppuccin/prismlauncher/main/themes/Mocha/Catppuccin-Mocha.zip";
-      #     sha256 = "8uRqCoe9iSIwNnK13d6S4XSX945g88mVyoY+LZSPBtQ=";
-      #   };
-      #   recursive = true;
-      # };
-
       packages = with pkgs; [
         (pkgs.prismlauncher.override {
           jdks = with pkgs; [

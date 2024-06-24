@@ -7,6 +7,8 @@
     home-manager.url = "github:nix-community/home-manager"; # Allows us to configure our home directory with Nix!
     home-manager.inputs.nixpkgs.follows = "nixpkgs"; # This is so the HM flake uses our nixpkgs, instead of the nixpkgs commit in their repo
 
+    stylix.url = "github:danth/stylix"; # Automatic styling
+
     nur.url = "github:nix-community/NUR"; # Nix User Repository; similar to the AUR.
 
     spicetify.url = "github:the-argus/spicetify-nix"; # Custom spotify theming
@@ -32,12 +34,14 @@
       ./common
       # NixOS Modules
       inputs.home-manager.nixosModules.default
+      inputs.stylix.nixosModules.stylix
       inputs.nur.nixosModules.nur
       inputs.declarative-flatpak.nixosModules.nix-flatpak
       {
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
+          backupFileExtension = "homemanager";
           users.jamie.imports = [./home];
           extraSpecialArgs = {inherit inputs self;};
         };

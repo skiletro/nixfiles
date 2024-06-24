@@ -5,6 +5,8 @@
   ...
 }: {
   config = lib.mkIf osConfig.userConfig.programs.graphical.firefox.enable {
+    stylix.targets.firefox.enable = false;
+
     programs.firefox = {
       enable = true;
       package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
@@ -233,10 +235,11 @@
           youtube-shorts-block
           i-dont-care-about-cookies
           sidebery
+          plasma-integration
         ];
         # modified theme from https://github.com/Bali10050/FirefoxCSS
-        userChrome = builtins.readFile ./userChrome.css;
-        userContent = builtins.readFile ./userContent.css;
+        #userChrome = builtins.readFile ./userChrome.css;
+        #userContent = builtins.readFile ./userContent.css;
       };
     };
   };
