@@ -1,0 +1,2 @@
+# Treat flake.lock as a binary, as to not clutter up `git diff`
+flake.lock -diff
