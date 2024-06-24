@@ -38,7 +38,7 @@
       usbimager
       fusee-interfacee-tk # Graphical Switch RCM Tool
       qbittorrent
-      vesktop # Discord
+      webcord # Discord
     ];
   };
 }
