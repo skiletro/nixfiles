@@ -22,8 +22,6 @@
     # NOTE: Set the drivers for the specific device in the hosts/hostname.nix file.
     hardware.opengl = {
       enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
     };
 
     # Sound
