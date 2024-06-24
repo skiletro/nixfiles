@@ -9,12 +9,12 @@
   userConfig = {
     greeter = {
       enable = true;
-      type = "greetd";
+      type = "sddm";
     };
 
     desktop = {
       enable = true;
-      environments = ["hyprland"];
+      environments = ["plasma"];
       terminalEmulator = "alacritty";
       scaling = {
         enable = true;
