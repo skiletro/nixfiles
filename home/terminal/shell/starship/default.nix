@@ -1,5 +1,18 @@
-{lib, ...}: {
-  programs.starship = {
+{
+  lib,
+  osConfig,
+  ...
+}: {
+  programs.starship = let
+    colours = osConfig.lib.stylix.colors.withHashtag;
+
+    background = colours.base00;
+    foreground = colours.base07;
+
+    color1 = colours.base0C;
+    color2 = colours.base0D;
+    color3 = colours.base0E;
+  in {
     enable = true;
     enableFishIntegration = true;
 
@@ -9,10 +22,10 @@
         #"$username"
         #"[](fg:#ff00aa)"
         "$directory"
-        "[](fg:#1e1e2e bg:#cba6f7)"
+        "[](fg:${background} bg:${color1})"
         "$git_branch"
         "$git_status"
-        "[](fg:#cba6f7 bg:#89b4fa)"
+        "[](fg:${color1} bg:${color2})"
         "$c"
         "$elixir"
         "$elm"
@@ -23,10 +36,10 @@
         "$nodejs"
         "$nim"
         "$rust"
-        "[](fg:#89b4fa bg:#94e2d5)"
+        "[](fg:${color2} bg:${color3})"
         "$nix_shell"
         "$docker_context"
-        "[ ](fg:#94e2d5)"
+        "[ ](fg:${color3})"
       ];
 
       add_newline = false; # Disable the blank line at the start of the prompt
@@ -41,118 +54,107 @@
       };
 
       directory = {
-        style = "fg:#cdd6f4";
+        style = "fg:${foreground}";
         format = "[ $path ]($style)";
         truncation_length = 3;
         truncation_symbol = "../";
       };
 
-      # Here is how you can shorten some long paths by text replacement
-      # similar to mapped_locations in Oh My Posh:
-      #[directory.substitutions]
-      #"Documents" = " "
-      #"Downloads" = " "
-      #"Music" = " "
-      #"Pictures" = " "
-      #"~" = "󰋞 "
-      # Keep in mind that the order matters. For example:
-      # "Important Documents" = "  "
-      # will not be replaced, because "Documents" was already substituted before.
-      # So either put "Important Documents" before "Documents" or use the substituted version:
-      # "Important  " = "  "
-
-      c = {
-        symbol = " ";
-        style = "fg:#11111b bg:#89b4fa";
-        format = "[[ $symbol ($version) ](fg:#11111b bg:#89b4fa)]($style)";
+      # Section 1
+      git_branch = {
+        symbol = "󰘬";
+        style = "fg:${background} bg:${color1}";
+        format = "[[ $symbol $branch ](fg:#11111b bg:${color1})]($style)";
       };
 
-      docker_context = {
-        symbol = " ";
-        style = "fg:#11111b bg:#94e2d5";
-        format = "[[ $symbol $context ](fg:#11111b bg:#94e2d5)]($style) $path";
+      git_status = {
+        style = "fg:${background} bg:${color1}";
+        format = "[[($all_status$ahead_behind )](fg:#11111b bg:${color1})]($style)";
+      };
+
+      # Section 2
+      c = {
+        symbol = " ";
+        style = "fg:${background} bg:${color2}";
+        format = "[[ $symbol ($version) ](fg:${background} bg:${color2})]($style)";
       };
 
       elixir = {
         symbol = " ";
-        style = "fg:#11111b bg:#89b4fa";
-        format = "[[ $symbol ($version) ](fg:#11111b bg:#89b4fa)]($style)";
+        style = "fg:${background} bg:${color2}";
+        format = "[[ $symbol ($version) ](fg:${background} bg:${color2})]($style)";
       };
 
       elm = {
         symbol = " ";
-        style = "fg:#11111b bg:#89b4fa";
-        format = "[[ $symbol ($version) ](fg:#11111b bg:#89b4fa)]($style)";
-      };
-
-      git_branch = {
-        symbol = "󰘬";
-        style = "fg:#11111b bg:#cba6f7";
-        format = "[[ $symbol $branch ](fg:#11111b bg:#cba6f7)]($style)";
-      };
-
-      git_status = {
-        style = "fg:#11111b bg:#cba6f7";
-        format = "[[($all_status$ahead_behind )](fg:#11111b bg:#cba6f7)]($style)";
+        style = "fg:${background} bg:${color2}";
+        format = "[[ $symbol ($version) ](fg:${background} bg:${color2})]($style)";
       };
 
       golang = {
         symbol = " ";
-        style = "fg:#11111b bg:##89b4fa";
-        #format = "[[ $symbol ($version) ](fg:#11111b bg:#89b4fa)]($style)";
-        format = "[[ $symbol](fg:#11111b bg:#89b4fa)]($style)";
+        style = "fg:${background} bg:${color2}";
+        #format = "[[ $symbol ($version) ](fg:${background} bg:${color2})]($style)";
+        format = "[[ $symbol](fg:${background} bg:${color2})]($style)";
       };
 
       haskell = {
         symbol = " ";
-        style = "fg:#11111b bg:#89b4fa";
-        format = "[[ $symbol ($version) ](fg:#11111b bg:#89b4fa)]($style)";
+        style = "fg:${background} bg:${color2}";
+        format = "[[ $symbol ($version) ](fg:${background} bg:${color2})]($style)";
       };
 
       java = {
         symbol = " ";
-        style = "fg:#11111b bg:#89b4fa";
-        format = "[[ $symbol ($version) ](fg:#11111b bg:#89b4fa)]($style)";
+        style = "fg:${background} bg:${color2}";
+        format = "[[ $symbol ($version) ](fg:${background} bg:${color2})]($style)";
       };
 
       julia = {
         symbol = " ";
-        style = "fg:#11111b bg:#89b4fa";
-        format = "[[ $symbol ($version) ](fg:#11111b bg:#89b4fa)]($style)";
+        style = "fg:${background} bg:${color2}";
+        format = "[[ $symbol ($version) ](fg:${background} bg:${color2})]($style)";
       };
 
       nodejs = {
         symbol = "";
-        style = "fg:#11111b bg:#89b4fa";
-        format = "[[ $symbol ($version) ](fg:#11111b bg:#89b4fa)]($style)";
+        style = "fg:${background} bg:${color2}";
+        format = "[[ $symbol ($version) ](fg:${background} bg:${color2})]($style)";
       };
 
       nim = {
         symbol = " ";
-        style = "fg:#11111b bg:#89b4fa";
-        format = "[[ $symbol ($version) ](fg:#11111b bg:#89b4fa)]($style)";
-      };
-
-      nix_shell = {
-        symbol = "󱄅 ";
-        impure_msg = "i";
-        pure_msg = "p";
-        unknown_msg = "u";
-        style = "fg:#11111b bg:#94e2d5";
-        format = "[[ $symbol$state:$name ](fg:#11111b bg:#94e2d5)]($style)";
+        style = "fg:${background} bg:${color2}";
+        format = "[[ $symbol ($version) ](fg:${background} bg:${color2})]($style)";
       };
 
       rust = {
         symbol = "";
-        style = "fg:#11111b bg:#89b4fa";
-        format = "[[ $symbol ($version) ](fg:#11111b bg:#89b4fa)]($style)";
+        style = "fg:${background} bg:${color2}";
+        format = "[[ $symbol ($version) ](fg:${background} bg:${color2})]($style)";
       };
 
       time = {
         disabled = false;
         time_format = "%R"; # Hour:Minute Format
-        style = "fg:#11111b bg:#89b4fa";
-        format = "[[  $time ](fg:#11111b bg:#89b4fa)]($style)";
+        style = "fg:${background} bg:${color2}";
+        format = "[[  $time ](fg:${background} bg:${color2})]($style)";
+      };
+
+      # Section 3
+      docker_context = {
+        symbol = " ";
+        style = "fg:${background} bg:${color3}";
+        format = "[[ $symbol $context ](fg:${background} bg:${color3})]($style) $path";
+      };
+
+      nix_shell = {
+        symbol = "󱄅 ";
+        impure_msg = ""; # Crow
+        pure_msg = " "; # Dove
+        unknown_msg = " ";
+        style = "fg:${background} bg:${color3}";
+        format = "[[ $symbol$state ](fg:${background} bg:${color3})]($style)";
       };
     };
   };

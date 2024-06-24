@@ -15,10 +15,6 @@
         vim-nix
         yuck-vim
         {
-          plugin = catppuccin-nvim; # Mocha is default
-          config = "colorscheme catppuccin";
-        }
-        {
           plugin = comment-nvim;
           config = "lua require('Comment').setup()";
         }
