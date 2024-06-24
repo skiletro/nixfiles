@@ -21,6 +21,10 @@
       khelpcenter
     ];
 
+    environment.systemPackages = with pkgs; [
+      libsForQt5.polonium # Tiling KWin Script
+    ];
+
     services.tlp.enable = lib.mkForce false; # KDE power management takes priority over `tlp`
   };
 }
