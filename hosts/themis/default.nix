@@ -23,6 +23,7 @@
     };
 
     programs.graphical.gaming.enable = false;
+    programs.graphical.gaming.minecraft.enable = true;
   };
 
   # Bootloader
