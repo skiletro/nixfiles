@@ -20,15 +20,12 @@
           "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP" #fixes apps taking forever to launch
 
           "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1" #for stuff like passwords
-          "${pkgs.swaybg}/bin/swaybg -i $HOME/.bg.png" # FIXME: declare wallpaper in config
         ];
 
         general = {
           gaps_in = 3;
           gaps_out = 5;
           border_size = 2;
-          "col.active_border" = "0xffcba6f7"; #mauve
-          "col.inactive_border" = "0xff11111b"; #crust
           layout = "dwindle";
         };
 
@@ -208,10 +205,6 @@
         };
 
         env = [
-          #"GTK_THEME, Catppuccin-Mocha-Standard-Mauve-Dark"
-          #"QT_QPA_PLATFORMTHEME, gtk2"
-          #"XCURSOR_THEME, Catppuccin-Mocha-Dark-Cursors"
-
           "QT_AUTO_SCREEN_SCALE_FACTOR, 1"
           "QT_WAYLAND_DISABLE_WINDOWDECORATION, 1"
 

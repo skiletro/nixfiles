@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }: {
   imports = [
@@ -12,6 +13,72 @@
     ./virtualisation
     ./wms
   ];
+
+  stylix = {
+    enable = true;
+
+    # Color scheme
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-dark.yaml";
+
+    # Wallpaper
+    image = let
+      input = pkgs.fetchurl {
+        url = "https://i.imgur.com/b0H66vt.jpeg";
+        sha256 = "sha256-BhYzihD72Zpf4Rjds+b5gWweSl2NAMeRcLADLF4rsWs=";
+      };
+    in
+      pkgs.runCommand "output.png" {} ''
+        ${pkgs.lutgen}/bin/lutgen apply ${input} -o $out -- ${builtins.concatStringsSep " " (with config.lib.stylix.colors; [
+          base00
+          base01
+          base02
+          base03
+          base04
+          base05
+          base06
+          base07
+          base08
+          base09
+          base0A
+          base0B
+          base0C
+          base0D
+          base0E
+          base0F
+        ])}
+      ''; # FIXME: Could be simplified
+
+    # Cursors
+    cursor = {
+      package = pkgs.apple-cursor;
+      name = "macOS-Monterey";
+      size = 24;
+    };
+
+    # Fonts
+    fonts = {
+      sansSerif = {
+        package = pkgs.nerdfonts.override {fonts = ["MPlus"];};
+        name = "M+2 Nerd Font";
+      };
+      serif = config.stylix.fonts.sansSerif; # Set serif font to the same as the sans-serif
+      monospace = {
+        package = pkgs.nerdfonts.override {fonts = ["MPlus"];};
+        name = "M+1Code Nerd Font";
+      };
+      emoji = {
+        package = pkgs.noto-fonts-color-emoji;
+        name = "Noto Color Emoji";
+      };
+
+      sizes = {
+        applications = 10;
+        desktop = 10;
+        popups = 10;
+        terminal = 10;
+      };
+    };
+  };
 
   # Use latest kernel package
   boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;

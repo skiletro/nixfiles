@@ -18,7 +18,6 @@
           # Open VSX Registry
           jnoortheen.nix-ide
           kamadorueda.alejandra
-          catppuccin.catppuccin-vsc
           vscode-icons-team.vscode-icons
           skellock.just
           mkhl.direnv
@@ -36,9 +35,6 @@
         "extensions.autoUpdate" = false; # This stuff fixes vscode freaking out when theres an update
 
         "window.menuBarVisibility" = "toggle";
-        "editor.fontFamily" = "'Iosevka Comfy', 'SymbolsNerdFont', 'monospace', monospace";
-        "terminal.integrated.fontFamily" = "'Iosevka Comfy', 'SymbolsNerdFont'";
-        "workbench.colorTheme" = "Catppuccin Mocha";
         "workbench.iconTheme" = "vscode-icons";
         "vsicons.dontShowNewVersionMessage" = true;
         "editor.fontLigatures" = true;
