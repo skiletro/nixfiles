@@ -169,19 +169,15 @@ This is a really useful section as it prints what is being loaded and when into 
 
 ** Theme Configuration
 #+begin_src emacs-lisp
-  ;;(add-to-list 'custom-theme-load-path "~/.emacs.d/oxocarbon/")
-  ;;(use-package autothemer)
-  ;;(load-theme 'oxocarbon :no-confirm)
-  (use-package catppuccin-theme)
-  (load-theme 'catppuccin :no-confirm)
-  (setq catppuccin-flavor 'mocha)
+  ;; TODO: Load using Stylix in the future.
+  (load-theme 'base16-ayu-dark :no-confirm)
 #+end_src
 
 ** Font Configuration
 #+begin_src emacs-lisp
-  (set-face-attribute 'default nil :font "Iosevka Comfy" :height 120)
-  (set-face-attribute 'fixed-pitch nil :font "Iosevka Comfy" :height 120)
-  (set-face-attribute 'variable-pitch nil :font "Urbanist" :height 120)
+  (set-face-attribute 'default nil :font "M+1Code Nerd Font" :height 120)
+  (set-face-attribute 'fixed-pitch nil :font "M+1Code Nerd Font" :height 120)
+  (set-face-attribute 'variable-pitch nil :font "M+2 Nerd Font" :height 120)
 #+end_src
 
 ** Dashboard

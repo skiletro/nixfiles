@@ -5,7 +5,6 @@
 }: {
   imports = [
     ./bat
-    ./btop
     ./eza
     ./fastfetch
     ./git

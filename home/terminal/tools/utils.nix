@@ -14,6 +14,7 @@
       jq
       socat
       ripgrep
+      btop
       libnotify
       glib
       acpi
