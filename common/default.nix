@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  inputs,
   ...
 }: {
   imports = [
@@ -50,8 +51,12 @@
 
     # Cursors
     cursor = {
-      package = pkgs.apple-cursor;
-      name = "macOS-Monterey";
+      package = inputs.cursors.packages.${pkgs.system}.apple-cursor.override {
+        background_color = "#${config.lib.stylix.colors.base00}";
+        outline_color = "#${config.lib.stylix.colors.base06}";
+        accent_color = "#${config.lib.stylix.colors.base00}";
+      };
+      name = "Apple-Custom";
       size = 24;
     };
 
