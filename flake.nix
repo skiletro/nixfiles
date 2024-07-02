@@ -9,6 +9,8 @@
 
     stylix.url = "github:danth/stylix"; # Automatic styling
 
+    cursors.url = "github:lilleaila/nix-cursors"; # Recoloured cursors
+
     nur.url = "github:nix-community/NUR"; # Nix User Repository; similar to the AUR.
 
     spicetify.url = "github:the-argus/spicetify-nix"; # Custom spotify theming
