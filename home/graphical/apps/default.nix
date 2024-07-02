@@ -39,6 +39,7 @@
       fusee-interfacee-tk # Graphical Switch RCM Tool
       qbittorrent
       webcord # Discord
+      plex-media-player # Plex
     ];
   };
 }
