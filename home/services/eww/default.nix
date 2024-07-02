@@ -9,5 +9,10 @@
       enable = true;
       configDir = ./config;
     };
+
+    # Temporary, until I can implement the "term" features properly
+    home.packages = with pkgs; [
+      alacritty
+    ];
   };
 }
