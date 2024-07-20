@@ -83,6 +83,7 @@
             require('lspconfig').lua_ls.setup{}
             require('lspconfig').bashls.setup{}
             require('lspconfig').pyright.setup{}
+            require('lspconfig').nil_ls.setup{}
             require('lspconfig').emmet_language_server.setup {
               filetypes = { 'css', 'html' },
             }
