@@ -15,6 +15,10 @@
       };
     };
 
+    home.packages = with pkgs; [
+      syncthingtray
+    ];
+
     systemd.user.services.${config.services.syncthing.tray.package.pname} = {
       Install.WantedBy = lib.mkForce [];
     };

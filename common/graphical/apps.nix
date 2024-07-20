@@ -5,6 +5,7 @@
 }: {
   options = {
     userConfig.programs.graphical = {
+      chrome.enable = lib.mkEnableOption "Chrome";
       emacs.enable = lib.mkEnableOption "Emacs";
       firefox.enable = lib.mkEnableOption "Firefox";
       mpv.enable = lib.mkEnableOption "MPV";
@@ -17,6 +18,7 @@
   config = lib.mkIf config.userConfig.programs.graphical.enable {
     # Enable all graphical apps by default.
     userConfig.programs.graphical = {
+      chrome.enable = lib.mkDefault true;
       emacs.enable = lib.mkDefault true;
       firefox.enable = lib.mkDefault true;
       mpv.enable = lib.mkDefault true;
