@@ -20,6 +20,15 @@
 
     programs.hyprland.enable = true; # Required to enable critical components needed to run Hyprland properly
     services.gnome.gnome-keyring.enable = true; # Saves passwords
+
+    environment.systemPackages = with pkgs; [
+      gnome.nautilus
+      gnome.eog
+      gnome.file-roller
+      gnome.gnome-font-viewer
+      pavucontrol
+    ];
+
     # The rest of Hyprland settings can be found in home manager config
   };
 }
