@@ -22,8 +22,12 @@
       };
     };
 
-    programs.graphical.gaming.enable = false;
-    programs.graphical.gaming.minecraft.enable = true;
+    programs.graphical.gaming = {
+      enable = false; # Disable enabling all of the options.
+      minecraft.enable = true;
+      osu.enable = true;
+    };
+    programs.graphical.misc.enable = true;
   };
 
   # Bootloader
