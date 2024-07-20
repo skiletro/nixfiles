@@ -160,6 +160,7 @@ This is a really useful section as it prints what is being loaded and when into 
   ;; Disable line numbers for some modes
   (dolist (mode '(term-mode-hook
                   shell-mode-hook
+  		            vterm-mode-hook
                   eshell-mode-hook))
     (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
@@ -195,6 +196,7 @@ Dashboard is a packge which creates, as the name suggests, a custom dashboard th
                           (bookmarks . 3)
                             (projects . 5)))
   (setq inhibit-startup-screen t)
+  (setq inhibit-splash-screen t) ; Like startup, but for when opening files from command line
 #+end_src
 
 ** Modeline
