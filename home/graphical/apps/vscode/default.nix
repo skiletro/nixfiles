@@ -42,6 +42,9 @@
         "editor.cursorSmoothCaretAnimation" = "on";
 
         "window.titleBarStyle" = "custom"; # needed otherwise vscode crashes, see https://github.com/NixOS/nixpkgs/issues/246509
+
+        "nix.enableLanguageServer" = true;
+        "nix.serverPath" = "nil";
       };
     };
 
