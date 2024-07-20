@@ -13,17 +13,17 @@
     services.desktopManager.plasma6.enable = true;
     environment.plasma6.excludePackages = with pkgs.kdePackages; [
       konsole
-      ark
       elisa
-      gwenview
-      okular
-      kate
       khelpcenter
     ];
 
-    environment.systemPackages = with pkgs; [
-      libsForQt5.polonium # Tiling KWin Script
-    ];
+    environment.systemPackages =
+      (with pkgs; [
+        libsForQt5.polonium # Tiling KWin Script
+      ])
+      ++ (with pkgs.kdePackages; [
+        kcalc # Calculator
+      ]);
 
     services.tlp.enable = lib.mkForce false; # KDE power management takes priority over `tlp`
   };
