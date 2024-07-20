@@ -5,41 +5,32 @@
   ...
 }: {
   imports = [
+    ./chrome
     ./emacs
     ./firefox
     ./mpv
     ./spotify
     ./vscode
-    ./zathura
   ];
 
   config = lib.mkIf osConfig.userConfig.programs.graphical.enable {
     home.packages = with pkgs; [
-      xorg.xeyes #used literally just to test if app is xorg
-      tenacity
-      gnome.nautilus
-      thunderbird
-      gnome.eog
-      (libreoffice-qt.overrideAttrs {
-        propagatedBuildInputs = with pkgs; [
-          hunspell
-          hunspellDicts.en_GB-ise
-        ];
-      })
-      obs-studio
-      ungoogled-chromium
-      element-desktop
-      vial
-      gnome.file-roller # GUI zip tool
-      pavucontrol
-      gnome.gnome-font-viewer
-      inkscape
-      qdirstat
-      usbimager
+      bitwarden-desktop # Password Manager
+      element-desktop # Matrix Client
       fusee-interfacee-tk # Graphical Switch RCM Tool
-      qbittorrent
-      webcord # Discord
-      plex-media-player # Plex
+      inkscape # Vector Image Editor
+      obs-studio # Screen Recording and Broadcasting Suite
+      onlyoffice-bin # Office Suite
+      plex-media-player # Plex Client
+      qbittorrent # Torrent Client
+      qdirstat # Storage Visualiser
+      telegram-desktop # Official Telegram Client
+      tenacity # Audio Editor (Audacity Fork)
+      thunderbird # Email Client
+      usbimager # Write Image Files to USB
+      vial # QMK-based Keyboard Layout Editor
+      video-trimmer # Trim videos quickly, doesn't do much else
+      webcord # Discord Client
     ];
   };
 }

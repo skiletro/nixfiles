@@ -8,6 +8,7 @@
     ./gaming
     ./apps.nix
     ./fonts.nix
+    ./misc.nix
   ];
 
   options = {
