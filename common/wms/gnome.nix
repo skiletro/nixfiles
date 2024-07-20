@@ -19,7 +19,6 @@
       ++ (with pkgs.gnome; [
         epiphany # web browser
         geary # email reader
-        evince # document viewer
       ]);
 
     services.tlp.enable = lib.mkForce false; # Gnome power management takes priority over `tlp`
