@@ -21,12 +21,9 @@
   config = lib.mkIf config.userConfig.programs.graphical.enable {
     # Platform-independent graphics
     # NOTE: Set the drivers for the specific device in the hosts/hostname.nix file.
-    hardware.opengl = {
-      enable = true;
-    };
+    hardware.graphics.enable = true;
 
     # Sound
-    sound.enable = true;
     hardware.pulseaudio.enable = false;
     security.rtkit.enable = true;
     services.pipewire = {
