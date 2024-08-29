@@ -19,7 +19,7 @@
 
     environment.systemPackages =
       (with pkgs; [
-        libsForQt5.polonium # Tiling KWin Script
+        polonium # Tiling KWin Script
       ])
       ++ (with pkgs.kdePackages; [
         kcalc # Calculator
