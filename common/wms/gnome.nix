@@ -12,15 +12,31 @@
 
     services.xserver.enable = true;
     services.xserver.desktopManager.gnome.enable = true;
-    environment.gnome.excludePackages =
+    environment.gnome.excludePackages = with pkgs; [
+      epiphany
+      gnome.gnome-music
+      gnome-terminal
+      gnome-tour
+    ];
+    services.tlp.enable = lib.mkForce false; # Gnome power management takes priority over `tlp`
+
+    environment.systemPackages =
       (with pkgs; [
-        gnome-tour
+        adwaita-icon-theme # fixes some missing icons
       ])
-      ++ (with pkgs.gnome; [
-        epiphany # web browser
-        geary # email reader
+      ++ (with pkgs.gnomeExtensions; [
+        appindicator
+        dash-to-dock
+        openweather-refined
+        mpris-label
+        search-light
+        # no-overview # causing a lot of crashing
+        status-area-horizontal-spacing
       ]);
 
-    services.tlp.enable = lib.mkForce false; # Gnome power management takes priority over `tlp`
+    # TODO: Need to enable in HM at some point
+    # dconf.settings = with lib.hm.gvariant; {
+    #      "org/gnome/mutter".experimental-features = ["scale-monitor-framebuffer"]; # Enable other scaling modes
+    # };
   };
 }
