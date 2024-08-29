@@ -9,12 +9,12 @@
   userConfig = {
     greeter = {
       enable = true;
-      type = "sddm";
+      type = "gdm";
     };
 
     desktop = {
       enable = true;
-      environments = ["plasma"];
+      environments = ["gnome"];
       terminalEmulator = "alacritty";
       scaling = {
         enable = true;
@@ -62,7 +62,6 @@
 
   # Bluetooth support
   hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
 
   hardware.cpu.amd.updateMicrocode = true;
 
