@@ -13,7 +13,7 @@
 
     nur.url = "github:nix-community/NUR"; # Nix User Repository; similar to the AUR.
 
-    spicetify.url = "github:the-argus/spicetify-nix"; # Custom spotify theming
+    spicetify.url = "github:Gerg-L/spicetify-nix"; # Custom spotify theming
 
     emacs-overlay.url = "github:nix-community/emacs-overlay"; # Allows generating an emacs config using org mode + nix
 
