@@ -24,8 +24,10 @@
     # Wallpaper
     image = let
       input = pkgs.fetchurl {
-        url = "https://i.imgur.com/b0H66vt.jpeg";
-        sha256 = "sha256-BhYzihD72Zpf4Rjds+b5gWweSl2NAMeRcLADLF4rsWs=";
+        #url = "https://i.imgur.com/b0H66vt.jpeg";
+        #sha256 = "sha256-BhYzihD72Zpf4Rjds+b5gWweSl2NAMeRcLADLF4rsWs=";
+        url = "https://w.wallhaven.cc/full/d6/wallhaven-d6y12l.jpg";
+        sha256 = "sha256-eMfcl2bPqHTP6KiWt9CHuysQs+3ZEsZlNgAYz/vS0/Y=";
       };
     in
       pkgs.runCommand "output.png" {} ''
