@@ -370,9 +370,9 @@ A fully-fledged terminal emulator. Doesn't work on Windows.
 Better PDF viewing
 
 #+begin_src emacs-lisp
-  (if (eq system-type 'gnu/linux)
-      (progn
-        (use-package pdf-tools)))
+  ;;(if (eq system-type 'gnu/linux)
+  ;;    (progn
+  ;;      (use-package pdf-tools)))
 #+end_src
 
 * Org Mode
