@@ -21,6 +21,8 @@
     programs.hyprland.enable = true; # Required to enable critical components needed to run Hyprland properly
     services.gnome.gnome-keyring.enable = true; # Saves passwords
 
+    services.blueman.enable = true; # Bluetooth manager since Hyprland doens't have a built in one
+
     environment.systemPackages = with pkgs; [
       gnome.nautilus
       gnome.eog
