@@ -8,18 +8,23 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs"; # This is so the HM flake uses our nixpkgs, instead of the nixpkgs commit in their repo
 
     stylix.url = "github:danth/stylix"; # Automatic styling
+    stylix.inputs.nixpkgs.follows = "nixpkgs";
 
     cursors.url = "github:lilleaila/nix-cursors"; # Recoloured cursors
+    cursors.inputs.nixpkgs.follows = "nixpkgs";
 
     nur.url = "github:nix-community/NUR"; # Nix User Repository; similar to the AUR.
 
     spicetify.url = "github:Gerg-L/spicetify-nix"; # Custom spotify theming
+    spicetify.inputs.nixpkgs.follows = "nixpkgs";
 
     emacs-overlay.url = "github:nix-community/emacs-overlay"; # Allows generating an emacs config using org mode + nix
+    emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
 
     declarative-flatpak.url = "github:gmodena/nix-flatpak"; # Declare Flatpaks in this config!
 
     vscode-extensions.url = "github:nix-community/nix-vscode-extensions"; # Declare VSC Extensions
+    vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
 
     wsl.url = "github:nix-community/NixOS-WSL/main"; # WSL Support
   };
