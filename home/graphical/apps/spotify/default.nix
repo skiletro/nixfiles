@@ -5,15 +5,14 @@
   osConfig,
   ...
 }: {
-  imports = [inputs.spicetify.homeManagerModule];
+  imports = [inputs.spicetify.homeManagerModules.default];
 
   config = lib.mkIf osConfig.userConfig.programs.graphical.spotify.enable {
     programs.spicetify = let
-      spicetify = inputs.spicetify.packages.${pkgs.system}.default;
+      spicetify = inputs.spicetify.legacyPackages.${pkgs.system};
     in {
       enable = true;
-      theme = spicetify.themes.catppuccin;
-      colorScheme = "mocha";
+      theme = spicetify.themes.text;
 
       enabledExtensions = with spicetify.extensions; [
         songStats
