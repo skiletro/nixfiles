@@ -45,8 +45,8 @@ in {
       x11.enable = true;
     };
 
-    # Hides the close button on gnome apps
     dconf.settings = {
+      # gsettings set org.gnome.desktop.wm.preferences button-layout :
       "org/gnome/desktop/wm/preferences".button-layout = "''";
     };
   };
