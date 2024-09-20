@@ -1,3 +1,8 @@
+<pre align="center">
+📝: I've had to stop using NixOS for the time being, as my main Linux device (themis) is out of commission.
+As a result, this repo won't be updated for a few months. Thanks for your understanding.
+</pre>
+
 <div align=center>
 <h3>
   <img src="https://i.imgur.com/tSwLTKE.png" height="100"/>
