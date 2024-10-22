@@ -7,6 +7,9 @@
     home-manager.url = "github:nix-community/home-manager"; # Allows us to configure our home directory with Nix!
     home-manager.inputs.nixpkgs.follows = "nixpkgs"; # This is so the HM flake uses our nixpkgs, instead of the nixpkgs commit in their repo
 
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
+    zen-browser.inputs.nixpkgs.follows = "nixpkgs";
+
     stylix.url = "github:danth/stylix"; # Automatic styling
     stylix.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -48,7 +51,7 @@
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
-          backupFileExtension = "homemanager";
+          backupFileExtension = "hm";
           users.jamie.imports = [./home];
           extraSpecialArgs = {inherit inputs self;};
         };

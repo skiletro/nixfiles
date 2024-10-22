@@ -59,7 +59,7 @@
         accent_color = "#${config.lib.stylix.colors.base00}";
       };
       name = "Apple-Custom";
-      size = 24;
+      #size = 24;
     };
 
     # Fonts
