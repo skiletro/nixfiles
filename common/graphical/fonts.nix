@@ -23,7 +23,7 @@
         vistafonts # More Microsoft Fonts
         noto-fonts
         noto-fonts-extra
-        noto-fonts-cjk # Japanese, Korean, Chinese, etc
+        noto-fonts-cjk-sans # Japanese, Korean, Chinese, etc
         noto-fonts-color-emoji
         (nerdfonts.override {
           fonts = [

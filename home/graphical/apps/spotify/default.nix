@@ -12,7 +12,7 @@
       spicetify = inputs.spicetify.legacyPackages.${pkgs.system};
     in {
       enable = true;
-      theme = spicetify.themes.text;
+      #theme = spicetify.themes.text;
 
       enabledExtensions = with spicetify.extensions; [
         songStats

@@ -23,6 +23,8 @@
       environments = ["plasma"];
       terminalEmulator = "alacritty";
     };
+    programs.graphical.chrome.enable = false;
+    programs.graphical.emacs.enable = false;
   };
 
   # Bootloader
@@ -34,22 +36,11 @@
     efi.canTouchEfiVariables = true;
   };
 
-  # Using kernel 6.6, latest (6.9) version doesn't play nicely with nvidia for whatever reason
-  # Revisit this as soon as there's an update to the situation
-  boot.kernelPackages = pkgs.linuxPackages;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # Nvidia Graphics Drivers
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
-    # Beta 555 drivers for explicit sync
-    package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-      version = "555.42.02";
-      sha256_64bit = "sha256-k7cI3ZDlKp4mT46jMkLaIrc2YUx1lh1wj/J4SVSHWyk=";
-      sha256_aarch64 = "sha256-rtDxQjClJ+gyrCLvdZlT56YyHQ4sbaL+d5tL4L4VfkA=";
-      openSha256 = "sha256-rtDxQjClJ+gyrCLvdZlT56YyHQ4sbaL+d5tL4L4VfkA=";
-      settingsSha256 = "sha256-rtDxQjClJ+gyrCLvdZlT56YyHQ4sbaL+d5tL4L4VfkA=";
-      persistencedSha256 = lib.fakeSha256;
-    };
     modesetting.enable = true;
     open = false;
     nvidiaSettings = true;
