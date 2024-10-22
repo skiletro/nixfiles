@@ -1,11 +1,16 @@
 {
   pkgs,
   lib,
+  inputs,
   osConfig,
   ...
 }: {
   config = lib.mkIf osConfig.userConfig.programs.graphical.firefox.enable {
     stylix.targets.firefox.enable = false;
+
+    home.packages = with pkgs; [
+      inputs.zen-browser.packages."${system}".specific
+    ];
 
     programs.firefox = {
       enable = true;

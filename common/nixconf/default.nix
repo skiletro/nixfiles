@@ -13,7 +13,7 @@
       trusted-public-keys = [];
     };
 
-    package = pkgs.nixFlakes; # or versioned attr like nixVersions.nix_2_8
+    #package = pkgs.nixFlakes; # or versioned attr like nixVersions.nix_2_8
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
