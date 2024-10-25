@@ -54,10 +54,9 @@ Please note that this flake is pretty specialised for my use case, and you would
 │   ├── enable (bool)
 │   ├── environments (list, enum)
 │   ├── terminalEmulator (enum)
-│   ├── scaling
-│   │   ├── enable (bool)
-│   │   └── multiplier (float)
-│   └── isWayland (not set manually)
+│   └── scaling
+│       ├── enable (bool)
+│       └── multiplier (float)
 ├── programs
 │   ├── graphical
 │   │   ├── enable (bool, enables the rest of graphical and terminal)
