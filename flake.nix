@@ -70,11 +70,6 @@
         modules = commonModules ++ [./hosts/eris];
       };
 
-      themis = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = commonModules ++ [./hosts/themis];
-      };
-
       wsl = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         system = "x86_64-linux";
