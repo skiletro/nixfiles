@@ -8,7 +8,6 @@
     userConfig.services = {
       syncthing.enable = true;
     };
-    userConfig.desktop.isWayland = true;
 
     services.xserver.enable = true;
     services.xserver.desktopManager.gnome.enable = true;
