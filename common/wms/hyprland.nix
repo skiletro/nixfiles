@@ -16,7 +16,6 @@
       syncthing.enable = true;
       wlogout.enable = true;
     };
-    userConfig.desktop.isWayland = true;
 
     programs.hyprland.enable = true; # Required to enable critical components needed to run Hyprland properly
     services.gnome.gnome-keyring.enable = true; # Saves passwords

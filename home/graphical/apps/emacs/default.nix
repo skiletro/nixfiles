@@ -9,9 +9,9 @@
       enable = true;
       package = pkgs.emacsWithPackagesFromUsePackage {
         package =
-          if osConfig.userConfig.desktop.isWayland
-          then pkgs.emacs29-pgtk
-          else pkgs.emacs; # X11 fallback
+          if (osConfig.networking.hostname == "wsl")
+          then pkgs.emacs # The WSL environment doesn't like PGTK
+          else pkgs.emacs29-pgtk;
         config = ./config.org;
         defaultInitFile = true;
         alwaysTangle = true;
