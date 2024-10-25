@@ -6,11 +6,7 @@
   networking.hostName = "wsl";
 
   userConfig = {
-    programs.graphical = {
-      enable = false;
-      fonts.enable = true;
-      emacs.enable = true;
-    };
+    programs.graphical.enable = false;
     virtualisation.enable = false;
   };
 
