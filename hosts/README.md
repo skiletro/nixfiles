@@ -1,6 +1,6 @@
 # Hosts
 
-| Host   | Arch   | Purpose                                                                    |
-| ------ | ------ | -------------------------------------------------------------------------- |
-| eris   | x86_64 | Desktop computer, Nvidia Drivers                                           |
-| themis | x86_64 | Laptop, HP Envy X360 13" 2020, only issue is that fingerprint doesn't work |
+| Host   | Arch   | Type | Description |
+| --- | --- | --- | --- |
+| eris   | x86_64 | Desktop | Main system. Ryzen 5 3600 + RTX 2070. Requires Closed-Source Nvidia GPU Drivers |
+| wsl    | x86_64 | VM | Windows Subsystem for Linux, for use when I need to use Windows |
