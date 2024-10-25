@@ -31,7 +31,6 @@
           description = "Scaling multiplier";
         };
       };
-      isWayland = lib.mkEnableOption ""; # FIXME
     };
   };
 }
