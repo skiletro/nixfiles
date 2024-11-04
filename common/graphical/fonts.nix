@@ -4,17 +4,7 @@
   config,
   ...
 }: {
-  options = {
-    userConfig.programs.graphical.fonts.enable = lib.mkOption {
-      default =
-        if config.userConfig.programs.graphical.enable
-        then true
-        else false;
-      description = "Enables fonts";
-    };
-  };
-
-  config = lib.mkIf config.userConfig.programs.graphical.fonts.enable {
+  config = lib.mkIf (!config.userConfig.isHeadless) {
     fonts = {
       fontDir.enable = true;
 

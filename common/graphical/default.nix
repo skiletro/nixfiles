@@ -6,19 +6,10 @@
 }: {
   imports = [
     ./gaming
-    ./apps.nix
     ./fonts.nix
-    ./misc.nix
   ];
 
-  options = {
-    userConfig.programs.graphical.enable = lib.mkOption {
-      default = true;
-      type = lib.types.bool;
-    };
-  };
-
-  config = lib.mkIf config.userConfig.programs.graphical.enable {
+  config = lib.mkIf (!config.userConfig.isHeadless) {
     # Platform-independent graphics
     # NOTE: Set the drivers for the specific device in the hosts/hostname.nix file.
     hardware.graphics.enable = true;
@@ -59,12 +50,9 @@
     # i'm too lazy.
     security.pam.services.swaylock = {};
 
-    # Plymouth fancy boot :)
+    # Plymouth Fancy Boot
     boot = {
-      plymouth = {
-        enable = true;
-        #theme = "";
-      };
+      plymouth.enable = true;
       initrd.verbose = false;
       consoleLogLevel = 0;
       kernelParams = ["quiet" "udev.log_level=0"];

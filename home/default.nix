@@ -1,8 +1,9 @@
 {...}: {
   imports = [
-    ./graphical
+    ./gaming
+    ./programs
     ./services
-    ./terminal
+    ./wms
   ];
 
   home = {
@@ -16,8 +17,7 @@
     manpages.enable = true;
   };
 
-  # fonts work when this is enabled :shrug:
-  fonts.fontconfig.enable = true;
+  fonts.fontconfig.enable = true; # fonts work when this is enabled :shrug:
 
   home.stateVersion = "23.05"; # check wiki before updating this!!!
 

@@ -12,7 +12,6 @@
   networking.hostName = "eris";
 
   userConfig = {
-    # Core Settings
     greeter = {
       enable = true;
       type = "sddm";
@@ -23,9 +22,49 @@
       environments = ["plasma"];
       terminalEmulator = "alacritty";
     };
-    programs.graphical.chrome.enable = false;
-    programs.graphical.emacs.enable = false;
+
+    programs = {
+      emacs.enable = false; # Not really using Emacs anymore.
+      firefox.enable = true;
+      mpv.enable = true;
+      neovim.enable = true;
+      noisetorch.enable = true;
+      spotify.enable = true;
+      vscode.enable = true;
+    };
+
+    gaming = {
+      emulators.enable = true;
+      launchers.enable = true;
+      standalone.enable = true;
+      vr.enable = true;
+    };
   };
+
+  environment.systemPackages = with pkgs; [
+    # Graphical
+    avidemux # Video Remuxer and Clipper
+    bitwarden-desktop # Password Manager
+    element-desktop # Matrix Client
+    fusee-interfacee-tk # Graphical Switch RCM Tool
+    inkscape # Vector Image Editor
+    obs-studio # Screen Recording and Broadcasting Suite
+    onlyoffice-bin # Office Suite
+    plex-media-player # Plex Client
+    qbittorrent # Torrent Client
+    qdirstat # Storage Visualiser
+    telegram-desktop # Official Telegram Client
+    tenacity # Audio Editor (Audacity Fork)
+    thunderbird # Email Client
+    usbimager # Write Image Files to USB
+    vesktop # Discord Client
+    vial # QMK-based Keyboard Layout Editor
+
+    # Runtimes
+    bun # JavaScript
+    jre_minimal # Java
+    python3 # Python
+  ];
 
   # Bootloader
   boot.loader = {

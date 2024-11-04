@@ -1,10 +1,13 @@
+#TODO: VR-support in this flake needs to be completely redone, once I have the proper hardware to properly troubleshoot.
 {
   lib,
   pkgs,
   config,
   ...
 }: {
-  config = lib.mkIf config.userConfig.programs.graphical.gaming.vr.enable {
+  options.userConfig.gaming.vr.enable = lib.mkEnableOption "Virtual Reality";
+
+  config = lib.mkIf config.userConfig.gaming.vr.enable {
     environment.systemPackages = with pkgs; [
       wlx-overlay-s
     ];
