@@ -1,14 +1,13 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     inputs.wsl.nixosModules.default
   ];
 
   networking.hostName = "wsl";
-
-  userConfig = {
-    programs.graphical.enable = false;
-    virtualisation.enable = false;
-  };
 
   wsl = {
     enable = true;
@@ -16,6 +15,17 @@
     useWindowsDriver = true;
     wslConf.automount.enabled = true;
   };
+
+  userConfig = {
+    isHeadless = true;
+    virtualisation.enable = false;
+
+    programs.neovim.enable = true;
+  };
+
+  environment.systemPackages = with pkgs; [
+    zathura
+  ];
 
   system.stateVersion = "24.11";
 }

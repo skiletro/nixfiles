@@ -7,7 +7,6 @@
   config = lib.mkIf (builtins.elem "hyprland" config.userConfig.desktop.environments) {
     userConfig.services = {
       xdg.enable = true;
-      theming.enable = true;
 
       eww.enable = true;
       rofi.enable = true;

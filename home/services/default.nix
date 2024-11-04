@@ -1,7 +1,9 @@
 {pkgs, ...}: {
   imports = [
     ./eww
+    ./fish
     ./rofi
+    ./starship
     ./swaync
     ./syncthing
     ./wlogout
@@ -9,12 +11,40 @@
   ];
 
   home.packages = with pkgs; [
-    onedrive
     wlsunset
     xdg-utils
     libsForQt5.polkit-kde-agent
     networkmanagerapplet
     wineWowPackages.stable #wine
     winetricks #wine
+    cava
+    playerctl
+    brightnessctl
+    pamixer
+    upower
+    sway-contrib.grimshot #screenshots
+    wtype
+    htop
+    wget
+    unzip
+    unrar
+    jq
+    socat
+    ripgrep
+    btop
+    libnotify
+    glib
+    acpi
+    wl-clipboard
+    fzf
+    lutgen
+    cmake
+    gnumake
+    fd
+    imagemagick
+    just
+    du-dust
+    tldr
+    tmux
   ];
 }
