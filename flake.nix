@@ -7,7 +7,7 @@
     home-manager.url = "github:nix-community/home-manager"; # Allows us to configure our home directory with Nix!
     home-manager.inputs.nixpkgs.follows = "nixpkgs"; # This is so the HM flake uses our nixpkgs, instead of the nixpkgs commit in their repo
 
-    zen-browser.url = "github:MarceColl/zen-browser-flake";
+    zen-browser.url = "github:MarceColl/zen-browser-flake"; # Best browser
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
 
     stylix.url = "github:danth/stylix"; # Automatic styling
@@ -23,6 +23,9 @@
 
     emacs-overlay.url = "github:nix-community/emacs-overlay"; # Allows generating an emacs config using org mode + nix
     emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixvim.url = "github:nix-community/nixvim";
+    nixvim.inputs.nixpkgs.follows = "nixpkgs";
 
     declarative-flatpak.url = "github:gmodena/nix-flatpak"; # Declare Flatpaks in this config!
 
@@ -79,11 +82,13 @@
 
     devShells.${system}.default = pkgs.mkShell {
       buildInputs = with pkgs; [
-        nh
-        alejandra #code formatting
+        nh # Nix CLI Helper
+        alejandra # Code Formatting
         just #command runner
       ];
       shellHook = "just -l";
     };
+
+    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
   };
 }
