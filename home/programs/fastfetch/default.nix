@@ -1,9 +1,4 @@
-{
-  pkgs,
-  lib,
-  osConfig,
-  ...
-}: {
+{pkgs, ...}: {
   config = {
     home.packages = with pkgs; [fastfetch];
 
