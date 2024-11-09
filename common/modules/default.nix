@@ -1,8 +1,4 @@
-{
-  lib,
-  config,
-  ...
-}: {
+{lib, ...}: {
   options.userConfig = {
     isHeadless = lib.mkEnableOption "Does the system have graphical output?";
 

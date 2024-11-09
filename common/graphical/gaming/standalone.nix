@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }: {
   options.userConfig.gaming.standalone.enable = lib.mkEnableOption "Standalone Games: Just Osu for now!";
