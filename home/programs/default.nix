@@ -11,7 +11,7 @@
     ./mpv
     ./neovim
     ./spotify
+    ./tmux
     ./vscode
-    ./zellij
   ];
 }
