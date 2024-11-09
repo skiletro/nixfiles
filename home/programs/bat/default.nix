@@ -1,9 +1,4 @@
-{
-  pkgs,
-  lib,
-  osConfig,
-  ...
-}: {
+{...}: {
   config = {
     programs.bat.enable = true;
 
