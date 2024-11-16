@@ -35,6 +35,7 @@
 
         # Fuzzy Finder
         telescope.enable = true;
+        web-devicons.enable = true; # Dependency for telescope
 
         # Rainbow Brackets
         rainbow-delimiters.enable = true;
