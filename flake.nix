@@ -7,7 +7,10 @@
     home-manager.url = "github:nix-community/home-manager"; # Allows us to configure our home directory with Nix!
     home-manager.inputs.nixpkgs.follows = "nixpkgs"; # This is so the HM flake uses our nixpkgs, instead of the nixpkgs commit in their repo
 
-    zen-browser.url = "github:MarceColl/zen-browser-flake"; # Best browser
+    devshell.url = "github:numtide/devshell";
+    devshell.inputs.nixpkgs.follows = "nixpkgs";
+
+    zen-browser.url = "github:0xc000022070/zen-browser-flake"; # Best browser
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
 
     stylix.url = "github:danth/stylix"; # Automatic styling
@@ -41,7 +44,6 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
     # Here is where all the module imports are stored
     commonModules = [
       ./common
@@ -58,10 +60,10 @@
           users.jamie.imports = [./home];
           extraSpecialArgs = {inherit inputs self;};
         };
-        nixpkgs.overlays = [
+        nixpkgs.overlays = with inputs; [
           # Nixpkgs Overlays
-          inputs.nur.overlay
-          inputs.emacs-overlay.overlay
+          nur.overlay
+          emacs-overlay.overlay
         ];
       }
     ];
@@ -79,14 +81,13 @@
       };
     };
 
-    devShells.${system}.default = pkgs.mkShell {
-      buildInputs = with pkgs; [
-        nh # Nix CLI Helper
-        alejandra # Code Formatting
-        just #command runner
-      ];
-      shellHook = "just -l";
-    };
+    devShells.${system}.default = let
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [inputs.devshell.overlays.default];
+      };
+    in
+      pkgs.devshell.mkShell {imports = [(pkgs.devshell.importTOML ./devshell.toml)];}; # TODO: Probably a nicer way to express this
 
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
   };
