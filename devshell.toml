@@ -1,0 +1,29 @@
+[devshell]
+name = "nixfiles"
+packages = [
+  'nh',
+  'alejandra',
+  'deadnix'
+]
+[[commands]]
+name = "rebuild"
+help = "rebuilds system"
+command = """
+  prerequisites
+  nh os switch
+"""
+[[commands]]
+name = "update"
+help = "updates lockfile, and rebuilds system"
+command = """
+  prerequisites
+  nh os switch --update
+"""
+[[commands]]
+name = "prerequisites"
+help = "removes deadcode, formats, and stages changes"
+command = """
+  deadnix -eq .
+  alejandra . -q
+  git add .
+"""
