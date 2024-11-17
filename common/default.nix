@@ -34,7 +34,6 @@
   # Bare minimum programs needed on all systems
   environment.systemPackages = with pkgs; [
     alejandra
-    direnv
     gh
     git
     neovim
@@ -67,9 +66,14 @@
     settings.KbdInteractiveAuthentication = false;
   };
 
-  # Global environment variables
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1"; # Hints to apps that Wayland is being used
+  # Environment settings
+  environment = {
+    variables = {
+      FREETYPE_PROPERTIES = "cff:no-stem-darkening=0 autofitter:no-stem-darkening=0"; # Font Stem Darkening - Looks better
+    };
+    sessionVariables = {
+      NIXOS_OZONE_WL = "1"; # Hints to apps that Wayland is being used
+    };
   };
 
   security.polkit.enable = true;
@@ -90,15 +94,14 @@
 
     settings = {
       auto-optimise-store = true;
+      experimental-features = ["nix-command" "flakes"];
+      warn-dirty = false;
+      http-connections = 50;
+      log-lines = 50;
       builders-use-substitutes = true;
       substituters = [];
       trusted-public-keys = [];
     };
-
-    #package = pkgs.nixFlakes; # or versioned attr like nixVersions.nix_2_8
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
 
     optimise = {
       automatic = true;
