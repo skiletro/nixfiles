@@ -14,6 +14,7 @@
     defaultUser = "jamie";
     useWindowsDriver = true;
     wslConf.automount.enabled = true;
+    startMenuLaunchers = true;
   };
 
   userConfig = {
@@ -22,10 +23,6 @@
 
     programs.neovim.enable = true;
   };
-
-  environment.systemPackages = with pkgs; [
-    zathura
-  ];
 
   system.stateVersion = "24.11";
 }
