@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   imports = [
+    ./direnv
     ./eww
     ./fish
     ./rofi
