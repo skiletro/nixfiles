@@ -3,7 +3,6 @@
 
   inputs = {
     cursors.url = "github:lilleaila/nix-cursors"; # Recoloured cursors
-    cursors.inputs.nixpkgs.follows = "nixpkgs";
 
     devshell.url = "github:numtide/devshell";
     devshell.inputs.nixpkgs.follows = "nixpkgs";

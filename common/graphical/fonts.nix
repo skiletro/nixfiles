@@ -15,13 +15,8 @@
         noto-fonts-extra
         noto-fonts-cjk-sans # Japanese, Korean, Chinese, etc
         noto-fonts-color-emoji
-        (nerdfonts.override {
-          fonts = [
-            "MPlus"
-            "NerdFontsSymbolsOnly"
-          ];
-        })
-        iosevka-comfy.comfy
+        nerd-fonts.symbols-only
+        nerd-fonts.mplus
         nur.repos.skiletro.urbanist
         nur.repos.skiletro.gabarito
       ];
