@@ -9,7 +9,6 @@
     enable = true;
 
     # Color scheme
-    #base16Scheme = "${pkgs.base16-schemes}/share/themes/oxocarbon-dark.yaml";
     base16Scheme = ./quixayu.yaml;
 
     # Wallpaper
@@ -56,12 +55,12 @@
     # Fonts
     fonts = {
       sansSerif = {
-        package = pkgs.nerdfonts.override {fonts = ["MPlus"];};
+        package = pkgs.nerd-fonts.mplus;
         name = "M+2 Nerd Font";
       };
       serif = config.stylix.fonts.sansSerif; # Set serif font to the same as the sans-serif
       monospace = {
-        package = pkgs.nerdfonts.override {fonts = ["MPlus"];};
+        package = pkgs.nerd-fonts.mplus;
         name = "M+1Code Nerd Font";
       };
       emoji = {

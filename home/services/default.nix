@@ -18,7 +18,6 @@
     networkmanagerapplet
     wineWowPackages.stable #wine
     winetricks #wine
-    cava
     playerctl
     brightnessctl
     pamixer
