@@ -40,7 +40,7 @@
 
   environment.systemPackages =
     [
-      inputs.zen-browser.packages."${system}".specific # Firefox-based Browser
+      inputs.zen-browser.packages.${pkgs.system}.specific # Firefox-based Browser
     ]
     ++ (with pkgs; [
       # Graphical
