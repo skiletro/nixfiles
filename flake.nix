@@ -33,7 +33,7 @@
 
     wsl.url = "github:nix-community/NixOS-WSL/main"; # WSL Support
 
-    zen-browser.url = "github:0xc000022070/zen-browser-flake"; # Best browser
+    zen-browser.url = "github:fufexan/zen-browser-flake"; # Best browser
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
   };
 
