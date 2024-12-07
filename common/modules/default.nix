@@ -8,7 +8,6 @@
       firefox.enable = lib.mkEnableOption "Firefox";
       mpv.enable = lib.mkEnableOption "MPV";
       neovim.enable = lib.mkEnableOption "Neovim";
-      noisetorch.enable = lib.mkEnableOption "NoiseTorch"; # TODO: IMPLEMENT
       spotify.enable = lib.mkEnableOption "Spotify";
       vscode.enable = lib.mkEnableOption "Visual Studio Code";
     };

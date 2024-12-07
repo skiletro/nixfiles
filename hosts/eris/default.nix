@@ -25,7 +25,6 @@
     programs = {
       mpv.enable = true;
       neovim.enable = true;
-      noisetorch.enable = true;
       spotify.enable = true;
       vscode.enable = true;
     };
@@ -38,6 +37,7 @@
     };
   };
 
+  # Programs
   environment.systemPackages =
     [
       inputs.zen-browser.packages.${pkgs.system}.specific # Firefox-based Browser
@@ -47,16 +47,13 @@
       avidemux # Video Remuxer and Clipper
       bitwarden-desktop # Password Manager
       element-desktop # Matrix Client
-      fusee-interfacee-tk # Graphical Switch RCM Tool
       inkscape # Vector Image Editor
-      obs-studio # Screen Recording and Broadcasting Suite
       onlyoffice-bin # Office Suite
       plex-media-player # Plex Client
       qbittorrent # Torrent Client
       qdirstat # Storage Visualiser
       telegram-desktop # Official Telegram Client
       tenacity # Audio Editor (Audacity Fork)
-      thunderbird # Email Client
       usbimager # Write Image Files to USB
       vesktop # Discord Client
       vial # QMK-based Keyboard Layout Editor
@@ -66,6 +63,12 @@
       jre_minimal # Java
       python3 # Python
     ]);
+
+  programs = {
+    noisetorch.enable = true; # Microphone Noise Cancellation
+    obs-studio.enable = true; # Screen Recording and Broadcasting Suite
+    thunderbird.enable = true; # Email Client
+  };
 
   # Bootloader
   boot.loader = {

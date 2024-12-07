@@ -40,10 +40,11 @@ sudo nixos-rebuild boot --flake .#$your_hostname
 ...and reboot!
 
 ## Issues
-- *none right now!*
+- [ ] VR module does not work
 
 ## Todo
-- *none right now!*
+- [ ] Configure GNOME declaratively using dconf (See [the wiki](https://wiki.nixos.org/wiki/GNOME))
+- [ ] Rewrite VR module
 
 ## Acknowledgements
 - [NotAShelf's Nyx Repo](https://github.com/NotAShelf/nyx) - a huge help (also I stole quite a lot of stuff)
