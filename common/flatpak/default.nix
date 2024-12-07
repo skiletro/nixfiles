@@ -11,7 +11,6 @@
         onCalendar = "weekly";
       };
       uninstallUnmanaged = true;
-      #packages = [];
       overrides = {
         global = {
           # Force Wayland by default
@@ -22,7 +21,7 @@
             XCURSOR_PATH = "/run/host/user-share/icons:/run/host/share/icons";
 
             # Force correct theme for some GTK apps
-            #GTK_THEME = "Adwaita:dark"; #TODO: Do some nix fuckery to get this value updating from elsewhere in the config
+            GTK_THEME = "Adwaita:dark";
           };
         };
       };
