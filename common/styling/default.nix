@@ -1,6 +1,5 @@
 {
   pkgs,
-  lib,
   config,
   inputs,
   ...
@@ -14,32 +13,11 @@
     # Wallpaper
     image = let
       input = pkgs.fetchurl {
-        #url = "https://i.imgur.com/b0H66vt.jpeg";
-        #sha256 = "sha256-BhYzihD72Zpf4Rjds+b5gWweSl2NAMeRcLADLF4rsWs=";
-        url = "https://w.wallhaven.cc/full/d6/wallhaven-d6y12l.jpg";
-        sha256 = "sha256-eMfcl2bPqHTP6KiWt9CHuysQs+3ZEsZlNgAYz/vS0/Y=";
+        url = "https://w.wallhaven.cc/full/2y/wallhaven-2ymp5g.png";
+        sha256 = "sha256-Vb1hu27QSXGO6JoQpkSP5OTrX1w2H4lwm3kx2Tbcgso=";
       };
     in
-      pkgs.runCommand "output.png" {} ''
-        ${pkgs.lutgen}/bin/lutgen apply ${input} -o $out -- ${builtins.concatStringsSep " " (with config.lib.stylix.colors; [
-          base00
-          base01
-          base02
-          base03
-          base04
-          base05
-          base06
-          base07
-          base08
-          base09
-          base0A
-          base0B
-          base0C
-          base0D
-          base0E
-          base0F
-        ])}
-      ''; # FIXME: Could be simplified
+      pkgs.runCommand "output.png" {} "${pkgs.lutgen}/bin/lutgen apply ${input} -o $out -- ${builtins.concatStringsSep " " config.lib.stylix.colors.toList}";
 
     # Cursors
     cursor = {
