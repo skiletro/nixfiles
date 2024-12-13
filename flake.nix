@@ -9,13 +9,10 @@
 
     declarative-flatpak.url = "github:gmodena/nix-flatpak"; # Declare Flatpaks in this config!
 
-    emacs-overlay.url = "github:nix-community/emacs-overlay"; # Allows generating an emacs config using org mode + nix
-    emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
-
     home-manager.url = "github:nix-community/home-manager"; # Allows us to configure our home directory with Nix!
     home-manager.inputs.nixpkgs.follows = "nixpkgs"; # This is so the HM flake uses our nixpkgs, instead of the nixpkgs commit in their repo
 
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; # Unstable packages
+    nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixpkgs-unstable"; # Unstable packages
 
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
@@ -49,7 +46,7 @@
       # NixOS Modules
       inputs.home-manager.nixosModules.default
       inputs.stylix.nixosModules.stylix
-      inputs.nur.nixosModules.nur
+      inputs.nur.modules.nixos.default
       inputs.declarative-flatpak.nixosModules.nix-flatpak
       {
         home-manager = {
@@ -61,8 +58,7 @@
         };
         nixpkgs.overlays = with inputs; [
           # Nixpkgs Overlays
-          nur.overlay
-          emacs-overlay.overlay
+          nur.overlays.default
         ];
       }
     ];
