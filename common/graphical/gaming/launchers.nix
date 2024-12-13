@@ -21,6 +21,7 @@
       lutris # Games that need extra configuration
       bottles # Same idea as Lutris, but has support for regular software too
       heroic # Epic Games, Gog, and Amazon Prime Gaming
+      r2modman # Thunderstore Mod Manager (Think Lethal Company, derivationStrict)
     ];
   };
 }
