@@ -18,7 +18,7 @@
 
     desktop = {
       enable = true;
-      environments = ["plasma"];
+      environments = ["gnome"];
       terminalEmulator = "alacritty";
     };
 
@@ -46,14 +46,23 @@
       # Graphical
       avidemux # Video Remuxer and Clipper
       bitwarden-desktop # Password Manager
+      cpu-x # Hardware Information
       element-desktop # Matrix Client
+      filezilla # FTP Client
+      fsearch # Fast File Search
+      gnome-music # Music Player
       inkscape # Vector Image Editor
+      kdiskmark # Drive Benchmark Tool
+      ludusavi # Game Save Backup Manager
       onlyoffice-bin # Office Suite
       plex-media-player # Plex Client
       qbittorrent # Torrent Client
       qdirstat # Storage Visualiser
+      sqlitebrowser # DB Browser for SQLite
       telegram-desktop # Official Telegram Client
       tenacity # Audio Editor (Audacity Fork)
+      tor-browser # Privacy Browser
+      unetbootin # ISO USB Writer
       usbimager # Write Image Files to USB
       vesktop # Discord Client
       vial # QMK-based Keyboard Layout Editor
@@ -65,6 +74,7 @@
     ]);
 
   programs = {
+    localsend.enable = true; # AirDrop Alternative
     noisetorch.enable = true; # Microphone Noise Cancellation
     obs-studio.enable = true; # Screen Recording and Broadcasting Suite
     thunderbird.enable = true; # Email Client

@@ -46,5 +46,6 @@
     du-dust
     tldr
     tmux
+    ngrok
   ];
 }
