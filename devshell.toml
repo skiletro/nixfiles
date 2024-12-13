@@ -14,10 +14,16 @@ command = """
 """
 [[commands]]
 name = "update"
-help = "updates lockfile, and rebuilds system"
+help = "updates lockfile"
+command = """
+  nix flake update
+"""
+[[commands]]
+name = "check"
+help = "checks the flake for any errors"
 command = """
   prerequisites
-  nh os switch --update
+  nix flake check
 """
 [[commands]]
 name = "prerequisites"
