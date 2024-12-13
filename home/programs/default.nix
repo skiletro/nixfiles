@@ -2,13 +2,13 @@
   imports = [
     ./alacritty
     ./bat
-    ./emacs
     ./eza
     ./fastfetch
     ./firefox
     ./git
     ./helix
     ./kitty
+    ./lazygit
     ./mpv
     ./neovim
     ./spotify
