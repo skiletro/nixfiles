@@ -17,7 +17,7 @@
     isHeadless = true;
     virtualisation.enable = false;
 
-    programs.neovim.enable = true;
+    programs.helix.enable = true;
   };
 
   system.stateVersion = "24.11";
