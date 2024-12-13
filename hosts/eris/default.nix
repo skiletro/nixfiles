@@ -23,6 +23,7 @@
     };
 
     programs = {
+      helix.enable = true;
       mpv.enable = true;
       neovim.enable = true;
       spotify.enable = true;

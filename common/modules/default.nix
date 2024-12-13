@@ -5,6 +5,7 @@
     # Declare options for programs and settings that are configured using home-manager ONLY.
     programs = {
       firefox.enable = lib.mkEnableOption "Firefox";
+      helix.enable = lib.mkEnableOption "Helix";
       mpv.enable = lib.mkEnableOption "MPV";
       neovim.enable = lib.mkEnableOption "Neovim";
       spotify.enable = lib.mkEnableOption "Spotify";
