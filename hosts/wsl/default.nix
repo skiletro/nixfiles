@@ -18,6 +18,7 @@
     virtualisation.enable = false;
 
     programs.helix.enable = true;
+    programs.lazygit.enable = true;
   };
 
   system.stateVersion = "24.11";
