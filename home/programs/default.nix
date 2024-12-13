@@ -7,6 +7,7 @@
     ./fastfetch
     ./firefox
     ./git
+    ./helix
     ./kitty
     ./mpv
     ./neovim
