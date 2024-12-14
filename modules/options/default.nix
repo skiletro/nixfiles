@@ -1,6 +1,12 @@
 {lib, ...}: {
   options.userConfig = {
-    isHeadless = lib.mkEnableOption "Does the system have graphical output?";
+    system = {
+      gpu = lib.mkOption {
+        type = lib.types.enum ["none" "amd" "nvidia"];
+        default = "none";
+        description = "Specify the GPU, responsible for installing drivers, etc.";
+      };
+    };
 
     # Declare options for programs and settings that are configured using home-manager ONLY.
     programs = {

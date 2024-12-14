@@ -5,20 +5,22 @@
 
   networking.hostName = "wsl";
 
+  userConfig = {
+    system.gpu = "none";
+    virtualisation.enable = false;
+
+    programs = {
+      helix.enable = true;
+      lazygit.enable = true;
+    };
+  };
+
   wsl = {
     enable = true;
     defaultUser = "jamie";
     useWindowsDriver = true;
     wslConf.automount.enabled = true;
     startMenuLaunchers = true;
-  };
-
-  userConfig = {
-    isHeadless = true;
-    virtualisation.enable = false;
-
-    programs.helix.enable = true;
-    programs.lazygit.enable = true;
   };
 
   system.stateVersion = "24.11";

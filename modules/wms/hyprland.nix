@@ -18,15 +18,21 @@
 
     programs.hyprland.enable = true; # Required to enable critical components needed to run Hyprland properly
     services.gnome.gnome-keyring.enable = true; # Saves passwords
+    services.gvfs.enable = true; # For Nautilus
 
     services.blueman.enable = true; # Bluetooth manager since Hyprland doens't have a built in one
 
     environment.systemPackages = with pkgs; [
-      gnome.nautilus
-      gnome.eog
-      gnome.file-roller
-      gnome.gnome-font-viewer
-      pavucontrol
+      gnome.nautilus # File Manager
+      gnome.eog # Image Viewer
+      gnome.file-roller # Archive Viewer
+      gnome.gnome-font-viewer # Font Viewer
+      pavucontrol # Volume Control
+
+      wlsunset # Blue-light Filter
+      xdg-utils
+      networkmanagerapplet # Access network from tray
+      grimblast # Screenshotter
     ];
 
     # The rest of Hyprland settings can be found in home manager config
