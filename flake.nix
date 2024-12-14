@@ -42,7 +42,7 @@
     system = "x86_64-linux";
     # Here is where all the module imports are stored
     commonModules = [
-      ./common
+      ./modules
       # NixOS Modules
       inputs.home-manager.nixosModules.default
       inputs.stylix.nixosModules.stylix

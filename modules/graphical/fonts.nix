@@ -4,7 +4,7 @@
   config,
   ...
 }: {
-  config = lib.mkIf (!config.userConfig.isHeadless) {
+  config = lib.mkIf (config.userConfig.system.gpu != "none") {
     fonts = {
       fontDir.enable = true;
 
