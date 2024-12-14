@@ -1,21 +1,20 @@
 {
   pkgs,
   lib,
-  config,
   ...
 }: {
   imports = [
     ./flatpak
     ./graphical
     ./greeters
-    ./modules
+    ./options
     ./styling
     ./virtualisation
     ./wms
   ];
 
-  # Use latest kernel package
-  boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
+  # Kernel
+  boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_zen; # Performance kernel
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -33,10 +32,34 @@
 
   # Bare minimum programs needed on all systems
   environment.systemPackages = with pkgs; [
-    alejandra
-    gh
-    git
-    neovim
+    acpi # Show Battery Status
+    alejandra # Nix File Formatter
+    brightnessctl # Controls Screen Brightness
+    btop # Fancy Resource Monitor
+    du-dust # Fancier Looking `du`
+    fd # Find Files
+    fzf # Fuzzy-finder
+    gh # GitHub CLI
+    git # You know what git is
+    htop # Regular Resource Monitor
+    jq # JSON Processor
+    just # Handy way to save and run project-specific commands
+    libnotify # Send Notifications Through CLI
+    neovim # Vim Editor
+    ngrok # Reverse Proxy
+    pamixer # Pulseaudio command line mixer
+    playerctl # Controls Media Players
+    ripgrep # Grep Through Files
+    tldr # Simplified Man Pages
+    tmux # Terminal Multiplexer
+    unrar # RAR Utility
+    unzip # ZIP Utility
+    upower # D-Bus Service for Power Management
+    wget # Get files from command-line
+    wineWowPackages.stable # Wine
+    winetricks # Wine
+    wl-clipboard # Command-line copy/paste utilities
+    wtype # Xdotool for Wayland
   ];
 
   # Locale
@@ -66,6 +89,13 @@
     settings.KbdInteractiveAuthentication = false;
   };
 
+  # Avahi - find and connect to other devices easily
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true; # For WiFi printers
+  };
+
   # Environment settings
   environment = {
     variables = {
@@ -76,11 +106,13 @@
     };
   };
 
+  # System-wide privileges
   security.polkit.enable = true;
 
   # Run unpatched dynamic binaries on NixOS
   programs.nix-ld.enable = true;
-  # Nix
+
+  # Nix settings
   nix = {
     # set nix path properly
     nixPath = [
