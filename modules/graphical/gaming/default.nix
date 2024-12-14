@@ -1,18 +1,20 @@
 {
   lib,
   pkgs,
-  osConfig,
   config,
   ...
 }: {
-  config = lib.mkIf osConfig.userConfig.gaming.launchers.enable {
-    programs.mangohud = {
-      enable = true;
-      enableSessionWide = false; # Need to test to see if it crashes gamescope with workaround implem.
-    };
+  imports = [
+    ./emulators.nix
+    ./vr.nix
+  ];
 
-    home.packages = with pkgs; [
-      (steam.override {
+  options.userConfig.gaming.enable = lib.mkEnableOption "Game Launchers: Steam, Heroic, etc.";
+
+  config = lib.mkIf config.userConfig.gaming.enable {
+    programs.steam = {
+      enable = true;
+      package = pkgs.steam.override {
         extraPkgs = pkgs:
           with pkgs; [
             libgdiplus
@@ -40,7 +42,20 @@
             zlib
             libunwind # for tf|2 northstar launcher
           ];
-      })
+      };
+      gamescopeSession.enable = true;
+    };
+
+    environment.systemPackages = with pkgs; [
+      # Tools
+      gamescope
+      protonup-qt # Modify Steam Proton versions
+
+      # Launchers
+      lutris # Games that need extra configuration
+      bottles # Same idea as Lutris, but has support for regular software too
+      heroic # Epic Games, Gog, and Amazon Prime Gaming
+      r2modman # Thunderstore Mod Manager (Think Lethal Company, derivationStrict)
       (prismlauncher.override {
         # Java Versions. Minecraft needs 8, 11, 17, and 21 as of 2024-10-25.
         jdks = with pkgs; [
@@ -50,6 +65,10 @@
           temurin-jre-bin-21
         ];
       })
+    ];
+
+    services.flatpak.packages = [
+      "sh.ppy.osu"
     ];
   };
 }

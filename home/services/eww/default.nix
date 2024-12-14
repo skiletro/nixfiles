@@ -10,9 +10,9 @@
       configDir = ./config;
     };
 
-    # Temporary, until I can implement the "term" features properly
     home.packages = with pkgs; [
-      alacritty
+      socat # Needed for some scripts
+      alacritty # Temporary, until I can implement the "term" features properly
     ];
   };
 }
