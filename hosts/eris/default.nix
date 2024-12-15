@@ -55,7 +55,6 @@
       element-desktop # Matrix Client
       filezilla # FTP Client
       fsearch # Fast File Search
-      gnome-music # Music Player
       inkscape # Vector Image Editor
       kdiskmark # Drive Benchmark Tool
       ludusavi # Game Save Backup Manager

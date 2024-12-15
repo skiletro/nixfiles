@@ -28,6 +28,7 @@
       gnome.file-roller # Archive Viewer
       gnome.gnome-font-viewer # Font Viewer
       pavucontrol # Volume Control
+      gnome-music # Music Player
 
       wlsunset # Blue-light Filter
       xdg-utils
