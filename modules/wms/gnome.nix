@@ -13,7 +13,6 @@
     services.xserver.desktopManager.gnome.enable = true;
     environment.gnome.excludePackages = with pkgs; [
       epiphany
-      gnome-music
       gnome-terminal
       gnome-tour
     ];
