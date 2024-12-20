@@ -4,9 +4,6 @@
   inputs = {
     cursors.url = "github:lilleaila/nix-cursors"; # Recoloured cursors
 
-    devshell.url = "github:numtide/devshell";
-    devshell.inputs.nixpkgs.follows = "nixpkgs";
-
     declarative-flatpak.url = "github:gmodena/nix-flatpak"; # Declare Flatpaks in this config!
 
     home-manager.url = "github:nix-community/home-manager"; # Allows us to configure our home directory with Nix!
@@ -46,39 +43,43 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
     # Here is where all the module imports are stored
-    commonModules = [
-      ./modules
-      # NixOS Modules
-      inputs.home-manager.nixosModules.default
-      inputs.stylix.nixosModules.stylix
-      inputs.nur.modules.nixos.default
-      inputs.declarative-flatpak.nixosModules.nix-flatpak
-      inputs.nix-gaming.nixosModules.platformOptimizations
-      inputs.nix-gaming.nixosModules.pipewireLowLatency
-      {
-        home-manager = {
-          useGlobalPkgs = true;
-          useUserPackages = true;
-          backupFileExtension = "hm";
-          users.jamie.imports = [./home];
-          extraSpecialArgs = {inherit inputs self;};
-        };
-        nixpkgs.overlays = with inputs; [
-          # Nixpkgs Overlays
-          nur.overlays.default
-        ];
-      }
-    ];
+    commonModules =
+      [
+        ./modules
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            backupFileExtension = "hm";
+            users.jamie.imports = [./home];
+            extraSpecialArgs = {inherit inputs self;};
+          };
+          nixpkgs.overlays = with inputs; [
+            # Nixpkgs Overlays
+            nur.overlays.default
+          ];
+        }
+      ]
+      ++ (with inputs; [
+        home-manager.nixosModules.default
+        stylix.nixosModules.stylix
+        nur.modules.nixos.default
+        declarative-flatpak.nixosModules.nix-flatpak
+        nix-gaming.nixosModules.platformOptimizations
+        nix-gaming.nixosModules.pipewireLowLatency
+      ]);
   in {
-    # Devshell - manage using devshell.toml file
-    devShells.${system}.default = let
-      pkgs = import nixpkgs {
-        inherit system;
-        overlays = [inputs.devshell.overlays.default];
-      };
-    in
-      pkgs.devshell.mkShell {imports = [(pkgs.devshell.importTOML ./devshell.toml)];}; # TODO: Probably a nicer way to express this
+    devShells.${system}.default = pkgs.mkShell {
+      buildInputs = with pkgs; [
+        alejandra # Code Formatting
+        deadnix # Dead Code Scanner
+        just # Command Runner
+        nh # Nix CLI Helper
+      ];
+      shellHook = "just --list --unsorted";
+    };
 
     # Formatter
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
