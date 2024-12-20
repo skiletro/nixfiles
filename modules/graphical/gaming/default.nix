@@ -2,6 +2,7 @@
   lib,
   pkgs,
   config,
+  inputs,
   ...
 }: {
   imports = [
@@ -43,30 +44,37 @@
             libunwind # for tf|2 northstar launcher
           ];
       };
-      gamescopeSession.enable = true;
+      extraCompatPackages = [
+        pkgs.proton-ge-bin # Proton Glorious Eggroll
+        inputs.nix-gaming.packages.${pkgs.system}.northstar-proton
+        inputs.nixpkgs-xr.packages.${pkgs.system}.proton-ge-rtsp-bin
+      ];
       platformOptimizations.enable = true; # Handled by nix-gaming flake
     };
 
-    environment.systemPackages = with pkgs; [
-      # Tools
-      gamescope
-      protonplus # Modify Steam Proton versions
+    environment.systemPackages =
+      (with pkgs; [
+        # Tools
+        gamescope
 
-      # Launchers
-      lutris # Games that need extra configuration
-      bottles # Same idea as Lutris, but has support for regular software too
-      heroic # Epic Games, Gog, and Amazon Prime Gaming
-      r2modman # Thunderstore Mod Manager (Think Lethal Company, derivationStrict)
-      (prismlauncher.override {
-        # Java Versions. Minecraft needs 8, 11, 17, and 21 as of 2024-10-25.
-        jdks = with pkgs; [
-          temurin-jre-bin-8
-          temurin-jre-bin-11
-          temurin-jre-bin-17
-          temurin-jre-bin-21
-        ];
-      })
-    ];
+        # Launchers
+        lutris # Games that need extra configuration
+        bottles # Same idea as Lutris, but has support for regular software too
+        heroic # Epic Games, Gog, and Amazon Prime Gaming
+        r2modman # Thunderstore Mod Manager (Think Lethal Company, derivationStrict)
+        (prismlauncher.override {
+          # Java Versions. Minecraft needs 8, 11, 17, and 21 as of 2024-10-25.
+          jdks = with pkgs; [
+            temurin-jre-bin-8
+            temurin-jre-bin-11
+            temurin-jre-bin-17
+            temurin-jre-bin-21
+          ];
+        })
+      ])
+      ++ [
+        inputs.nix-gaming.packages.${pkgs.system}.viper # Titanfall 2 Northstar Client
+      ];
 
     programs.gamemode = {
       enable = true;
