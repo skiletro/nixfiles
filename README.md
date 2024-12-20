@@ -44,7 +44,6 @@ sudo nixos-rebuild boot --flake .#$your_hostname
 ## Todo
 - [ ] Configure GNOME declaratively using dconf (See [the wiki](https://wiki.nixos.org/wiki/GNOME))
 - [ ] Expand on AMD GPU module
-- [ ] Fix NoiseTorch service not starting (I suspect this is to do with the microphone ID)
 - [ ] Update Visual Studio Code settings
 - [ ] Fix font in Visual Studio Code terminal
 
