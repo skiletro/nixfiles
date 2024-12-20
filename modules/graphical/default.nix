@@ -27,12 +27,13 @@
 
     # Sound
     hardware.pulseaudio.enable = false;
-    security.rtkit.enable = true;
+    security.rtkit.enable = true; # make pipewire realtime-capable
     services.pipewire = {
       enable = true;
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
+      lowLatency.enable = true; # Handled by nix-gaming flake
     };
 
     # Configure keymap in X11
