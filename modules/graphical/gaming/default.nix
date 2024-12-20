@@ -44,12 +44,13 @@
           ];
       };
       gamescopeSession.enable = true;
+      platformOptimizations.enable = true; # Handled by nix-gaming flake
     };
 
     environment.systemPackages = with pkgs; [
       # Tools
       gamescope
-      protonup-qt # Modify Steam Proton versions
+      protonplus # Modify Steam Proton versions
 
       # Launchers
       lutris # Games that need extra configuration
@@ -66,6 +67,11 @@
         ];
       })
     ];
+
+    programs.gamemode = {
+      enable = true;
+      enableRenice = true;
+    };
 
     services.flatpak.packages = [
       "sh.ppy.osu"

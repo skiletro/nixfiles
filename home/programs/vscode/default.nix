@@ -34,7 +34,7 @@
         "update.mode" = "none";
         "extensions.autoUpdate" = false; # This stuff fixes vscode freaking out when theres an update
 
-        "window.menuBarVisibility" = "toggle";
+        "window.menuBarVisibility" = "classic";
         "workbench.iconTheme" = "vscode-icons";
         "vsicons.dontShowNewVersionMessage" = true;
         "editor.fontLigatures" = true;
