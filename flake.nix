@@ -17,6 +17,9 @@
 
     nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixpkgs-unstable"; # Unstable packages
 
+    nixpkgs-xr.url = "github:nix-community/nixpkgs-xr"; # VR Tools
+    nixpkgs-xr.inputs.nixpkgs.follows = "nixpkgs";
+
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
 
