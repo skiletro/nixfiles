@@ -35,11 +35,10 @@
         qemu
         qemu-eufi
         virtio-win
-        #quickemu # Quickly create and run optimised vms
+        quickemu # Quickly create and run optimised vms
         distrobox # Tightly integrated Podman containers
         podman-tui
         podman-compose
-        podman-desktop
       ];
   };
 }

@@ -12,6 +12,9 @@
     home-manager.url = "github:nix-community/home-manager"; # Allows us to configure our home directory with Nix!
     home-manager.inputs.nixpkgs.follows = "nixpkgs"; # This is so the HM flake uses our nixpkgs, instead of the nixpkgs commit in their repo
 
+    nix-gaming.url = "github:fufexan/nix-gaming";
+    nix-gaming.inputs.nixpkgs.follows = "nixpkgs";
+
     nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixpkgs-unstable"; # Unstable packages
 
     nixvim.url = "github:nix-community/nixvim";
@@ -30,7 +33,7 @@
 
     wsl.url = "github:nix-community/NixOS-WSL/main"; # WSL Support
 
-    zen-browser.url = "github:fufexan/zen-browser-flake"; # Best browser
+    zen-browser.url = "github:0xc000022070/zen-browser-flake"; # Best browser
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
   };
 
@@ -48,6 +51,8 @@
       inputs.stylix.nixosModules.stylix
       inputs.nur.modules.nixos.default
       inputs.declarative-flatpak.nixosModules.nix-flatpak
+      inputs.nix-gaming.nixosModules.platformOptimizations
+      inputs.nix-gaming.nixosModules.pipewireLowLatency
       {
         home-manager = {
           useGlobalPkgs = true;
