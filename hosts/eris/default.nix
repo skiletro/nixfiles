@@ -98,15 +98,7 @@
 
   boot.plymouth.enable = lib.mkForce false;
 
-  # boot.loader.systemd-boot = lib.mkForce false;
-  # boot.loader.grub = {
-  #   enable = true;
-  #   configurationLimit = config.boot.loader.systemd-boot.configurationLimit;
-  #   # extraConfig = ''
-  #   #   GRUB_CMD_LINUX_DEFAULT="quiet video=DP-2:1920x1080@117"
-  #   # '';
-  # };
-  boot.kernelParams = ["video=DP-2:1920x1080@117"];
+  boot.kernelParams = ["video=DP-2:1920x1080@60.00"];
 
   system.stateVersion = "23.11";
 }
