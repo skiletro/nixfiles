@@ -44,13 +44,13 @@ sudo nixos-rebuild boot --flake .#$your_hostname
 ## Todo
 - [ ] Configure GNOME declaratively using dconf (See [the wiki](https://wiki.nixos.org/wiki/GNOME))
 - [ ] Expand on AMD GPU module
-- [ ] Simplify devshell configuration in flake.nix
 - [ ] Fix NoiseTorch service not starting (I suspect this is to do with the microphone ID)
 - [ ] Update Visual Studio Code settings
 - [ ] Fix font in Visual Studio Code terminal
 
 ## Acknowledgements
 - [NotAShelf's Nyx Repo](https://github.com/NotAShelf/nyx) - a huge help (also I stole quite a lot of stuff)
-- [linkfrg's dotfiles](https://github.com/linkfrg/dotfiles) - was incredibly useful in writing better eww widgets! 
+- [linkfrg's dotfiles](https://github.com/linkfrg/dotfiles) - was incredibly useful in writing better eww widgets!
+- [isabelrose's dotfiles](https://github.com/isabelroses/dotfiles) - shamelessly stole her justfile
 
 If you can help with any of this stuff, please do a pull request as I am still learning!
