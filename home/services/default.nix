@@ -3,6 +3,7 @@
     ./direnv
     ./eww
     ./fish
+    ./lsp
     ./rofi
     ./starship
     ./swaync
