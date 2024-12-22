@@ -35,13 +35,13 @@
         "extensions.autoUpdate" = false; # This stuff fixes vscode freaking out when theres an update
 
         "window.menuBarVisibility" = "classic";
+        "window.titleBarStyle" = "custom";
         "workbench.iconTheme" = "vscode-icons";
         "vsicons.dontShowNewVersionMessage" = true;
-        "editor.fontLigatures" = true;
         "editor.minimap.enabled" = false;
         "editor.cursorSmoothCaretAnimation" = "on";
 
-        "window.titleBarStyle" = "custom"; # needed otherwise vscode crashes, see https://github.com/NixOS/nixpkgs/issues/246509
+        "terminal.integrated.fontFamily" = "monospace";
 
         "nix.enableLanguageServer" = true;
         "nix.serverPath" = "nil";
