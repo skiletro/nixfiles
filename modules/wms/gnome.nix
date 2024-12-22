@@ -5,10 +5,6 @@
   ...
 }: {
   config = lib.mkIf (builtins.elem "gnome" config.userConfig.desktop.environments) {
-    userConfig.services = {
-      syncthing.enable = true;
-    };
-
     services.xserver.enable = true;
     services.xserver.desktopManager.gnome.enable = true;
     environment.gnome.excludePackages = with pkgs; [
