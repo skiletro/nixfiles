@@ -1,5 +1,4 @@
 # Use https://github.com/noisetorch/NoiseTorch/wiki/Start-automatically-with-Systemd to find your deviceUnit and deviceID
-# TODO: Figure out why this isn't activating 100% of the time on boot.
 {
   lib,
   pkgs,
