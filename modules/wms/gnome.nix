@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  inputs,
   ...
 }: {
   config = lib.mkIf (builtins.elem "gnome" config.userConfig.desktop.environments) {
@@ -35,5 +36,16 @@
       ]);
 
     services.udev.packages = [pkgs.gnome-settings-daemon];
+
+    nixpkgs.overlays = [
+      (_final: prev: {
+        mutter = prev.mutter.overrideAttrs (_oldAttrs: {
+          src = inputs.mutter-triple-buffering-src;
+          preConfigure = ''
+            cp -a "${inputs.gvdb-src}" ./subprojects/gvdb
+          '';
+        });
+      })
+    ];
   };
 }
