@@ -55,6 +55,7 @@
       clapper # Media Player
       cpu-x # Hardware Information
       davinci-resolve # Non-Linear Video Editor
+      discord-canary # Discord Client
       element-desktop # Matrix Client
       exhibit # 3D Model Preview
       filezilla # FTP Client
@@ -73,7 +74,6 @@
       unetbootin # ISO USB Writer
       usbimager # Write Image Files to USB
       vial # QMK-based Keyboard Layout Editor
-      webcord-vencord # Discord Client
 
       # Terminal
       ffmpeg
