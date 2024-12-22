@@ -7,6 +7,7 @@
   imports = [
     ./drivers
     ./gaming
+    ./programs
     ./fonts.nix
   ];
 
