@@ -14,5 +14,6 @@
     ./spotify
     ./tmux
     ./vscode
+    ./zenbrowser
   ];
 }
