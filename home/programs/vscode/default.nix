@@ -32,16 +32,23 @@
         ]);
       userSettings = {
         "update.mode" = "none";
+        "update.showReleaseNotes" = false;
         "extensions.autoUpdate" = false; # This stuff fixes vscode freaking out when theres an update
 
         "window.menuBarVisibility" = "classic";
         "window.titleBarStyle" = "custom";
         "workbench.iconTheme" = "vscode-icons";
+        "workbench.sideBar.location" = "right";
+        "workbench.activityBar.location" = "bottom";
         "vsicons.dontShowNewVersionMessage" = true;
         "editor.minimap.enabled" = false;
         "editor.cursorSmoothCaretAnimation" = "on";
+        "editor.formatOnSave" = true;
+        "diffEditor.ignoreTrimWhitespace" = false;
 
         "terminal.integrated.fontFamily" = "monospace";
+
+        "git.allowForcePush" = true;
 
         "nix.enableLanguageServer" = true;
         "nix.serverPath" = "nil";

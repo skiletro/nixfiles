@@ -44,8 +44,7 @@ sudo nixos-rebuild boot --flake .#$your_hostname
 ## Todo
 - [ ] Configure GNOME declaratively using dconf (See [the wiki](https://wiki.nixos.org/wiki/GNOME))
 - [ ] Expand on AMD GPU module
-- [ ] Update Visual Studio Code settings
-- [ ] Fix font in Visual Studio Code terminal
+- [ ] Fix NoiseTorch module not activating 100% of the time on boot
 
 ## Acknowledgements
 - [NotAShelf's Nyx Repo](https://github.com/NotAShelf/nyx) - a huge help (also I stole quite a lot of stuff)
