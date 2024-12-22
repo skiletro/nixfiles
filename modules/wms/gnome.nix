@@ -20,7 +20,6 @@
       seahorse
       simple-scan
       totem
-      yelp
     ];
     services.tlp.enable = lib.mkForce false; # Gnome power management takes priority over `tlp`
 
@@ -30,9 +29,11 @@
         mission-center
       ])
       ++ (with pkgs.gnomeExtensions; [
-        blur-my-shell
+        appindicator
         dash-to-dock
         mpris-label
       ]);
+
+    services.udev.packages = [pkgs.gnome-settings-daemon];
   };
 }
