@@ -31,6 +31,7 @@
       lazygit.enable = true;
       neovim.enable = true;
       spotify.enable = true;
+      vial.enable = true;
       vscode.enable = true;
     };
 
@@ -80,7 +81,6 @@
       tor-browser # Privacy Browser
       unetbootin # ISO USB Writer
       usbimager # Write Image Files to USB
-      vial # QMK-based Keyboard Layout Editor
 
       # Terminal
       ffmpeg
@@ -97,11 +97,6 @@
     obs-studio.enable = true; # Screen Recording and Broadcasting Suite
     thunderbird.enable = true; # Email Client
   };
-
-  services.udev.packages = with pkgs; [
-    vial
-    via
-  ];
 
   boot.plymouth.enable = lib.mkForce false;
 
