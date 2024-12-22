@@ -1,4 +1,8 @@
-{lib, ...}: {
+{
+  lib,
+  config,
+  ...
+}: {
   options.userConfig = {
     system = {
       gpu = lib.mkOption {
@@ -23,11 +27,18 @@
       xdg.enable = lib.mkEnableOption "XDG Settings";
 
       eww.enable = lib.mkEnableOption "Eww";
+      lsp.enable = lib.mkEnableOption "Language Servers";
       rofi.enable = lib.mkEnableOption "Rofi";
       swaylock.enable = lib.mkEnableOption "Swaylock";
       swaync.enable = lib.mkEnableOption "Sway Notification Center";
       syncthing.enable = lib.mkEnableOption "Syncthing and Syncthingtray";
       wlogout.enable = lib.mkEnableOption "Wlogout";
+    };
+  };
+
+  config.userConfig = {
+    services.lsp = lib.mkIf (config.userConfig.programs.vscode.enable || config.userConfig.programs.helix.enable) {
+      enable = lib.mkDefault true;
     };
   };
 }
