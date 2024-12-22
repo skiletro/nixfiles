@@ -32,16 +32,12 @@
 
   # Bare minimum programs needed on all systems
   environment.systemPackages = with pkgs; [
-    acpi # Show Battery Status
     alejandra # Nix File Formatter
-    brightnessctl # Controls Screen Brightness
     btop # Fancy Resource Monitor
     du-dust # Fancier Looking `du`
     fd # Find Files
     fzf # Fuzzy-finder
-    gh # GitHub CLI
     git # You know what git is
-    htop # Regular Resource Monitor
     jq # JSON Processor
     just # Handy way to save and run project-specific commands
     libnotify # Send Notifications Through CLI
@@ -54,12 +50,8 @@
     tmux # Terminal Multiplexer
     unrar # RAR Utility
     unzip # ZIP Utility
-    upower # D-Bus Service for Power Management
     wget # Get files from command-line
     wineWowPackages.stable # Wine
-    winetricks # Wine
-    wl-clipboard # Command-line copy/paste utilities
-    wtype # Xdotool for Wayland
   ];
 
   # Locale
