@@ -12,7 +12,6 @@
       rofi.enable = true;
       swaylock.enable = true;
       swaync.enable = true;
-      syncthing.enable = true;
       wlogout.enable = true;
     };
 
