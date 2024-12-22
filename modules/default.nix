@@ -8,6 +8,7 @@
     ./graphical
     ./greeters
     ./options
+    ./services
     ./styling
     ./virtualisation
     ./wms
