@@ -31,6 +31,7 @@
     environment.systemPackages =
       (with pkgs; [
         adwaita-icon-theme # fixes some missing icons
+        mission-center
       ])
       ++ (with pkgs.gnomeExtensions; [
         blur-my-shell
