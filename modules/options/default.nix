@@ -21,6 +21,7 @@
       neovim.enable = lib.mkEnableOption "Neovim";
       spotify.enable = lib.mkEnableOption "Spotify";
       vscode.enable = lib.mkEnableOption "Visual Studio Code";
+      zenbrowser.enable = lib.mkEnableOption "Zen Browser";
     };
 
     services = {
