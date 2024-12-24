@@ -13,9 +13,6 @@
 
     services.wivrn = {
       enable = true;
-      package = pkgs.wivrn.override {
-        cudaSupport = config.userConfig.system.gpu == "nvidia";
-      };
       openFirewall = true;
       defaultRuntime = true; # Default runtime for SteamVR games set in HM module.
     };
