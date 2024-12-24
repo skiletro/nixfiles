@@ -13,7 +13,10 @@
 
   config = lib.mkIf config.userConfig.virtualisation.enable {
     # Virt Manager
-    virtualisation.libvirtd.enable = true;
+    virtualisation.libvirtd = {
+      enable = true;
+      shutdownTimeout = 1; # https://superuser.com/questions/1784543/getting-cant-connect-to-default-error-on-shutdown-after-installing-virt-manag#1803752
+    };
     programs.virt-manager.enable = true;
 
     # Podman (drop-in replacement for Docker)
