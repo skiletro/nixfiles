@@ -3,6 +3,7 @@
     ./direnv
     ./eww
     ./fish
+    ./gpureplay
     ./lsp
     ./rofi
     ./starship
