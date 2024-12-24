@@ -54,7 +54,6 @@
     avidemux # Video Remuxer and Clipper
     bitwarden-desktop # Password Manager
     blackbox-terminal # Gnome Terminal Replacement
-    clapper # Media Player
     cpu-x # Hardware Information
     davinci-resolve # Non-Linear Video Editor
     element-desktop # Matrix Client

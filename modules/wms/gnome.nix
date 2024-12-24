@@ -20,20 +20,25 @@
       gnome-weather
       seahorse
       simple-scan
-      totem
     ];
     services.tlp.enable = lib.mkForce false; # Gnome power management takes priority over `tlp`
 
     environment.systemPackages =
       (with pkgs; [
         adwaita-icon-theme # fixes some missing icons
-        mission-center
+        mission-center # Task Manager
+        showtime # Video Player (Totem replacement)
       ])
       ++ (with pkgs.gnomeExtensions; [
         appindicator
         dash-to-dock
         mpris-label
-      ]);
+      ])
+      ++ (
+        if config.userConfig.gaming.enable
+        then [pkgs.gnomeExtensions.gamemode-shell-extension]
+        else []
+      );
 
     services.udev.packages = [pkgs.gnome-settings-daemon];
 
