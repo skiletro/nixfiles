@@ -29,6 +29,7 @@
       xdg.enable = lib.mkEnableOption "XDG Settings";
 
       eww.enable = lib.mkEnableOption "Eww";
+      gpureplay.enable = lib.mkEnableOption "GPU Replay";
       lsp.enable = lib.mkEnableOption "Language Servers";
       rofi.enable = lib.mkEnableOption "Rofi";
       swaylock.enable = lib.mkEnableOption "Swaylock";
