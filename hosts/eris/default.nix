@@ -55,7 +55,6 @@
     bitwarden-desktop # Password Manager
     blackbox-terminal # Gnome Terminal Replacement
     cpu-x # Hardware Information
-    davinci-resolve # Non-Linear Video Editor
     element-desktop # Matrix Client
     exhibit # 3D Model Preview
     filezilla # FTP Client
