@@ -14,6 +14,7 @@
 
     # Declare options for programs and settings that are configured using home-manager ONLY.
     programs = {
+      discord.enable = lib.mkEnableOption "Discord";
       firefox.enable = lib.mkEnableOption "Firefox";
       helix.enable = lib.mkEnableOption "Helix";
       lazygit.enable = lib.mkEnableOption "Lazygit";
