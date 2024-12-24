@@ -32,12 +32,11 @@ in {
       enable = true;
       description = "NoiseTorch Audio Cancelling";
       wantedBy = ["default.target"];
-      requires = [cfg.deviceUnit];
-      after = ["pipewire.service" cfg.deviceUnit];
+      after = ["pipewire.service"];
       serviceConfig = {
         Type = "simple";
         RemainAfterExit = "yes";
-        ExecStart = ''${nt} -s ${cfg.deviceID} -i -o'';
+        ExecStart = ''${nt} -s ${cfg.deviceID} -i -t 75 -o'';
         ExecStop = ''${nt} -u'';
         Restart = "on-failure";
         RestartSec = 3;
