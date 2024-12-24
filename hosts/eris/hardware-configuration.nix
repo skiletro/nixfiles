@@ -28,16 +28,9 @@
     options = ["fmask=0077" "dmask=0077"];
   };
 
-  fileSystems."/mnt/hdd" = {
-    device = "/dev/disk/by-uuid/E64ECAF24ECABB17";
-    fsType = "ntfs-3g";
-    options = ["rw" "uid=1000" "x-gvfs-show"];
-  };
-
   fileSystems."/mnt/ssd" = {
-    device = "/dev/disk/by-uuid/9A4E6E254E6DFB01";
-    fsType = "ntfs-3g";
-    options = ["rw" "uid=1000" "x-gvfs-show"];
+    device = "/dev/disk/by-uuid/ebcd15e8-abe0-4a54-bfc9-e0080506d95c";
+    fsType = "ext4";
   };
 
   swapDevices = [
