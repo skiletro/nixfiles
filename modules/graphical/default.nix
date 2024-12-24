@@ -50,10 +50,10 @@
 
     # Plymouth Fancy Boot
     boot = {
-      plymouth.enable = true;
-      initrd.verbose = false;
-      consoleLogLevel = 0;
-      kernelParams = ["quiet" "udev.log_level=0"];
+      plymouth.enable = lib.mkIf config.userConfig.system.splashscreen true;
+      initrd.verbose = lib.mkIf config.userConfig.system.splashscreen false;
+      consoleLogLevel = lib.mkIf config.userConfig.system.splashscreen 0;
+      kernelParams = lib.mkIf config.userConfig.system.splashscreen ["quiet" "udev.log_level=0"];
     };
 
     programs.dconf.enable = lib.mkDefault true;
