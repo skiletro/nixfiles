@@ -5,6 +5,7 @@
 }: {
   options.userConfig = {
     system = {
+      splashscreen = lib.mkEnableOption "Fancy Splashscreen (Plymouth)";
       gpu = lib.mkOption {
         type = lib.types.enum ["none" "amd" "nvidia"];
         default = "none";
