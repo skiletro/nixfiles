@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
   ];
@@ -93,10 +89,6 @@
     obs-studio.enable = true; # Screen Recording and Broadcasting Suite
     thunderbird.enable = true; # Email Client
   };
-
-  boot.plymouth.enable = lib.mkForce false;
-
-  boot.kernelParams = ["video=DP-2:1920x1080@60.00"];
 
   system.stateVersion = "23.11";
 }

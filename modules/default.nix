@@ -74,6 +74,7 @@
   };
 
   console.keyMap = "uk";
+  console.earlySetup = true;
 
   # Enable the OpenSSH daemon.
   services.openssh = {
