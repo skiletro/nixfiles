@@ -2,6 +2,7 @@
   imports = [
     ./alacritty
     ./bat
+    ./discord
     ./eza
     ./fastfetch
     ./firefox
