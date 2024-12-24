@@ -56,6 +56,7 @@
       (with pkgs; [
         # Tools
         gamescope
+        winetricks # Protontricks also used to be here, but it broke once I started declaring Proton packages declaratively.
 
         # Launchers
         lutris # Games that need extra configuration
