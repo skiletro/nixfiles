@@ -18,7 +18,7 @@
     desktop = {
       enable = true;
       environments = ["gnome"];
-      terminalEmulator = "kitty";
+      terminalEmulator = "blackbox";
     };
 
     programs = {
@@ -53,7 +53,6 @@
     # Graphical
     avidemux # Video Remuxer and Clipper
     bitwarden-desktop # Password Manager
-    blackbox-terminal # Gnome Terminal Replacement
     cpu-x # Hardware Information
     element-desktop # Matrix Client
     exhibit # 3D Model Preview
