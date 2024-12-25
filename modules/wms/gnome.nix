@@ -28,11 +28,13 @@
         adwaita-icon-theme # fixes some missing icons
         mission-center # Task Manager
         showtime # Video Player (Totem replacement)
+        smile
       ])
       ++ (with pkgs.gnomeExtensions; [
         appindicator
         dash-to-dock
         mpris-label
+        smile-complementary-extension
       ])
       ++ (
         if config.userConfig.gaming.enable

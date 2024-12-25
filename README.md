@@ -42,7 +42,6 @@ sudo nixos-rebuild boot --flake .#$your_hostname
 ...and reboot!
 
 ## Todo
-- [ ] Configure GNOME declaratively using dconf (See [the wiki](https://wiki.nixos.org/wiki/GNOME))
 - [ ] Expand on AMD GPU module
 
 ## Acknowledgements
