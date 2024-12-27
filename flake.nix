@@ -2,6 +2,8 @@
   description = "nixfiles - Config";
 
   inputs = {
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+
     cursors.url = "github:lilleaila/nix-cursors"; # Recoloured cursors
 
     declarative-flatpak.url = "github:gmodena/nix-flatpak"; # Declare Flatpaks in this config!
@@ -80,6 +82,7 @@
         declarative-flatpak.nixosModules.nix-flatpak
         nix-gaming.nixosModules.platformOptimizations
         nix-gaming.nixosModules.pipewireLowLatency
+        chaotic.nixosModules.default
       ]);
   in {
     devShells.${system}.default = pkgs.mkShell {
