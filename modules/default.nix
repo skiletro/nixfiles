@@ -15,7 +15,7 @@
   ];
 
   # Kernel
-  boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_xanmod; # Performance kernel
+  boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_zen; # Performance kernel
 
   # Enable networking
   networking.networkmanager.enable = true;

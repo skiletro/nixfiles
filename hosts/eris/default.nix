@@ -5,6 +5,8 @@
 
   networking.hostName = "eris";
 
+  boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
+
   userConfig = {
     greeter = {
       enable = true;
