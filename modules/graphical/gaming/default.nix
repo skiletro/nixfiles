@@ -55,7 +55,7 @@
     environment.systemPackages =
       (with pkgs; [
         # Tools
-        gamescope
+        gamescope_git
         winetricks # Protontricks also used to be here, but it broke once I started declaring Proton packages declaratively.
 
         # Launchers
