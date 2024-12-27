@@ -5,6 +5,15 @@
   ...
 }: {
   config = lib.mkIf (builtins.elem "gnome" osConfig.userConfig.desktop.environments) {
+    # Set icon theme through Stylix if we are using Gnome.
+    # MoreWaita is just a bit of an expansion of the default Adwaita icons!
+    stylix.iconTheme = {
+      enable = true;
+      package = pkgs.morewaita-icon-theme;
+      dark = "MoreWaita";
+      light = "MoreWaita";
+    };
+
     dconf.enable = true;
     dconf.settings = {
       "org/gnome/mutter" = {
