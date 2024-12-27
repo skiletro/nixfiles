@@ -58,6 +58,7 @@
     cpu-x # Hardware Information
     element-desktop # Matrix Client
     exhibit # 3D Model Preview
+    eyedropper # Color Picker
     filezilla # FTP Client
     fsearch # Fast File Search
     kdiskmark # Drive Benchmark Tool
