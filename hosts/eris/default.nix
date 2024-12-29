@@ -53,30 +53,26 @@
   # Programs
   environment.systemPackages = with pkgs; [
     # Graphical
-    avidemux # Video Remuxer and Clipper
     bitwarden-desktop # Password Manager
-    cpu-x # Hardware Information
-    element-desktop # Matrix Client
-    exhibit # 3D Model Preview
+    (chromium.override {enableWideVine = true;}) # For Netflix, etc.
     eyedropper # Color Picker
     filezilla # FTP Client
+    fractal # Matrix Client
     fsearch # Fast File Search
+    handbrake # Video Encoder
+    impression # ISO Burner
     kdiskmark # Drive Benchmark Tool
     libreoffice # Office Suite
     ludusavi # Game Save Backup Manager
-    plex-desktop # Plex Client
     qbittorrent # Torrent Client
-    qdirstat # Storage Visualiser
     sqlitebrowser # DB Browser for SQLite
     telegram-desktop # Official Telegram Client
     tenacity # Audio Editor (Audacity Fork)
-    tor-browser # Privacy Browser
-    unetbootin # ISO USB Writer
-    usbimager # Write Image Files to USB
+    video-trimmer # Trims... Videos...
 
     # Terminal
-    ffmpeg
-    imagemagick
+    ffmpeg # Manipulate Video
+    imagemagick # Manipulate Images
 
     # Runtimes
     bun # JavaScript
@@ -89,6 +85,40 @@
     obs-studio.enable = true; # Screen Recording and Broadcasting Suite
     thunderbird.enable = true; # Email Client
   };
+
+  services.hardware.openrgb.enable = true;
+
+  # Fixes refresh rate in GDM for my monitor
+  systemd.tmpfiles.rules = let
+    monitorXml = ''
+      <monitors version="2">
+        <configuration>
+          <layoutmode>logical</layoutmode>
+          <logicalmonitor>
+            <x>0</x>
+            <y>0</y>
+            <scale>1</scale>
+            <primary>yes</primary>
+            <monitor>
+              <monitorspec>
+                <connector>DP-2</connector>
+                <vendor>LHC</vendor>
+                <product>eiQ-34H/HQ-V2</product>
+                <serial>0000000000000</serial>
+              </monitorspec>
+              <mode>
+                <width>3440</width>
+                <height>1440</height>
+                <rate>165.001</rate>
+              </mode>
+            </monitor>
+          </logicalmonitor>
+        </configuration>
+      </monitors>
+    '';
+  in [
+    "L /run/gdm/.config/monitors.xml - - - - ${monitorXml}"
+  ];
 
   system.stateVersion = "23.11";
 }
