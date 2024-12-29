@@ -32,15 +32,11 @@
       ])
       ++ (with pkgs.gnomeExtensions; [
         appindicator
+        blur-my-shell
         dash-to-dock
         mpris-label
         smile-complementary-extension
-      ])
-      ++ (
-        if config.userConfig.gaming.enable
-        then [pkgs.gnomeExtensions.gamemode-shell-extension]
-        else []
-      );
+      ]);
 
     services.udev.packages = [pkgs.gnome-settings-daemon];
 

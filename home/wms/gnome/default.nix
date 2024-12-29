@@ -30,7 +30,7 @@
       };
 
       "org/gnome/desktop/interface" = {
-        accent-color = "pink"; # Set this to whatever matches the wallpaper best.
+        accent-color = "purple"; # Set this to whatever matches the wallpaper best.
         clock-format = "12h";
         clock-show-weekday = true;
         color-scheme = lib.mkForce "prefer-dark"; # Stylix sets this value as light-mode for whatever reason.
@@ -110,18 +110,13 @@
       # Extensions
       "org/gnome/shell" = {
         disable-user-extensions = false;
-        enabled-extensions =
-          (with pkgs.gnomeExtensions; [
-            appindicator.extensionUuid
-            dash-to-dock.extensionUuid
-            mpris-label.extensionUuid
-            smile-complementary-extension.extensionUuid
-          ])
-          ++ (
-            if osConfig.userConfig.gaming.enable
-            then [pkgs.gnomeExtensions.gamemode-shell-extension.extensionUuid]
-            else []
-          );
+        enabled-extensions = with pkgs.gnomeExtensions; [
+          appindicator.extensionUuid
+          blur-my-shell.extensionUuid
+          dash-to-dock.extensionUuid
+          mpris-label.extensionUuid
+          smile-complementary-extension.extensionUuid
+        ];
       };
 
       "org/gnome/shell/extensions/appindicator" = {
@@ -140,12 +135,12 @@
         custom-theme-shrink = false;
         dash-max-icon-size = 32;
         disable-overview-on-startup = true;
-        dock-fixed = false;
+        dock-fixed = true;
         dock-position = "LEFT";
-        extend-height = false;
+        extend-height = true;
         height-fraction = 0.9;
         icon-size-fixed = true;
-        intellihide-mode = "FOCUS_APPLICATION_WINDOWS";
+        intellihide-mode = "ALL_WINDOWS";
         middle-click-action = "quit";
         preferred-monitor = -2;
         preferred-monitor-by-connector = "DP-2";
@@ -162,6 +157,8 @@
         transparency-mode = "DEFAULT";
       };
 
+      "org/gnome/shell/extensions/blur-my-shell/dash-to-dock".pipeline = "pipeline_default";
+
       "org/gnome/shell/extensions/mpris-label" = {
         divider-string = " - ";
         extension-place = "center";
@@ -177,12 +174,6 @@
         thumb-backward-action = "none";
         thumb-forward-action = "none";
         use-whitelisted-sources-only = false;
-      };
-
-      "org/gnome/shell/extensions/gamemodeshellextension" = {
-        show-close-notification = false;
-        show-icon-only-when-active = true;
-        show-launch-notification = false;
       };
 
       # Smile (Emoji Selector)
