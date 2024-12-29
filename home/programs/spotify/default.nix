@@ -46,7 +46,7 @@
             button-active      = ${base05}
             button-disabled    = ${base03}
             tab-active         = ${base0B}
-            notification       = ${base00}
+            notification       = ${base0B}
             notification-error = ${base08}
             equalizer          = ${base0B}
             misc               = ${base00}
