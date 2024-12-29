@@ -2,38 +2,42 @@
   description = "nixfiles - Config";
 
   inputs = {
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-
-    cursors.url = "github:lilleaila/nix-cursors"; # Recoloured cursors
-
-    declarative-flatpak.url = "github:gmodena/nix-flatpak"; # Declare Flatpaks in this config!
+    # Core Inputs
+    nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixpkgs-unstable"; # Unstable packages
 
     home-manager.url = "github:nix-community/home-manager"; # Allows us to configure our home directory with Nix!
     home-manager.inputs.nixpkgs.follows = "nixpkgs"; # This is so the HM flake uses our nixpkgs, instead of the nixpkgs commit in their repo
 
+    declarative-flatpak.url = "github:gmodena/nix-flatpak"; # Declare Flatpaks in this config!
+
+    wsl.url = "github:nix-community/NixOS-WSL/main"; # WSL Support
+
+    # Styling
+    stylix.url = "github:danth/stylix"; # Automatic styling
+    stylix.inputs.nixpkgs.follows = "nixpkgs";
+    
+    cursors.url = "github:lilleaila/nix-cursors"; # Recoloured cursors
+      
+    # Extra Packages
     nix-gaming.url = "github:fufexan/nix-gaming";
     nix-gaming.inputs.nixpkgs.follows = "nixpkgs";
-
-    nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixpkgs-unstable"; # Unstable packages
-
+    
     nixpkgs-xr.url = "github:nix-community/nixpkgs-xr"; # VR Tools
     nixpkgs-xr.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixvim.url = "github:nix-community/nixvim";
-    nixvim.inputs.nixpkgs.follows = "nixpkgs";
-
     nur.url = "github:nix-community/NUR"; # Nix User Repository; similar to the AUR.
+    
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
-    spicetify.url = "github:Gerg-L/spicetify-nix"; # Custom spotify theming
+    # Individual Programs  
+    spicetify.url = "github:Gerg-L/spicetify-nix"; # Spotify
     spicetify.inputs.nixpkgs.follows = "nixpkgs";
 
-    stylix.url = "github:danth/stylix"; # Automatic styling
-    stylix.inputs.nixpkgs.follows = "nixpkgs";
+    nixvim.url = "github:nix-community/nixvim"; # Neovim
+    nixvim.inputs.nixpkgs.follows = "nixpkgs";
 
-    vscode-extensions.url = "github:nix-community/nix-vscode-extensions"; # Declare VSC Extensions
+    vscode-extensions.url = "github:nix-community/nix-vscode-extensions"; # VSC Extensions
     vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
-
-    wsl.url = "github:nix-community/NixOS-WSL/main"; # WSL Support
 
     zen-browser.url = "github:0xc000022070/zen-browser-flake"; # Best browser
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
