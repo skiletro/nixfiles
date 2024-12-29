@@ -61,7 +61,6 @@
         # Launchers
         lutris # Games that need extra configuration
         bottles # Same idea as Lutris, but has support for regular software too
-        heroic # Epic Games, Gog, and Amazon Prime Gaming
         r2modman # Thunderstore Mod Manager (Think Lethal Company, derivationStrict)
         (prismlauncher.override {
           # Java Versions. Minecraft needs 8, 11, 17, and 21 as of 2024-10-25.
@@ -74,7 +73,6 @@
         })
       ])
       ++ [
-        inputs.nix-gaming.packages.${pkgs.system}.viper # Titanfall 2 Northstar Client
       ];
 
     programs.gamemode = {
@@ -83,9 +81,11 @@
     };
 
     services.flatpak.packages = [
-      "sh.ppy.osu"
+      "com.heroicgameslauncher.hgl" # Epic Games, GOG, etc.
+      "sh.ppy.osu" # Osu!
+      "com.github._0negal.Viper" # Titanfall 2
       {
-        flatpakref = "https://sober.vinegarhq.org/sober.flatpakref";
+        flatpakref = "https://sober.vinegarhq.org/sober.flatpakref"; # Roblox
         sha256 = "1pj8y1xhiwgbnhrr3yr3ybpfis9slrl73i0b1lc9q89vhip6ym2l";
       }
     ];
