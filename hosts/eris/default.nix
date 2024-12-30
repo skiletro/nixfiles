@@ -59,6 +59,7 @@
     filezilla # FTP Client
     fractal # Matrix Client
     fsearch # Fast File Search
+    gnome-builder # GNOME-based IDE
     handbrake # Video Encoder
     impression # ISO Burner
     kdiskmark # Drive Benchmark Tool
