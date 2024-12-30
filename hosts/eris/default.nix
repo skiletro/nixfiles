@@ -20,7 +20,7 @@
     desktop = {
       enable = true;
       environments = ["gnome"];
-      terminalEmulator = "blackbox";
+      terminalEmulator = "ghostty";
     };
 
     programs = {
