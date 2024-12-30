@@ -8,6 +8,7 @@
     ./fastfetch
     ./firefox
     ./git
+    ./ghostty
     ./helix
     ./kitty
     ./lazygit
