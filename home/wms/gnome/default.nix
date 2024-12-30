@@ -70,7 +70,7 @@
 
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
         binding = "<Super>Return";
-        command = "${pkgs.blackbox-terminal}/bin/blackbox";
+        command = "${osConfig.userConfig.desktop.terminalEmulator}";
         name = "Launch Terminal";
       };
 
