@@ -15,21 +15,21 @@
     # Styling
     stylix.url = "github:danth/stylix"; # Automatic styling
     stylix.inputs.nixpkgs.follows = "nixpkgs";
-    
+
     cursors.url = "github:lilleaila/nix-cursors"; # Recoloured cursors
-      
+
     # Extra Packages
     nix-gaming.url = "github:fufexan/nix-gaming";
     nix-gaming.inputs.nixpkgs.follows = "nixpkgs";
-    
+
     nixpkgs-xr.url = "github:nix-community/nixpkgs-xr"; # VR Tools
     nixpkgs-xr.inputs.nixpkgs.follows = "nixpkgs";
 
     nur.url = "github:nix-community/NUR"; # Nix User Repository; similar to the AUR.
-    
+
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
-    # Individual Programs  
+    # Individual Programs
     spicetify.url = "github:Gerg-L/spicetify-nix"; # Spotify
     spicetify.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -41,6 +41,8 @@
 
     zen-browser.url = "github:0xc000022070/zen-browser-flake"; # Best browser
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
+
+    ghostty.url = "github:ghostty-org/ghostty";
 
     # GNOME 47 Triple Buffering Patch
     mutter-triple-buffering-src = {

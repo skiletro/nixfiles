@@ -18,7 +18,7 @@
         description = "Specify the desktop environments to use";
       };
       terminalEmulator = lib.mkOption {
-        type = lib.types.enum ["alacritty" "kitty" "blackbox"];
+        type = lib.types.enum ["alacritty" "kitty" "blackbox" "ghostty"];
         default = "alacritty";
         description = "Specify the terminal emulator to install";
       };
