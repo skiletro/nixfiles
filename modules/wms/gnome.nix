@@ -26,6 +26,8 @@
     environment.systemPackages =
       (with pkgs; [
         adwaita-icon-theme # fixes some missing icons
+        libheif
+        libheif.out # HEIC Image Previews
         mission-center # Task Manager
         showtime # Video Player (Totem replacement)
         smile
@@ -37,6 +39,8 @@
         mpris-label
         smile-complementary-extension
       ]);
+
+    environment.pathsToLink = ["share/thumbnailers"];
 
     services.udev.packages = [pkgs.gnome-settings-daemon];
 
