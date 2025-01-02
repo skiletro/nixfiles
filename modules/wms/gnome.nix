@@ -48,6 +48,15 @@
             cp -a "${inputs.gvdb-src}" ./subprojects/gvdb
           '';
         });
+        # Nautilus GStreamer support, see: https://wiki.nixos.org/wiki/Nautilus#Gstreamer
+        nautilus = prev.nautilus.overrideAttrs (nprev: {
+          buildInputs =
+            nprev.buildInputs
+            ++ (with pkgs.gst_all_1; [
+              gst-plugins-good
+              gst-plugins-bad
+            ]);
+        });
       })
     ];
   };
