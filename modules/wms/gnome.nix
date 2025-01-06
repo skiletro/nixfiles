@@ -17,7 +17,6 @@
       gnome-maps
       gnome-tour
       gnome-software
-      gnome-weather
       seahorse
       simple-scan
     ];
@@ -38,6 +37,7 @@
         dash-to-dock
         mpris-label
         smile-complementary-extension
+        weather-oclock
       ]);
 
     environment.pathsToLink = ["share/thumbnailers"];
