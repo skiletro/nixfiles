@@ -116,6 +116,7 @@
           dash-to-dock.extensionUuid
           mpris-label.extensionUuid
           smile-complementary-extension.extensionUuid
+          weather-oclock.extensionUuid
         ];
       };
 
@@ -166,7 +167,7 @@
         left-click-action = "play-pause";
         left-padding = 0;
         middle-click-action = "none";
-        mpris-sources-blacklist = "Mozilla zen-beta";
+        mpris-sources-blacklist = "Mozilla zen-beta,Chromium";
         right-click-action = "open-menu";
         right-padding = 0;
         second-field = "";
