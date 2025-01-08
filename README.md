@@ -28,13 +28,13 @@ Please note that this flake is pretty specialised for my use case, and you would
 
 First, install NixOS onto your target system using a [live USB](https://nixos.org/manual/nixos/stable/#sec-booting-from-usb), setting the username to `jamie`. Once you have done this, run the following commands as the `jamie` user...
 ```bash
-nix-shell -p git neovim alejandra # Required to fetch this config, and to edit it.
+nix-shell -p git helix alejandra # Required to fetch this config, and to edit it.
 git clone https://github.com/skiletro/nixfiles ~/.nix_config && cd ~/.nix_config
 mkdir hosts/$your_hostname
 cp /etc/nixos/configuration.nix hosts/$your_hostname/default.nix
 cp /etc/nixos/hardware-configuration.nix hosts/$your_hostname/
-nvim hosts/$your_hostname/default.nix # Change the networking hostname to $your_hostname. You'll probably want to remove any options that may conflict with the common/ options.
-nvim flake.nix # Add a new entry for this hostname under `nixosConfigurations`
+hx hosts/$your_hostname/default.nix # Change the networking hostname to $your_hostname. You'll probably want to remove any options that may conflict with the common/ options.
+hx flake.nix # Add a new entry for this hostname under `nixosConfigurations`
 alejandra . # Makes sure everything is formatted correctly, and catches any obvious errors.
 git add . # Stage everything so Nix doesn't freak out
 sudo nixos-rebuild boot --flake .#$your_hostname
