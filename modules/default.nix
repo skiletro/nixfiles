@@ -39,6 +39,7 @@
     fd # Find Files
     fzf # Fuzzy-finder
     git # You know what git is
+    helix # Better Editor
     jq # JSON Processor
     just # Handy way to save and run project-specific commands
     libnotify # Send Notifications Through CLI

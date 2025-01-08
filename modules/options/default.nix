@@ -20,7 +20,6 @@
       helix.enable = lib.mkEnableOption "Helix";
       lazygit.enable = lib.mkEnableOption "Lazygit";
       mpv.enable = lib.mkEnableOption "MPV";
-      neovim.enable = lib.mkEnableOption "Neovim";
       spotify.enable = lib.mkEnableOption "Spotify";
       vscode.enable = lib.mkEnableOption "Visual Studio Code";
       zenbrowser.enable = lib.mkEnableOption "Zen Browser";

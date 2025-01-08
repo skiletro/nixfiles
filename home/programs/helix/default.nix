@@ -6,6 +6,7 @@
   config = lib.mkIf osConfig.userConfig.programs.helix.enable {
     programs.helix = {
       enable = true;
+      defaultEditor = true;
       settings = {
         editor = {
           cursor-shape = {
