@@ -42,8 +42,6 @@
     zen-browser.url = "github:0xc000022070/zen-browser-flake"; # Best browser
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
 
-    ghostty.url = "github:ghostty-org/ghostty";
-
     # GNOME 47 Triple Buffering Patch
     mutter-triple-buffering-src = {
       url = "gitlab:vanvugt/mutter?ref=triple-buffering-v4-47&host=gitlab.gnome.org";

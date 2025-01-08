@@ -27,7 +27,7 @@
     };
 
     # Sound
-    hardware.pulseaudio.enable = false;
+    services.pulseaudio.enable = false;
     security.rtkit.enable = true; # make pipewire realtime-capable
     services.pipewire = {
       enable = true;

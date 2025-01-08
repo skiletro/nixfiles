@@ -12,7 +12,7 @@ with lib.hm.gvariant; {
       "com/raggesilver/BlackBox" = {
         context-aware-header-bar = false;
         floating-controls = true;
-        font = "${osConfig.stylix.fonts.monospace.name} 11";
+        font = "${osConfig.stylix.fonts.monospace.name} ${osConfig.stylix.fonts.sizes.terminal}";
         headerbar-drag-area = false;
         notify-process-completion = false;
         pretty = false;
@@ -20,7 +20,10 @@ with lib.hm.gvariant; {
         show-menu-button = true;
         style-preference = mkUint32 2;
         terminal-cell-width = 1.0;
-        terminal-padding = mkTuple [(mkUint32 10) (mkUint32 10) (mkUint32 10) (mkUint32 10)];
+        terminal-padding = let
+          padding = 10;
+        in
+          mkTuple [(mkUint32 padding) (mkUint32 padding) (mkUint32 padding) (mkUint32 padding)];
         theme-bold-is-bright = false;
         theme-dark = "Adwaita Dark";
         was-fullscreened = false;
