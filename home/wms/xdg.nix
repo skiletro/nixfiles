@@ -27,7 +27,7 @@
         "audio/*" = mediaPlayer;
         "video/*" = mediaPlayer;
         "image/*" = ["eog.desktop"];
-        "text/plain" = ["nvim.desktop"];
+        "text/plain" = ["helix.desktop"];
         "application/json" = browser;
         "application/pdf" = browser;
         "application/zip" = ["org.gnome.FileRoller.desktop"];

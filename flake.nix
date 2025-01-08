@@ -33,9 +33,6 @@
     spicetify.url = "github:Gerg-L/spicetify-nix"; # Spotify
     spicetify.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixvim.url = "github:nix-community/nixvim"; # Neovim
-    nixvim.inputs.nixpkgs.follows = "nixpkgs";
-
     vscode-extensions.url = "github:nix-community/nix-vscode-extensions"; # VSC Extensions
     vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
 
