@@ -27,7 +27,6 @@
       discord.enable = true;
       helix.enable = true;
       lazygit.enable = true;
-      neovim.enable = true;
       spotify.enable = true;
       vial.enable = true;
       vscode.enable = true;

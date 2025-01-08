@@ -13,7 +13,6 @@
     ./kitty
     ./lazygit
     ./mpv
-    ./neovim
     ./spotify
     ./tmux
     ./vscode
