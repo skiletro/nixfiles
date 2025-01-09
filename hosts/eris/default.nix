@@ -24,6 +24,7 @@
     };
 
     programs = {
+      chromium.enable = true; # Enables the web apps too
       discord.enable = true;
       helix.enable = true;
       lazygit.enable = true;
@@ -53,7 +54,6 @@
   environment.systemPackages = with pkgs; [
     # Graphical
     bitwarden-desktop # Password Manager
-    (chromium.override {enableWideVine = true;}) # For Netflix, etc.
     eyedropper # Color Picker
     filezilla # FTP Client
     fractal # Matrix Client
