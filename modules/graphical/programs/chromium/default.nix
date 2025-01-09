@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  options.userConfig.programs.chromium.enable = lib.mkEnableOption "Vial, a keyboard configurator";
+  options.userConfig.programs.chromium.enable = lib.mkEnableOption "Chromium and PWAs";
 
   config = lib.mkIf config.userConfig.programs.chromium.enable {
     environment.systemPackages = with pkgs; [chromium]; # For whatever reason, programs.chromium.enable doesn't actually add the package.
