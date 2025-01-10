@@ -173,7 +173,7 @@
         left-click-action = "play-pause";
         left-padding = 0;
         middle-click-action = "none";
-        mpris-sources-blacklist = "Mozilla zen-beta,Chromium";
+        mpris-sources-blacklist = "Mozilla zen,Chromium";
         right-click-action = "open-menu";
         right-padding = 0;
         second-field = "";
