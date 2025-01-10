@@ -66,6 +66,7 @@
         home = ["<Super>e"];
         search = ["<Super>d"];
         www = ["<Super>f"];
+        calculator = ["<Super>c"];
       };
 
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
@@ -105,6 +106,11 @@
       "org/gnome/desktop/wm/keybindings" = {
         close = ["<Shift><Super>q"];
         show-desktop = ["<Shift><Super>d"];
+        switch-to-workspace-1 = ["<Super>1"];
+        switch-to-workspace-2 = ["<Super>2"];
+        switch-to-workspace-3 = ["<Super>3"];
+        switch-to-workspace-4 = ["<Super>4"];
+        toggle-fullscreen = ["<Shift><Super>f"];
       };
 
       # Extensions
