@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }: {
   imports = [
@@ -34,7 +35,6 @@
   # Bare minimum programs needed on all systems
   environment.systemPackages = with pkgs; [
     alejandra # Nix File Formatter
-    btop # Fancy Resource Monitor
     du-dust # Fancier Looking `du`
     fd # Find Files
     fzf # Fuzzy-finder
@@ -54,6 +54,10 @@
     unzip # ZIP Utility
     wget # Get files from command-line
     wineWowPackages.stable # Wine
+    (btop.override {
+      cudaSupport = config.userConfig.system.gpu == "nvidia";
+      rocmSupport = config.userConfig.system.gpu == "amd";
+    })
   ];
 
   # Locale
