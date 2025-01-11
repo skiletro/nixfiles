@@ -17,30 +17,18 @@
       platformOptimizations.enable = true; # Handled by nix-gaming flake
     };
 
-    environment.systemPackages =
-      (with pkgs; [
-        # Tools
-        gamescope_git
-        winetricks
-        protontricks
-        protonplus
+    environment.systemPackages = with pkgs; [
+      # Tools
+      lutris
+      gamescope_git
+      winetricks
+      protontricks
+      protonplus
 
-        # Launchers
-        lutris # Games that need extra configuration
-        bottles # Same idea as Lutris, but has support for regular software too
-        r2modman # Thunderstore Mod Manager (Think Lethal Company, derivationStrict)
-        (prismlauncher.override {
-          # Java Versions. Minecraft needs 8, 11, 17, and 21 as of 2024-10-25.
-          jdks = with pkgs; [
-            temurin-jre-bin-8
-            temurin-jre-bin-11
-            temurin-jre-bin-17
-            temurin-jre-bin-21
-          ];
-        })
-      ])
-      ++ [
-      ];
+      # Launchers
+      r2modman # Thunderstore Mod Manager (Think Lethal Company, derivationStrict)
+      prismlauncher
+    ];
 
     programs.gamemode = {
       enable = true;
