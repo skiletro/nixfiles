@@ -2,7 +2,6 @@
   lib,
   pkgs,
   config,
-  inputs,
   ...
 }: {
   imports = [
@@ -15,11 +14,6 @@
   config = lib.mkIf config.userConfig.gaming.enable {
     programs.steam = {
       enable = true;
-      extraCompatPackages = [
-        pkgs.proton-ge-bin # Proton Glorious Eggroll
-        inputs.nix-gaming.packages.${pkgs.system}.northstar-proton
-        inputs.nixpkgs-xr.packages.${pkgs.system}.proton-ge-rtsp-bin
-      ];
       platformOptimizations.enable = true; # Handled by nix-gaming flake
     };
 
@@ -27,7 +21,9 @@
       (with pkgs; [
         # Tools
         gamescope_git
-        winetricks # Protontricks also used to be here, but it broke once I started declaring Proton packages declaratively.
+        winetricks
+        protontricks
+        protonplus
 
         # Launchers
         lutris # Games that need extra configuration

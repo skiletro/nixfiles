@@ -22,9 +22,6 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
     nix-gaming.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixpkgs-xr.url = "github:nix-community/nixpkgs-xr"; # VR Tools
-    nixpkgs-xr.inputs.nixpkgs.follows = "nixpkgs";
-
     nur.url = "github:nix-community/NUR"; # Nix User Repository; similar to the AUR.
 
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
