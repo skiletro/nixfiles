@@ -24,6 +24,7 @@
       winetricks
       protontricks
       protonplus
+      nur.repos.skiletro.steam-art-manager
 
       # Launchers
       r2modman # Thunderstore Mod Manager (Think Lethal Company, derivationStrict)
