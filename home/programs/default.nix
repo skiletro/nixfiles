@@ -11,6 +11,7 @@
     ./ghostty
     ./helix
     ./kitty
+    ./konsole
     ./lazygit
     ./mpv
     ./spotify
