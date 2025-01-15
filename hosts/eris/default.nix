@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ./hardware-configuration.nix
+    ./hardware.nix
   ];
 
   networking.hostName = "eris";
@@ -10,7 +10,7 @@
   userConfig = {
     greeter = {
       enable = true;
-      type = "gdm";
+      type = "sddm";
     };
 
     system = {
@@ -19,8 +19,8 @@
 
     desktop = {
       enable = true;
-      environments = ["gnome"];
-      terminalEmulator = "ghostty";
+      environments = ["plasma"];
+      terminalEmulator = "konsole";
     };
 
     programs = {
@@ -58,7 +58,6 @@
     filezilla # FTP Client
     fractal # Matrix Client
     fsearch # Fast File Search
-    gnome-builder # GNOME-based IDE
     handbrake # Video Encoder
     impression # ISO Burner
     kdiskmark # Drive Benchmark Tool
@@ -85,40 +84,6 @@
     obs-studio.enable = true; # Screen Recording and Broadcasting Suite
     thunderbird.enable = true; # Email Client
   };
-
-  services.hardware.openrgb.enable = true;
-
-  # Fixes refresh rate in GDM for my monitor
-  systemd.tmpfiles.rules = let
-    monitorXml = ''
-      <monitors version="2">
-        <configuration>
-          <layoutmode>logical</layoutmode>
-          <logicalmonitor>
-            <x>0</x>
-            <y>0</y>
-            <scale>1</scale>
-            <primary>yes</primary>
-            <monitor>
-              <monitorspec>
-                <connector>DP-2</connector>
-                <vendor>LHC</vendor>
-                <product>eiQ-34H/HQ-V2</product>
-                <serial>0000000000000</serial>
-              </monitorspec>
-              <mode>
-                <width>3440</width>
-                <height>1440</height>
-                <rate>165.001</rate>
-              </mode>
-            </monitor>
-          </logicalmonitor>
-        </configuration>
-      </monitors>
-    '';
-  in [
-    "L /run/gdm/.config/monitors.xml - - - - ${monitorXml}"
-  ];
 
   system.stateVersion = "23.11";
 }
