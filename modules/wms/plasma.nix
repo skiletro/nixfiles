@@ -13,7 +13,11 @@
 
     environment.systemPackages =
       (with pkgs; [
+        adwaita-icon-theme # Fixes some issues with Adwaita apps
+        gparted # Partition Manager
+        haruna # Video Player
         polonium # Tiling KWin Script
+        qdirstat # Graphical Disk Usage Analyzer
       ])
       ++ (with pkgs.kdePackages; [
         kcalc # Calculator
