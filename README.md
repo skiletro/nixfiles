@@ -43,6 +43,7 @@ sudo nixos-rebuild boot --flake .#$your_hostname
 
 ## Todo
 - [ ] Expand on AMD GPU module
+- [ ] Refactor Stylix Konsole module
 
 ## Acknowledgements
 - [NotAShelf's Nyx Repo](https://github.com/NotAShelf/nyx) - a huge help (also I stole quite a lot of stuff)
