@@ -10,6 +10,7 @@
     environment.systemPackages = with pkgs; [
       dolphin-emu # Wii, Gamecube
       ryujinx # Switch
+      cemu # Wii U
     ];
 
     services.flatpak.packages = [
