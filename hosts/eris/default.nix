@@ -58,6 +58,7 @@
     filezilla # FTP Client
     fractal # Matrix Client
     fsearch # Fast File Search
+    godot_4 # Godot Engine
     handbrake # Video Encoder
     impression # ISO Burner
     kdiskmark # Drive Benchmark Tool
