@@ -63,6 +63,7 @@
     impression # ISO Burner
     kdiskmark # Drive Benchmark Tool
     libreoffice # Office Suite
+    libresprite # Pixel Art Editor
     ludusavi # Game Save Backup Manager
     qbittorrent # Torrent Client
     sqlitebrowser # DB Browser for SQLite
