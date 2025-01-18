@@ -35,17 +35,6 @@
 
     zen-browser.url = "github:0xc000022070/zen-browser-flake"; # Best browser
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
-
-    # GNOME 47 Triple Buffering Patch
-    mutter-triple-buffering-src = {
-      url = "gitlab:vanvugt/mutter?ref=triple-buffering-v4-47&host=gitlab.gnome.org";
-      flake = false;
-    };
-
-    gvdb-src = {
-      url = "gitlab:GNOME/gvdb?ref=main&host=gitlab.gnome.org";
-      flake = false;
-    };
   };
 
   outputs = {
@@ -83,7 +72,7 @@
         chaotic.nixosModules.default
       ]);
   in {
-    devShells.${system}.default = pkgs.mkShell {
+    devShells.${system}.default = pkgs.mkShellNoCC {
       buildInputs = with pkgs; [
         alejandra # Code Formatting
         deadnix # Dead Code Scanner
