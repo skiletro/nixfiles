@@ -17,7 +17,6 @@
     hardware.graphics.enable = true;
 
     # Bootloader
-    # NOTE: The rationale of this being here, is that currently the only systems that are configured in this flake that don't *technically* have a GPU is WSL, which uses its own bootloader anyway.
     boot.loader = {
       systemd-boot = {
         enable = true;

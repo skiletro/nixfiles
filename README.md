@@ -21,7 +21,7 @@ My dotfiles that I used on my arch-based system can be found [here](https://gith
 - **Prioritises Wayland** - *Try and use Wayland components unless absolutely necessary.*
 - **Function over Form** - *While appearance is extremely important, function comes first. I try to avoid spending all my time ricing nowadays, so if possible I generally just use a solution made by someone else.*
 - **Keep it simple, stupid** - *I'm trying to limit the amount inputs and dependencies that I use, and ensuring that the repo is readable from an outsiders perspective. I'm obviously going to be a bit biased in this as I am the author, but I'm trying my best.*
-- **User-facing systems only** - *I've decided to keep server configurations in a different flake, as including them here will only complicate things even further. The only headless system as of writing is the WSL configuration, which I think still counts as user-facing.*
+- **User-facing systems only** - *I've decided to keep server configurations in a different flake, as including them here will only complicate things even further.*
 
 ## Installation Guide
 Please note that this flake is pretty specialised for my use case, and you would probably be better off just stealing the parts you like and then encorporating that into your own flake. This install guide is here **just for reference** (and because I forget how to do this sometimes).
