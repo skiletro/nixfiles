@@ -379,25 +379,6 @@
         "type": "github"
       }
     },
-    "gvdb-src": {
-      "flake": false,
-      "locked": {
-        "host": "gitlab.gnome.org",
-        "lastModified": 1726152673,
-        "narHash": "sha256-CIdEwRbtxWCwgTb5HYHrixXi+G+qeE1APRaUeka3NWk=",
-        "owner": "GNOME",
-        "repo": "gvdb",
-        "rev": "2b42fc75f09dbe1cd1057580b5782b08f2dcb400",
-        "type": "gitlab"
-      },
-      "original": {
-        "host": "gitlab.gnome.org",
-        "owner": "GNOME",
-        "ref": "main",
-        "repo": "gvdb",
-        "type": "gitlab"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -480,25 +461,6 @@
         "owner": "Jovian-Experiments",
         "repo": "Jovian-NixOS",
         "type": "github"
-      }
-    },
-    "mutter-triple-buffering-src": {
-      "flake": false,
-      "locked": {
-        "host": "gitlab.gnome.org",
-        "lastModified": 1734511476,
-        "narHash": "sha256-1VXEzKwzrqLCZby2oWxjclA08kPhxs/Om5N17qYeglM=",
-        "owner": "vanvugt",
-        "repo": "mutter",
-        "rev": "47058153bead969a44c4a907a9b73cd131abfcc5",
-        "type": "gitlab"
-      },
-      "original": {
-        "host": "gitlab.gnome.org",
-        "owner": "vanvugt",
-        "ref": "triple-buffering-v4-47",
-        "repo": "mutter",
-        "type": "gitlab"
       }
     },
     "nix-gaming": {
@@ -664,9 +626,7 @@
         "chaotic": "chaotic",
         "cursors": "cursors",
         "declarative-flatpak": "declarative-flatpak",
-        "gvdb-src": "gvdb-src",
         "home-manager": "home-manager_2",
-        "mutter-triple-buffering-src": "mutter-triple-buffering-src",
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs_3",
         "nur": "nur",
