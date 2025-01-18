@@ -10,8 +10,6 @@
 
     declarative-flatpak.url = "github:gmodena/nix-flatpak"; # Declare Flatpaks in this config!
 
-    wsl.url = "github:nix-community/NixOS-WSL/main"; # WSL Support
-
     # Styling
     stylix.url = "github:danth/stylix"; # Automatic styling
     stylix.inputs.nixpkgs.follows = "nixpkgs";
@@ -90,12 +88,6 @@
       eris = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = commonModules ++ [./hosts/eris];
-      };
-
-      wsl = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        system = "x86_64-linux";
-        modules = commonModules ++ [./hosts/wsl];
       };
     };
   };
