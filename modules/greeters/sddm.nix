@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: {
   config = lib.mkIf ((config.userConfig.greeter.enable)
@@ -8,9 +9,14 @@
     services.displayManager.sddm = {
       enable = true;
       wayland.enable = true;
-      #theme = "chili";
     };
 
-    #environment.systemPackages = with pkgs; [sddm-chili-theme];
+    environment.systemPackages = [
+      (pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
+        [General]
+        background=${config.stylix.image}
+        type=image
+      '')
+    ];
   };
 }
