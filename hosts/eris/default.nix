@@ -54,6 +54,7 @@
   environment.systemPackages = with pkgs; [
     # Graphical
     bitwarden-desktop # Password Manager
+    blockbench # Low-poly 3D Modelling
     eyedropper # Color Picker
     filezilla # FTP Client
     fractal # Matrix Client
