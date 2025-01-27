@@ -28,7 +28,13 @@
 
       # Launchers
       r2modman # Thunderstore Mod Manager (Think Lethal Company, derivationStrict)
-      prismlauncher
+      (prismlauncher.override {
+        jdks = with pkgs; [
+          graalvmPackages.graalvm-oracle
+          graalvmPackages.graalvm-oracle_17
+          temurin-jre-bin-8
+        ];
+      })
     ];
 
     programs.gamemode = {
