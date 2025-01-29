@@ -42,6 +42,7 @@ sudo nixos-rebuild boot --flake .#$your_hostname
 ...and reboot!
 
 ## Todo
+- [ ] Declare my Plasma setup using [plasma-manager](https://github.com/pjones/plasma-manager)
 - [ ] Expand on AMD GPU module
 
 ## Acknowledgements
