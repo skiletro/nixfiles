@@ -14,6 +14,7 @@
     environment.systemPackages =
       (with pkgs; [
         adwaita-icon-theme # Fixes some issues with Adwaita apps
+        applet-window-title # Shows the application title and icon for active window
         gparted # Partition Manager
         haruna # Video Player
         polonium # Tiling KWin Script
