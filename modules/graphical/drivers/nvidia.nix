@@ -7,7 +7,7 @@
   config = lib.mkIf (config.userConfig.system.gpu == "nvidia") {
     services.xserver.videoDrivers = ["nvidia"];
     hardware.nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.latest;
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
       modesetting.enable = true;
       open = false;
       nvidiaSettings = true;
