@@ -19,6 +19,7 @@
         haruna # Video Player
         polonium # Tiling KWin Script
         qdirstat # Graphical Disk Usage Analyzer
+        nur.repos.xddxdd.vk-hdr-layer # HDR for Vulkan
       ])
       ++ (with pkgs.kdePackages; [
         kcalc # Calculator
