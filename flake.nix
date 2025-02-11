@@ -11,7 +11,7 @@
     declarative-flatpak.url = "github:gmodena/nix-flatpak"; # Declare Flatpaks in this config!
 
     # Styling
-    stylix.url = "github:danth/stylix"; # Automatic styling
+    stylix.url = "github:danth/stylix?ref=b00c9f46ae6c27074d24d2db390f0ac5ebcc329f"; # Automatic styling, pinned because of https://github.com/danth/stylix/issues/835
     stylix.inputs.nixpkgs.follows = "nixpkgs";
 
     cursors.url = "github:lilleaila/nix-cursors"; # Recoloured cursors
