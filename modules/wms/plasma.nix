@@ -15,6 +15,7 @@
       (with pkgs; [
         adwaita-icon-theme # Fixes some issues with Adwaita apps
         applet-window-title # Shows the application title and icon for active window
+        flameshot # Spectacle screenshoting tool replacement
         gparted # Partition Manager
         haruna # Video Player
         polonium # Tiling KWin Script
@@ -23,6 +24,7 @@
       ])
       ++ (with pkgs.kdePackages; [
         kcalc # Calculator
+        qtwebengine # Web engine based on the Chromium web browser
       ]);
 
     services.tlp.enable = lib.mkForce false; # KDE power management takes priority over `tlp`
