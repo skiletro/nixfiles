@@ -53,23 +53,19 @@
   environment.systemPackages = with pkgs; [
     # Graphical
     bitwarden-desktop # Password Manager
-    blockbench # Low-poly 3D Modelling
-    eyedropper # Color Picker
-    filezilla # FTP Client
-    fractal # Matrix Client
     fsearch # Fast File Search
     godot_4 # Godot Engine
     handbrake # Video Encoder
     impression # ISO Burner
+    kdenlive # Libre Video Editor
     kdiskmark # Drive Benchmark Tool
     libreoffice # Office Suite
-    libresprite # Pixel Art Editor
     ludusavi # Game Save Backup Manager
+    mixxx # DJ Software
+    nextcloud-client # Nextcloud Sync
     qbittorrent # Torrent Client
-    sqlitebrowser # DB Browser for SQLite
-    telegram-desktop # Official Telegram Client
-    tenacity # Audio Editor (Audacity Fork)
-    video-trimmer # Trims... Videos...
+    tenacity # Audio Editor
+    video-trimmer # Trims Videos
 
     # Terminal
     ffmpeg # Manipulate Video
