@@ -34,6 +34,36 @@
       zenbrowser.enable = true;
     };
 
+    extraPackages = with pkgs; [
+      # Graphical
+      bitwarden-desktop # Password Manager
+      fsearch # Fast File Search
+      godot_4 # Godot Engine
+      handbrake # Video Encoder
+      impression # ISO Burner
+      kdenlive # Libre Video Editor
+      kdiskmark # Drive Benchmark Tool
+      libreoffice # Office Suite
+      localsend # AirDrop Alternative
+      ludusavi # Game Save Backup Manager
+      mixxx # DJ Software
+      nextcloud-client # Nextcloud Sync
+      obs-studio # Screen Recording and Broadcast Suite
+      qbittorrent # Torrent Client
+      tenacity # Audio Editor
+      thunderbird # Email Client
+      video-trimmer # Trims Videos
+
+      # Terminal
+      ffmpeg # Manipulate Video
+      imagemagick # Manipulate Images
+
+      # Runtimes
+      bun # JavaScript
+      jre_minimal # Java
+      python3 # Python
+    ];
+
     services = {
       noisetorch = {
         enable = true;
@@ -47,40 +77,6 @@
       emulators.enable = true;
       vr.enable = true;
     };
-  };
-
-  # Programs
-  environment.systemPackages = with pkgs; [
-    # Graphical
-    bitwarden-desktop # Password Manager
-    fsearch # Fast File Search
-    godot_4 # Godot Engine
-    handbrake # Video Encoder
-    impression # ISO Burner
-    kdenlive # Libre Video Editor
-    kdiskmark # Drive Benchmark Tool
-    libreoffice # Office Suite
-    ludusavi # Game Save Backup Manager
-    mixxx # DJ Software
-    nextcloud-client # Nextcloud Sync
-    qbittorrent # Torrent Client
-    tenacity # Audio Editor
-    video-trimmer # Trims Videos
-
-    # Terminal
-    ffmpeg # Manipulate Video
-    imagemagick # Manipulate Images
-
-    # Runtimes
-    bun # JavaScript
-    jre_minimal # Java
-    python3 # Python
-  ];
-
-  programs = {
-    localsend.enable = true; # AirDrop Alternative
-    obs-studio.enable = true; # Screen Recording and Broadcasting Suite
-    thunderbird.enable = true; # Email Client
   };
 
   system.stateVersion = "23.11";
