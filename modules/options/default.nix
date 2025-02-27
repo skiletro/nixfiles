@@ -37,11 +37,19 @@
       syncthing.enable = lib.mkEnableOption "Syncthing and Syncthingtray";
       wlogout.enable = lib.mkEnableOption "Wlogout";
     };
+
+    extraPackages = lib.mkOption {
+      type = lib.types.listOf lib.types.package;
+      description = "Extra packages to install that do not have a dedicated enable option.";
+      default = [];
+    };
   };
 
-  config.userConfig = {
-    services.lsp = lib.mkIf (config.userConfig.programs.vscode.enable || config.userConfig.programs.helix.enable) {
+  config = {
+    userConfig.services.lsp = lib.mkIf (config.userConfig.programs.vscode.enable || config.userConfig.programs.helix.enable) {
       enable = lib.mkDefault true;
     };
+
+    environment.systemPackages = config.userConfig.extraPackages;
   };
 }
