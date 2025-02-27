@@ -11,8 +11,8 @@
 <p></p>
 
 <div align=center>
-  <img src=".github/assets/showcase_gnome.webp"/>
-  <p>Screenshot last updated December 20th, 2024</p>
+  <img src=".github/assets/showcase_plasma.webp"/>
+  <p>Screenshot last updated 27th February, 2025 </p>
 </div>
 
 My dotfiles that I used on my arch-based system can be found [here](https://github.com/skiletro/archfiles), and are a basis for a lot of the configuration here! If you don't use NixOS, you can probably find a more standard config for the thing you are looking for over there.
