@@ -9,7 +9,7 @@
     hardware.nvidia = {
       package = config.boot.kernelPackages.nvidiaPackages.beta;
       modesetting.enable = true;
-      open = false;
+      open = true;
       nvidiaSettings = true;
     };
     # Noveau drivers don't work very well; adding this to stop them from interfering
