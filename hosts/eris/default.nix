@@ -28,6 +28,7 @@
       discord.enable = true;
       helix.enable = true;
       lazygit.enable = true;
+      localsend.enable = true;
       spotify.enable = true;
       vial.enable = true;
       vscode.enable = true;
@@ -44,7 +45,6 @@
       kdenlive # Libre Video Editor
       kdiskmark # Drive Benchmark Tool
       libreoffice # Office Suite
-      localsend # AirDrop Alternative
       ludusavi # Game Save Backup Manager
       mixxx # DJ Software
       nextcloud-client # Nextcloud Sync
