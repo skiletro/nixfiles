@@ -2,5 +2,6 @@
   imports = [
     ./chromium
     ./vial
+    ./localsend
   ];
 }
