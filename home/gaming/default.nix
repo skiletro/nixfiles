@@ -4,6 +4,7 @@
   ...
 }: {
   imports = [
+    ./gameconfigs
     ./vr.nix
   ];
 
