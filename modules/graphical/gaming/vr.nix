@@ -11,14 +11,11 @@
       wlx-overlay-s
     ];
 
-    # FIXME: Fails to compile as of Feb 11 2025, use Flatpak for now.
-    # services.wivrn = {
-    #   enable = true;
-    #   openFirewall = true;
-    #   defaultRuntime = true; # Default runtime for SteamVR games set in HM module.
-    # };
-
-    services.flatpak.packages = ["io.github.wivrn.wivrn"];
+    services.wivrn = {
+      enable = true;
+      openFirewall = true;
+      defaultRuntime = true; # Default runtime for SteamVR games set in HM module.
+    };
   };
 
   # --- Instructions ---
