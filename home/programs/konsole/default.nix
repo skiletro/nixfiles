@@ -5,7 +5,7 @@
   ...
 }: {
   config = lib.mkIf (osConfig.userConfig.desktop.terminalEmulator == "konsole") {
-    home.packages = with pkgs; [konsole];
+    home.packages = [pkgs.libsForQt5.konsole]; # FIXME: Use the Qt5 version as the Qt6 has some weird font rendering issues that I don't really know how to fix yet.
 
     xdg.dataFile."konsole/Stylix.profile".text = lib.generators.toINI {} {
       General = {
