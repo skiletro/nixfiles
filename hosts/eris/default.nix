@@ -53,6 +53,7 @@
       tenacity # Audio Editor
       thunderbird-latest # Email Client
       video-trimmer # Trims Videos
+      vlc # Media Player, mostly used for m3u files
 
       # Terminal
       ffmpeg # Manipulate Video
