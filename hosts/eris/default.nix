@@ -42,7 +42,7 @@
       godot_4 # Godot Engine
       handbrake # Video Encoder
       impression # ISO Burner
-      kdenlive # Libre Video Editor
+      kdePackages.kdenlive # Libre Video Editor
       kdiskmark # Drive Benchmark Tool
       libreoffice # Office Suite
       ludusavi # Game Save Backup Manager
@@ -51,7 +51,7 @@
       obs-studio # Screen Recording and Broadcast Suite
       qbittorrent # Torrent Client
       tenacity # Audio Editor
-      thunderbird # Email Client
+      thunderbird-latest # Email Client
       video-trimmer # Trims Videos
 
       # Terminal
