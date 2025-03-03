@@ -21,6 +21,7 @@
         polonium # Tiling KWin Script
         qdirstat # Graphical Disk Usage Analyzer
         nur.repos.xddxdd.vk-hdr-layer # HDR for Vulkan
+        nur.repos.shadowrz.klassy-qt6
       ])
       ++ (with pkgs.kdePackages; [
         kcalc # Calculator
