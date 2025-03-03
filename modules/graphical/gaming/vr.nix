@@ -9,7 +9,8 @@
   config = lib.mkIf config.userConfig.gaming.vr.enable {
     environment.systemPackages = with pkgs; [
       bs-manager # Beat Saber Mod Manager
-      wlx-overlay-s
+      wlx-overlay-s # In-game overlay
+      android-tools # Allows for wired WiVRn
     ];
 
     services.wivrn = {
