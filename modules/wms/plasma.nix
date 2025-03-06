@@ -22,6 +22,8 @@
         qdirstat # Graphical Disk Usage Analyzer
         nur.repos.xddxdd.vk-hdr-layer # HDR for Vulkan
         nur.repos.shadowrz.klassy-qt6
+        nur.repos.skiletro.applet-darwinmenu # macOS-like "start menu"
+        nur.repos.skiletro.applet-kara # Workspace indicator
       ])
       ++ (with pkgs.kdePackages; [
         kcalc # Calculator
