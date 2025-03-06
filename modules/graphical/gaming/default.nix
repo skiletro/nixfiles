@@ -14,6 +14,15 @@
   config = lib.mkIf config.userConfig.gaming.enable {
     programs.steam = {
       enable = true;
+      # The thought process behind both declaratively installing Proton builds and manually installing them
+      # is that I can use the declarative version for most games, and games that need tweaking can use the
+      # versions installed by ProtonPlus, as to retain compatability with protontricks and winetricks.
+      # (For whatever reason, the declarative versions do not play nicely with protontricks at all).
+      extraCompatPackages = with pkgs; [
+        proton-ge-bin
+        steam-play-none
+        # TODO: Package and add proton-cachyos
+      ];
       platformOptimizations.enable = true; # Handled by nix-gaming flake
     };
 
