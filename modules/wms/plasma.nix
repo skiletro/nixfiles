@@ -9,6 +9,7 @@
     environment.plasma6.excludePackages = with pkgs.kdePackages; [
       konsole
       khelpcenter
+      kate
     ];
 
     environment.systemPackages =
@@ -19,7 +20,6 @@
         gparted # Partition Manager
         haruna # Video Player
         polonium # Tiling KWin Script
-        qdirstat # Graphical Disk Usage Analyzer
         nur.repos.xddxdd.vk-hdr-layer # HDR for Vulkan
         nur.repos.shadowrz.klassy-qt6
         nur.repos.skiletro.applet-darwinmenu # macOS-like "start menu"
@@ -28,6 +28,7 @@
       ++ (with pkgs.kdePackages; [
         kcalc # Calculator
         qtwebengine # Web engine based on the Chromium web browser
+        filelight # Disk usage statistics
       ]);
 
     services.tlp.enable = lib.mkForce false; # KDE power management takes priority over `tlp`
