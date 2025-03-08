@@ -9,7 +9,6 @@
     environment.plasma6.excludePackages = with pkgs.kdePackages; [
       konsole
       khelpcenter
-      kate
     ];
 
     environment.systemPackages =
