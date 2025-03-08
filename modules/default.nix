@@ -130,6 +130,8 @@
 
   # Nix settings
   nix = {
+    package = pkgs.lix;
+
     # set nix path properly
     nixPath = [
       "nixos-config=/home/jamie/.nix_config/flake.nix"
