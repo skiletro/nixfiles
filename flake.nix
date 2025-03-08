@@ -3,7 +3,7 @@
 
   inputs = {
     # Core Inputs
-    nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixpkgs-unstable"; # Unstable packages
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; # Unstable packages
 
     home-manager.url = "github:nix-community/home-manager"; # Allows us to configure our home directory with Nix!
     home-manager.inputs.nixpkgs.follows = "nixpkgs"; # This is so the HM flake uses our nixpkgs, instead of the nixpkgs commit in their repo
