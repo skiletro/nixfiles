@@ -12,16 +12,11 @@
     programs.chromium = {
       enable = true;
       extensions = [
-        "gjkjjhgjcalgefcimahpbacihndicccn" # Remove Ads from Photopea
         "ddkjiahejlhfcafbddmgiahcphecmpfh" # uBlock Origin Lite
       ];
       extraOpts = {
         WebAppInstallForceList =
           lib.lists.forEach [
-            {
-              custom_name = "Photopea";
-              url = "https://www.photopea.com";
-            }
             {
               custom_name = "Plex";
               url = "https://app.plex.tv/desktop/#!";
@@ -29,10 +24,6 @@
             {
               custom_name = "Instagram";
               url = "https://www.instagram.com";
-            }
-            {
-              custom_name = "WhatsApp";
-              url = "https://web.whatsapp.com";
             }
             {
               custom_name = "Netflix";
