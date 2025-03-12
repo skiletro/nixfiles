@@ -39,6 +39,7 @@
       # Graphical
       bitwarden-desktop # Password Manager
       fsearch # Fast File Search
+      gimp-with-plugins # Image Editor
       godot_4 # Godot Engine
       handbrake # Video Encoder
       impression # ISO Burner
