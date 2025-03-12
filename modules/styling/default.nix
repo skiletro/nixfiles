@@ -21,12 +21,12 @@
 
     # Cursors
     cursor = {
-      package = inputs.cursors.packages.${pkgs.system}.apple-cursor.override {
+      package = inputs.cursors.packages.${pkgs.system}.breeze-cursor.override {
         background_color = "#${config.lib.stylix.colors.base00}";
         outline_color = "#${config.lib.stylix.colors.base06}";
         accent_color = "#${config.lib.stylix.colors.base00}";
       };
-      name = "Apple-Custom";
+      name = "Breeze-Custom";
       size = 24;
     };
 
