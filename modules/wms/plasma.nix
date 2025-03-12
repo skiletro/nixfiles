@@ -18,7 +18,6 @@
         flameshot # Spectacle screenshoting tool replacement
         gparted # Partition Manager
         haruna # Video Player
-        polonium # Tiling KWin Script
         nur.repos.xddxdd.vk-hdr-layer # HDR for Vulkan
         nur.repos.shadowrz.klassy-qt6
         nur.repos.skiletro.applet-darwinmenu # macOS-like "start menu"
