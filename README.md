@@ -43,6 +43,7 @@ sudo nixos-rebuild boot --flake .#$your_hostname
 
 ## Todo
 - [ ] Declare my Plasma setup using [plasma-manager](https://github.com/pjones/plasma-manager)
+- [ ] Fix KRunner not launching applications with the right environment variables
 - [ ] Expand on AMD GPU module
 
 ## Acknowledgements
