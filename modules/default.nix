@@ -2,6 +2,8 @@
   pkgs,
   lib,
   config,
+  inputs,
+  self,
   ...
 }: {
   imports = [
@@ -165,6 +167,14 @@
     };
   };
 
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    backupFileExtension = "hm";
+    users.jamie.imports = [../home];
+    extraSpecialArgs = {inherit inputs self;};
+  };
+
   programs.nh = {
     # Automatic garbage collection by nh, better than inbuilt
     enable = true;
@@ -175,11 +185,13 @@
     };
   };
 
-  nixpkgs.config = {
-    allowUnfree = true;
-    permittedInsecurePackages = [
-      # This section should only be used as a _LAST RESORT_
-      # Using insecure packages is very dangerous
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      permittedInsecurePackages = [];
+    };
+    overlays = with inputs; [
+      nur.overlays.default
     ];
   };
 
