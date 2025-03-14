@@ -48,7 +48,6 @@
       libreoffice # Office Suite
       ludusavi # Game Save Backup Manager
       mixxx # DJ Software
-      nextcloud-client # Nextcloud Sync
       obs-studio # Screen Recording and Broadcast Suite
       qbittorrent # Torrent Client
       tenacity # Audio Editor
@@ -80,6 +79,8 @@
       vr.enable = true;
     };
   };
+
+  services.flatpak.packages = ["com.hunterwittenborn.Celeste"]; # TODO: Replace with nixpkgs version when it stops crashing :)
 
   system.stateVersion = "23.11";
 }
