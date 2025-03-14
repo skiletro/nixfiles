@@ -35,31 +35,12 @@
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    ...
-  } @ inputs: let
+  outputs = {nixpkgs, ...} @ inputs: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
     # Here is where all the module imports are stored
     commonModules =
-      [
-        ./modules
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            backupFileExtension = "hm";
-            users.jamie.imports = [./home];
-            extraSpecialArgs = {inherit inputs self;};
-          };
-          nixpkgs.overlays = with inputs; [
-            # Nixpkgs Overlays
-            nur.overlays.default
-          ];
-        }
-      ]
+      [./modules]
       ++ (with inputs; [
         home-manager.nixosModules.default
         stylix.nixosModules.stylix
@@ -81,7 +62,7 @@
     };
 
     # Formatter
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
+    formatter.${system} = pkgs.alejandra;
 
     # System configurations
     nixosConfigurations = {
