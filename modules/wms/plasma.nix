@@ -27,6 +27,7 @@
         kcalc # Calculator
         qtwebengine # Web engine based on the Chromium web browser
         filelight # Disk usage statistics
+        kzones # KWin script for snapping windows into zones
       ]);
 
     services.tlp.enable = lib.mkForce false; # KDE power management takes priority over `tlp`
