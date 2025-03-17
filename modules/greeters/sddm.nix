@@ -8,6 +8,7 @@
     && (config.userConfig.greeter.type == "sddm")) {
     services.displayManager.sddm = {
       enable = true;
+      package = lib.mkForce pkgs.kdePackages.sddm;
       wayland.enable = true;
     };
 
@@ -17,6 +18,7 @@
         background=${config.stylix.image}
         type=image
       '')
+      pkgs.kdePackages.sddm-kcm # Adds SDDM settings to Plasma Settings
     ];
   };
 }
