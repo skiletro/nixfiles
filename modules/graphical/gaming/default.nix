@@ -6,6 +6,7 @@
 }: {
   imports = [
     ./emulators.nix
+    ./gamestreaming.nix
     ./vr.nix
   ];
 

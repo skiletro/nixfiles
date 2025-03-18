@@ -76,6 +76,7 @@
     gaming = {
       enable = true;
       emulators.enable = true;
+      gamestreaming.enable = true;
       vr.enable = true;
     };
   };
