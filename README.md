@@ -45,6 +45,7 @@ sudo nixos-rebuild boot --flake .#$your_hostname
 - [ ] Declare my Plasma setup using [plasma-manager](https://github.com/pjones/plasma-manager)
 - [ ] Fix KRunner not launching applications with the right environment variables
 - [ ] Expand on AMD GPU module
+- [ ] Remove hardcoding for game streaming module
 
 ## Acknowledgements
 - [NotAShelf's Nyx Repo](https://github.com/NotAShelf/nyx) - a huge help (also I stole quite a lot of stuff)
