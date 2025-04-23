@@ -14,7 +14,7 @@
     ];
 
     services.flatpak.packages = [
-      #"io.github.lime3ds.Lime3DS"
+      "io.github.TeamWheelWizard.WheelWizard" # mkwii mod manager
     ];
   };
 }
