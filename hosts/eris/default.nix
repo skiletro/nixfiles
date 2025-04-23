@@ -47,7 +47,6 @@
       kdiskmark # Drive Benchmark Tool
       libreoffice # Office Suite
       ludusavi # Game Save Backup Manager
-      mixxx # DJ Software
       obs-studio # Screen Recording and Broadcast Suite
       qbittorrent # Torrent Client
       tenacity # Audio Editor
