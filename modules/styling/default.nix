@@ -13,8 +13,8 @@
     # Wallpaper
     image = let
       input = pkgs.fetchurl {
-        url = "https://w.wallhaven.cc/full/2y/wallhaven-2yrml9.png";
-        sha256 = "1aj8w1cv148bjbasf7nb19myn7ksmipawv4w7x3qlnrrj6xgigvc";
+        url = "https://owo.whats-th.is/44K9pfx.png";
+        sha256 = "1gcmk6jh3r7dqbwx9ac46p6gwdq7pzfbddkri07g8612xlzhcrr5";
       };
     in
       pkgs.runCommand "output.png" {} "${pkgs.lutgen}/bin/lutgen apply ${input} -o $out -- ${builtins.concatStringsSep " " config.lib.stylix.colors.toList}";
