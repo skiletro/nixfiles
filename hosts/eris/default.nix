@@ -20,7 +20,7 @@
     desktop = {
       enable = true;
       environments = ["plasma"];
-      terminalEmulator = "konsole";
+      terminalEmulator = "ghostty";
     };
 
     programs = {
