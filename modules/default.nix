@@ -55,27 +55,27 @@
 
   # Bare minimum programs needed on all systems
   environment.systemPackages = with pkgs; [
-    alejandra # Nix File Formatter
+    alejandra # Nix linter
     du-dust # Fancier Looking `du`
-    fd # Find Files
+    fd # Find files
     file # Identify files
     fzf # Fuzzy-finder
     git # You know what git is
-    helix # Better Editor
-    jq # JSON Processor
+    helix # Best editor
+    jq # JSON script processor
     just # Handy way to save and run project-specific commands
-    libnotify # Send Notifications Through CLI
-    neovim # Vim Editor
-    ngrok # Reverse Proxy
-    pamixer # Pulseaudio command line mixer
-    playerctl # Controls Media Players
-    ripgrep # Grep Through Files
-    tldr # Simplified Man Pages
-    tmux # Terminal Multiplexer
-    unrar # RAR Utility
-    unzip # ZIP Utility
+    libnotify # Send notifications through scripts, handy to have
+    neovim # Vim fork
+    ngrok # Reverse proxy
+    pamixer # PulseAudio command line mixer
+    playerctl # Controls media players
+    ripgrep # Grep through files
+    tldr # Simplified man pages
+    tmux # Terminal multiplexer
+    unrar # RAR utility
+    unzip # ZIP utility
     wget # Get files from command-line
-    wineWowPackages.stable # Wine
+    wineWowPackages.stable # Run Windows apps
     (btop.override {
       cudaSupport = config.userConfig.system.gpu == "nvidia";
       rocmSupport = config.userConfig.system.gpu == "amd";
