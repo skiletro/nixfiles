@@ -58,6 +58,7 @@
     alejandra # Nix File Formatter
     du-dust # Fancier Looking `du`
     fd # Find Files
+    file # Identify files
     fzf # Fuzzy-finder
     git # You know what git is
     helix # Better Editor
