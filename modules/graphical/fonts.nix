@@ -16,7 +16,7 @@
         noto-fonts-cjk-sans # Japanese, Korean, Chinese, etc
         noto-fonts-color-emoji
         nerd-fonts.symbols-only
-        nerd-fonts.mplus
+        nerd-fonts."m+"
         nur.repos.skiletro.urbanist
         nur.repos.skiletro.gabarito
       ];
