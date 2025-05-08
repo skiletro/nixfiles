@@ -34,7 +34,7 @@
       winetricks
       protontricks
       protonplus
-      nur.repos.skiletro.steam-art-manager
+      nur.repos.bandithedoge.sgdboop-bin
 
       # Launchers
       r2modman # Thunderstore Mod Manager (Think Lethal Company, derivationStrict)
