@@ -33,6 +33,9 @@
 
     zen-browser.url = "github:0xc000022070/zen-browser-flake"; # Best browser
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixgl.url = "github:johanneshorner/nixGL"; # See https://github.com/nix-community/nixGL/pull/190, fixes issues with Steam Deck
+    nixgl.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {nixpkgs, ...} @ inputs: let
@@ -69,6 +72,15 @@
       eris = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = commonModules ++ [./hosts/eris];
+      };
+    };
+
+    # Home configurations
+    homeConfigurations = {
+      deck = inputs.home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [inputs.stylix.homeManagerModules.stylix ./hosts/nephele];
+        extraSpecialArgs = {inherit inputs;};
       };
     };
   };
