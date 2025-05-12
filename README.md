@@ -46,6 +46,8 @@ sudo nixos-rebuild boot --flake .#$your_hostname
 - [ ] Fix KRunner not launching applications with the right environment variables
 - [ ] Expand on AMD GPU module
 - [ ] Remove hardcoding for game streaming module
+- [ ] Neaten up `nephele` module
+- [ ] Convert `nephele` to Jovian NixOS
 
 ## Acknowledgements
 - [NotAShelf's Nyx Repo](https://github.com/NotAShelf/nyx) - a huge help (also I stole quite a lot of stuff)
