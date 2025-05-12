@@ -77,7 +77,7 @@
 
     # Home configurations
     homeConfigurations = {
-      deck = inputs.home-manager.lib.homeManagerConfiguration {
+      nephele = inputs.home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [inputs.stylix.homeManagerModules.stylix ./hosts/nephele];
         extraSpecialArgs = {inherit inputs;};
