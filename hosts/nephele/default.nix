@@ -26,7 +26,6 @@ in {
   home.packages =
     (with pkgs; [
       just
-      helix
       fastfetch
       nixd
     ])
@@ -39,9 +38,9 @@ in {
     ];
 
   programs = {
-    foot = {
+    alacritty = {
       enable = true;
-      package = w pkgs.foot;
+      package = w pkgs.alacritty;
     };
     waybar = {
       enable = true;
@@ -51,11 +50,19 @@ in {
         position = "bottom";
         modules-left = ["sway/workspaces" "sway/mode" "sway/window"];
         modules-center = [];
-        modules-right = ["temperature" "clock" "tray"];
+        modules-right = ["temperature" "battery" "clock" "tray"];
       };
     };
-
-    lazygit.enable = true;
+    helix = {
+      enable = true;
+    };
+    direnv = {
+      enable = true;
+      enableBashIntegration = true;
+    };
+    lazygit = {
+      enable = true;
+    };
   };
 
   wayland.windowManager.sway = {
@@ -63,6 +70,7 @@ in {
     package = w pkgs.sway;
     checkConfig = true;
     config = {
+      terminal = "${lib.getExe pkgs.alacritty}";
       modifier = "Mod4";
       defaultWorkspace = "workspace number 1";
 
@@ -90,7 +98,7 @@ in {
           # For Steam Deck action sets
           "${sd}+a" = "exec ${config.wayland.windowManager.sway.config.menu}";
           "${sd}+b" = "kill";
-          "${sd}+c" = "exec dolphin";
+          "${sd}+c" = "exec ${lib.getExe pkgs.xfce.thunar}";
           "${sd}+d" = "exec ${config.wayland.windowManager.sway.config.terminal}";
           "${sd}+e" = "exec flatpak run org.mozilla.firefox";
 
