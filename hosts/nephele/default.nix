@@ -4,7 +4,11 @@
   config,
   lib,
   ...
-}: {
+}: let
+  w = config.lib.nixGL.wrap;
+in {
+  imports = [../../modules/styling];
+
   home = {
     username = "deck";
     homeDirectory = "/home/deck";
@@ -19,49 +23,36 @@
     installScripts = ["mesa"];
   };
 
-  stylix = {
-    enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/oxocarbon-dark.yaml";
-    # Fonts
-    fonts = {
-      sansSerif = {
-        package = pkgs.nerd-fonts."m+";
-        name = "M+2 Nerd Font";
-      };
-      serif = config.stylix.fonts.sansSerif; # Set serif font to the same as the sans-serif
-      monospace = {
-        package = pkgs.nerd-fonts."m+";
-        name = "M+1Code Nerd Font";
-      };
-      emoji = {
-        package = pkgs.noto-fonts-color-emoji;
-        name = "Noto Color Emoji";
-      };
-
-      sizes = {
-        applications = 10;
-        desktop = 10;
-        popups = 10;
-        terminal = 12;
-      };
-    };
-  };
-
-  home.packages = with pkgs; [
-    just
-    helix
-    fastfetch
-    nixd
-  ];
+  home.packages =
+    (with pkgs; [
+      just
+      helix
+      fastfetch
+      nixd
+    ])
+    ++ [
+      (pkgs.writeShellScriptBin "start_sway" ''
+        unset LD_PRELOAD
+        source /etc/profile.d/nix.sh
+        exec sway # We wrap it below, so we don't need to run it under nixGL here.
+      '')
+    ];
 
   programs = {
     foot = {
       enable = true;
-      package = config.lib.nixGL.wrap pkgs.foot;
+      package = w pkgs.foot;
     };
     waybar = {
       enable = true;
-      package = config.lib.nixGL.wrap pkgs.waybar;
+      package = w pkgs.waybar;
+      settings.mainBar = {
+        layer = "bottom";
+        position = "bottom";
+        modules-left = ["sway/workspaces" "sway/mode" "sway/window"];
+        modules-center = [];
+        modules-right = ["temperature" "clock" "tray"];
+      };
     };
 
     lazygit.enable = true;
@@ -69,7 +60,7 @@
 
   wayland.windowManager.sway = {
     enable = true;
-    package = config.lib.nixGL.wrap pkgs.sway;
+    package = w pkgs.sway;
     checkConfig = true;
     config = {
       modifier = "Mod4";
@@ -82,8 +73,10 @@
       };
 
       # Input
-      input."*".xkb_layout = "gb";
-
+      input."*" = {
+        xkb_layout = "gb";
+        xkb_options = "caps:ctrl_modifier";
+      };
       # Keybindings
       menu = "${lib.getExe pkgs.wofi} --show drun";
       keybindings = let
@@ -92,6 +85,10 @@
         lib.mkOptionDefault {
           "${modifier}+f" = "flatpak run org.mozilla.firefox"; # Firefox comes default on SteamOS so we don't need to install it again.
           "${modifier}+Shift+f" = "fullscreen toggle";
+
+          # For the Steam Deck action sets
+          "F12+Shift+a" = config.wayland.windowManager.sway.config.menu;
+          "F12+Shift+b" = "kill";
         };
 
       # Startup
