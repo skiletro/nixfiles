@@ -80,21 +80,33 @@ in {
       # Keybindings
       menu = "${lib.getExe pkgs.wofi} --show drun";
       keybindings = let
-        modifier = config.wayland.windowManager.sway.config.modifier;
+        m = config.wayland.windowManager.sway.config.modifier;
+        sd = "F12+Shift";
       in
         lib.mkOptionDefault {
-          "${modifier}+f" = "flatpak run org.mozilla.firefox"; # Firefox comes default on SteamOS so we don't need to install it again.
-          "${modifier}+Shift+f" = "fullscreen toggle";
+          "${m}+f" = "exec flatpak run org.mozilla.firefox"; # Firefox comes default on SteamOS so we don't need to install it again.
+          "${m}+Shift+f" = "fullscreen toggle";
 
-          # For the Steam Deck action sets
-          "F12+Shift+a" = config.wayland.windowManager.sway.config.menu;
-          "F12+Shift+b" = "kill";
+          # For Steam Deck action sets
+          "${sd}+a" = "exec ${config.wayland.windowManager.sway.config.menu}";
+          "${sd}+b" = "kill";
+          "${sd}+c" = "exec dolphin";
+          "${sd}+d" = "exec ${config.wayland.windowManager.sway.config.terminal}";
+          "${sd}+e" = "exec flatpak run org.mozilla.firefox";
+
+          "${sd}+1" = "workspace number 1";
+          "${sd}+2" = "workspace number 2";
+          "${sd}+3" = "workspace number 3";
+          "${sd}+4" = "workspace number 4";
+          "${sd}+5" = "workspace number 5";
+          "${sd}+6" = "workspace number 6";
         };
 
       # Startup
       startup = [
         {command = "waybar";}
         {command = "${lib.getExe pkgs.autotiling-rs}";}
+        {command = "${lib.getExe pkgs.dunst}";}
       ];
 
       bars = [];
