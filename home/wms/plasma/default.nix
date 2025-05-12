@@ -8,7 +8,7 @@
     stylix.iconTheme = {
       enable = true;
       package = pkgs.papirus-icon-theme.override {
-        color = "red";
+        color = "violet";
       };
       dark = "Papirus";
       light = "Papirus";
