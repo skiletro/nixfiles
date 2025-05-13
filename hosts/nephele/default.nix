@@ -9,6 +9,8 @@
 in {
   imports = [../../modules/styling];
 
+  stylix.cursor.size = lib.mkForce 20; # Make the cursor a bit smaller
+
   home = {
     username = "deck";
     homeDirectory = "/home/deck";
@@ -31,6 +33,7 @@ in {
     ])
     ++ [
       (pkgs.writeShellScriptBin "start_sway" ''
+        #!/bin/sh
         unset LD_PRELOAD
         source /etc/profile.d/nix.sh
         exec sway # We wrap it below, so we don't need to run it under nixGL here.
@@ -52,6 +55,11 @@ in {
         modules-center = [];
         modules-right = ["temperature" "battery" "clock" "tray"];
       };
+    };
+    anyrun = {
+      enable = true;
+      package = w pkgs.anyrun;
+      config.closeOnClick = true;
     };
     helix = {
       enable = true;
@@ -85,11 +93,12 @@ in {
         xkb_layout = "gb";
         xkb_options = "caps:ctrl_modifier";
       };
+
       # Keybindings
-      menu = "${lib.getExe pkgs.wofi} --show drun";
+      menu = "${lib.getExe pkgs.anyrun}";
       keybindings = let
         m = config.wayland.windowManager.sway.config.modifier;
-        sd = "F12+Shift";
+        sd = "Mod2"; # Num Lock
       in
         lib.mkOptionDefault {
           "${m}+f" = "exec flatpak run org.mozilla.firefox"; # Firefox comes default on SteamOS so we don't need to install it again.
@@ -117,8 +126,21 @@ in {
         {command = "${lib.getExe pkgs.dunst}";}
       ];
 
+      # Remove swaybar, we're using waybar instead.
       bars = [];
     };
+
+    extraSessionCommands = ''
+      export WLR_DRM_NO_MODIFIERS=1 # Test fix for external monitor being black
+      export MOZ_ENABLE_WAYLAND=1 # Use native wayland renderer for Firefox
+      export QT_QPA_PLATFORM=wayland # Use native wayland renderer for QT applications
+      export QT_WAYLAND_DISABLE_WINDOWDECORATION=1 # Allow sway to manage window decorations
+      export SDL_VIDEODRIVER=wayland # Use native wayland renderer for SDL applications
+      export XDG_SESSION_TYPE=wayland # Let XDG-compliant apps know they're working on wayland
+      export _JAVA_AWT_WM_NONREPARENTING=1 # Fix JAVA drawing issues in sway
+      source "${pkgs.nix}/etc/profile.d/nix.sh" # Let sway have access to your nix profile
+      # https://github.com/dmayle/nix-config/blob/7af94813eb5c6f4d956dcda7df24a6434d092cb9/home-profiles/nixgl-sway.nix#
+    '';
 
     extraConfig = ''
       default_border pixel 2px
