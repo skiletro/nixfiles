@@ -76,7 +76,7 @@
       enable = true;
       emulators.enable = true;
       gamestreaming.enable = true;
-      vr.enable = true;
+      vr.enable = false; # Wivrn build broke atm https://github.com/NixOS/nixpkgs/issues/407781
     };
   };
 
