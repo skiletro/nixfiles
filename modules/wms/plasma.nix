@@ -18,14 +18,15 @@
         flameshot # Spectacle screenshoting tool replacement
         gparted # Partition Manager
         haruna # Video Player
+        qdirstat # Disk usage statistics
         #nur.repos.shadowrz.klassy-qt6
         nur.repos.skiletro.applet-darwinmenu # macOS-like "start menu"
         nur.repos.skiletro.applet-kara # Workspace indicator
+        plasmusic-toolbar # Better media player widget
       ])
       ++ (with pkgs.kdePackages; [
         kcalc # Calculator
         qtwebengine # Web engine based on the Chromium web browser
-        filelight # Disk usage statistics
         kzones # KWin script for snapping windows into zones
       ]);
 
