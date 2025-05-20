@@ -21,6 +21,7 @@
     nix-gaming.inputs.nixpkgs.follows = "nixpkgs";
 
     nur.url = "github:nix-community/NUR"; # Nix User Repository; similar to the AUR.
+    nur.inputs.nixpkgs.follows = "nixpkgs";
 
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
