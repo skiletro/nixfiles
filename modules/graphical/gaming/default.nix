@@ -24,6 +24,8 @@
         steam-play-none
         # TODO: Package and add proton-cachyos
       ];
+      extest.enable = true;
+      protontricks.enable = true;
       platformOptimizations.enable = true; # Handled by nix-gaming flake
     };
 
@@ -32,7 +34,6 @@
       lutris
       gamescope_git
       winetricks
-      protontricks
       protonplus
       nur.repos.skiletro.sgdboop
 
@@ -57,11 +58,9 @@
       "com.heroicgameslauncher.hgl" # Epic Games, GOG, etc.
       "sh.ppy.osu" # Osu!
       "com.github._0negal.Viper" # Titanfall 2
-      {
-        flatpakref = "https://sober.vinegarhq.org/sober.flatpakref"; # Roblox
-        sha256 = "1pj8y1xhiwgbnhrr3yr3ybpfis9slrl73i0b1lc9q89vhip6ym2l";
-      }
+      "org.vinegarhq.Sober" # Roblox
     ];
+
     # HDR
     environment.variables = {
       DXVK_HDR = "1";
