@@ -62,5 +62,12 @@
         sha256 = "1pj8y1xhiwgbnhrr3yr3ybpfis9slrl73i0b1lc9q89vhip6ym2l";
       }
     ];
+    # HDR
+    environment.variables = {
+      DXVK_HDR = "1";
+      ENABLE_HDR_WSI = "1";
+    };
+
+    hardware.graphics.extraPackages = [pkgs.nur.repos.xddxdd.vk-hdr-layer];
   };
 }
