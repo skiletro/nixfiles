@@ -15,15 +15,15 @@
   };
 
   captureReplayScript = pkgs.writeShellScriptBin "capture-replay" ''
-    ${pkgs.killall}/bin/killall -SIGUSR1 gpu-screen-recorder && msg="Replay Saved!" || msg="Error, check logs. This probably means that the service is not running."
+    ${lib.getExe pkgs.killall} -SIGUSR1 gpu-screen-recorder && msg="Replay Saved!" || msg="Error, check logs. This probably means that the service is not running."
     sleep 0.25
-    ${pkgs.libnotify}/bin/notify-send -t 1500 -- "GPU Screen Recorder" "$msg"
-    ${pkgs.pipewire}/bin/pw-play ${captureSoundEffect}
+    ${lib.getExe pkgs.libnotify} -t 1500 -- "GPU Screen Recorder" "$msg"
+    ${lib.getExe' pkgs.pipewire "pw-play"} ${captureSoundEffect}
   '';
 
   startReplayScript = pkgs.writeShellScriptBin "start-replay" ''
     sleep 10
-    ${pkgs.gpu-screen-recorder}/bin/gpu-screen-recorder -w portal -restore-portal-session yes -f ${refreshRate} \
+    ${lib.getExe pkgs.gpu-screen-recorder} -w portal -restore-portal-session yes -f ${refreshRate} \
       -r ${lengthOfReplayInSeconds} -c mp4 -a "default_output|default_input" -o ${outputDirectory}
   '';
 
@@ -31,7 +31,7 @@
     [Desktop Entry]
     Version=1.0
     Name=gpu-screen-recorder Start Replay
-    Exec=${startReplayScript}/bin/start-replay
+    Exec=${lib.getExe' startReplayScript "start-replay"}
     Terminal=false
     Type=Application
   '';
