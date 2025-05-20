@@ -83,13 +83,13 @@
 
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
         binding = "Launch9";
-        command = "${pkgs.playerctl}/bin/playerctl -p spotify volume 0.02+";
+        command = "${lib.getExe pkgs.playerctl} -p spotify volume 0.02+";
         name = "Spotify Volume Up";
       };
 
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3" = {
         binding = "<Shift>Launch9";
-        command = "${pkgs.playerctl}/bin/playerctl -p spotify volume 0.02-";
+        command = "${lib.getExe pkgs.playerctl} -p spotify volume 0.02-";
         name = "SpotifyVolumeDown";
       };
 

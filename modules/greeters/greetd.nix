@@ -28,9 +28,9 @@
 
               xwayland disable
 
-              exec "${pkgs.greetd.gtkgreet}/bin/gtkgreet -l; swaymsg exit"
+              exec "${lib.getExe pkgs.greetd.gtkgreet} -l; swaymsg exit"
             '';
-          in "${pkgs.sway}/bin/sway --config ${swayConf}";
+          in "${lib.getExe pkgs.sway} --config ${swayConf}";
         };
       };
     };
