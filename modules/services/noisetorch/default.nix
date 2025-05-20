@@ -6,7 +6,7 @@
   ...
 }: let
   cfg = config.userConfig.services.noisetorch;
-  nt = "${pkgs.noisetorch}/bin/noisetorch";
+  nt = "${lib.getExe pkgs.noisetorch}";
 in {
   options.userConfig.services.noisetorch = {
     enable = lib.mkEnableOption ''NoiseTorch (+ setcap wrapper), a virtual microphone device with noise suppression, with a systemd service configured declaratively.'';

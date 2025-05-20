@@ -15,11 +15,11 @@
         exec-once = [
           "eww open bar"
           "swaync &" # Notifications
-          "${pkgs.udiskie}/bin/diskie &" # Auto-mounting of external storage
+          "${lib.getExe pkgs.udiskie} &" # Auto-mounting of external storage
           "gnome-keyring-daemon --start --components=pkcs11,secrets,ssh &" #keyring
           "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP" #fixes apps taking forever to launch
 
-          "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1" #for stuff like passwords
+          "${lib.getExe' pkgs.kdePackages.polkit-kde-agent-1 "polkit-kde-authentication-agent-1"}" #for stuff like passwords
         ];
 
         general = {
@@ -105,7 +105,7 @@
         bind = let
           window_kill_script = pkgs.writeShellScript "window_kill_script" ''
             if [ "$(hyprctl activewindow -j | jq -r ".class")" = "Steam" ]; then
-              ${pkgs.xdotool}/bin/xdotool getactivewindow windowunmap
+              ${lib.getExe pkgs.xdotool} getactivewindow windowunmap
             else
               hyprctl dispatch killactive ""
             fi
