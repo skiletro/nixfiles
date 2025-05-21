@@ -1,7 +1,0 @@
-{
-  imports = [
-    ./chromium
-    ./vial
-    ./localsend
-  ];
-}

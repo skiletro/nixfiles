@@ -1,4 +1,0 @@
-(include "./widgets/bar.yuck")
-(include "./widgets/cal.yuck")
-(include "./widgets/osd.yuck")
-(include "./widgets/cc.yuck") ;control centre

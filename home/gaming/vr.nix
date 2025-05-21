@@ -5,7 +5,7 @@
   pkgs,
   ...
 }: {
-  config = lib.mkIf osConfig.userConfig.gaming.vr.enable {
+  config = lib.mkIf osConfig.eos.programs.vr.enable {
     # This assumes a WiVRn configuration
     xdg.configFile."openxr/1/active_runtime.json".source = "${osConfig.services.wivrn.package}/share/openxr/1/openxr_wivrn.json";
 

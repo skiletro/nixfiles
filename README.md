@@ -42,16 +42,12 @@ sudo nixos-rebuild boot --flake .#$your_hostname
 ...and reboot!
 
 ## Todo
-- [ ] Declare my Plasma setup using [plasma-manager](https://github.com/pjones/plasma-manager)
-- [ ] Fix KRunner not launching applications with the right environment variables
-- [ ] Expand on AMD GPU module
-- [ ] Remove hardcoding for game streaming module
-- [ ] Neaten up `nephele` module
-- [ ] Convert `nephele` to Jovian NixOS
+- [ ] Finish the rewrite
 
 ## Acknowledgements
 - [NotAShelf's Nyx Repo](https://github.com/NotAShelf/nyx) - a huge help (also I stole quite a lot of stuff)
 - [linkfrg's dotfiles](https://github.com/linkfrg/dotfiles) - was incredibly useful in writing better eww widgets!
 - [isabelrose's dotfiles](https://github.com/isabelroses/dotfiles) - shamelessly stole her justfile
+- [uncenter's flake](https://github.com/uncenter/flake/blob/main/hosts/default.nix) - the flake helped a ton on the conversion to flake-parts and easy-hosts, and also gave me (quite a few) ideas for my flake^ 
 
 If you can help with any of this stuff, please do a pull request as I am still learning!
