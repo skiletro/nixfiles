@@ -4,11 +4,10 @@
   ...
 }: {
   imports = [
-    ./gameconfigs
     ./vr.nix
   ];
 
-  config = lib.mkIf osConfig.userConfig.gaming.enable {
+  config = lib.mkIf osConfig.eos.programs.gaming.enable {
     stylix.targets.mangohud.enable = false;
 
     programs.mangohud = {
