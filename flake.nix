@@ -61,6 +61,7 @@
         deadnix # Dead Code Scanner
         just # Command Runner
         nh # Nix CLI Helper
+        statix # Lints & Suggestions
       ];
       shellHook = "just --list --unsorted";
     };
