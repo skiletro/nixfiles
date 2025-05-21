@@ -7,6 +7,7 @@ default:
 builder goal *args:    
     deadnix -eq .
     alejandra . -q
+    statix check -i hardware.nix .direnv
     git add .
     nh os {{goal}} -- {{args}}
 
