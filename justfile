@@ -3,32 +3,36 @@ default:
     @just --list --unsorted
 
 [private]
-[group('rebuild')]
-builder goal *args:    
-    deadnix -eq .
-    alejandra . -q
-    statix check -i hardware.nix .direnv
-    git add .
+[group("rebuild")]
+builder goal *args: format
     nh os {{goal}} -- {{args}}
 
-[group('rebuild')]
+[group("rebuild")]
 switch *args: (builder "switch" args)
 
-[group('rebuild')]
+[group("rebuild")]
 boot *args: (builder "boot" args)
         
-[group('rebuild')]
+[group("rebuild")]
 test *args: (builder "test" args)
 
-[group('rebuild')]
+[group("rebuild")]
 update *input:
     nix flake update {{input}} --refresh
 
-[group('housekeeping')]
+[group("housekeeping")]
+format:
+    git add .
+    deadnix -eq .
+    nix fmt . -- -q
+    statix check -i hardware.nix .direnv
+    git add .
+
+[group("housekeeping")]
 clean:
     nh clean all -K 1d
     nix store optimise
 
-[group('housekeeping')]
+[group("housekeeping")]
 repair:
     nix-store --verify --check-contents --repair
