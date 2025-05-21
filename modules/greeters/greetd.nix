@@ -4,7 +4,7 @@
   config,
   ...
 }: {
-  config = lib.mkIf ((config.userConfig.greeter.enable)
+  config = lib.mkIf (config.userConfig.greeter.enable
     && (config.userConfig.greeter.type == "greetd")) {
     services.greetd = {
       enable = true;
