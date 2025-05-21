@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  config = lib.mkIf ((config.userConfig.greeter.enable)
+  config = lib.mkIf (config.userConfig.greeter.enable
     && (config.userConfig.greeter.type == "sddm")) {
     services.displayManager.sddm = {
       enable = true;
