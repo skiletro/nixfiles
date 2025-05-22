@@ -96,6 +96,31 @@ in {
           default = true;
         };
 
+      # Use https://github.com/noisetorch/NoiseTorch/wiki/Start-automatically-with-Systemd to find your deviceUnit and deviceID
+      noisetorch = {
+        enable =
+          mkEnableOption "NoiseTorch (+setcapwrapper), a virtual microphone device with noise suppression, with a systemd service configured declaratively."
+          // {
+            default = cfg.services.enable;
+          };
+        deviceUnit = mkOption {
+          type = types.nullOr types.str;
+          default = null;
+          description = "Specify the microphone systemd device unit. This is done to prevent the NoiseTorch service from loading before the mic becomes available.";
+        };
+        deviceID = mkOption {
+          type = types.nullOr types.str;
+          default = null;
+          description = "Specify the microphone device ID";
+        };
+      };
+
+      sunshine.enable =
+        mkEnableOption "Sunshine Game Streaming"
+        // {
+          default = cfg.services.enable;
+        };
+
       wireguard.enable =
         mkEnableOption "WireGuard"
         // {
