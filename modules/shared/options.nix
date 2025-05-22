@@ -93,19 +93,31 @@ in {
   config = {
     environment.systemPackages = cfg.programs.extraPrograms;
 
-    assertions = [
-      {
-        assertion = cfg.system.gpu != null && cfg.programs.graphical.enable;
-        message = "eos: cannot install graphical applications without graphical output.";
-      }
-      {
-        assertion = cfg.system.gpu != null && cfg.programs.gaming.enable;
-        message = "eos: cannot install games and gaming utilities without graphical output.";
-      }
-      {
-        assertion = cfg.system.gpu != null && cfg.programs.vr.enable;
-        message = "eos: cannot install wivrn and VR utilities without graphical output.";
-      }
+    assertions = builtins.concatLists [
+      (lib.optionals (cfg.system.gpu == null) [
+        {
+          assertion = !cfg.programs.graphical.enable;
+          message = "eos: cannot install graphical applications without a gpu declared.";
+        }
+        {
+          assertion = !cfg.programs.gaming.enable;
+          message = "eos: cannot install games and gaming utilities without a gpu declared.";
+        }
+        {
+          assertion = !cfg.programs.vr.enable;
+          message = "eos: cannot install WiVRn and other VR utilies without a gpu declared.";
+        }
+      ])
+      (lib.optionals cfg.services.noisetorch.enable [
+        {
+          assertion = cfg.services.noisetorch.deviceUnit != null;
+          message = "eos: noisetorch service requires deviceUnit to be set.";
+        }
+        {
+          assertion = cfg.services.noisetorch.deviceID != null;
+          message = "eos: noisetorch service requires deviceID to be set.";
+        }
+      ])
     ];
   };
 }
