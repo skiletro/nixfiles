@@ -88,6 +88,20 @@ in {
           default = cfg.tooling.enable;
         };
     };
+
+    services = {
+      enable =
+        mkEnableOption "all background services"
+        // {
+          default = true;
+        };
+
+      wireguard.enable =
+        mkEnableOption "WireGuard"
+        // {
+          default = cfg.services.enable;
+        };
+    };
   };
 
   config = {
