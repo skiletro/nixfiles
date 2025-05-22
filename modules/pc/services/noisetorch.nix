@@ -1,4 +1,3 @@
-# Use https://github.com/noisetorch/NoiseTorch/wiki/Start-automatically-with-Systemd to find your deviceUnit and deviceID
 {
   lib,
   pkgs,
@@ -7,21 +6,8 @@
 }: let
   cfg = config.eos.services.noisetorch;
   nt = "${lib.getExe pkgs.noisetorch}";
-  inherit (lib) mkEnableOption mkOption mkIf types;
 in {
-  options.eos.services.noisetorch = {
-    enable = mkEnableOption ''NoiseTorch (+ setcap wrapper), a virtual microphone device with noise suppression, with a systemd service configured declaratively.'';
-    deviceUnit = mkOption {
-      type = types.str;
-      description = "Specify the microphone systemd device unit. This is done to prevent the NoiseTorch service from loading before the mic becomes available.";
-    };
-    deviceID = mkOption {
-      type = types.str;
-      description = "Specify the microphone device ID.";
-    };
-  };
-
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     security.wrappers.noisetorch = {
       owner = "root";
       group = "root";

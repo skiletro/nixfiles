@@ -4,7 +4,7 @@
   config,
   ...
 }: {
-  config = lib.mkIf config.eos.programs.gaming.enable {
+  config = lib.mkIf config.eos.services.sunshine.enable {
     services.sunshine = {
       enable = true;
       autoStart = true;
