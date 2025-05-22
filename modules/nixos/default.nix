@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  config,
   ...
 }: {
   config = {
@@ -82,5 +81,7 @@
     };
 
     system.stateVersion = "23.11";
+
+    age.identityPaths = ["/home/jamie/.ssh/id_ed25519"];
   };
 }

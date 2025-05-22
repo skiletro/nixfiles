@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   nix = {
     package = pkgs.lix;
 
@@ -26,6 +30,10 @@
       ];
     };
 
+    extraOptions = ''
+      !include ${config.age.secrets.github-access-token.path}
+    '';
+
     optimise = {
       automatic = true;
       dates = [
@@ -34,6 +42,8 @@
       ];
     };
   };
+
+  age.secrets.github-access-token.file = ../../secrets/github-access-token.age;
 
   nixpkgs.config.allowUnfree = true;
 }
