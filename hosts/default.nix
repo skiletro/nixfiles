@@ -8,6 +8,7 @@
       ../modules/shared
       ../modules/nixos # TODO: Remove this once proper darwin support is added to the flake
       ../home
+      inputs.agenix.nixosModules.default
       inputs.chaotic.nixosModules.default
       inputs.home-manager.nixosModules.default
       inputs.nur.modules.nixos.default
