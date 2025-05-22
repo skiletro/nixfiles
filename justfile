@@ -2,31 +2,24 @@
 default:
     @just --list --unsorted
 
-[private]
 [group("rebuild")]
-builder goal *args: format
-    nh os {{goal}} -- {{args}}
+[private]
+builder goal *args:
+    nix fmt
+    nh os {{ goal }} -- {{ args }}
 
 [group("rebuild")]
 switch *args: (builder "switch" args)
 
 [group("rebuild")]
 boot *args: (builder "boot" args)
-        
+
 [group("rebuild")]
 test *args: (builder "test" args)
 
 [group("rebuild")]
 update *input:
-    nix flake update {{input}} --refresh
-
-[group("housekeeping")]
-format:
-    git add .
-    deadnix -eq .
-    nix fmt . -- -q
-    statix check -i hardware.nix .direnv
-    git add .
+    nix flake update {{ input }} --refresh
 
 [group("housekeeping")]
 clean:
