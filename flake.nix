@@ -17,6 +17,13 @@
 
     easy-hosts.url = "github:tgirlcloud/easy-hosts";
 
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    systems.url = "github:nix-systems/default-linux";
+
     # Supplementary Packages
     nur = {
       url = "github:nix-community/NUR";
