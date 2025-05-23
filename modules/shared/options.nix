@@ -101,7 +101,7 @@ in {
         enable =
           mkEnableOption "NoiseTorch (+setcapwrapper), a virtual microphone device with noise suppression, with a systemd service configured declaratively."
           // {
-            default = cfg.services.enable;
+            default = false;
           };
         deviceUnit = mkOption {
           type = types.nullOr types.str;
