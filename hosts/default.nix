@@ -1,19 +1,14 @@
-{inputs, ...}: {
+{
+  inputs,
+  lib,
+  ...
+}: {
   imports = [
     inputs.easy-hosts.flakeModule
   ];
 
   easy-hosts = {
-    shared.modules = [
-      ../modules/shared
-      ../modules/nixos # TODO: Remove this once proper darwin support is added to the flake
-      ../home
-      inputs.agenix.nixosModules.default
-      inputs.chaotic.nixosModules.default
-      inputs.home-manager.nixosModules.default
-      inputs.nur.modules.nixos.default
-      inputs.stylix.nixosModules.stylix
-    ];
+    shared.modules = [../modules/shared];
 
     additionalClasses = {
       pc = "nixos";
@@ -37,7 +32,20 @@
     };
 
     perClass = class: {
-      modules = [../modules/${class}];
+      modules = builtins.concatLists [
+        (lib.optionals (class == "pc" || class == "nixos") [
+          ../modules/nixos
+          ../home
+          inputs.agenix.nixosModules.default
+          inputs.chaotic.nixosModules.default
+          inputs.home-manager.nixosModules.default
+          inputs.nur.modules.nixos.default
+          inputs.stylix.nixosModules.stylix
+        ])
+
+        # Every host gets the modules for their own class
+        [../modules/${class}]
+      ];
     };
   };
 }
