@@ -622,6 +622,10 @@
         "flake-parts": "flake-parts",
         "flatpak": "flatpak",
         "home-manager": "home-manager_3",
+        "jovian": [
+          "chaotic",
+          "jovian"
+        ],
         "nixpkgs": "nixpkgs_3",
         "nur": "nur",
         "spicetify": "spicetify",
