@@ -15,7 +15,7 @@
     settings = {
       auto-optimise-store = true;
       experimental-features = ["nix-command" "flakes"];
-      trusted-users = ["root" "@wheel"]; # Fixes some "cannot connect to socket" issues
+      trusted-users = ["jamie" "root" "@wheel"]; # Fixes some "cannot connect to socket" issues
       warn-dirty = false;
       http-connections = 50;
       log-lines = 50;

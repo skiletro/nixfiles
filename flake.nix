@@ -34,6 +34,13 @@
 
     flatpak.url = "github:gmodena/nix-flatpak";
 
+    jovian = {
+      url = "github:Jovian-Experiments/Jovian-NixOS";
+      follows = "chaotic/jovian";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nix-github-actions.follows = "";
+    };
+
     # Theming
     stylix = {
       url = "github:nix-community/stylix";
