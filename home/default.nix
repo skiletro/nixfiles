@@ -4,6 +4,7 @@
   inputs,
   inputs',
   pkgs,
+  config,
   ...
 }: {
   config = {
@@ -43,8 +44,11 @@
       extraSpecialArgs = {inherit self self' inputs inputs';};
     };
 
+    age.secrets.user-password.file = ../secrets/user-password.age;
+
     users.users.jamie = {
       isNormalUser = true;
+      passwordFile = config.age.secrets.user-password.path;
       extraGroups = ["users" "networkmanager" "wheel" "libvirtd"];
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINnFEMa0S9zuA5cVg+Ktazz9gEevkDCNYIDX0WAMxcAC eos"
