@@ -25,10 +25,10 @@
       #   arch = "x86_64";
       #   class = "pc";
       # };
-      # jupiter = {
-      #   arch = "x86_64";
-      #   class = "pc";
-      # };
+      phrixus = {
+        arch = "x86_64";
+        class = "pc";
+      };
     };
 
     perClass = class: {
