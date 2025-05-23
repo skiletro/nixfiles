@@ -4,4 +4,5 @@ let
   ];
 in {
   "github-access-token.age".publicKeys = keys;
+  "user-password.age".publicKeys = keys;
 }
