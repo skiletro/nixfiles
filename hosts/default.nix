@@ -10,6 +10,7 @@
   easy-hosts = let
     additionalClasses = {
       pc = "nixos";
+      steam-machine = "nixos";
       server = "nixos";
       mac = "darwin";
     };
@@ -29,7 +30,7 @@
       # };
       phrixus = {
         arch = "x86_64";
-        class = "pc";
+        class = "steam-machine";
       };
     };
 
@@ -54,6 +55,13 @@
         (lib.optionals (class == "pc") [
           ../home
           inputs.home-manager.nixosModules.default
+        ])
+
+        (lib.optionals (class == "steam-machine") [
+          ../home
+          ../modules/pc # Benefits from inheriting from here
+          inputs.home-manager.nixosModules.default
+          inputs.jovian.nixosModules.default
         ])
       ];
     };
