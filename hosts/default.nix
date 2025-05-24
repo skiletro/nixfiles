@@ -7,14 +7,16 @@
     inputs.easy-hosts.flakeModule
   ];
 
-  easy-hosts = {
-    shared.modules = [../modules/shared];
-
+  easy-hosts = let
     additionalClasses = {
       pc = "nixos";
       server = "nixos";
       mac = "darwin";
     };
+
+    getBaseClass = class: additionalClasses.${class} or class;
+  in {
+    inherit additionalClasses;
 
     hosts = {
       eris = {
@@ -33,18 +35,26 @@
 
     perClass = class: {
       modules = builtins.concatLists [
-        (lib.optionals (class == "pc" || class == "nixos") [
+        # Shared Modules
+        [
+          ../modules/shared
+          ../modules/${class}
+        ]
+
+        # Per Base OS
+        (lib.optionals ((getBaseClass class) == "nixos") [
           ../modules/nixos
-          ../home
           inputs.agenix.nixosModules.default
           inputs.chaotic.nixosModules.default
-          inputs.home-manager.nixosModules.default
           inputs.nur.modules.nixos.default
           inputs.stylix.nixosModules.stylix
         ])
 
-        # Every host gets the modules for their own class
-        [../modules/${class}]
+        # Per Class
+        (lib.optionals (class == "pc") [
+          ../home
+          inputs.home-manager.nixosModules.default
+        ])
       ];
     };
   };
