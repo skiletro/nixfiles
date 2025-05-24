@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  config = lib.mkIf (osConfig.eos.programs.enable && (osConfig.eos.system.desktop == "plasma")) {
+  config = lib.mkIf (osConfig.eos.system.desktop == "plasma") {
     home.packages = [pkgs.kdePackages.konsole];
 
     xdg.dataFile."konsole/Stylix.profile".text = lib.generators.toINI {} {
