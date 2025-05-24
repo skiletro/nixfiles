@@ -1,8 +1,11 @@
 {
   lib,
   pkgs,
+  config,
   ...
-}: {
+}: let
+  inherit (config.eos.system) user;
+in {
   imports = [
     ./services
   ];
@@ -69,6 +72,6 @@
 
     system.stateVersion = "23.11";
 
-    age.identityPaths = ["/home/jamie/.ssh/id_ed25519"];
+    age.identityPaths = ["/home/${user}/.ssh/id_ed25519"];
   };
 }
