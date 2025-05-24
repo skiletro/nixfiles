@@ -6,6 +6,7 @@ default:
 [private]
 builder goal *args:
     nix fmt
+    git add .
     nh os {{ goal }} -- {{ args }}
 
 [group("rebuild")]
