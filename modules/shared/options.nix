@@ -8,6 +8,12 @@
 in {
   options.eos = {
     system = {
+      user = mkOption {
+        type = types.str;
+        default = "jamie";
+        description = "Specify the default username for the user.";
+      };
+
       gpu = mkOption {
         type = types.nullOr (types.enum ["amd" "nvidia"]);
         default = null;

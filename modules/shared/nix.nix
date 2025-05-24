@@ -2,20 +2,22 @@
   pkgs,
   config,
   ...
-}: {
+}: let
+  inherit (config.eos.system) user;
+in {
   nix = {
     package = pkgs.lix;
 
     # set nix path properly
     nixPath = [
-      "nixos-config=/home/jamie/.nix_config/flake.nix"
+      "nixos-config=/home/${user}/.nix_config/flake.nix"
       "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
     ];
 
     settings = {
       auto-optimise-store = true;
       experimental-features = ["nix-command" "flakes"];
-      trusted-users = ["jamie" "root" "@wheel"]; # Fixes some "cannot connect to socket" issues
+      trusted-users = [user "root" "@wheel"]; # Fixes some "cannot connect to socket" issues
       warn-dirty = false;
       http-connections = 50;
       log-lines = 50;

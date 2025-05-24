@@ -6,12 +6,14 @@
   pkgs,
   config,
   ...
-}: {
+}: let
+  inherit (config.eos.system) user;
+in {
   config = {
     home-manager = {
       useGlobalPkgs = true;
       backupFileExtension = "hm";
-      users.jamie.imports = [
+      users.${user}.imports = [
         {
           imports = [
             ./desktops
@@ -22,8 +24,8 @@
           ];
 
           home = {
-            username = "jamie";
-            homeDirectory = "/home/jamie";
+            username = user;
+            homeDirectory = "/home/${user}";
             stateVersion = "23.05";
             shell.enableFishIntegration = true;
           };
@@ -46,7 +48,7 @@
 
     age.secrets.user-password.file = ../secrets/user-password.age;
 
-    users.users.jamie = {
+    users.users.${user} = {
       isNormalUser = true;
       passwordFile = config.age.secrets.user-password.path;
       extraGroups = ["users" "networkmanager" "wheel" "libvirtd"];
