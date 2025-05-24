@@ -15,6 +15,7 @@
     programs.extraPrograms = with pkgs; [
       # Graphical
       bitwarden-desktop # Password Manager
+      element-desktop # Matrix Client
       fsearch # Fast File Search
       gimp3-with-plugins # Image Editor
       godot_4 # Godot Engine
