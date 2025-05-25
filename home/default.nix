@@ -16,6 +16,7 @@ in {
       users.${user}.imports = [
         {
           imports = [
+            ./stylix.nix
             ./desktops
             ./gaming
             ./graphical
