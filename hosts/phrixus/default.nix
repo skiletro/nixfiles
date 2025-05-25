@@ -14,6 +14,13 @@
     services.enable = false; # We don't need any of the background services either.
   };
 
+  # Fixes boot times taking forever. If for whatever reason this config doesn't get activated,
+  # Running `systemctl --user mask steamos-manager.service` on-device will fix it.
+  systemd.user.services."steamos-manager" = {
+    enable = false;
+    unitConfig.Mask = true;
+  };
+
   services.flatpak.packages = [
     "app.zen_browser.zen" # Zen Browser
     "tv.plex.PlexHTPC" # Plex
