@@ -28,7 +28,22 @@
         alsa.support32Bit = true;
         pulse.enable = true;
       };
-      printing.enable = true;
+      avahi = {
+        enable = true;
+        nssmdns4 = true;
+        nssmdns6 = true;
+        openFirewall = true; # For WiFI printers
+        publish = {
+          enable = true;
+          domain = true;
+        };
+      };
+      printing = {
+        enable = true;
+        drivers = with pkgs; [
+          cnijfilter2 # Canon Pixma
+        ];
+      };
       xserver.excludePackages = [pkgs.xterm];
     };
 

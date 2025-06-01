@@ -45,14 +45,6 @@ in {
     networking = {
       networkmanager.enable = true;
     };
-
-    # Avahi - find and connect to other devices easily
-    services.avahi = {
-      enable = true;
-      nssmdns4 = true;
-      openFirewall = true; # For WiFi printers
-    };
-
     # Environment settings
     environment.sessionVariables = {
       NIXOS_OZONE_WL = "1"; # Hints to apps that Wayland is being used
