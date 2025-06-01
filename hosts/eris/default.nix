@@ -26,6 +26,7 @@
       libreoffice # Office Suite
       ludusavi # Game Save Backup Manager
       obs-studio # Screen Recording and Broadcast Suite
+      okteta # Hex Editor
       qbittorrent # Torrent Client
       tenacity # Audio Editor
       thunderbird-latest # Email Client
