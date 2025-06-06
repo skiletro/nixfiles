@@ -25,5 +25,7 @@
     "app.zen_browser.zen" # Zen Browser
     "tv.plex.PlexHTPC" # Plex
     "com.github.iwalton3.jellyfin-media-player" # Jellyfin
+    "rocks.shy.VacuumTube" # YouTube
+    "com.moonlight_stream.Moonlight" # Moonlight Game Streaming
   ];
 }
