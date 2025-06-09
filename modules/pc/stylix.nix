@@ -22,11 +22,12 @@
 
     # Cursors
     cursor = {
-      package = inputs.cursors.packages.${pkgs.system}.breeze-cursor.override {
-        background_color = "#${config.lib.stylix.colors.base00}";
-        outline_color = "#${config.lib.stylix.colors.base06}";
-        accent_color = "#${config.lib.stylix.colors.base00}";
-      };
+      package = with config.lib.stylix.colors;
+        inputs.cursors.packages.${pkgs.system}.breeze-cursor.override {
+          background_color = "#${base00}";
+          outline_color = "#${base06}";
+          accent_color = "#${base00}";
+        };
       name = "Breeze-Custom";
       size = 24;
     };
