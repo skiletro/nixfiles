@@ -9,13 +9,13 @@
     enable = true;
 
     # Color scheme
-    base16Scheme = ./quixayu.yaml;
+    base16Scheme = ./everblush.yaml;
 
     # Wallpaper
     image = let
       input = pkgs.fetchurl {
-        url = "https://owo.whats-th.is/3NTL13w.png";
-        sha256 = "1y8k1c1p4kqjya0ram8g0ixqr41x8y0wg0xp1zbg3dfchvm8qm0l";
+        url = "https://w.wallhaven.cc/full/vp/wallhaven-vpx8ep.jpg";
+        sha256 = "1rv464kh4dn2dgwzf4411r6l6hlkx36y2vsb28x890pj86917vcb";
       };
     in
       pkgs.runCommand "output.png" {} "${lib.getExe pkgs.lutgen} apply ${input} -o $out -- ${builtins.concatStringsSep " " config.lib.stylix.colors.toList}";
