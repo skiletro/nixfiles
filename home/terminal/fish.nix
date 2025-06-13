@@ -24,6 +24,23 @@
         }
       ];
 
+      functions = {
+        "," =
+          # fish
+          ''
+            NIXPKGS_ALLOW_UNFREE=1 nix run "nixpkgs#$argv[1]" --impure -- $argv[2..-1]
+          '';
+
+        "process_replays" =
+          # fish
+          ''
+            for file in Replay_*.mp4
+              set output Processed_$file
+              ffmpeg -i $file $output
+            end
+          '';
+      };
+
       shellAbbrs.n = "cd ~/.nix_config/";
     };
   };
