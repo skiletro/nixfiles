@@ -14,6 +14,7 @@
 
     programs.extraPrograms = with pkgs; [
       # Graphical
+      beeper # Unified Chat App
       bitwarden-desktop # Password Manager
       element-desktop # Matrix Client
       fsearch # Fast File Search
