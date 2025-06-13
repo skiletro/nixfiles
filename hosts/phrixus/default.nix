@@ -22,7 +22,8 @@
   };
 
   services.flatpak.packages = [
-    "app.zen_browser.zen" # Zen Browser
+    "org.chromium.Chromium" # Chromium
+    "org.kde.konsole" # Konsole
     "tv.plex.PlexHTPC" # Plex
     "com.github.iwalton3.jellyfin-media-player" # Jellyfin
     "rocks.shy.VacuumTube" # YouTube
