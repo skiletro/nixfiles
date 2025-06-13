@@ -68,5 +68,14 @@
       categories = ["Audio" "Music" "Player" "AudioVideo"];
       mimeType = ["x-scheme-handler/spotify"];
     };
+
+    # Here we can also install ncspot, a lightweight TUI program if the main client
+    # is a bit too much for whatever workload we're up to.
+    home.packages = [
+      (pkgs.ncspot.override {
+        withCover = true; # Show cover art in terminals that support it!
+        withNotify = false; # No notifications, please!
+      })
+    ];
   };
 }
