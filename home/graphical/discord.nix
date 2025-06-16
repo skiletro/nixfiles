@@ -5,6 +5,11 @@
   ...
 }: {
   config = lib.mkIf osConfig.eos.programs.enable {
-    home.packages = [(pkgs.discord.override {withVencord = true;})];
+    home.packages = [
+      (pkgs.discord.override {
+        withVencord = true;
+        withOpenASAR = true;
+      })
+    ];
   };
 }
