@@ -4,7 +4,10 @@
   pkgs,
   ...
 }: {
-  imports = [./vr.nix];
+  imports = [
+    ./gsr.nix
+    ./vr.nix
+  ];
 
   config = lib.mkIf config.eos.programs.gaming.enable {
     programs.steam = {
@@ -52,7 +55,6 @@
     };
 
     services.flatpak.packages = [
-      "com.dec05eba.gpu_screen_recorder" # ShadowPlay alternative
       "com.heroicgameslauncher.hgl" # Epic Games, GOG, etc.
       "sh.ppy.osu" # Osu!
       "com.github._0negal.Viper" # Titanfall 2

@@ -70,5 +70,7 @@
         darwin.follows = ""; # not needed until darwin host is added
       };
     };
+
+    nixpkgs-gsr-ui.url = "github:js6pak/nixpkgs/gpu-screen-recorder-ui/init";
   };
 }
