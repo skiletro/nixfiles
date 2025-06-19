@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  inputs',
   lib,
   osConfig,
   ...
@@ -10,15 +11,15 @@
     stylix.targets.spicetify.enable = false; # The default spicetify theme colours kinda suck
 
     programs.spicetify = let
-      spicetify = inputs.spicetify.legacyPackages.${pkgs.system};
+      inherit (inputs'.spicetify.legacyPackages) extensions apps;
     in {
       enable = true;
 
-      enabledExtensions = with spicetify.extensions; [
+      enabledExtensions = with extensions; [
         songStats
       ];
 
-      enabledCustomApps = with spicetify.apps; [
+      enabledCustomApps = with apps; [
         newReleases
         lyricsPlus
       ];
@@ -37,7 +38,7 @@
             highlight          = ${base02}
             highlight-elevated = ${base03}
             sidebar            = ${base01}
-            player             = ${base05}
+            player             = ${base02}
             card               = ${base00}
             shadow             = ${base00}
             selected-row       = ${base05}
@@ -71,11 +72,12 @@
 
     # Here we can also install ncspot, a lightweight TUI program if the main client
     # is a bit too much for whatever workload we're up to.
-    home.packages = [
-      (pkgs.ncspot.override {
+    programs.ncspot = {
+      enable = true;
+      package = pkgs.ncspot.override {
         withCover = true; # Show cover art in terminals that support it!
         withNotify = false; # No notifications, please!
-      })
-    ];
+      };
+    };
   };
 }
