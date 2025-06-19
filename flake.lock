@@ -520,6 +520,30 @@
         "type": "github"
       }
     },
+    "nixcord": {
+      "inputs": {
+        "flake-compat": [],
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1750296477,
+        "narHash": "sha256-geLXyPGOaoXMlS5FTJ1iRkCV+zP7LEj74kbgrltdxaA=",
+        "owner": "kaylorben",
+        "repo": "nixcord",
+        "rev": "49ae52bfab1c6e56f4454ae4fb8d6a9e57e74315",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kaylorben",
+        "repo": "nixcord",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1749285348,
@@ -642,6 +666,7 @@
           "chaotic",
           "jovian"
         ],
+        "nixcord": "nixcord",
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-gsr-ui": "nixpkgs-gsr-ui",
         "nur": "nur",
