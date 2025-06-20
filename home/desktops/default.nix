@@ -1,3 +1,3 @@
 {
-  imports = [./plasma.nix];
+  imports = [./plasma];
 }
