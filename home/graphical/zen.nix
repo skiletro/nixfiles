@@ -1,11 +1,26 @@
 {
-  inputs',
+  inputs,
   lib,
   osConfig,
   ...
 }: {
+  imports = [inputs.zen-browser.homeModules.twilight];
+
   config = lib.mkIf osConfig.eos.programs.enable {
-    # This module seems very barebones at the moment, but it will allow for the browser to be configured a lot easier in the future.
-    home.packages = [inputs'.zen-browser.packages.default];
+    programs.zen-browser = {
+      enable = true;
+      policies = {
+        AutofillAddressEnabled = false;
+        AutofillCreditCardEnabled = false;
+        DisableAppUpdate = true;
+        DisableFeedbackCommands = true;
+        DisableFirefoxStudies = true;
+        DisablePocket = true;
+        DisableTelemetry = true;
+        DontCheckDefaultBrowser = true;
+        NoDefaultBookmarks = true;
+        OfferToSaveLogins = false;
+      };
+    };
   };
 }
