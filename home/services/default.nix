@@ -1,5 +1,5 @@
 {
   imports = [
-    ./sunshine.nix
+    ./rnnoise.nix
   ];
 }
