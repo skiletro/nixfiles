@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   imports = [
     ./hardware.nix
   ];
@@ -10,8 +10,13 @@
       gpu = "amd";
       desktop = "plasma";
     };
-    programs.enable = false; # We don't want any of the usual desktop things installed by default.
-    services.enable = false; # We don't need any of the background services either.
+    services.enable = false;
+    programs = {
+      enable = false;
+      extraPrograms = with pkgs; [
+        nur.repos.skiletro.vacuumtube
+      ];
+    };
   };
 
   # Fixes boot times taking forever. If for whatever reason this config doesn't get activated,
@@ -26,7 +31,6 @@
     "org.kde.konsole" # Konsole
     "tv.plex.PlexHTPC" # Plex
     "com.github.iwalton3.jellyfin-media-player" # Jellyfin
-    "rocks.shy.VacuumTube" # YouTube
     "com.moonlight_stream.Moonlight" # Moonlight Game Streaming
   ];
 }
