@@ -5,11 +5,10 @@
   ...
 }: {
   config = lib.mkIf config.eos.services.rclone.enable {
-    age.secrets.rclone-protondrive = {
+    age.secrets."rclone-protondrive.conf" = {
       file = ../../../secrets/rclone-protondrive.age;
-      owner = "root";
-      group = "root";
-      mode = "600";
+      mode = "400";
+      owner = config.eos.system.user;
     };
 
     systemd.services."rclone-documents-sync" = {
@@ -18,14 +17,12 @@
       serviceConfig = {
         Type = "oneshot";
         User = config.eos.system.user;
-        LoadCredential = ["target:${config.age.secrets.rclone-protondrive.path}"];
-        Environment = ["CONF=%d/target"];
+        ExecStart = lib.getExe (pkgs.writeShellScriptBin "rclone-documents-sync"
+          # sh
+          ''
+            ${lib.getExe pkgs.rclone} bisync --config="/run/agenix/rclone-protondrive.conf" -v --force --min-size 1b --max-lock 90m --resync proton:Documents /home/${config.eos.system.user}/Documents/
+          '');
       };
-      script =
-        # sh
-        ''
-          ${lib.getExe pkgs.rclone} bisync proton:Documents /home/${config.eos.system.user}/Documents/ -v --force --min-size 1b --max-lock 90m --resync --config=''${CONF}
-        '';
       startAt = "*:0/10"; # Every 10 minutes
     };
   };
