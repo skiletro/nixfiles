@@ -4,5 +4,6 @@ let
   ];
 in {
   "github-access-token.age".publicKeys = keys;
+  "rclone-protondrive.age".publicKeys = keys;
   "user-password.age".publicKeys = keys;
 }

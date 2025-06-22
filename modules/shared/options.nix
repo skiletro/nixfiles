@@ -107,6 +107,11 @@ in {
         // {
           default = cfg.services.enable;
         };
+
+      rclone.enable =
+        mkEnableOption "Rclone Documents Syncing"
+        // {
+          default = cfg.services.enable;
         };
 
       sunshine.enable =
