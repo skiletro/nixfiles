@@ -102,24 +102,12 @@ in {
           default = true;
         };
 
-      # Use https://github.com/noisetorch/NoiseTorch/wiki/Start-automatically-with-Systemd to find your deviceUnit and deviceID
-      noisetorch = {
-        enable =
-          mkEnableOption "NoiseTorch (+setcapwrapper), a virtual microphone device with noise suppression, with a systemd service configured declaratively."
-          // {
-            default = false;
-          };
-        deviceUnit = mkOption {
-          type = types.nullOr types.str;
-          default = null;
-          description = "Specify the microphone systemd device unit. This is done to prevent the NoiseTorch service from loading before the mic becomes available.";
+      rnnoise.enable =
+        mkEnableOption "RNNoise Pipewire Microphone Noise Suppression"
+        // {
+          default = cfg.services.enable;
         };
-        deviceID = mkOption {
-          type = types.nullOr types.str;
-          default = null;
-          description = "Specify the microphone device ID";
         };
-      };
 
       sunshine.enable =
         mkEnableOption "Sunshine Game Streaming"
@@ -151,16 +139,6 @@ in {
         {
           assertion = !cfg.programs.vr.enable;
           message = "eos: cannot install WiVRn and other VR utilies without a gpu declared.";
-        }
-      ])
-      (lib.optionals cfg.services.noisetorch.enable [
-        {
-          assertion = cfg.services.noisetorch.deviceUnit != null;
-          message = "eos: noisetorch service requires deviceUnit to be set.";
-        }
-        {
-          assertion = cfg.services.noisetorch.deviceID != null;
-          message = "eos: noisetorch service requires deviceID to be set.";
         }
       ])
     ];

@@ -43,11 +43,5 @@
       jre_minimal # Java
       python3 # Python
     ];
-
-    services.noisetorch = {
-      enable = true;
-      deviceUnit = ''sys-devices-pci0000:00-0000:00:01.3-0000:03:00.0-usb1-1\x2d2-1\x2d2:1.0-sound-card2-controlC2.device''; # This changes depending on the USB socket used.
-      deviceID = ''alsa_input.usb-BLUE_MICROPHONE_Blue_Snowball_201305-00.mono-fallback'';
-    };
   };
 }

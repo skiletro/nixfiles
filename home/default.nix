@@ -20,6 +20,7 @@ in {
             ./desktops
             ./gaming
             ./graphical
+            ./services
             ./terminal
             ./tooling
           ];
