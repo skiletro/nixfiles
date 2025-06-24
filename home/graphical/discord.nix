@@ -11,7 +11,11 @@
   config = lib.mkIf osConfig.eos.programs.enable {
     programs.nixcord = {
       enable = true;
-      openASAR.enable = true;
+      discord.enable = false;
+      vesktop = {
+        enable = true;
+        autoscroll.enable = true;
+      };
       config = {
         useQuickCss = true;
         themeLinks = [
