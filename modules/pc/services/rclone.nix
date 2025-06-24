@@ -20,10 +20,10 @@
         ExecStart = lib.getExe (pkgs.writeShellScriptBin "rclone-documents-sync"
           # sh
           ''
-            ${lib.getExe pkgs.rclone} bisync --config="/run/agenix/rclone-protondrive.conf" -v --force --min-size 1b --max-lock 90m --resync proton:Documents /home/${config.eos.system.user}/Documents/
+            ${lib.getExe pkgs.rclone} bisync --config="/run/agenix/rclone-protondrive.conf" -v --force --min-size 1b --max-lock 90m proton:Documents /home/${config.eos.system.user}/Documents/
           '');
       };
-      startAt = "*:0/10"; # Every 10 minutes
+      startAt = "*:0/30"; # Every 30 minutes
     };
   };
 }
