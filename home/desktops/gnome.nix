@@ -5,6 +5,10 @@
   pkgs,
   ...
 }: {
+}: let
+  inherit (lib.gvariant) mkTuple;
+  inherit (lib) getExe mkForce;
+in {
   config = lib.mkIf (osConfig.eos.system.desktop == "gnome") {
     # Set icon theme through Stylix if we are using Gnome.
     # MoreWaita is just a bit of an expansion of the default Adwaita icons!
@@ -34,7 +38,7 @@
         accent-color = "purple"; # Set this to whatever matches the wallpaper best.
         clock-format = "12h";
         clock-show-weekday = true;
-        color-scheme = lib.mkForce "prefer-dark"; # Stylix sets this value as light-mode for whatever reason.
+        color-scheme = mkForce "prefer-dark"; # Stylix sets this value as light-mode for whatever reason.
         enable-animations = true;
         enable-hot-corners = false;
         gtk-enable-primary-paste = false;
@@ -72,7 +76,7 @@
 
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
         binding = "<Super>Return";
-        command = "${lib.getExe config.programs.ghostty.package}";
+        command = "${getExe config.programs.ghostty.package}";
         name = "Launch Terminal";
       };
 
@@ -84,13 +88,13 @@
 
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
         binding = "Launch9"; # F18
-        command = "${lib.getExe pkgs.playerctl} -p spotify volume 0.02+";
+        command = "${getExe pkgs.playerctl} -p spotify volume 0.02+";
         name = "Spotify Volume Up";
       };
 
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3" = {
         binding = "Launch8"; # F17
-        command = "${lib.getExe pkgs.playerctl} -p spotify volume 0.02-";
+        command = "${getExe pkgs.playerctl} -p spotify volume 0.02-";
         name = "SpotifyVolumeDown";
       };
 
@@ -117,13 +121,7 @@
       # Extensions
       "org/gnome/shell" = {
         disable-user-extensions = false;
-        enabled-extensions = with pkgs.gnomeExtensions; [
-          appindicator.extensionUuid
-          dash-to-dock.extensionUuid
-          mpris-label.extensionUuid
-          smile-complementary-extension.extensionUuid
-          weather-oclock.extensionUuid
-        ];
+        enabled-extensions = map (ext: ext.extensionUuid) osConfig.eos.internal.gnome-extensions;
       };
 
       "org/gnome/shell/extensions/appindicator" = {

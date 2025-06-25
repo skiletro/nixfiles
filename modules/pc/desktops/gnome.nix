@@ -4,6 +4,11 @@
   config,
   ...
 }: {
+  options.eos.internal.gnome-extensions = lib.mkOption {
+    type = lib.types.listOf lib.types.package;
+    default = [];
+  };
+
   config = lib.mkIf (config.eos.system.desktop == "gnome") {
     services.desktopManager.gnome.enable = true;
 
@@ -22,6 +27,14 @@
 
     services.tlp.enable = lib.mkForce false; # Gnome power management takes priority over `tlp`
 
+    eos.internal.gnome-extensions = with pkgs.gnomeExtensions; [
+      appindicator
+      dash-to-dock
+      mpris-label
+      smile-complementary-extension
+      weather-oclock
+    ];
+
     environment = {
       systemPackages =
         (with pkgs; [
@@ -32,13 +45,7 @@
           showtime # Video Player (Totem replacement)
           smile
         ])
-        ++ (with pkgs.gnomeExtensions; [
-          appindicator
-          dash-to-dock
-          mpris-label
-          smile-complementary-extension
-          weather-oclock
-        ]);
+        ++ config.eos.internal.gnome-extensions;
       pathsToLink = ["share/thumbnailers"];
     };
 
