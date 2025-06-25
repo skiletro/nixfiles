@@ -50,7 +50,7 @@ in {
       NIXOS_OZONE_WL = "1"; # Hints to apps that Wayland is being used
       FREETYPE_PROPERTIES = "cff:no-stem-darkening=0 autofitter:no-stem-darkening=0"; # Font Stem Darkening - Looks better
       SAL_USE_VCLPLUGIN = "gtk3"; # Global menu support
-      GTK_MODULES = "appmenu-gtk-module"; # Global menu support
+      GTK_MODULES = lib.mkIf (config.eos.system.desktop == "plasma") "appmenu-gtk-module"; # Global menu support
     };
 
     # System-wide privileges

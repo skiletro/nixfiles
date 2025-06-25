@@ -21,12 +21,12 @@ in {
       };
 
       greeter = mkOption {
-        type = types.nullOr (types.enum ["sddm"]);
+        type = types.nullOr (types.enum ["gdm" "sddm"]);
         default = null;
       };
 
       desktop = mkOption {
-        type = types.nullOr (types.enum ["plasma"]);
+        type = types.nullOr (types.enum ["gnome" "plasma"]);
         default = null;
       };
     };
