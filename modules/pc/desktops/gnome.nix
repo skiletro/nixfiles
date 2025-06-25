@@ -31,6 +31,7 @@
       appindicator
       dash-to-dock
       mpris-label
+      search-light
       smile-complementary-extension
       weather-oclock
     ];

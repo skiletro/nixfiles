@@ -4,7 +4,6 @@
   osConfig,
   pkgs,
   ...
-}: {
 }: let
   inherit (lib.gvariant) mkTuple;
   inherit (lib) getExe mkForce;
@@ -28,6 +27,19 @@ in {
         edge-tiling = true;
         experimental-features = ["scale-monitor-framebuffer" "variable-refresh-rate"];
       };
+
+      "org/gnome/shell".favourite-apps = [
+        "zen-twilight.desktop"
+        "org.gnome.Nautilus.desktop"
+        "thunderbird.desktop"
+        "com.mitchellh.ghostty.desktop"
+        "vesktop.desktop"
+        "spotify.desktop"
+        "steam.desktop"
+        "chrome-fjpeaicnionajpipomepndgbcpchdmlb-Default.desktop" # Instagram PWA
+        "writer.desktop"
+        "calc.desktop"
+      ];
 
       "org/gnome/TextEditor" = {
         restore-session = false;
@@ -65,11 +77,20 @@ in {
         resize-with-right-button = true;
       };
 
+      "org/gnome/desktop/input-sources" = {
+        sources = [
+          (mkTuple [
+            "xkb"
+            "gb"
+          ])
+        ];
+        xkb-options = [];
+      };
+
       # Keybindings
       "org/gnome/settings-daemon/plugins/media-keys" = {
         custom-keybindings = ["/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/" "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/" "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/" "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/" "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/"];
         home = ["<Super>e"];
-        search = ["<Super>d"];
         www = ["<Super>f"];
         calculator = ["<Super>c"];
       };
@@ -171,7 +192,7 @@ in {
         left-click-action = "play-pause";
         left-padding = 0;
         middle-click-action = "none";
-        mpris-sources-blacklist = "Mozilla zen,Chromium";
+        mpris-sources-blacklist = "Mozilla zen,Mozilla zen-twilight,Chromium";
         right-click-action = "open-menu";
         right-padding = 0;
         second-field = "";
@@ -179,6 +200,20 @@ in {
         thumb-backward-action = "none";
         thumb-forward-action = "none";
         use-whitelisted-sources-only = false;
+      };
+
+      # Search Light
+      "org/gnome/shell/extensions/search-light" = {
+        "shortcut-search" = ["<Super>d"];
+        "border-radius" = 1.1;
+        # "background-color" = "(0.058823529630899429, 0.086274504661560059, 0.098039217293262482, 1.0)"; # TODO: Theme with Stylix
+        "background-color" = mkTuple [
+          0.05882
+          0.08627
+          0.09803
+          1.0
+        ];
+        "popup-at-cursor-monitor" = true;
       };
 
       # Smile (Emoji Selector)
