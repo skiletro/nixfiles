@@ -8,8 +8,8 @@
   eos = {
     system = {
       gpu = "nvidia";
-      greeter = "sddm";
-      desktop = "plasma";
+      greeter = "gdm";
+      desktop = "gnome";
     };
 
     programs.extraPrograms = with pkgs; [
