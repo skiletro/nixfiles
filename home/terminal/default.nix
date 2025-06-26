@@ -32,10 +32,10 @@
         libnotify # Send notifications through scripts, handy to have
         neovim # Vim fork
         ngrok # Reverse proxy
+        outfieldr # Tldr client written in Zig
         pamixer # PulseAudio command line mixer
         playerctl # Controls media players
         ripgrep # Grep through files
-        tldr # Simplified man pages
         tmux # Terminal multiplexer
         unrar # RAR utility
         unzip # ZIP utility
