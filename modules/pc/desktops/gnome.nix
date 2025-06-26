@@ -33,6 +33,7 @@
       mpris-label
       search-light
       smile-complementary-extension
+      unite
       weather-oclock
     ];
 
