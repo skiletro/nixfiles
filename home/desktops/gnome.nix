@@ -149,7 +149,7 @@ in {
         icon-opacity = 255;
         icon-size = 0;
         legacy-tray-enabled = false;
-        tray-pos = "right";
+        tray-pos = "center";
       };
 
       "org/gnome/shell/extensions/dash-to-dock" = {
@@ -200,6 +200,7 @@ in {
         thumb-backward-action = "none";
         thumb-forward-action = "none";
         use-whitelisted-sources-only = false;
+        extension-index = 0;
       };
 
       # Search Light
@@ -214,6 +215,15 @@ in {
           1.0
         ];
         "popup-at-cursor-monitor" = true;
+      };
+
+      "org/gnome/shell/extensions/unite" = {
+        "hide-activites-button" = "never";
+        "use-activities-text" = false;
+        "show-desktop-name" = false;
+        "hide-window-titlebars" = "never";
+        "show-window-buttons" = "never";
+        "show-window-title" = "never";
       };
 
       # Smile (Emoji Selector)
