@@ -23,6 +23,7 @@
       gnome-software
       seahorse
       simple-scan
+      xorg.xprop # fixes notif spam with unite extension
     ];
 
     services.tlp.enable = lib.mkForce false; # Gnome power management takes priority over `tlp`

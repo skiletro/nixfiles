@@ -142,7 +142,7 @@ in {
       # Extensions
       "org/gnome/shell" = {
         disable-user-extensions = false;
-        enabled-extensions = map (ext: ext.extensionUuid) osConfig.eos.internal.gnome-extensions;
+        enabled-extensions = map (ext: ext.extensionUuid) osConfig.eos.internal.gnome-extensions ++ lib.optional config.stylix.enable "user-theme@gnome-shell-extensions.gcampax.github.com";
       };
 
       "org/gnome/shell/extensions/appindicator" = {
