@@ -14,9 +14,9 @@
 
     programs.extraPrograms = with pkgs; [
       # Graphical
-      beeper # Unified Chat App
       bitwarden-desktop # Password Manager
-      element-desktop # Matrix Client
+      flare-signal # Signal Client
+      fractal # Matrix Client
       fsearch # Fast File Search
       gimp3-with-plugins # Image Editor
       godot_4 # Godot Engine
