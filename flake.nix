@@ -22,10 +22,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    systems = {
-      url = "path:./systems.nix";
-      flake = false;
-    };
+    systems.url = "github:nix-systems/default-linux";
 
     # Supplementary Packages
     nur = {
