@@ -9,13 +9,13 @@
     enable = true;
 
     # Color scheme
-    base16Scheme = ./everblush.yaml;
+    base16Scheme = ./quixayu.yaml;
 
     # Wallpaper
     image = let
       input = pkgs.fetchurl {
-        url = "https://w.wallhaven.cc/full/vp/wallhaven-vpx8ep.jpg";
-        sha256 = "1rv464kh4dn2dgwzf4411r6l6hlkx36y2vsb28x890pj86917vcb";
+        url = "https://w.wallhaven.cc/full/13/wallhaven-13reow.png";
+        sha256 = "1lns86p10wqnnx4h3lcr08p323c7s5n5mkzgz941anm21gja1ngh";
       };
     in
       pkgs.runCommand "output.png" {} "${lib.getExe pkgs.lutgen} apply ${input} -o $out -- ${builtins.concatStringsSep " " config.lib.stylix.colors.toList}";
@@ -23,12 +23,12 @@
     # Cursors
     cursor = {
       package = with config.lib.stylix.colors;
-        inputs.cursors.packages.${pkgs.system}.breeze-cursor.override {
+        inputs.cursors.packages.${pkgs.system}.bibata-modern-cursor.override {
           background_color = "#${base00}";
           outline_color = "#${base06}";
           accent_color = "#${base00}";
         };
-      name = "Breeze-Custom";
+      name = "Bibata-Modern-Custom";
       size = 24;
     };
 
