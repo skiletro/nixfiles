@@ -54,6 +54,11 @@
       };
       settings = {
         editor = {
+          bufferline = "multiple";
+          cursorline = true;
+          true-color = true;
+          line-number = "relative";
+          rulers = [120];
           cursor-shape = {
             insert = "bar";
             normal = "block";
@@ -65,6 +70,22 @@
             skip-levels = 1;
           };
           auto-pairs = true;
+          lsp = {
+            auto-signature-help = false;
+            display-progress-messages = true;
+            display-inlay-hints = true;
+          };
+          end-of-line-diagnostics = "hint";
+          inline-diagnostics = {
+            cursor-line = "error";
+            other-lines = "disable";
+          };
+          statusline.left = ["mode" "spinner" "version-control" "file-name"];
+        };
+        keys = {
+          select = {
+            "X" = "select_line_above";
+          };
         };
       };
     };
