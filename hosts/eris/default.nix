@@ -22,6 +22,7 @@
       godot_4 # Godot Engine
       handbrake # Video Encoder
       impression # ISO Burner
+      itch # Itch.io Client
       kdePackages.kdenlive # Libre Video Editor
       kdiskmark # Drive Benchmark Tool
       libreoffice # Office Suite
