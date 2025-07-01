@@ -204,16 +204,17 @@ in {
       };
 
       # Search Light
-      "org/gnome/shell/extensions/search-light" = {
+      "org/gnome/shell/extensions/search-light" = with config.lib.stylix.colors; let
+        mkColor = r: g: b: mkTuple (map builtins.fromJSON [r g b] ++ [1.0]);
+      in {
         "shortcut-search" = ["<Super>d"];
         "border-radius" = 1.1;
-        # "background-color" = "(0.058823529630899429, 0.086274504661560059, 0.098039217293262482, 1.0)"; # TODO: Theme with Stylix
-        "background-color" = mkTuple [
-          0.05882
-          0.08627
-          0.09803
-          1.0
-        ];
+        "background-color" = mkColor base00-dec-r base00-dec-g base00-dec-b;
+        "text-color" = mkColor base05-dec-r base05-dec-g base05-dec-b;
+        "border-color" = mkColor base01-dec-r base01-dec-g base01-dec-b;
+        "border-thickness" = 1;
+        "scale-width" = 0.17;
+        "scale-height" = 0.2;
         "popup-at-cursor-monitor" = true;
       };
 
