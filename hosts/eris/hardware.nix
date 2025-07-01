@@ -1,6 +1,7 @@
 {
   lib,
   modulesPath,
+  pkgs,
   ...
 }: {
   imports = [
@@ -10,7 +11,7 @@
   # Boot Hardware
   boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod"];
   boot.initrd.kernelModules = [];
-  boot.kernelModules = ["kvm-amd"];
+  boot.kernelModules = ["kvm-amd" "msr"];
   boot.extraModulePackages = [];
   boot.supportedFilesystems = ["ntfs"];
 
@@ -37,6 +38,8 @@
 
   # RGB Management
   services.hardware.openrgb.enable = true;
+
+  environment.systemPackages = [pkgs.amdctl];
 
   # Bluetooth
   hardware.bluetooth = {
