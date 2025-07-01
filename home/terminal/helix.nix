@@ -1,6 +1,7 @@
 {
   lib,
   osConfig,
+  pkgs,
   ...
 }: {
   config = lib.mkIf osConfig.eos.programs.terminal.enable {
@@ -49,6 +50,11 @@
           {
             name = "go";
             auto-format = true;
+          }
+          {
+            name = "c";
+            formatter.command = lib.getExe' pkgs.clang-tools "clang-format";
+            language-servers = ["clangd"];
           }
         ];
       };
