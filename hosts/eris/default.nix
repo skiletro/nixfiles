@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs',
+  ...
+}: {
   imports = [
     ./hardware.nix
   ];
@@ -18,7 +22,7 @@
       flare-signal # Signal Client
       fractal # Matrix Client
       fsearch # Fast File Search
-      gimp3-with-plugins # Image Editor
+      inputs'.photogimp.packages.default
       godot_4 # Godot Engine
       handbrake # Video Encoder
       impression # ISO Burner

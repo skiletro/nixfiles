@@ -67,6 +67,11 @@
       inputs.flake-compat.follows = "";
     };
 
+    photogimp = {
+      url = "github:Libadoxon/nix-photo-gimp";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     agenix = {
       url = "github:ryantm/agenix";
       inputs = {
