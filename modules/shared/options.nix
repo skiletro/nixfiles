@@ -88,6 +88,12 @@ in {
           default = cfg.tooling.enable;
         };
 
+      rust.enable =
+        mkEnableOption "Rust tooling"
+        // {
+          default = cfg.tooling.enable;
+        };
+
       web.enable =
         mkEnableOption "Web (HTML/CSS/JS) tooling"
         // {
