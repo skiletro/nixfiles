@@ -89,6 +89,9 @@
           statusline.left = ["mode" "spinner" "version-control" "file-name"];
         };
         keys = {
+          normal = {
+            "X" = "select_line_above";
+          };
           select = {
             "X" = "select_line_above";
           };
