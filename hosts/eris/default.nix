@@ -19,6 +19,7 @@
     programs.extraPrograms = with pkgs; [
       # Graphical
       bitwarden-desktop # Password Manager
+      blender # You know what blender is
       flare-signal # Signal Client
       fractal # Matrix Client
       fsearch # Fast File Search
@@ -27,7 +28,6 @@
       handbrake # Video Encoder
       impression # ISO Burner
       itch # Itch.io Client
-      kdePackages.kdenlive # Libre Video Editor
       kdiskmark # Drive Benchmark Tool
       libreoffice # Office Suite
       ludusavi # Game Save Backup Manager
