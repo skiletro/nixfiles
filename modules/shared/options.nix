@@ -99,6 +99,12 @@ in {
         // {
           default = cfg.tooling.enable;
         };
+
+      python.enable =
+        mkEnableOption "Python tooling"
+        // {
+          default = cfg.tooling.enable;
+        };
     };
 
     services = {

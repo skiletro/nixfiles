@@ -5,5 +5,6 @@
     ./misc.nix
     ./rust.nix
     ./web.nix
+    ./python.nix
   ];
 }
