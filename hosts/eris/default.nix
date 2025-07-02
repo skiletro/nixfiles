@@ -42,11 +42,6 @@
       # Terminal
       ffmpeg # Manipulate Video
       imagemagick # Manipulate Images
-
-      # Runtimes
-      bun # JavaScript
-      jre_minimal # Java
-      python3 # Python
     ];
   };
 }
