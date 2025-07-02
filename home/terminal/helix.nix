@@ -3,8 +3,11 @@
   osConfig,
   pkgs,
   ...
-}: {
-  config = lib.mkIf osConfig.eos.programs.terminal.enable {
+}: let
+  cfg = osConfig.eos;
+  t = cfg.tooling;
+in {
+  config = lib.mkIf cfg.programs.terminal.enable {
     programs.helix = {
       enable = true;
       defaultEditor = true;
@@ -17,7 +20,7 @@
           gopls.config.gofumpt = true;
         };
         language = [
-          {
+          (lib.mkIf t.web.enable {
             name = "html";
             # roots = [".git"];
             formatter = {
@@ -25,32 +28,32 @@
               args = ["--parser" "html"];
             };
             language-servers = ["vscode-html-language-server" "emmet-lsp"];
-          }
-          {
+          })
+          (lib.mkIf t.web.enable {
             name = "tsx";
             formatter = {
               command = "prettier";
               args = ["--parser" "typescript"];
             };
             language-servers = ["vscode-html-language-server" "emmet-lsp"];
-          }
-          {
+          })
+          (lib.mkIf t.nix.enable {
             name = "nix";
             formatter = {
               command = "alejandra";
               args = ["--quiet"];
               auto-format = true;
             };
-          }
+          })
           {
             name = "fish";
             formatter.command = "fish_indent";
             auto-format = true;
           }
-          {
+          (lib.mkIf t.go.enable {
             name = "go";
             auto-format = true;
-          }
+          })
           {
             name = "c";
             formatter.command = lib.getExe' pkgs.clang-tools "clang-format";
