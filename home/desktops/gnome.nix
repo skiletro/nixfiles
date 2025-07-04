@@ -28,7 +28,7 @@ in {
         experimental-features = ["scale-monitor-framebuffer" "variable-refresh-rate"];
       };
 
-      "org/gnome/shell".favourite-apps = [
+      "org/gnome/shell".favorite-apps = [
         "zen-twilight.desktop"
         "org.gnome.Nautilus.desktop"
         "thunderbird.desktop"
@@ -225,6 +225,15 @@ in {
         "hide-window-titlebars" = "never";
         "show-window-buttons" = "never";
         "show-window-title" = "never";
+      };
+
+      # Ding
+      "org/gnome/shell/extensions/gtk4-ding" = {
+        start-corner = "top-right";
+        show-drop-place = false;
+        show-home = false;
+        show-trash = false;
+        show-volumes = false;
       };
 
       # Smile (Emoji Selector)
