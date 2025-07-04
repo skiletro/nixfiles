@@ -16,6 +16,7 @@ in {
       users.${user}.imports = [
         {
           imports = [
+            inputs.agenix.homeManagerModules.default
             ./stylix.nix
             ./desktops
             ./gaming
