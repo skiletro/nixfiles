@@ -14,15 +14,18 @@
 
     environment.gnome.excludePackages = with pkgs; [
       epiphany
+      evince
       geary
       gnome-connections
       gnome-contacts
       gnome-console
       gnome-maps
+      gnome-music
       gnome-tour
       gnome-software
       seahorse
       simple-scan
+      totem
       xorg.xprop # fixes notif spam with unite extension
     ];
 
@@ -42,10 +45,12 @@
       systemPackages =
         (with pkgs; [
           adwaita-icon-theme # fixes some missing icons
+          gapless
           libheif
           libheif.out # HEIC Image Previews
           mission-center # Task Manager
-          showtime # Video Player (Totem replacement)
+          papers
+          showtime # Video Player
           smile
         ])
         ++ config.eos.internal.gnome-extensions;
