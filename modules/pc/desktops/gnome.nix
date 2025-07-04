@@ -10,7 +10,10 @@
   };
 
   config = lib.mkIf (config.eos.system.desktop == "gnome") {
-    services.desktopManager.gnome.enable = true;
+    services.desktopManager.gnome = {
+      enable = true;
+      extraGSettingsOverridePackages = [pkgs.nautilus]; # fix ding ext
+    };
 
     environment.gnome.excludePackages = with pkgs; [
       epiphany
@@ -34,6 +37,7 @@
     eos.internal.gnome-extensions = with pkgs.gnomeExtensions; [
       appindicator
       dash-to-dock
+      gtk4-desktop-icons-ng-ding
       mpris-label
       search-light
       smile-complementary-extension
@@ -46,6 +50,7 @@
         (with pkgs; [
           adwaita-icon-theme # fixes some missing icons
           gapless
+          gjs # fixes ding ext
           libheif
           libheif.out # HEIC Image Previews
           mission-center # Task Manager
