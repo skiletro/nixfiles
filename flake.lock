@@ -822,8 +822,9 @@
         "nur": "nur",
         "photogimp": "photogimp",
         "spicetify": "spicetify",
+        "steam-localconfig-nix": "steam-localconfig-nix",
         "stylix": "stylix",
-        "systems": "systems_6",
+        "systems": "systems_7",
         "treefmt-nix": "treefmt-nix_3",
         "zen-browser": "zen-browser"
       }
@@ -870,6 +871,27 @@
         "type": "github"
       }
     },
+    "steam-localconfig-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "systems": "systems_5"
+      },
+      "locked": {
+        "lastModified": 1751260865,
+        "narHash": "sha256-azseZAHpfZ5+eOCjFvtVJ6oUs2C5/0pKOkj4r6IG0cE=",
+        "owner": "different-name",
+        "repo": "steam-localconfig-nix",
+        "rev": "339d5b9582dcbdb962382800121fbd1ed59e9767",
+        "type": "github"
+      },
+      "original": {
+        "owner": "different-name",
+        "repo": "steam-localconfig-nix",
+        "type": "github"
+      }
+    },
     "stylix": {
       "inputs": {
         "base16": "base16",
@@ -886,7 +908,7 @@
           "nixpkgs"
         ],
         "nur": "nur_2",
-        "systems": "systems_5",
+        "systems": "systems_6",
         "tinted-foot": "tinted-foot",
         "tinted-kitty": "tinted-kitty",
         "tinted-schemes": "tinted-schemes",
@@ -983,6 +1005,21 @@
       }
     },
     "systems_6": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_7": {
       "locked": {
         "lastModified": 1689347949,
         "narHash": "sha256-12tWmuL2zgBgZkdoB6qXZsgJEH9LR3oUgpaQq2RbI80=",
