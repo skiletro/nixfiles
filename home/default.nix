@@ -54,7 +54,7 @@ in {
     users.users.${user} = {
       isNormalUser = true;
       passwordFile = config.age.secrets.user-password.path;
-      extraGroups = ["users" "networkmanager" "wheel" "libvirtd"];
+      extraGroups = ["users" "networkmanager" "wheel" "libvirtd" "gamemode"];
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINnFEMa0S9zuA5cVg+Ktazz9gEevkDCNYIDX0WAMxcAC eos"
       ];
