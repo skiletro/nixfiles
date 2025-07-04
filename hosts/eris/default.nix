@@ -33,9 +33,9 @@
       ludusavi # Game Save Backup Manager
       obs-studio # Screen Recording and Broadcast Suite
       okteta # Hex Editor
+      proton-pass
       qbittorrent # Torrent Client
       tenacity # Audio Editor
-      thunderbird-latest # Email Client
       video-trimmer # Trims Videos
       vlc # Media Player, mostly used for m3u files
 
