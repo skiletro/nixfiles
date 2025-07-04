@@ -85,6 +85,11 @@
       };
     };
 
+    steam-localconfig-nix = {
+      url = "github:different-name/steam-localconfig-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixpkgs-gsr-ui.url = "github:js6pak/nixpkgs/gpu-screen-recorder-ui/init";
   };
 }

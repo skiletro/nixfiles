@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./vr.nix
+    ./config
   ];
 
   config = lib.mkIf osConfig.eos.programs.gaming.enable {
