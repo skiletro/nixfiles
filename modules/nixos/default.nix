@@ -11,7 +11,7 @@ in {
   ];
 
   config = {
-    boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_cachyos-lto;
+    boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_cachyos;
 
     # Locale
     time.timeZone = "Europe/London";
