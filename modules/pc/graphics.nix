@@ -19,9 +19,16 @@ in {
         modesetting.enable = true;
         open = true;
         nvidiaSettings = true;
+        powerManagement.enable = true;
       };
 
       services.xserver.videoDrivers = ["nvidia"];
+
+      # Fix wake/suspend issues
+      boot.kernelParams = [
+        "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+        "NVreg_TemporaryFilePath=/var/tmp"
+      ];
     })
   ];
 }
