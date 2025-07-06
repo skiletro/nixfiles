@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  inputs',
   ...
 }: {
   imports = [
@@ -54,6 +55,31 @@
     programs.gamemode = {
       enable = true;
       enableRenice = true;
+      settings = {
+        general = {
+          softrealtime = "auto";
+          renice = 15;
+        };
+        custom = let
+          powerprofilesctl = lib.getExe pkgs.power-profiles-daemon;
+          gsr-notify = text: "${lib.getExe inputs'.nixpkgs-gsr-ui.legacyPackages.gpu-screen-recorder-notification} --timeout 1.5 --bg-color ${config.lib.stylix.colors.base0E} --text '${text}'";
+        in {
+          start =
+            (pkgs.writeShellScript "gamemode-start"
+              # sh
+              ''
+                ${powerprofilesctl} set performance
+                ${gsr-notify "Gamemode optimisations activated."}
+              '').outPath;
+          end =
+            (pkgs.writeShellScript "gamemode-end"
+              # sh
+              ''
+                ${powerprofilesctl} set power-saver
+                ${gsr-notify "Gamemode optimisations deactivated."}
+              '').outPath;
+        };
+      };
     };
 
     services.flatpak.packages = [
