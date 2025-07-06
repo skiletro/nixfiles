@@ -66,6 +66,7 @@ in {
           bufferline = "multiple";
           cursorline = true;
           true-color = true;
+          color-modes = true;
           line-number = "relative";
           rulers = [120];
           cursor-shape = {
@@ -89,11 +90,28 @@ in {
             cursor-line = "error";
             other-lines = "disable";
           };
-          statusline.left = ["mode" "spinner" "version-control" "file-name"];
+          statusline = {
+            mode = {
+              normal = "NORMAL";
+              insert = "INSERT";
+              select = "SELECT";
+            };
+            separator = " ";
+            left = ["mode" "separator" "read-only-indicator" "file-modification-indicator"];
+            center = ["file-name"];
+            right = ["spinner" "version-control" "position" "file-encoding" "file-line-ending" "file-type"];
+          };
         };
         keys = {
           normal = {
             "X" = "select_line_above";
+            "C-e" = [
+              ":sh rm -f /tmp/hx-unique-file"
+              ":insert-output ${lib.getExe pkgs.yazi} %{buffer_name} --chooser-file=/tmp/hx-unique-file"
+              ":insert-output echo '\\x1b[?1049h\\x1b[?2004h' > /dev/tty"
+              ":open %sh{cat /tmp/hx-unique-file}"
+              ":redraw"
+            ];
           };
           select = {
             "X" = "select_line_above";
