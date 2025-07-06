@@ -136,6 +136,10 @@ in {
         switch-to-workspace-2 = ["<Super>2"];
         switch-to-workspace-3 = ["<Super>3"];
         switch-to-workspace-4 = ["<Super>4"];
+        move-to-workspace-1 = ["<Shift><Super>1"];
+        move-to-workspace-2 = ["<Shift><Super>2"];
+        move-to-workspace-3 = ["<Shift><Super>3"];
+        move-to-workspace-4 = ["<Shift><Super>4"];
         toggle-fullscreen = ["<Shift><Super>f"];
       };
 
@@ -181,6 +185,7 @@ in {
         show-show-apps-button = false;
         show-trash = false;
         transparency-mode = "DEFAULT";
+        hot-keys = false;
       };
 
       "org/gnome/shell/extensions/blur-my-shell/dash-to-dock".pipeline = "pipeline_default";
