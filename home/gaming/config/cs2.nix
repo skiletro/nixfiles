@@ -145,6 +145,6 @@
   in {
     xdg.dataFile."Steam/steamapps/common/Counter-Strike Global Offensive/game/csgo/cfg/autoexec_nix.cfg".text = mkCfgFile;
 
-    programs.steam.localConfig.users.${config.eos.internal.steamUserID}.launchOptions."730" = "${lib.concatStringsSep " " launchOptions} +exec autoexec_nix";
+    programs.steam.config.apps."730".launchOptions = "${lib.concatStringsSep " " launchOptions} +exec autoexec_nix";
   };
 }

@@ -14,7 +14,7 @@
   };
 
   config = lib.mkIf osConfig.eos.programs.gaming.enable {
-    programs.steam.localConfig = {
+    programs.steam.config = {
       enable = true;
       closeSteam = true; # Closes Steam automatically before writing any changes.
     };
