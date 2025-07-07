@@ -3,6 +3,7 @@
   config,
   osConfig,
   pkgs,
+  inputs',
   ...
 }: {
   config = lib.mkIf osConfig.eos.programs.vr.enable {
@@ -28,5 +29,17 @@
         "version" : 1
       }
     '';
+
+    xdg.configFile."wlxoverlay/wayvr.yaml".source = (pkgs.formats.yaml {}).generate "wayvr.yaml" {
+      version = 1;
+      run_compositor_at_start = false;
+      auto_hide = true;
+      auto_hide_delay = 750;
+
+      dashboard = {
+        exec = lib.getExe inputs'.nixpkgs-xr.packages.wayvr-dashboard;
+        env = ["GDK_BACKEND=wayland"];
+      };
+    };
   };
 }

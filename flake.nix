@@ -41,6 +41,12 @@
       inputs.nix-github-actions.follows = "";
     };
 
+    nixpkgs-xr = {
+      url = "github:nix-community/nixpkgs-xr";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-compat.follows = "";
+    };
+
     # Theming
     stylix = {
       url = "github:nix-community/stylix";
