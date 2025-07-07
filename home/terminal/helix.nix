@@ -2,6 +2,7 @@
   lib,
   osConfig,
   pkgs,
+  inputs',
   ...
 }: let
   cfg = osConfig.eos;
@@ -10,6 +11,7 @@ in {
   config = lib.mkIf cfg.programs.terminal.enable {
     programs.helix = {
       enable = true;
+      package = inputs'.helix.packages.default;
       defaultEditor = true;
       languages = {
         language-server = {
@@ -111,6 +113,8 @@ in {
               ":insert-output echo '\\x1b[?1049h\\x1b[?2004h' > /dev/tty"
               ":open %sh{cat /tmp/hx-unique-file}"
               ":redraw"
+              ":set-option mouse false"
+              ":set-option mouse true"
             ];
           };
           select = {
