@@ -32,7 +32,7 @@
       gamescope_git
       winetricks
       protonplus
-      nur.repos.skiletro.sgdboop
+      sgdboop
 
       # Launchers
       r2modman # Thunderstore Mod Manager (Think Lethal Company, derivationStrict)
