@@ -9,6 +9,7 @@
     ./bat.nix
     ./btop.nix
     ./direnv.nix
+    ./eos-cli.nix
     ./eza.nix
     ./fastfetch.nix
     ./fish.nix
