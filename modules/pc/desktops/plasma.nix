@@ -11,6 +11,20 @@
       khelpcenter
     ];
 
+    home-manager.sharedModules = lib.singleton {
+      stylix.iconTheme = {
+        enable = true;
+        package = pkgs.colloid-icon-theme;
+        dark = "Colloid-Dark";
+        light = "Colloid-Light";
+      };
+
+      dconf = {
+        enable = true;
+        settings."org/gnome/desktop/wm/preferences".button-layout = ":minimize,maximize,close";
+      };
+    };
+
     environment.systemPackages =
       (with pkgs; [
         adwaita-icon-theme # Fixes some issues with Adwaita apps

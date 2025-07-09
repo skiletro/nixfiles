@@ -2,6 +2,7 @@
   lib,
   pkgs,
   config,
+  inputs',
   ...
 }: {
   config = lib.mkIf config.eos.programs.vr.enable {
@@ -26,6 +27,43 @@
           // (prev.extraEnv or {});
       })
     );
+
+    home-manager.sharedModules = lib.singleton (userAttrs: {
+      # This assumes a WiVRn configuration
+      xdg.configFile."openxr/1/active_runtime.json".source = "${config.services.wivrn.package}/share/openxr/1/openxr_wivrn.json";
+
+      xdg.configFile."openvr/openvrpaths.vrpath".text = ''
+        {
+          "config" :
+          [
+            "${userAttrs.config.xdg.dataHome}/Steam/config"
+          ],
+          "external_drivers" : null,
+          "jsonid" : "vrpathreg",
+          "log" :
+          [
+            "${userAttrs.config.xdg.dataHome}/Steam/logs"
+          ],
+          "runtime" :
+          [
+            "${pkgs.opencomposite}/lib/opencomposite"
+          ],
+          "version" : 1
+        }
+      '';
+
+      xdg.configFile."wlxoverlay/wayvr.yaml".source = (pkgs.formats.yaml {}).generate "wayvr.yaml" {
+        version = 1;
+        run_compositor_at_start = false;
+        auto_hide = true;
+        auto_hide_delay = 750;
+
+        dashboard = {
+          exec = lib.getExe inputs'.nixpkgs-xr.packages.wayvr-dashboard;
+          env = ["GDK_BACKEND=wayland"];
+        };
+      };
+    });
   };
 
   # --- Instructions ---

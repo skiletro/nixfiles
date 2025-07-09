@@ -17,8 +17,6 @@ in {
         {
           imports = [
             inputs.agenix.homeManagerModules.default
-            ./stylix.nix
-            ./desktops
             ./gaming
             ./graphical
             ./services

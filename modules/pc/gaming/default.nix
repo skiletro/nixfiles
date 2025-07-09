@@ -50,6 +50,13 @@
       cemu # Wii U
     ];
 
+    home-manager.sharedModules = lib.singleton {
+      programs.mangohud = {
+        enable = true;
+        enableSessionWide = false;
+      };
+    };
+
     boot.kernel.sysctl."vm.max_map_count" = 2147483642;
 
     programs.gamemode = {
