@@ -10,6 +10,8 @@
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -34,12 +36,7 @@
 
     flatpak.url = "github:gmodena/nix-flatpak";
 
-    jovian = {
-      url = "github:Jovian-Experiments/Jovian-NixOS";
-      follows = "chaotic/jovian";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.nix-github-actions.follows = "";
-    };
+    jovian.follows = "chaotic/jovian";
 
     nixpkgs-xr = {
       url = "github:nix-community/nixpkgs-xr";
@@ -102,5 +99,18 @@
     };
 
     nixpkgs-gsr-ui.url = "github:js6pak/nixpkgs/gpu-screen-recorder-ui/init";
+  };
+
+  nixConfig = {
+    extra-trusted-substituters = [
+      "https://install.determinate.systems"
+      "https://nix-community.cachix.org"
+      "https://helix.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
+    ];
   };
 }

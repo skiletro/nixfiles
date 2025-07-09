@@ -1,13 +1,7 @@
-{
-  pkgs,
-  config,
-  ...
-}: let
+{config, ...}: let
   inherit (config.eos.system) user;
 in {
   nix = {
-    package = pkgs.lix;
-
     # set nix path properly
     nixPath = [
       "nixos-config=/home/${user}/.nix_config/flake.nix"
@@ -16,22 +10,14 @@ in {
 
     settings = {
       auto-optimise-store = true;
-      experimental-features = ["nix-command" "flakes" "repl-flake"];
+      experimental-features = ["nix-command" "flakes"];
       trusted-users = [user "root" "@wheel"]; # Fixes some "cannot connect to socket" issues
       warn-dirty = false;
       http-connections = 50;
       log-lines = 50;
       builders-use-substitutes = true;
-      substituters = [
-        "https://nix-gaming.cachix.org"
-        "https://nix-community.cachix.org"
-        "https://helix.cachix.org"
-      ];
-      trusted-public-keys = [
-        "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
-        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-        "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
-      ];
+      accept-flake-config = true;
+      lazy-trees = true;
     };
 
     extraOptions = ''

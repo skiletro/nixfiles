@@ -45,6 +45,7 @@
         # Per Base OS
         (lib.optionals ((getBaseClass class) == "nixos") [
           ../modules/nixos
+          inputs.determinate.nixosModules.default
           inputs.agenix.nixosModules.default
           inputs.chaotic.nixosModules.default
           inputs.nur.modules.nixos.default
