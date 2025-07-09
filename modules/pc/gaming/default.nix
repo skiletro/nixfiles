@@ -43,6 +43,8 @@
           temurin-jre-bin-8
         ];
       })
+      heroic # Epic Games, GOG, Amazon Games
+      osu-lazer-bin
 
       # Emulators
       dolphin-emu # Wii, Gamecube
@@ -90,8 +92,6 @@
     };
 
     services.flatpak.packages = [
-      "com.heroicgameslauncher.hgl" # Epic Games, GOG, etc.
-      "sh.ppy.osu" # Osu!
       "com.github._0negal.Viper" # Titanfall 2
       "org.vinegarhq.Sober" # Roblox
       "io.github.TeamWheelWizard.WheelWizard" # mkwii mod manager
