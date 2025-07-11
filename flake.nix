@@ -1,5 +1,5 @@
 {
-  outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} {imports = [./modules/flake];};
+  outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree [./modules ./hosts]);
 
   inputs = {
     # Core Inputs
@@ -10,6 +10,10 @@
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
+    import-tree.url = "github:vic/import-tree";
+
+    easy-hosts.url = "github:tgirlcloud/easy-hosts";
+
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
 
     home-manager = {
@@ -17,14 +21,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    easy-hosts.url = "github:tgirlcloud/easy-hosts";
-
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    systems.url = "github:nix-systems/default-linux";
 
     # Supplementary Packages
     nur = {

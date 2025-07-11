@@ -7,6 +7,7 @@ permission:
     @echo -e "\e[35m>\e[0m Retroactively asking for sudo permissions..."
     @sudo true
 
+# tesing
 [group("rebuild")]
 [private]
 builder goal *args:
