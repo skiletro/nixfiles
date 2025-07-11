@@ -5,20 +5,6 @@
   inputs',
   ...
 }: {
-  imports = [
-    ./bat.nix
-    ./btop.nix
-    ./direnv.nix
-    ./eos-cli.nix
-    ./eza.nix
-    ./fastfetch.nix
-    ./fish.nix
-    ./git.nix
-    ./helix.nix
-    ./starship.nix
-    ./tmux.nix
-  ];
-
   config = lib.mkIf osConfig.eos.programs.terminal.enable {
     home.packages =
       (with pkgs; [

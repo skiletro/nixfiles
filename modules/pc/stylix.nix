@@ -9,7 +9,11 @@
     enable = true;
 
     # Color scheme
-    base16Scheme = ./quixayu.yaml;
+    base16Scheme =
+      (pkgs.fetchurl {
+        url = "https://gist.githubusercontent.com/skiletro/e25e71074bbab950ce28df6810394ee3/raw/5a6c3ee7a220e3ca9d27b93985cf1960fec6d60e/quixayu.yaml";
+        sha256 = "1ncf8jhcrd5pzv2g620pab9avliz9x2c29gham6rk1y7dg4hk50m";
+      }).outPath;
 
     # Wallpaper
     image = let

@@ -3,12 +3,6 @@
   inputs',
   ...
 }: {
-  imports = [
-    ./hardware.nix
-  ];
-
-  networking.hostName = "eris";
-
   eos = {
     system = {
       gpu = "nvidia";

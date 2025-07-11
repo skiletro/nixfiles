@@ -1,17 +1,4 @@
 {pkgs, ...}: {
-  imports = [
-    ./flatpak.nix
-    ./fonts.nix
-    ./graphics.nix
-    ./stylix.nix
-    ./virtualisation.nix
-    ./desktops
-    ./gaming
-    ./greeters
-    ./programs
-    ./services
-  ];
-
   config = {
     boot.loader = {
       systemd-boot = {

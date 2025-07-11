@@ -17,11 +17,12 @@ in {
         {
           imports = [
             inputs.agenix.homeManagerModules.default
-            ./gaming
-            ./graphical
-            ./services
-            ./terminal
-            ./tooling
+            (inputs.import-tree ../../home)
+            # ./gaming
+            # ./graphical
+            # ./services
+            # ./terminal
+            # ./tooling
           ];
 
           home = {
@@ -47,7 +48,7 @@ in {
       extraSpecialArgs = {inherit self self' inputs inputs';};
     };
 
-    age.secrets.user-password.file = ../secrets/user-password.age;
+    age.secrets.user-password.file = self + /secrets/user-password.age;
 
     users.users.${user} = {
       isNormalUser = true;

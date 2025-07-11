@@ -6,10 +6,6 @@
 }: let
   inherit (config.eos.system) user;
 in {
-  imports = [
-    ./services
-  ];
-
   config = {
     boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_cachyos;
 
@@ -43,6 +39,7 @@ in {
 
     # Networking
     networking = {
+      useDHCP = lib.mkDefault true;
       networkmanager.enable = true;
     };
     # Environment settings

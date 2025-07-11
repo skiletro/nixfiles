@@ -303,6 +303,12 @@ in {
           papers
           showtime # Video Player
           smile
+
+          # Thumbnailers
+          ffmpegthumbnailer # fixes video thumbnails without totem
+          bign-handheld-thumbnailer # for nintendo ds and 3ds roms
+          nufraw-thumbnailer # for raw images
+          gnome-epub-thumbnailer # for epub and mobi books
         ])
         ++ extensions;
       pathsToLink = ["share/thumbnailers"];

@@ -5,11 +5,6 @@
   inputs',
   ...
 }: {
-  imports = [
-    ./gsr.nix
-    ./vr.nix
-  ];
-
   config = lib.mkIf config.eos.programs.gaming.enable {
     programs.steam = {
       enable = true;
