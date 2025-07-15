@@ -8,6 +8,7 @@
   inherit (lib) getExe mkForce;
 
   extensions = with pkgs.gnomeExtensions; [
+    accent-directories
     appindicator
     dash-to-dock
     gtk4-desktop-icons-ng-ding
@@ -56,7 +57,7 @@ in {
         };
 
         "org/gnome/desktop/interface" = {
-          accent-color = "purple"; # Set this to whatever matches the wallpaper best.
+          accent-color = "orange"; # Set this to whatever matches the colour scheme best.
           clock-format = "12h";
           clock-show-weekday = true;
           color-scheme = mkForce "prefer-dark"; # Stylix sets this value as light-mode for whatever reason.
@@ -295,6 +296,7 @@ in {
       systemPackages =
         (with pkgs; [
           adwaita-icon-theme # fixes some missing icons
+          adwaita-icon-theme-legacy # fixes some missing icons
           gapless
           gjs # fixes ding ext
           libheif
