@@ -12,8 +12,6 @@
         noto-fonts-color-emoji
         nerd-fonts.symbols-only
         nerd-fonts."m+"
-        nur.repos.skiletro.urbanist
-        nur.repos.skiletro.gabarito
       ];
     };
   };
