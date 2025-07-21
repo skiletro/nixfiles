@@ -53,7 +53,7 @@
               --\\--hide-guild-tags: true;
               --\\--hide-profile-effects: true;
               --\\--hide-avatar-decorations: true;
-              --\\--hide-gradient-glow-usernames: true;
+              --\\--hide-gradient-glow-usernames: false;
               --\\--hide-server-boost-goal: true;
               --\\--hide-server-activity: true;
               --\\--hide-user-activity: true;
