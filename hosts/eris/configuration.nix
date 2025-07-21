@@ -21,6 +21,7 @@
       godot_4 # Godot Engine
       handbrake # Video Encoder
       impression # ISO Burner
+      inkscape-with-extensions
       itch # Itch.io Client
       kdiskmark # Drive Benchmark Tool
       libreoffice # Office Suite
