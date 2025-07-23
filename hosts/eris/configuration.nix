@@ -14,6 +14,7 @@
       # Graphical
       bitwarden-desktop # Old password manager - still there for any passwords I forgot to transfer over.
       blender # You know what blender is
+      delfin # Jellyfin Client
       flare-signal # Signal Client
       fractal # Matrix Client
       fsearch # Fast File Search
