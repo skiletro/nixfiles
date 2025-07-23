@@ -17,6 +17,7 @@
       flare-signal # Signal Client
       fractal # Matrix Client
       fsearch # Fast File Search
+      ghex # Hex Editor
       inputs'.photogimp.packages.default
       godot_4 # Godot Engine
       handbrake # Video Encoder
@@ -27,7 +28,6 @@
       libreoffice # Office Suite
       ludusavi # Game Save Backup Manager
       obs-studio # Screen Recording and Broadcast Suite
-      okteta # Hex Editor
       proton-pass
       qbittorrent # Torrent Client
       tenacity # Audio Editor
