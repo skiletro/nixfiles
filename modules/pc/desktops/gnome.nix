@@ -10,6 +10,7 @@
   extensions = with pkgs.gnomeExtensions; [
     accent-directories
     appindicator
+    color-picker
     dash-to-dock
     gtk4-desktop-icons-ng-ding
     mpris-label
