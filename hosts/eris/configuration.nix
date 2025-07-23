@@ -12,7 +12,7 @@
 
     programs.extraPrograms = with pkgs; [
       # Graphical
-      bitwarden-desktop # Password Manager
+      bitwarden-desktop # Old password manager - still there for any passwords I forgot to transfer over.
       blender # You know what blender is
       flare-signal # Signal Client
       fractal # Matrix Client
@@ -28,7 +28,7 @@
       libreoffice # Office Suite
       ludusavi # Game Save Backup Manager
       obs-studio # Screen Recording and Broadcast Suite
-      proton-pass
+      proton-pass # Password manager
       qbittorrent # Torrent Client
       tenacity # Audio Editor
       video-trimmer # Trims Videos
