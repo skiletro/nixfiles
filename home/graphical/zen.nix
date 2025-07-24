@@ -21,6 +21,9 @@
         NoDefaultBookmarks = true;
         OfferToSaveLogins = false;
       };
+      profiles."default" = {}; # TODO: Declare extensions
     };
+
+    stylix.targets.zen-browser.profileNames = lib.singleton "default";
   };
 }
