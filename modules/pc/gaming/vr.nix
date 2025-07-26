@@ -14,6 +14,9 @@
 
     services.wivrn = {
       enable = true;
+      package = pkgs.wivrn.override {
+        cudaSupport = true;
+      };
       openFirewall = true;
       defaultRuntime = true; # Default runtime for SteamVR games set in HM module.
     };
@@ -60,7 +63,12 @@
 
         dashboard = {
           exec = lib.getExe inputs'.nixpkgs-xr.packages.wayvr-dashboard;
-          env = ["GDK_BACKEND=wayland"];
+          blit_method = "software";
+          env = [
+            "GDK_BACKEND=wayland"
+            "WEBKIT_DISABLE_DMABUF_RENDERER=1"
+            "WEBKIT_DISABLE_COMPOSITING_MODE=1"
+          ];
         };
       };
     });
