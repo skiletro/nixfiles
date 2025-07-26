@@ -1,8 +1,17 @@
 {
   pkgs,
   inputs',
+  inputs,
   ...
 }: {
+  imports = with inputs.nixos-hardware.nixosModules; [
+    common-cpu-amd
+    common-cpu-amd-pstate
+    common-cpu-amd-zenpower
+    common-cpu-amd-raphael-igpu
+    common-pc-ssd
+  ];
+
   eos = {
     system = {
       gpu = "nvidia";
