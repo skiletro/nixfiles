@@ -130,10 +130,17 @@ in {
           name = "SpotifyVolumeDown";
         };
 
-        "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4" = {
-          binding = "<Shift><Control><Alt>F11";
-          command = "capture-replay";
-          name = "Capture Replay";
+        # Only enable these keybindings if we have GSR!
+        "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4" = lib.mkIf config.eos.programs.gaming.enable {
+          binding = "<Shift><Alt>F9";
+          command = "gsr-ui-cli replay-save";
+          name = "Capture Replay with GSR UI";
+        };
+
+        "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5" = lib.mkIf config.eos.programs.gaming.enable {
+          binding = "<Super>z";
+          command = "gsr-ui-cli toggle-show";
+          name = "Launch GSR UI";
         };
 
         "org/gnome/shell/keybindings" = {
@@ -147,10 +154,13 @@ in {
           switch-to-workspace-2 = ["<Super>2"];
           switch-to-workspace-3 = ["<Super>3"];
           switch-to-workspace-4 = ["<Super>4"];
+          switch-to-workspace-5 = ["<Super>5"];
+          minimize = ["<Shift><Super>c"];
           move-to-workspace-1 = ["<Shift><Super>1"];
           move-to-workspace-2 = ["<Shift><Super>2"];
           move-to-workspace-3 = ["<Shift><Super>3"];
           move-to-workspace-4 = ["<Shift><Super>4"];
+          move-to-workspace-5 = ["<Shift><Super>5"];
           toggle-fullscreen = ["<Shift><Super>f"];
         };
 
@@ -256,6 +266,12 @@ in {
         "it/mijorus/smile" = {
           is-first-run = false;
           load-hidden-on-startup = true;
+        };
+
+        "org/gnome/shell/extensions/color-picker" = {
+          enable-shortcut = true;
+          color-picker-shortcut = ["<Super>l"];
+          enable-systray = false;
         };
       };
 
