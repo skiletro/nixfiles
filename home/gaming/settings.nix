@@ -4,7 +4,7 @@
   osConfig,
   ...
 }: {
-  imports = [inputs.steam-localconfig-nix.homeModules.default];
+  imports = [inputs.steam-config-nix.homeModules.default];
 
   config = lib.mkIf osConfig.eos.programs.gaming.enable {
     programs.steam.config = {
