@@ -1044,7 +1044,7 @@
         "nur": "nur",
         "photogimp": "photogimp",
         "spicetify": "spicetify",
-        "steam-localconfig-nix": "steam-localconfig-nix",
+        "steam-config-nix": "steam-config-nix",
         "stylix": "stylix",
         "treefmt-nix": "treefmt-nix_2",
         "zen-browser": "zen-browser"
@@ -1113,7 +1113,7 @@
         "type": "github"
       }
     },
-    "steam-localconfig-nix": {
+    "steam-config-nix": {
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
@@ -1121,16 +1121,16 @@
         "systems": "systems_6"
       },
       "locked": {
-        "lastModified": 1751859063,
-        "narHash": "sha256-PCLHZD99umziJXjoLashsxzRNcCXaRCRyRHOeJkWoaE=",
+        "lastModified": 1752653909,
+        "narHash": "sha256-lQhVjtY6XW2HygLj3DElP75Onwp2t5Oxjxd0K2HGanY=",
         "owner": "different-name",
-        "repo": "steam-localconfig-nix",
-        "rev": "56267a5945b093103bbb0c19da445bb88a4dd182",
+        "repo": "steam-config-nix",
+        "rev": "81ee0551f0c030575cfde9af707d38be0c743507",
         "type": "github"
       },
       "original": {
         "owner": "different-name",
-        "repo": "steam-localconfig-nix",
+        "repo": "steam-config-nix",
         "type": "github"
       }
     },
