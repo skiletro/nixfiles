@@ -40,7 +40,12 @@ in {
 
           fonts.fontconfig.enable = true;
 
-          xdg.enable = true;
+          xdg = {
+            enable = true;
+            autostart = {
+              enable = true;
+            };
+          };
 
           programs.home-manager.enable = true;
         }

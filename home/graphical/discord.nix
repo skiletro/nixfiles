@@ -1,7 +1,9 @@
 {
   lib,
+  config,
   osConfig,
   inputs,
+  pkgs,
   ...
 }: {
   imports = [
@@ -80,5 +82,18 @@
           }
         '';
     };
+
+    xdg.autostart.entries = [
+      (
+        (pkgs.makeDesktopItem {
+          desktopName = "Vesktop Silent";
+          name = "vesktop-silent";
+          destination = "/";
+          exec = "${lib.getExe config.programs.nixcord.vesktop.package} --start-minimized";
+          noDisplay = true;
+        })
+        + /vesktop-silent.desktop
+      )
+    ];
   };
 }

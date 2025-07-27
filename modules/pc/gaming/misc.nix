@@ -52,6 +52,19 @@
         enable = true;
         enableSessionWide = false;
       };
+
+      xdg.autostart.entries = [
+        (
+          (pkgs.makeDesktopItem {
+            desktopName = "Steam Silent";
+            name = "steam-silent";
+            destination = "/";
+            noDisplay = true;
+            exec = "${lib.getExe config.programs.steam.package} -silent";
+          })
+          + /steam-silent.desktop
+        )
+      ];
     };
 
     boot.kernel.sysctl."vm.max_map_count" = 2147483642;

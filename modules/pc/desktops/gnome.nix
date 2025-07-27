@@ -260,13 +260,18 @@ in {
       };
 
       # Set Smile to start on startup, allowing for the emoji picker to open quicker.
-      home.file.".config/autostart/smile.desktop".source = "${pkgs.writeText "smile.desktop" ''
-        [Desktop Entry]
-        Type=Application
-        Name=smile
-        Exec=smile --start-hidden
-        X-Flatpak=smile
-      ''}";
+      xdg.autostart.entries = [
+        (
+          (pkgs.makeDesktopItem {
+            desktopName = "Smile Silent";
+            name = "smile-silent";
+            destination = "/";
+            exec = "${lib.getExe pkgs.smile} --start-hidden";
+            noDisplay = true;
+          })
+          + /smile-silent.desktop
+        )
+      ];
     });
 
     services.desktopManager.gnome = {
