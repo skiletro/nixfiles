@@ -60,7 +60,7 @@
             name = "steam-silent";
             destination = "/";
             noDisplay = true;
-            exec = "${lib.getExe config.programs.steam.package} -silent";
+            exec = "${lib.getExe config.programs.steam.package} -silent -console";
           })
           + /steam-silent.desktop
         )
