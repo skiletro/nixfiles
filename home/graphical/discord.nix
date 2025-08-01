@@ -13,8 +13,7 @@
   config = lib.mkIf osConfig.eos.programs.enable {
     programs.nixcord = {
       enable = true;
-      discord.enable = false;
-      vesktop = {
+      discord = {
         enable = true;
         autoscroll.enable = true;
       };
@@ -86,13 +85,13 @@
     xdg.autostart.entries = [
       (
         (pkgs.makeDesktopItem {
-          desktopName = "Vesktop Silent";
-          name = "vesktop-silent";
+          desktopName = "Discord Silent";
+          name = "discord-silent";
           destination = "/";
-          exec = "${lib.getExe config.programs.nixcord.vesktop.package} --start-minimized";
+          exec = "discord --start-minimized";
           noDisplay = true;
         })
-        + /vesktop-silent.desktop
+        + /discord-silent.desktop
       )
     ];
   };

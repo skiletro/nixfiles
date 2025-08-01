@@ -44,7 +44,7 @@ in {
           "org.gnome.Nautilus.desktop"
           "thunderbird.desktop"
           "com.mitchellh.ghostty.desktop"
-          "vesktop.desktop"
+          "discord.desktop"
           "spotify.desktop"
           "steam.desktop"
           "chrome-fjpeaicnionajpipomepndgbcpchdmlb-Default.desktop" # Instagram PWA
