@@ -872,6 +872,42 @@
         "type": "github"
       }
     },
+    "nixpkgs-unityhub": {
+      "locked": {
+        "lastModified": 1753424281,
+        "narHash": "sha256-wl8qH+zJfJQ8HlgED0SgAYXRmL7oIfNqd7ZBRNxHNu0=",
+        "owner": "huantianad",
+        "repo": "nixpkgs",
+        "rev": "d516ef2794278fb21649fba0835fee3ffc518b30",
+        "type": "github"
+      },
+      "original": {
+        "owner": "huantianad",
+        "ref": "unityhub-313",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-unityhub-unfree": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs-unityhub"
+        ]
+      },
+      "locked": {
+        "lastModified": 1727984955,
+        "narHash": "sha256-vP3XzXfQLaxy2QYipK5teKFzgWBeSkv9hByCvrMEL1c=",
+        "owner": "numtide",
+        "repo": "nixpkgs-unfree",
+        "rev": "deab889228cedd7bca43e71ea4f61f9ea12c260e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "nixpkgs-unfree",
+        "type": "github"
+      }
+    },
     "nixpkgs-xr": {
       "inputs": {
         "flake-compat": [],
@@ -1040,6 +1076,8 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_5",
         "nixpkgs-gsr-ui": "nixpkgs-gsr-ui",
+        "nixpkgs-unityhub": "nixpkgs-unityhub",
+        "nixpkgs-unityhub-unfree": "nixpkgs-unityhub-unfree",
         "nixpkgs-xr": "nixpkgs-xr",
         "nur": "nur",
         "photogimp": "photogimp",
