@@ -70,6 +70,7 @@ in {
           true-color = true;
           color-modes = true;
           line-number = "relative";
+          rainbow-brackets = true;
           rulers = [120];
           cursor-shape = {
             insert = "bar";
@@ -77,7 +78,6 @@ in {
             select = "underline";
           };
           indent-guides = {
-            character = "‣";
             render = true;
             skip-levels = 1;
           };
