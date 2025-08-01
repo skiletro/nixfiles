@@ -58,7 +58,7 @@ in {
         };
 
         "org/gnome/desktop/interface" = {
-          accent-color = "orange"; # Set this to whatever matches the colour scheme best.
+          accent-color = "pink"; # Set this to whatever matches the colour scheme best.
           clock-format = "12h";
           clock-show-weekday = true;
           color-scheme = mkForce "prefer-dark"; # Stylix sets this value as light-mode for whatever reason.
