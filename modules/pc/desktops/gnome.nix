@@ -100,12 +100,21 @@ in {
 
         # Keybindings
         "org/gnome/settings-daemon/plugins/media-keys" = {
-          custom-keybindings = ["/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/" "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/" "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/" "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/" "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/"];
+          # TODO: Write a function that makes this a bit nicer.
+          custom-keybindings = [
+            "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+            "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+            "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
+            "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/"
+            "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/"
+            "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/"
+          ];
           home = ["<Super>e"];
           www = ["<Super>f"];
           calculator = ["<Super>c"];
         };
 
+        # TODO: Probably also a function that generates these a bit nicer, preferably so I don't have to do the fuckery above ^^
         "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
           binding = "<Super>Return";
           command = "${getExe userArgs.config.programs.ghostty.package}";
