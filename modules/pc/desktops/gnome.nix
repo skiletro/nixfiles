@@ -82,7 +82,7 @@ in {
 
         "org/gnome/desktop/wm/preferences" = {
           auto-raise = true;
-          button-layout = ":minimize,maximize,close";
+          button-layout = "close,minimize,maximize:"; # macos style
           focus-mode = "click";
           num-workspaces = 1;
           resize-with-right-button = true;
