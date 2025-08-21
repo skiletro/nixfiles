@@ -46,13 +46,6 @@
 
     nixpkgs-gsr-ui.url = "github:js6pak/nixpkgs/gpu-screen-recorder-ui/init";
 
-    nixpkgs-unityhub-unfree = {
-      url = "github:numtide/nixpkgs-unfree";
-      inputs.nixpkgs.follows = "nixpkgs-unityhub";
-    };
-
-    nixpkgs-unityhub.url = "github:huantianad/nixpkgs/unityhub-313";
-
     nixpkgs-xr = {
       url = "github:nix-community/nixpkgs-xr";
       inputs.nixpkgs.follows = "nixpkgs";
