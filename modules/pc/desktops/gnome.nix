@@ -193,7 +193,7 @@ in {
           click-action = "minimize-or-previews";
           custom-background-color = false;
           custom-theme-shrink = false;
-          dash-max-icon-size = 40;
+          dash-max-icon-size = 48;
           disable-overview-on-startup = true;
           dock-fixed = false;
           dock-position = "LEFT";
