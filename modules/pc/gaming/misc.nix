@@ -43,7 +43,7 @@
 
       # Emulators
       dolphin-emu # Wii, Gamecube
-      ryujinx # Switch
+      ryubing # Switch
       cemu # Wii U
     ];
 
