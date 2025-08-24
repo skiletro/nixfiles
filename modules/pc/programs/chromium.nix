@@ -40,6 +40,18 @@
       (_final: prev: {
         chromium = prev.chromium.override (_oldAttrs: {
           enableWideVine = true;
+          widevine-cdm = pkgs.widevine-cdm.overrideAttrs (_oldAttrs: {
+            src = pkgs.fetchzip {
+              url = "https://alien.slackbook.org/slackbuilds/chromium-widevine-plugin/build/4.10.2891.0-linux-x64.zip";
+              hash = "sha256-ZO6FmqJUnB9VEJ7caJt58ym8eB3/fDATri3iOWCULRI";
+
+              ## builds just fine, but fails to play DRM content - PEBCAK?
+              #url = "https://dl.google.com/widevine-cdm/1.4.9.1088-linux-x64.zip";
+              #hash = "sha256-AT/LlX1q5LuoB+xxgYRQlEKhhCmw37q7FET3IavSzJo";
+
+              stripRoot = false;
+            };
+          });
         });
       })
     ];
